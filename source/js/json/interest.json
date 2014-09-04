@@ -1,0 +1,7 @@
+{
+"Football": {"img": "football.png", "category": "Sports"},
+"Basketball": {"img": "basketball.png", "category": "Sports"},
+"Dance": {"img": "dance.png", "category": "Arts"},
+"Photography": {"img": "camera.png", "category": "Media"},
+"Movies": {"img": "film.png", "category": "Media"}
+}
