@@ -1,4 +1,4 @@
-var map;
+var map, lastDetails;
 var markerArray = [];
 
 function initialize() {
@@ -26,7 +26,7 @@ function createMarker(markerData) {
     var iconBase = "img/interests/";
     var point = new google.maps.LatLng(markerData.lat, markerData.lng);
     var currentInterest = getInterest(markerData.interest);
-    var options = {position: point, title:markerData.title, interest: markerData.interest, icon:iconBase + currentInterest["img"]};
+    var options = {position: point, title:markerData.title, interest: markerData.interest, icon:iconBase + currentInterest["img"], description: markerData.description, time: markerData.time};
 
     var pushPin = new google.maps.Marker({map: map});
     pushPin.setOptions(options);
@@ -72,11 +72,11 @@ $(document).ready(function() {
 
 
 function SidebarItem(marker, opts){
-    var content = '<div class="eventDetailsContent hidden"><hr>' + "test" + "<div>";
+    var content = '<div class="eventDetailsContent hidden"><hr>' + opts.description + '<div class="time">' + timeConverter(opts.time) + '<div></div>';
 
     var header = document.createElement("div");
     header.className = "eventDetailsHeader";
-    header.innerHTML = opts.title;
+    header.innerHTML = '<img src="' + opts.icon + '" alt="icon" /> ' + opts.title;
 
     var row = document.createElement("div");
     row.className = "eventDetails";
@@ -95,11 +95,21 @@ SidebarItem.prototype.remove = function(){
 }
 
 SidebarItem.prototype.expand = function() {
-    for(var markerCounter in markerArray) {
-        var details = $(markerArray[markerCounter].sidebarButton.button).find(".eventDetailsContent");
-        if(! details.hasClass("hidden"))
-            details.addClass('hidden');
-    }
-    $(this.button).find(".eventDetailsContent").toggleClass('hidden');
+    if(lastDetails) lastDetails.toggleClass("hidden");
+    lastDetails = $(this.button).find(".eventDetailsContent");
+    lastDetails.toggleClass("hidden");
+}
+
+
+function timeConverter(UNIX_timestamp) {
+    var a = new Date(UNIX_timestamp * 1000);
+    var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    return leadingZeroes(a.getDate(), 2) + '. ' + months[a.getMonth()] + ' ' + a.getFullYear() + ' at ' + leadingZeroes(a.getHours(), 2) + ':' + leadingZeroes(a.getMinutes(), 2);
+ }
+
+function leadingZeroes(str, len) {
+    str += '';
+    while(str.length < len) str = "0" + str;
+    return str;
 }
 
