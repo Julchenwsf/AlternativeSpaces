@@ -24,7 +24,7 @@ var events = [
 {lat: 59.92736463644395, lng: 10.78533411026001, interest: "Dance", title: "Breakdance", description: "Vivamus dolor orci, posuere id fermentum at, rhoncus vel lorem.", time: 1416513600}
 ];
 
-
+//Get entry in interests set with name field set to 'name'
 function getInterest(name) {
     for (var i in interests) {
         if(interests[i].name == name) {
@@ -35,6 +35,7 @@ function getInterest(name) {
     return null;
 }
 
+//Gets events from 'events' array with interest set to 'inter'
 function getEventsWithInterest(inter) {
     var relevantEvents = [];
     for(var i in events) {
