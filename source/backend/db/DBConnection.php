@@ -1,5 +1,5 @@
 <?
-
+//testuu
 $DBhost = "mysql.stud.ntnu.no";
 $DBuser = "cdpgroup4_db";
 $DBpass = "Kund3styrtProsj3kt";
