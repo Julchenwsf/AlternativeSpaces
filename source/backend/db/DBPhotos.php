@@ -1,10 +1,13 @@
 <?
 include_once("DBConnection.php");
 
-function addPhoto($title, $lat, $lng) {
+function addPhoto($id, $title, $lat, $lng, $interests) {
     $title = mysql_real_escape_string($title);
-    mysql_query("INSERT INTO photos (location, photo_title, upload_time, rating) VALUES ((GeomFromText('POINT(" . $lat . " " . $lng . ")')), '" . $title . "', " . (time() - rand(0,  864000)) . ", " . rand(0, 10000)/100.0 . ")")
+    if(!is_numeric($lat) || !is_numeric($lng)) return false;
+    if(!preg_match("/^[0-9 ]+$/", $interests)) return false;
+    mysql_query("INSERT INTO photos (photo_id, location, photo_title, interests, upload_time, rating) VALUES (".$id.", (GeomFromText('POINT(" . $lat . " " . $lng . ")')), '" . $title . "', '" . $interests . "', " . (time() - rand(0,  864000)) . ", " . rand(0, 10000)/100.0 . ")")
     or die(mysql_error());
+    return true;
 }
 
 //Parameters format:
@@ -29,9 +32,14 @@ if(isset($_GET["search"]) && $_GET["search"] == "2D") {
     else {
         $res = searchPhotos($_GET["interests"], $_GET["boxloc"]);
         foreach($res as &$row) {
-            echo '<img src="http://org.ntnu.no/cdpgroup4/images/thumb/' . $row["photo_id"] . '.jpg" />';
+            echo '<div class="photoBox"><img src="http://org.ntnu.no/cdpgroup4/images/thumb/' . $row["photo_id"] . '.jpg" /></div>';
         }
     }
+}
+
+
+if(isset($_GET["upload"])) {
+    echo addPhoto($_GET["id"], $_GET["title"], $_GET["lat"], $_GET["lng"], $_GET["interests"]);
 }
 
 ?>

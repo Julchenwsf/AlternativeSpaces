@@ -9,13 +9,13 @@ include_once("header.php");
 <script type="text/javascript" src="js/jquery.tokeninput.js"></script>
 <script type="text/javascript" src="js/2DSearch.js"></script>
 
-    <div class="input-search-area">
-        <input type="text" id="input-interest-search" />
-    </div>
-
-    <div class="mapSidebarContainer">
-        <div id="map"></div>
-    </div>
+    <aside id="sidebarSearch">
+        <b>Search</b>
+        <div id="sidebarSearchMap"></div>
+        <div id="sidebarSearchInput">
+            <input type="text" id="input-interest-search" />
+        </div>
+    </aside>
 
     <div id="searchResults"></div>
 

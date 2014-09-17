@@ -13,8 +13,8 @@ function initializeGMaps() {
     }];
 
     var mapOptions = {
-        center: new google.maps.LatLng(59.92, 10.78),   //Center somewhere around Tøyen area
-        zoom: 14,                                       //[0, 21]
+        center: new google.maps.LatLng(0, 0),   //Center somewhere around Tøyen area
+        zoom: 0,                                       //[0, 21]
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         panControl:false,
         mapTypeControl:false,
@@ -81,6 +81,7 @@ $(document).ready(function() {
 
 
 function doSearch(tags, bounds) {
+    console.log("Ran! " + tags + " | " + bounds);
     var formattedBounds = toStringCoordinate(bounds.getSouthWest()) + "," + toStringCoordinate(bounds.getNorthEast());
     $.get("backend/db/DBPhotos?search=2D&boxloc=" + formattedBounds + "&interests=" + tags, function(data) {
         $("#searchResults").html(data);

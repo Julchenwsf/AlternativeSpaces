@@ -28,10 +28,37 @@
 
 #sidebarSearchMap {
     height: 150px;
+    margin:8px 0;
 }
 
 #sidebarSearchInput {
 
+}
+
+.photoBox {
+	background-color:#ededed;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	color:#777777;
+	text-align:center;
+
+    display:inline-block;
+    min-width:250px;
+    min-height:250px;
+    margin:5px;
+    padding:5px;
+    cursor:pointer;
+}
+
+.photoBox:hover {
+	background-color:#dfdfdf;
+}
+
+.photoBox img {
+    vertical-align:top;
 }
 
 
