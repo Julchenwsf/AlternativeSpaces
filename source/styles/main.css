@@ -1,6 +1,7 @@
 
 #content {
 	width:1250px;
+	height:100%;
 	margin:0 auto;
 }
 
@@ -15,6 +16,11 @@
 
 
 /* Sidebar search menu */
+#sidebarSearchContent {
+    margin-left:210px;
+    width:1000px;
+}
+
 #sidebarSearch {
     position: fixed;
     width: 200px;

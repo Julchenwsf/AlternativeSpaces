@@ -1,4 +1,4 @@
-var map, lastDetails, interestsInput;
+var map, lastDetails, interestsInput, pageNum = 0;
 var markerArray = [];
 
 
@@ -13,8 +13,8 @@ function initializeGMaps() {
     }];
 
     var mapOptions = {
-        center: new google.maps.LatLng(0, 0),   //Center somewhere around Tøyen area
-        zoom: 0,                                       //[0, 21]
+        center: new google.maps.LatLng(0, 0),
+        zoom: 0,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         panControl:false,
         mapTypeControl:false,
@@ -32,24 +32,10 @@ function initializeGMaps() {
     google.maps.event.addListener(map, "zoom_changed", function() {
        doSearch(interestsInput.val(), map.getBounds());
     });
-}
 
-//Function to add a marker to map
-function createMarker(markerData, currentInterest) {
-    var iconBase = "img/interests/";        //URL prefix for pin icons
-    var point = new google.maps.LatLng(markerData.lat, markerData.lng); //Location of pin
-    var options = {position: point, title:markerData.title, interest: markerData.interest, icon:iconBase + currentInterest["interest_icon"], description: markerData.description, time: markerData.time};
-
-    var pushPin = new google.maps.Marker({map: map});
-    pushPin.setOptions(options);
-
-    //When user clicks the pin...
-    google.maps.event.addListener(pushPin, "click", function(){
-        if(this.sidebarButton) this.sidebarButton.expand();     //Expand the sidebar details for current pin
+    google.maps.event.addListenerOnce(map, 'idle', function(){
+        doSearch(interestsInput.val(), map.getBounds());
     });
-
-    pushPin.sidebarButton = new SidebarItem(pushPin, options);  //Create new SidebarButton for current pin and save reference for click event handling
-    markerArray.push(pushPin);                                  //Add current pin to array of pins
 }
 
 
@@ -57,6 +43,7 @@ function createMarker(markerData, currentInterest) {
 $(document).ready(function() {
     interestsInput = $("#input-interest-search");
     initializeGMaps();
+
     interestsInput.tokenInput("backend/db/DBInterests.php", {
         tokenLimit: 9,                  //Number of maximum simultaneous tags/interests
         resultsLimit: 10,               //Number of maximum auto-complete "suggestions"
@@ -79,12 +66,28 @@ $(document).ready(function() {
 });
 
 
+$(document).on('click', '.photoBox', function(e){
+    //Expand photobox
+});
 
-function doSearch(tags, bounds) {
-    console.log("Ran! " + tags + " | " + bounds);
+
+$(window).scroll(function() {
+    if($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
+    console.log($(window).scrollTop() + " " + $(window).height() + ": " + ($(window).scrollTop() + $(window).height()) + " | " + $(document).height());
+       doSearch(interestsInput.val(), map.getBounds(), true);
+    }
+});
+
+
+function doSearch(tags, bounds, append) {
+    if(!append) {
+        pageNum = 0;
+        $("#searchResults").html('');
+    } else pageNum += 1;
+
     var formattedBounds = toStringCoordinate(bounds.getSouthWest()) + "," + toStringCoordinate(bounds.getNorthEast());
-    $.get("backend/db/DBPhotos?search=2D&boxloc=" + formattedBounds + "&interests=" + tags, function(data) {
-        $("#searchResults").html(data);
+    $.get("backend/db/DBPhotos?search=2D&boxloc=" + formattedBounds + "&interests=+" + tags + "&page=" + pageNum, function(data) {
+        $("#searchResults").append(data);
     });
 }
 
