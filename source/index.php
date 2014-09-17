@@ -10,13 +10,13 @@ include_once("header.php");
 <script type="text/javascript" src="js/jquery.tokeninput.js"></script>
 <script type="text/javascript" src="js/mapSearch.js"></script>
 
-    <div class="input-search-area">
-        <div id="input-interest-search"></div>
+    <div id="eventMapSearch">
+        <input type="text" id="input-interest-search" />
     </div>
 
-    <div class="mapSidebarContainer">
-        <div id="map"></div>
-        <div id="pinSidebar"></div>
+    <div id="eventMapContainer">
+        <div id="eventMap"></div>
+        <div id="eventMapSidebar"></div>
     </div>
 
 

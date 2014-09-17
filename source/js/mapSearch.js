@@ -22,7 +22,7 @@ function initialize() {
         overviewMapControl:false,
         rotateControl:false,
         styles: styles };
-    map = new google.maps.Map(document.getElementById("map"), mapOptions);
+    map = new google.maps.Map(document.getElementById("eventMap"), mapOptions);
 }
 
 //Function to add a marker to map
@@ -52,6 +52,7 @@ $(document).ready(function() {
         resultsLimit: 10,               //Number of maximum auto-complete "suggestions"
         preventDuplicates: true,        //Ignore duplicate tags
         propertyToSearch: "interest_name",  //Property to search in the JS dict structure
+        tokenValue: "interest_id",          //Property to uniquely identify search result
         resultsFormatter: function(item){   //Custom formatting for the auto-complete results
             return "<li><p class='interest_name'><img src='img/interests/" + item.interest_icon + "' /> " + item.interest_name + "</p><p class='score'>" + 2000 + "</p><div style='clear:both'></div></li>" },
 
@@ -101,7 +102,7 @@ function SidebarItem(marker, opts){
 
     this.button = row;
     //Add the element under <div id="pinSidebar"...>
-    document.getElementById("pinSidebar").appendChild(row);
+    document.getElementById("eventMapSidebar").appendChild(row);
 }
 
 //Removes an element from the sidebar

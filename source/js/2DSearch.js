@@ -23,7 +23,7 @@ function initializeGMaps() {
         overviewMapControl:false,
         rotateControl:false,
         styles: styles };
-    map = new google.maps.Map(document.getElementById("map"), mapOptions);
+    map = new google.maps.Map(document.getElementById("sidebarSearchMap"), mapOptions);
 
     google.maps.event.addListener(map, "dragend", function() {
        doSearch(interestsInput.val(), map.getBounds());

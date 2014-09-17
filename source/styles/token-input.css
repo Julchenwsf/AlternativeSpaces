@@ -1,13 +1,12 @@
 div.input-search-area {
-    width: 600px;
-    margin: 20px auto;
+    width: 100%;
 }
 
 ul.token-input-list {
     overflow: hidden; 
     height: auto !important; 
     height: 1%;
-    width: 600px;
+    width: 100%;
     border: 1px solid #8496ba;
     cursor: text;
     font-size: 12px;
