@@ -50,7 +50,6 @@ $(document).ready(function() {
         preventDuplicates: true,        //Ignore duplicate tags
         propertyToSearch: "interest_name",  //Property to search in the JS dict structure
         tokenValue: "interest_id",
-        tokenDelimiter: " +",
         resultsFormatter: function(item){   //Custom formatting for the auto-complete results
             return "<li><p class='interest_name'><img src='img/interests/" + item.interest_icon + "' /> " + item.interest_name + "</p><p class='score'>" + 2000 + "</p><div style='clear:both'></div></li>" },
 
@@ -86,7 +85,7 @@ function doSearch(tags, bounds, append) {
     } else pageNum += 1;
 
     var formattedBounds = toStringCoordinate(bounds.getSouthWest()) + "," + toStringCoordinate(bounds.getNorthEast());
-    $.get("backend/db/DBPhotos?search=2D&boxloc=" + formattedBounds + "&interests=+" + tags + "&page=" + pageNum, function(data) {
+    $.get("backend/db/DBPhotos?search=2D&boxloc=" + formattedBounds + "&interests=" + tags + "&page=" + pageNum, function(data) {
         $("#searchResults").append(data);
     });
 }

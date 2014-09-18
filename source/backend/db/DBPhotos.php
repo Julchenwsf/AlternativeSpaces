@@ -14,10 +14,11 @@ function addPhoto($id, $title, $lat, $lng, $interests) {
 //  Tags: +[interest_id] +[interest_id2]
 //  Bounds: SW_lat SW_lng, NE_lat NE_lng
 function searchPhotos($tags, $bounds, $page) {
-    $tags = mysql_real_escape_string($tags);
+    $tagsFilter = (strlen($tags) == 0) ? '' : "MATCH (interests) AGAINST ('" . mysql_real_escape_string("+" . str_replace(",", " +", $tags)) . "' IN BOOLEAN MODE) AND";
+
     $bounds = mysql_real_escape_string($bounds);
     $page = intval($page);
-    $result = mysql_query("SELECT photo_id, photo_title, interests FROM photos WHERE MATCH (interests) AGAINST ('".$tags."' IN BOOLEAN MODE) AND MBRContains(GeomFromText('LINESTRING(" . $bounds . ")'), photos.location) ORDER BY rating DESC LIMIT " . 20*$page . ", 20") or die(mysql_error());
+    $result = mysql_query("SELECT photo_id, photo_title, interests FROM photos WHERE " . $tagsFilter ." MBRContains(GeomFromText('LINESTRING(" . $bounds . ")'), photos.location) ORDER BY rating DESC LIMIT " . 20*$page . ", 20") or die(mysql_error());
     $return_arr = array();
 
     while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
