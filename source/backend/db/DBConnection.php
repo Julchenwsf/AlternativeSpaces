@@ -1,4 +1,6 @@
 <?
+//This class connects to our MySQL database at NTNU, include this file at the top of every PHP file where you use the database using:
+//include_once("DBConnection.php");
 
 $DBhost = "mysql.stud.ntnu.no";
 $DBuser = "cdpgroup4_db";

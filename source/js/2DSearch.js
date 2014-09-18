@@ -25,15 +25,15 @@ function initializeGMaps() {
         styles: styles };
     map = new google.maps.Map(document.getElementById("sidebarSearchMap"), mapOptions);
 
-    google.maps.event.addListener(map, "dragend", function() {
+    google.maps.event.addListener(map, "dragend", function() {      //Listener for when the map is dragged, fires at the end of drag.
        doSearch(interestsInput.val(), map.getBounds());
     });
 
-    google.maps.event.addListener(map, "zoom_changed", function() {
+    google.maps.event.addListener(map, "zoom_changed", function() { //Listener for when the map changes zoom level.
        doSearch(interestsInput.val(), map.getBounds());
     });
 
-    google.maps.event.addListenerOnce(map, 'idle', function(){
+    google.maps.event.addListenerOnce(map, 'idle', function(){      //Listener that fires when the map is first initialized.
         doSearch(interestsInput.val(), map.getBounds());
     });
 }
@@ -42,7 +42,7 @@ function initializeGMaps() {
 //==== Search bar ====
 $(document).ready(function() {
     interestsInput = $("#input-interest-search");
-    initializeGMaps();
+    initializeGMaps();                  //Initialize the map
 
     interestsInput.tokenInput("backend/db/DBInterests.php", {
         tokenLimit: 9,                  //Number of maximum simultaneous tags/interests
@@ -66,30 +66,35 @@ $(document).ready(function() {
 
 
 $(document).on('click', '.photoBox', function(e){
-    //Expand photobox
+    //Is called when used clicks on one of the photos - TODO: Expand it to include various photo data (i.e. votes, title...) and comments
 });
 
 
+//This fires every time the user scrolls
 $(window).scroll(function() {
+    //When users position at the page is within 100px from the end, get more pictures
     if($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
-    console.log($(window).scrollTop() + " " + $(window).height() + ": " + ($(window).scrollTop() + $(window).height()) + " | " + $(document).height());
-       doSearch(interestsInput.val(), map.getBounds(), true);
+        doSearch(interestsInput.val(), map.getBounds(), true);
     }
 });
 
 
+//Function to deal with AJAX search
 function doSearch(tags, bounds, append) {
-    if(!append) {
+    if(!append) {   //Set append to true in order to append the result to already existing results. If false, the previous results are cleared
         pageNum = 0;
         $("#searchResults").html('');
     } else pageNum += 1;
 
+    //Format the bounding box to be on format:
+    //SW_lat SW_lng,NE_lat NE_lng
     var formattedBounds = toStringCoordinate(bounds.getSouthWest()) + "," + toStringCoordinate(bounds.getNorthEast());
     $.get("backend/db/DBPhotos?search=2D&boxloc=" + formattedBounds + "&interests=" + tags + "&page=" + pageNum, function(data) {
         $("#searchResults").append(data);
     });
 }
 
+//Function to format Google Maps API coordinate instance into a string
 function toStringCoordinate(coordinate) {
     return coordinate.lat().toFixed(5) + " " + coordinate.lng().toFixed(5);
 }
