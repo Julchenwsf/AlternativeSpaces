@@ -1,7 +1,9 @@
+body {
+    height:100%;
+}
 
 #content {
 	width:1250px;
-	height:100%;
 	margin:0 auto;
 }
 
