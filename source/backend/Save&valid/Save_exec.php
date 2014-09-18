@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('connection.php');
+include('DBConnection.php');
 $fname=$_POST['fname'];
 $lname=$_POST['lname'];
 $mname=$_POST['mname'];
