@@ -1,23 +1,23 @@
 <?
-$title = "Index";
+$title = "Photos";
 include_once("header.php");
 ?>
 
 <link rel="stylesheet" href="styles/token-input.css" type="text/css" />
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
-<script type="text/javascript" src="js/data.js"></script>
 <script type="text/javascript" src="js/jquery.tokeninput.js"></script>
-<script type="text/javascript" src="js/mapSearch.js"></script>
+<script type="text/javascript" src="js/2DSearch.js"></script>
 
-    <div id="eventMapSearch">
-        <input type="text" id="input-interest-search" />
-    </div>
+    <aside id="sidebarSearch">
+        <b>Search</b>
+        <div id="sidebarSearchMap"></div>
+        <div id="sidebarSearchInput">
+            <input type="text" id="input-interest-search" />
+        </div>
+    </aside>
 
-    <div id="eventMapContainer">
-        <div id="eventMap"></div>
-        <div id="eventMapSidebar"></div>
-    </div>
+    <div id="searchResults"></div>
 
 
 <?

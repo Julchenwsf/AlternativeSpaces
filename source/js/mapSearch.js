@@ -22,15 +22,14 @@ function initialize() {
         overviewMapControl:false,
         rotateControl:false,
         styles: styles };
-    map = new google.maps.Map(document.getElementById("map"), mapOptions);
+    map = new google.maps.Map(document.getElementById("eventMap"), mapOptions);
 }
 
 //Function to add a marker to map
-function createMarker(markerData) {
+function createMarker(markerData, currentInterest) {
     var iconBase = "img/interests/";        //URL prefix for pin icons
     var point = new google.maps.LatLng(markerData.lat, markerData.lng); //Location of pin
-    var currentInterest = getInterest(markerData.interest); //Get interest metadata
-    var options = {position: point, title:markerData.title, interest: markerData.interest, icon:iconBase + currentInterest["img"], description: markerData.description, time: markerData.time};
+    var options = {position: point, title:markerData.title, interest: markerData.interest, icon:iconBase + currentInterest["interest_icon"], description: markerData.description, time: markerData.time};
 
     var pushPin = new google.maps.Marker({map: map});
     pushPin.setOptions(options);
@@ -48,31 +47,32 @@ function createMarker(markerData) {
 //==== Search bar ====
 $(document).ready(function() {
     initialize();
-    $("#input-interest-search").tokenInput(interests, {
+    $("#input-interest-search").tokenInput("backend/db/DBInterests.php", {
         tokenLimit: 9,                  //Number of maximum simultaneous tags/interests
         resultsLimit: 10,               //Number of maximum auto-complete "suggestions"
         preventDuplicates: true,        //Ignore duplicate tags
-        propertyToSearch: "name",       //Property to search in the JS dict structure
+        propertyToSearch: "interest_name",  //Property to search in the JS dict structure
+        tokenValue: "interest_id",          //Property to uniquely identify search result
         resultsFormatter: function(item){   //Custom formatting for the auto-complete results
-            return "<li><p class='teamname'><img src='img/interests/" + item.img + "' /> " + item.name + "</p><p class='score'>" + 2000 + "</p><div style='clear:both'></div></li>" },
+            return "<li><p class='interest_name'><img src='img/interests/" + item.interest_icon + "' /> " + item.interest_name + "</p><p class='score'>" + 2000 + "</p><div style='clear:both'></div></li>" },
 
         onAdd: function (item) {        //Is executed when user selects an option
-            var relevantEvents = getEventsWithInterest(item.name);  //Get all events who's interest matches the search term
+            var relevantEvents = getEventsWithInterest(item.interest_name);  //Get all events who's interest matches the search term
             for(var i=0; i<relevantEvents.length; i++) {            //For every event...
-                createMarker(relevantEvents[i]);                    //Add it to the map
+                createMarker(relevantEvents[i], item);                    //Add it to the map
             }
         },
 
         onDelete: function (item) {     //Is executed when user removes a tag/token
             for(var mc = markerArray.length-1; mc>=0; mc--) {       //For all markers currently on the map...
-                if(markerArray[mc].interest == item.name) {         //If markers interest matches the removed tag
+                if(markerArray[mc].interest == item.interest_name) {         //If markers interest matches the removed tag
                     markerArray[mc].setMap(null);                   //Remove it from the map
                     markerArray[mc].sidebarButton.remove();         //Remove if from the sidebar
                     markerArray.splice(mc, 1);                      //Remove it from the markers array
                 }
             }
-        },
-        prePopulate: interests.slice(0, 3)                          //Pre-populate the search-bar with the 3 first interest-tags
+        }
+        //prePopulate: interests.slice(0, 3)                          //Pre-populate the search-bar with the 3 first interest-tags
     });
 });
 
@@ -102,7 +102,7 @@ function SidebarItem(marker, opts){
 
     this.button = row;
     //Add the element under <div id="pinSidebar"...>
-    document.getElementById("pinSidebar").appendChild(row);
+    document.getElementById("eventMapSidebar").appendChild(row);
 }
 
 //Removes an element from the sidebar

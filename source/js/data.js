@@ -1,18 +1,3 @@
-var category = {
-Sports: {color: "00FF21"},
-Arts: {color: "FF0000"},
-Media: {color: "0094FF"} };
-
-
-var interests = [
-{name: "Football", img: "football.png", category: "Sports"},
-{name: "Basketball", img: "basketball.png", category: "Sports"},
-{name: "Dance", img: "dance.png", category: "Arts"},
-{name: "Photography", img: "camera.png", category: "Media"},
-{name: "Movies", img: "film.png", category: "Media"}
-]
-
-
 var events = [
 {lat: 59.92265475733866, lng: 10.803101062774658, interest: "Football", title: "Practice", description: "Football practice for [someone].", time: 1416470400},
 {lat: 59.925257101959204, lng: 10.778124332427979, interest: "Dance", title: "Show", description: "Writing descriptions is really hard.", time: 1416502800},
@@ -24,16 +9,6 @@ var events = [
 {lat: 59.92736463644395, lng: 10.78533411026001, interest: "Dance", title: "Breakdance", description: "Vivamus dolor orci, posuere id fermentum at, rhoncus vel lorem.", time: 1416513600}
 ];
 
-//Get entry in interests set with name field set to 'name'
-function getInterest(name) {
-    for (var i in interests) {
-        if(interests[i].name == name) {
-            return interests[i];
-        }
-    }
-
-    return null;
-}
 
 //Gets events from 'events' array with interest set to 'inter'
 function getEventsWithInterest(inter) {
