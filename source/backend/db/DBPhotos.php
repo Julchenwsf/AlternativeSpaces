@@ -8,6 +8,7 @@ function addPhoto($id, $title, $lat, $lng, $interests) {
     if(!preg_match("/^[0-9 ]+$/", $interests)) return false;    //Interests string should be only space-separated numbers
     mysql_query("INSERT INTO photos (photo_id, location, photo_title, interests, upload_time, rating) VALUES (".$id.", (GeomFromText('POINT(" . $lat . " " . $lng . ")')), '" . $title . "', '" . $interests . "', " . (time() - rand(0,  864000)) . ", " . rand(50, 100) . ")")
     or die(mysql_error());
+    return true;
 }
 
 
