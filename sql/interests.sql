@@ -1,5 +1,4 @@
 CREATE TABLE interests (
-#yolo
     interest_id int(11) NOT NULL AUTO_INCREMENT,
     interest_name varchar(40) NOT NULL,
     interest_icon varchar(50) DEFAULT 'empty.png',
