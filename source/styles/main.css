@@ -1,10 +1,16 @@
 body {
     height:100%;
+    margin: 0px;
 }
 
 #content {
 	width:750px;
 	margin:0 auto;
+}
+
+#navbar {
+    text-align: center;
+
 }
 
 
@@ -128,8 +134,8 @@ body {
 }
 
 h2 {
-    text-align:center;
-    font-size:80px;
-    color:#444;
-    background:#786344;
+    /*text-align:center;*/
+    font-size:35px;
+    color:#ffffff;
+    background:#F0A638;
 }
