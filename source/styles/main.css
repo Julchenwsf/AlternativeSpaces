@@ -3,7 +3,7 @@ body {
 }
 
 #content {
-	width:1250px;
+	width:750px;
 	margin:0 auto;
 }
 
@@ -129,4 +129,7 @@ body {
 
 h2 {
     text-align:center;
+    font-size:80px;
+    color:#444;
+    background:#786344;
 }
