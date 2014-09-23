@@ -1,6 +1,7 @@
 <script type="text/javascript" src="js/validateForm.js"></script>
 <form name="reg" action="backend/db/DBUsers.php" onsubmit="return validateForm()" method="post">
-    <table width="274" border="0" align="center" cellpadding="2" cellspacing="0">
+<div id="regTable">
+    <table >
         <tr>
             <td colspan="2">
                 <div align="center">
@@ -17,6 +18,7 @@
 		?>
                 </div></td>
         </tr>
+
         <tr>
             <td width="95"><div align="right">First Name:</div></td>
             <td width="171"><input type="text" name="fname" /></td>
@@ -54,4 +56,6 @@
             <td><input name="submit" type="submit" value="Submit" /></td>
         </tr>
     </table>
+    </div>
+
 </form>

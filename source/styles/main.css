@@ -146,3 +146,30 @@ h2 {
     background:#FDA728;
     margin:0;
 }
+#regTable {
+    text-align:center;
+    background:white;
+    width:300px;
+    margin:0 auto;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    border:10px solid #FDA728;
+
+}
+
+#regTable table {
+    width:100%;
+}
+
+#regTable td {
+    text-size:20px;
+    color:green;
+
+}
+
+#regTable tr{
+    background:#FDA728;
+    border-width:5px;
+    border-color:white;
+}
