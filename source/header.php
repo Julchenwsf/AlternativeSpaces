@@ -8,5 +8,6 @@ echo '<html>
     <body>
         <div id="navbar">
             <h2>Alternative Spaces</h2>
+        </div>
         <div id="content">
-            </div>'; ?>
+           '; ?>
