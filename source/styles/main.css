@@ -1,6 +1,7 @@
 body {
     height:100%;
-    margin: 0px;
+    padding:0;
+    margin:0;
 }
 
 #content {
@@ -10,7 +11,6 @@ body {
 
 #navbar {
     text-align: center;
-
 }
 
 
@@ -134,8 +134,8 @@ body {
 }
 
 h2 {
-    /*text-align:center;*/
-    font-size:35px;
-    color:#ffffff;
-    background:#F0A638;
+    text-align:center;
+    font-size:80px;
+    color:#444;
+    background:#786344;
 }
