@@ -1,6 +1,5 @@
-<!DOCTYPE html>
-<html>
-<form name="reg" action="../db/DBUsers.php" onsubmit="return validateForm()" method="post">
+<script type="text/javascript" src="js/validateForm.js"></script>
+<form name="reg" action="backend/db/DBUsers.php" onsubmit="return validateForm()" method="post">
     <table width="274" border="0" align="center" cellpadding="2" cellspacing="0">
         <tr>
             <td colspan="2">
@@ -56,5 +55,3 @@
         </tr>
     </table>
 </form>
-
-</html>

@@ -1,4 +1,3 @@
-<script type="text/javascript">
 function validateForm()
 {
 var a=document.forms["reg"]["fname"].value;
@@ -55,4 +54,3 @@ if (h==null || h=="")
   return false;
   }
 }
-</script>
