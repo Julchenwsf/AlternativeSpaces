@@ -11,19 +11,17 @@ class PageBuilder {
     private $title;
 
     function __construct($title) {
-        $login = '<a class="submitButton right">Login</a><a class="submitButton right">Signup</a>';
         if (isset($_SESSION['user'])) {
             $logged = "Welcome back " . $_SESSION["user"];
         } else {
-            $logged = "You are not logged in!";
+            $logged = '<a class="submitButton right">Login</a><a href="register.php" class="submitButton right">Signup</a>';
         }
 
         $navbar = '<div id="navbar">
                        <div id="navbarContent">
                            <div id="navbarLogo"><a href="index.php"><img src="img/design/logo.png" /></a></div>
                            <div id="navbarTitle">Alternative Spaces</div>'
-                           . $logged
-                           . $login .
+                           . $logged.
                        '</div>
                    </div>';
 
