@@ -14,10 +14,9 @@ body {
 }
 
 #content {
-	width:1250px;
+	width:1110px;
 	margin:0 auto;
 	padding-top:70px;
-	background: #F5F2EC;
 }
 
 #navbar {
@@ -70,10 +69,10 @@ body {
 }
 
 #sidebarSearchFlex {
-    width: 200px;
+    width: 215px;
     height:100%;
-    border:1px solid #ccc;
 }
+
 #sidebarSearch {
     position: fixed;
     top: 42px;
@@ -81,7 +80,6 @@ body {
     left: 0;
     border-right: 1px solid #CF8414;
     padding:5px;
-    background:#F5F2EC;
     width: 200px;
 }
 
