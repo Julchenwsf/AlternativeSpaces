@@ -10,12 +10,14 @@ body {
 
 #contentFlex {
     flex:1;
+    background: #F5F2EC;
 }
 
 #content {
 	width:1250px;
 	margin:0 auto;
 	padding-top:70px;
+	background: #F5F2EC;
 }
 
 #navbar {
@@ -26,12 +28,33 @@ body {
     background:#FDA728;
     padding:3px;
     height:35px;
+    border-bottom: 1px solid #CF8414;
 }
 
 #navbarContent {
     width:1250px;
     margin:0 auto;
 }
+
+
+#navbarLogo {
+    background-image: url('../img/design/logo.png');
+    height: 25px;
+    width: 25px;
+    display:inline-block;
+    margin: 5px 0;
+}
+
+#navbarTitle {
+    content: "AlternativeSpaces";
+    height:30px;
+    width:500px;
+    font-size:30px;
+    color:#444;
+    margin: 5px 0;
+    display:inline-block;
+}
+
 
 
 #footer {
@@ -56,18 +79,19 @@ body {
 }
 #sidebarSearch {
     position: fixed;
-    top: 41px;
+    top: 42px;
     bottom: 0;
     left: 0;
-    border-right: 1px solid #111;
+    border-right: 1px solid #CF8414;
     padding:5px;
-    background:#f3f3f3;
+    background:#F5F2EC;
     width: 200px;
 }
 
 #sidebarSearchMap {
     height: 150px;
     margin:8px 0;
+    border: 1px solid #CF8414;
 }
 
 #sidebarSearchInput {
@@ -161,7 +185,7 @@ body {
 h2 {
     font-size:30px;
     color:#444;
-    margin:0;
+    margin: 5px 0;
     display:inline-block;
 }
 
