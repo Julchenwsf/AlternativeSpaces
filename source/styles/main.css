@@ -201,15 +201,14 @@ h2 {
     text-align: left;
 }
 #regTable td input {
-  display: inline-block;
-  float: right;
+    display: inline-block;
+    float: right;
 }
 
 #regTable #center2 {
-    text-align:center;
-    vertical-align:center;
-    margin-left: width/4;
-    margin-right: width/4;
+    float:none;
+    display:block;
+    margin:0 auto;
 }
 /*COPY PASTED FORM HERE */
 
