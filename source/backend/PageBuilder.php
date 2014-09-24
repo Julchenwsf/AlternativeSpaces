@@ -1,4 +1,5 @@
 <?
+session_start();
 
 class PageBuilder {
     private $CSSImports = array('<link rel="stylesheet" type="text/css" href="styles/main.css">');
@@ -8,10 +9,18 @@ class PageBuilder {
     private $title;
 
     function __construct($title) {
+        if (isset($_SESSION['user'])) {
+            $logged = "Welcome back " . $_SESSION["user"];
+        } else {
+            $logged = "You are not logged in!";
+        }
+
         $navbar = '<div id="navbar">
                        <div id="navbarContent">
-                           <h2>Alternative Spaces</h2>
-                       </div>
+                           <div id="navbarLogo"><a href="index.php"><img src="img/design/logo.png" /></a></div>
+                           <div id="navbarTitle">Alternative Spaces</div>'
+                           . $logged .
+                       '</div>
                    </div>';
 
         $this->addContentSibling($navbar);
