@@ -10,17 +10,15 @@ class PageBuilder {
     function __construct($title) {
         $navbar = '<div id="navbar">
                        <div id="navbarContent">
-                           <div id="navbarLogo">
-                           </div>
-                           <div id="navbarTitle">
-                           </div>
+                           <div id="navbarLogo"></div>
+                           <div id="navbarTitle">Alternative Spaces</div>
                        </div>
                    </div>';
 
         $this->addContentSibling($navbar);
         $this->title = '<title>Alternative Spaces &raquo; '. $title .'</title>';
     }
-                           /*<h2>Alternative Spaces</h2>*/
+
     public function addCSSImport($URL) {
         array_push($this->CSSImports, '<link rel="stylesheet" href="' . $URL . '" type="text/css" />');
     }
