@@ -2,6 +2,7 @@ body {
     height:100%;
     padding:0;
     margin:0;
+    background: #F5F2EC;
 }
 
 #everything{
@@ -10,7 +11,6 @@ body {
 
 #contentFlex {
     flex:1;
-    background: #F5F2EC;
 }
 
 #content {
