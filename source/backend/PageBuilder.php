@@ -11,7 +11,7 @@ class PageBuilder {
     private $title;
 
     function __construct($title) {
-        $login = '<a class = "submitButton">Login</a>';
+        $login = '<a class="submitButton right">Login</a><a class="submitButton right">Signup</a>';
         if (isset($_SESSION['user'])) {
             $logged = "Welcome back " . $_SESSION["user"];
         } else {
