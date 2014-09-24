@@ -50,6 +50,18 @@ body {
     display:inline-block;
 }
 
+#login {
+    height= 30px;
+    width =100px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    border: 1px solid #CF8414;
+    display:inline-block;
+    font-size:15px;
+    color:white;
+}
+
 
 
 #footer {
@@ -93,11 +105,11 @@ body {
 }
 
 .photoBox {
-	background-color:#ededed;
+	background-color:#FDA728;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 10px;
-	border:1px solid #dcdcdc;
+	border:1px solid #CF8414;
 	display:inline-block;
 	color:#777777;
 	text-align:center;
@@ -111,7 +123,7 @@ body {
 }
 
 .photoBox:hover {
-	background-color:#dfdfdf;
+	background-color:#F1C871;
 }
 
 .photoBox img {
@@ -228,5 +240,56 @@ h2 {
     display:block;
     margin:0 auto;
 }
+
+
+
+.submitButton {
+	-moz-box-shadow:inset 0px 1px 0px 0px #fce2c1;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #fce2c1;
+	box-shadow:inset 0px 1px 0px 0px #fce2c1;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #fda828), color-stop(1, #fb9e25) );
+	background:-moz-linear-gradient( center top, #fda828 5%, #fb9e25 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fda828', endColorstr='#fb9e25');
+	background-color:#fda828;
+	-webkit-border-top-left-radius:3px;
+	-moz-border-radius-topleft:3px;
+	border-top-left-radius:3px;
+	-webkit-border-top-right-radius:3px;
+	-moz-border-radius-topright:3px;
+	border-top-right-radius:3px;
+	-webkit-border-bottom-right-radius:3px;
+	-moz-border-radius-bottomright:3px;
+	border-bottom-right-radius:3px;
+	-webkit-border-bottom-left-radius:3px;
+	-moz-border-radius-bottomleft:3px;
+	border-bottom-left-radius:3px;
+	text-indent:0px;
+	border:1px solid #cf831f;
+	display:inline-block;
+	color:#ffffff;
+	font-family:Verdana;
+	font-size:13px;
+	font-weight:bold;
+	font-style:normal;
+	height:25px;
+	line-height:25px;
+	width:50px;
+	text-decoration:none;
+	text-align:center;
+	text-shadow:1px 1px 0px #cc9f52;
+	margin:0 10px 10px 10px;
+}
+
+.submitButton:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #fb9e25), color-stop(1, #fda828) );
+	background:-moz-linear-gradient( center top, #fb9e25 5%, #fda828 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fb9e25', endColorstr='#fda828');
+	background-color:#fb9e25;
+
+}.submitButton:active {
+	position:relative;
+	top:1px;
+}
+/* This button was generated using CSSButtonGenerator.com */
 /*COPY PASTED FORM HERE */
 
