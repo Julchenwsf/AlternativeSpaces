@@ -10,15 +10,18 @@ function getForm() {
                     <td colspan="2">Register Here</td>
                 </tr>
                 <tr>
-                    <td width="95"><div align="right">First Name:</div></td>
+                    <td colspan="2"> <label>First Name: <input type="text" name="fname" /></td>
+                </tr>
+                <tr>
+                    <td width="95">First Name:</td>
                     <td width="171"><input type="text" name="fname" /></td>
                 </tr>
                 <tr>
-                    <td><div align="right">Last Name:</div></td>
+                    <td>Last Name:</td>
                     <td><input type="text" name="lname" /></td>
                 </tr>
                 <tr>
-                    <td><div align="right">Gender:</div></td>
+                    <td>Gender:</td>
                     <td><input type="text" name="mname" /></td>
                 </tr>
                 <tr>

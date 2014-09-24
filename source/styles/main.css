@@ -165,16 +165,16 @@ h2 {
     display:inline-block;
 }
 
+/* REGISTRATION TABLE DESIGN */
+
 #regTable {
-    text-align:center;
-    background:white;
+    background:#FDA728;
     width:300px;
     margin:0 auto;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 10px;
     border:10px solid #FDA728;
-
 }
 
 #regTable table {
@@ -182,13 +182,25 @@ h2 {
 }
 
 #regTable td {
-    text-size:20px;
+    margin:0 auto;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    /* next two need to have same color */
+    border:10px solid FFD547;
+    background:FFD547;
     color:black;
-
+    text-size:30px;
+    text-align:left;
 }
 
-#regTable tr{
-    background:#FDA728;
-    border-width:5px;
-    border-color:white;
+#regTable td label{
+    display: inline-block;
+    float: left;
+    clear: left;
+    text-align: left;
+}
+#regTable td input {
+  display: inline-block;
+  float: right;
 }
