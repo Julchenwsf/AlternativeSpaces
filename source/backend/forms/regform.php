@@ -33,7 +33,7 @@ function getForm() {
                     <td><label>Profile picture: </label><input type="text" name="pic" /></td>
                 </tr>
                 <tr>
-                    <td id="center"><input id="center2" name="submit" type="submit" value="Submit" /></td>
+                    <td id="center"><input id="center2" class="submitButton" name="submit" type="submit" value="Submit" /></td>
                 </tr>
             </table>
         </form>
