@@ -37,7 +37,6 @@ body {
 
 
 #navbarLogo {
-    background-image: url('../img/design/logo.png');
     height: 25px;
     width: 25px;
     display:inline-block;
@@ -75,7 +74,7 @@ body {
 
 #sidebarSearch {
     position: fixed;
-    top: 42px;
+    top: 41px;
     bottom: 0;
     left: 0;
     border-right: 1px solid #CF8414;
