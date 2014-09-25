@@ -31,8 +31,8 @@ body {
 
 #navbarContent {
     width:1250px;
-    height:30px;
-    margin:5px auto;
+    height:25px;
+    margin:8px auto;
 }
 
 
@@ -40,14 +40,29 @@ body {
     height: 25px;
     width: 25px;
     display:inline-block;
+    float:left;
 }
 
 #navbarTitle {
-    height:30px;
+    height:25px;
     width:300px;
-    font-size:30px;
-    color:#444;
+    font-size:25px;
+    color:#ffffff;
     display:inline-block;
+    padding:0 5px;
+    float:left;
+}
+
+#login {
+    height= 30px;
+    width =100px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    border: 1px solid #CF8414;
+    display:inline-block;
+    font-size:15px;
+    color:white;
 }
 
 
@@ -93,11 +108,11 @@ body {
 }
 
 .photoBox {
-	background-color:#ededed;
+	background-color:#FDA728;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 10px;
-	border:1px solid #dcdcdc;
+	border:1px solid #CF8414;
 	display:inline-block;
 	color:#777777;
 	text-align:center;
@@ -111,7 +126,7 @@ body {
 }
 
 .photoBox:hover {
-	background-color:#dfdfdf;
+	background-color:#F1C871;
 }
 
 .photoBox img {
@@ -176,6 +191,19 @@ body {
     color: #555;
 }
 
+.right {
+    float:right;
+}
+
+.error {
+    background:#ff0000;
+    margin-bottom:5px;
+    -webkit-border-radius:10px;
+    -moz-border-radius:10px;
+    border-radius:10px;
+    padding:5px;
+}
+
 h2 {
     font-size:30px;
     color:#444;
@@ -236,5 +264,36 @@ h2 {
     vertical-align:center;
     margin-right: 110;
 }
+
+
+
+.submitButton {
+	background-color:#fda828;
+	-webkit-border-radius:3px;
+	-moz-border-radius:3px;
+	border-radius:3px;
+	border:1px solid #cf831f;
+	display:inline-block;
+	color:#ffffff;
+	font-family:Verdana;
+	font-size:13px;
+	font-weight:bold;
+	font-style:normal;
+	height:25px;
+	line-height:25px;
+	text-decoration:none;
+	text-align:center;
+	padding:0 5px;
+	margin:0 5px;
+}
+
+.submitButton:hover {
+	background-color:#fb9e25;
+
+}.submitButton:active {
+	position:relative;
+	top:1px;
+}
+/* This button was generated using CSSButtonGenerator.com */
 /*COPY PASTED FORM HERE */
 

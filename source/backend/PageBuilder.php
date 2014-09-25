@@ -1,6 +1,8 @@
 <?
 session_start();
-
+ini_set('display_errors',1);
+ini_set('display_startup_errors',1);
+error_reporting(-1);
 class PageBuilder {
     private $CSSImports = array('<link rel="stylesheet" type="text/css" href="styles/main.css">');
     private $JSImports = array();
@@ -12,14 +14,14 @@ class PageBuilder {
         if (isset($_SESSION['user'])) {
             $logged = "Welcome back " . $_SESSION["user"];
         } else {
-            $logged = "You are not logged in!";
+            $logged = '<a class="submitButton right">Login</a><a href="register.php" class="submitButton right">Signup</a>';
         }
 
         $navbar = '<div id="navbar">
                        <div id="navbarContent">
                            <div id="navbarLogo"><a href="index.php"><img src="img/design/logo.png" /></a></div>
                            <div id="navbarTitle">Alternative Spaces</div>'
-                           . $logged .
+                           . $logged.
                        '</div>
                    </div>';
 

@@ -2,15 +2,17 @@
 
 function getForm() {
     return <<<EOT
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/validateForm.js"></script>
-    <form name="reg" action="backend/db/DBUsers.php" onsubmit="return validateForm()" method="post">
-        <div id="regTable">
+    <div id="regTable">
+    <div id="errors"></div>
+        <form name="reg" onsubmit="return validateForm()" method="post">
             <table>
                 <tr>
-                    <td id="center" colspan="2">Register Here</td>
+                    <td id="center">Register Here</td>
                 </tr>
                 <tr>
-                    <td colspan="2"> <label>First Name: </label><input type="text" name="fname" /></td>
+                    <td><label>First Name: </label><input type="text" name="fname" /></td>
                 </tr>
                 <tr>
                     <td><label>Last name: </label><input type="text" name="lname" /></td>
@@ -31,10 +33,10 @@ function getForm() {
                     <td><label>Profile picture: </label><input type="text" name="pic" /></td>
                 </tr>
                 <tr>
-                    <td id="center"><input id="center2" name="submit" type="submit" value="Submit" /></td>
+                    <td id="center"><input id="center2" class="submitButton" name="submit" type="submit" value="Submit" /></td>
                 </tr>
             </table>
-        </div>
-    </form>
+        </form>
+    </div>
 EOT;
 } ?>
