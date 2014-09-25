@@ -127,6 +127,12 @@ body {
 
 .photoBox:hover {
 	background-color:#F1C871;
+	-webkit-transform: scale(1.2);
+      -moz-transform: scale(1.2);
+      -o-transform: scale(1.2);
+      transform: scale(1.2);
+      transition: all 0.3s;
+      -webkit-transition: all 0.3s;
 }
 
 .photoBox img {
@@ -295,5 +301,4 @@ h2 {
 	top:1px;
 }
 /* This button was generated using CSSButtonGenerator.com */
-/*COPY PASTED FORM HERE */
 
