@@ -6,7 +6,7 @@ function getForm() {
     <script type="text/javascript" src="js/validateForm.js"></script>
     <div id="regTable">
     <div id="errors"></div>
-        <form name="reg" onsubmit="return validateForm()" method="post">
+        <form name="reg" action="backend/db/DBUsers.php" onsubmit="return validateForm()" method="post">
             <table>
                 <tr>
                     <td id="center">Register Here</td>
