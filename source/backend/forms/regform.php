@@ -28,7 +28,7 @@ function getForm() {
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="2" id="center"><input class="submitButton" name="submit" type="submit" value="Submit" /></td>
+                    <td colspan="2" id="center"><input class="submitButton" name="regformSubmit" type="submit" value="Submit" /></td>
                 </tr>
             </table>
         </form>
