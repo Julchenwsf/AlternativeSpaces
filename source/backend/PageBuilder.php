@@ -15,8 +15,13 @@ class PageBuilder {
         if (isset($_SESSION['user'])) {
             $logged = "Welcome back " . $_SESSION["user"];
         } else {
-            $logged = '<a class="submitButton right">Login</a><a href="register.php" class="submitButton right">Signup</a>';
+            $logged = '<button type="button" id="loginButton" class="submitButton right">Login</button><button type="button" id="signupButton" class="submitButton right">Signup</button>';
         }
+
+        $navbarButtonsJS = '<script type="text/javascript">$(document).ready(function(){
+        $("#signupButton").click(function(e){$.get("backend/forms/regform.php", function(data){modal.open({content: data});});});
+        $("#loginButton").click(function(e){$.get("backend/forms/logform.php", function(data){modal.open({content: data});});});
+        });</script>';
 
         $navbar = '<div id="navbar">
                        <div id="navbarContent">
@@ -29,6 +34,8 @@ class PageBuilder {
         $this->addContentSibling($navbar);
         $this->title = '<title>Alternative Spaces &raquo; '. $title .'</title>';
         $this->addJSImport("https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js");
+        $this->addJSImport("js/overlay.js");
+        array_push($this->JSImports, $navbarButtonsJS);
     }
 
     public function addCSSImport($URL) {

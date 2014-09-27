@@ -5,11 +5,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $status = addUser($_POST["username"], $_POST["password"], $_POST["fname"], $_POST["lname"], $_POST["gender"]);
     $response = array("success" => empty($status), "response" => $status);
     echo json_encode($response);
-}
 
-
-function getForm() {
-    return <<<EOT
+} else if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+    echo <<<EOT
     <div id="regTable">
         <div id="response"></div>
         <form id="submitTable" action="backend/forms/regform.php" method="post">
