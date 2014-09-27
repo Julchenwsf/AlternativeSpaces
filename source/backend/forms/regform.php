@@ -10,7 +10,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 function getForm() {
     return <<<EOT
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <div id="regTable">
         <div id="response"></div>
         <form id="submitTable" action="backend/forms/regform.php" method="post">

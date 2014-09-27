@@ -14,7 +14,6 @@ $sidebar = '    <div id="sidebarSearchFlex">
 
 $pb = new PageBuilder("Photos");
 $pb->addCSSImport("styles/token-input.css");
-$pb->addJSImport("https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js");
 $pb->addJSImport("https://maps.googleapis.com/maps/api/js?sensor=false");
 $pb->addJSImport("js/jquery.tokeninput.js");
 $pb->addJSImport("js/2DSearch.js");

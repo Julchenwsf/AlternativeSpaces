@@ -28,6 +28,7 @@ class PageBuilder {
 
         $this->addContentSibling($navbar);
         $this->title = '<title>Alternative Spaces &raquo; '. $title .'</title>';
+        $this->addJSImport("https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js");
     }
 
     public function addCSSImport($URL) {
