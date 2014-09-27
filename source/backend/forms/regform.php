@@ -9,31 +9,26 @@ function getForm() {
         <form name="reg" action="backend/db/DBUsers.php" onsubmit="return validateForm()" method="post">
             <table>
                 <tr>
-                    <td id="center">Register Here</td>
+                    <td colspan="2" id="center">Register</td>
                 </tr>
                 <tr>
-                    <td><label>First Name: </label><input type="text" name="fname" /></td>
+                    <td><input type="text" name="fname" placeholder="First name" /></td>
+                    <td><input type="text" name="lname" placeholder="Last name" /></td>
                 </tr>
                 <tr>
-                    <td><label>Last name: </label><input type="text" name="lname" /></td>
+                    <td><input type="text" name="username" placeholder="Username" /></td>
+                	<td><input type="password" name="password" placeholder="Password" /></td>
                 </tr>
                 <tr>
-                    <td><label>Username: </label><input type="text" name="username" /></td>
+                    <td colspan="2">
+    					<select name="gender">
+    						<option value="male">Male</option>
+    						<option value="female">Female</option>
+    					</select>
+                    </td>
                 </tr>
                 <tr>
-                    <td><label>Password: </label><input type="password" name="password" /></td>
-                </tr>
-                <tr>
-                    <td><label>Gender: : </label><input type="text" name="gender" /></td>
-                </tr>
-                <tr>
-                    <td><label>Address: </label><input type="text" name="address" /></td>
-                </tr>
-                <tr>
-                    <td><label>Profile picture: </label><input type="text" name="pic" /></td>
-                </tr>
-                <tr>
-                    <td id="center"><input id="center2" class="submitButton" name="submit" type="submit" value="Submit" /></td>
+                    <td colspan="2" id="center"><input class="submitButton" name="submit" type="submit" value="Submit" /></td>
                 </tr>
             </table>
         </form>

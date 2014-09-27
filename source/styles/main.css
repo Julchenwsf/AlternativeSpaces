@@ -221,7 +221,7 @@ h2 {
 
 #regTable {
     background:#FDA728;
-    width:300px;
+    width:400px;
     margin:0 auto;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
@@ -234,7 +234,6 @@ h2 {
 }
 
 #regTable td {
-    margin:0 auto;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 10px;
@@ -243,18 +242,6 @@ h2 {
     background:FFD547;
     color:black;
     text-size:30px;
-    text-align:left;
-}
-
-#regTable td label{
-    display: inline-block;
-    float: left;
-    clear: left;
-    text-align: left;
-}
-#regTable td input {
-    display: inline-block;
-    float: right;
 }
 
 
@@ -300,5 +287,4 @@ h2 {
 	position:relative;
 	top:1px;
 }
-/* This button was generated using CSSButtonGenerator.com */
 
