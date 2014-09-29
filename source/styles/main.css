@@ -1,11 +1,70 @@
 body {
     height:100%;
+    padding:0;
+    margin:0;
+    background: #F5F2EC;
+}
+
+#everything{
+    display:flex;
+}
+
+#contentFlex {
+    flex:1;
 }
 
 #content {
-	width:1250px;
+	width:1110px;
 	margin:0 auto;
+	padding-top:70px;
 }
+
+#navbar {
+    top:0;
+    left:0;
+    right:0;
+    position:fixed;
+    background:#FDA728;
+    height:40px;
+    border-bottom: 1px solid #CF8414;
+}
+
+#navbarContent {
+    width:1250px;
+    height:25px;
+    margin:8px auto;
+}
+
+
+#navbarLogo {
+    height: 25px;
+    width: 25px;
+    display:inline-block;
+    float:left;
+}
+
+#navbarTitle {
+    height:25px;
+    width:300px;
+    font-size:25px;
+    color:#ffffff;
+    display:inline-block;
+    padding:0 5px;
+    float:left;
+}
+
+#login {
+    height: 30px;
+    width: 100px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    border: 1px solid #CF8414;
+    display:inline-block;
+    font-size:15px;
+    color:white;
+}
+
 
 
 #footer {
@@ -23,20 +82,25 @@ body {
     width:1000px;
 }
 
+#sidebarSearchFlex {
+    width: 215px;
+    height:100%;
+}
+
 #sidebarSearch {
     position: fixed;
-    width: 200px;
-    top: 0;
+    top: 41px;
     bottom: 0;
     left: 0;
-    border-right: 1px solid #111;
+    border-right: 1px solid #CF8414;
     padding:5px;
-    background:#f3f3f3;
+    width: 200px;
 }
 
 #sidebarSearchMap {
     height: 150px;
     margin:8px 0;
+    border: 1px solid #CF8414;
 }
 
 #sidebarSearchInput {
@@ -44,16 +108,15 @@ body {
 }
 
 .photoBox {
-	background-color:#ededed;
+	background-color:#FDA728;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 10px;
-	border:1px solid #dcdcdc;
+	border:1px solid #CF8414;
 	display:inline-block;
 	color:#777777;
 	text-align:center;
 
-    display:inline-block;
     min-width:250px;
     min-height:250px;
     margin:5px;
@@ -62,7 +125,13 @@ body {
 }
 
 .photoBox:hover {
-	background-color:#dfdfdf;
+	background-color:#F1C871;
+	-webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    transform: scale(1.2);
+    transition: all 0.3s;
+    -webkit-transition: all 0.3s;
 }
 
 .photoBox img {
@@ -94,10 +163,8 @@ body {
 }
 
 .eventDetails{
-	border-style:solid;
-	border-color:#222;
-	border-width:1px;
-	margin-bottom:5px;
+    border: 1px solid #222;
+    margin-bottom:5px;
 
 	background:#fff;
 	color:#333;
@@ -127,6 +194,139 @@ body {
     color: #555;
 }
 
+.right {
+    float:right;
+}
+
+.error {
+    background:#ff0000;
+    margin-bottom:5px;
+    -webkit-border-radius:10px;
+    -moz-border-radius:10px;
+    border-radius:10px;
+    padding:5px;
+}
+
+.success {
+    background:#00ff00;
+    margin-bottom:5px;
+    -webkit-border-radius:10px;
+    -moz-border-radius:10px;
+    border-radius:10px;
+    padding:5px;
+}
+
 h2 {
+    font-size:30px;
+    color:#444;
+    margin: 5px 0;
+    display:inline-block;
+}
+
+/* REGISTRATION TABLE DESIGN */
+
+#regTable {
+    background:#FDA728;
+    width:400px;
+    margin:0 auto;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    border:10px solid #FDA728;
+}
+
+#regTable table {
+    width:100%;
+}
+
+#regTable td {
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    /* next two need to have same color */
+    border:10px solid #FFD547;
+    background:#FFD547;
+    color:black;
+    font-size:30px;
+}
+
+
+#regTable #center {
+    font-weight: 900;
     text-align:center;
 }
+
+#regTable #center2 {
+    width:60px;
+    text-align:center;
+    margin-right: 110px;
+}
+
+
+
+.submitButton {
+	background-color:#fda828;
+	-webkit-border-radius:3px;
+	-moz-border-radius:3px;
+	border-radius:3px;
+	border:1px solid #cf831f;
+	display:inline-block;
+	color:#ffffff;
+	font-family:Verdana,serif;
+	font-size:13px;
+	font-weight:bold;
+	font-style:normal;
+	height:25px;
+	line-height:25px;
+	text-decoration:none;
+	text-align:center;
+	padding:0 5px;
+	margin:0 5px;
+}
+
+.submitButton:hover {
+	background-color:#fb9e25;
+
+}.submitButton:active {
+	position:relative;
+	top:1px;
+}
+
+
+
+/* OVERLAY */
+#overlay {
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:#000;
+    opacity:0.5;
+    filter:alpha(opacity=50);
+}
+
+#overlayModal {
+    position:absolute;
+    background:rgba(0,0,0,0.2);
+    border-radius:14px;
+    padding:8px;
+}
+
+#overlayContent {
+    border-radius:8px;
+    background:#fff;
+    padding:20px;
+}
+
+#overlayClose {
+    position:absolute;
+    background:url(../img/design/close.png) 0 0 no-repeat;
+    width:24px;
+    height:27px;
+    display:block;
+    text-indent:-9999px;
+    top:-7px;
+    right:-7px;
+}
+

@@ -98,7 +98,7 @@ function SidebarItem(marker, opts){
     //Clicking on the description should cause the same behaviour as clicking on the pin directly
     row.onclick = function(){
         google.maps.event.trigger(marker, 'click');
-    }
+    };
 
     this.button = row;
     //Add the element under <div id="pinSidebar"...>
@@ -108,14 +108,14 @@ function SidebarItem(marker, opts){
 //Removes an element from the sidebar
 SidebarItem.prototype.remove = function(){
     this.button.remove();
-}
+};
 
 //Function to "expand" the elements in the sidebar, works simply by toggling the class "hidden" (CSS: display:none; ) from the description.
 SidebarItem.prototype.expand = function() {
     if(lastDetails) lastDetails.toggleClass("hidden");
     lastDetails = $(this.button).find(".eventDetailsContent");
     lastDetails.toggleClass("hidden");
-}
+};
 
 
 //Function to convert unix timestamp (second since 1. Jan 1970) to DD. MMM YYYY at HH:MM format
@@ -123,7 +123,7 @@ function timeConverter(UNIX_timestamp) {
     var a = new Date(UNIX_timestamp * 1000);
     var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     return leadingZeroes(a.getDate(), 2) + '. ' + months[a.getMonth()] + ' ' + a.getFullYear() + ' at ' + leadingZeroes(a.getHours(), 2) + ':' + leadingZeroes(a.getMinutes(), 2);
- }
+}
 
 
 //Takes a variable and appends leading zeroes to it until the desired length is reached

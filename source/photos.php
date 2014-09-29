@@ -1,25 +1,25 @@
 <?
-$title = "Photos";
-include_once("header.php");
-?>
+include_once("backend/PageBuilder.php");
 
-<link rel="stylesheet" href="styles/token-input.css" type="text/css" />
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
-<script type="text/javascript" src="js/jquery.tokeninput.js"></script>
-<script type="text/javascript" src="js/2DSearch.js"></script>
-
-    <aside id="sidebarSearch">
-        <b>Search</b>
-        <div id="sidebarSearchMap"></div>
-        <div id="sidebarSearchInput">
-            <input type="text" id="input-interest-search" />
-        </div>
-    </aside>
-
-    <div id="searchResults"></div>
+$sidebar = '    <div id="sidebarSearchFlex">
+                    <aside id="sidebarSearch">
+                        <b>Search</b>
+                        <div id="sidebarSearchMap"></div>
+                        <div id="sidebarSearchInput">
+                            <input type="text" id="input-interest-search" />
+                        </div>
+                    </aside>
+                </div>';
 
 
-<?
-include_once("footer.php");
+$pb = new PageBuilder("Photos");
+$pb->addCSSImport("styles/token-input.css");
+$pb->addJSImport("https://maps.googleapis.com/maps/api/js?sensor=false");
+$pb->addJSImport("js/jquery.tokeninput.js");
+$pb->addJSImport("js/2DSearch.js");
+
+$pb->appendContent('<div id="searchResults"></div>');
+$pb->addContentSibling($sidebar);
+
+echo $pb->toHTML();
 ?>
