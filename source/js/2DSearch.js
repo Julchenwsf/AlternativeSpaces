@@ -1,5 +1,4 @@
-var map, lastDetails, interestsInput, pageNum = 0;
-var markerArray = [];
+var map, interestsInput, pageNum = 0;
 
 
 //==== GMaps ====
