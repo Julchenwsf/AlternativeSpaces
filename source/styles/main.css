@@ -54,8 +54,8 @@ body {
 }
 
 #login {
-    height= 30px;
-    width =100px;
+    height: 30px;
+    width: 100px;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
@@ -117,7 +117,6 @@ body {
 	color:#777777;
 	text-align:center;
 
-    display:inline-block;
     min-width:250px;
     min-height:250px;
     margin:5px;
@@ -128,11 +127,11 @@ body {
 .photoBox:hover {
 	background-color:#F1C871;
 	-webkit-transform: scale(1.2);
-      -moz-transform: scale(1.2);
-      -o-transform: scale(1.2);
-      transform: scale(1.2);
-      transition: all 0.3s;
-      -webkit-transition: all 0.3s;
+    -moz-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    transform: scale(1.2);
+    transition: all 0.3s;
+    -webkit-transition: all 0.3s;
 }
 
 .photoBox img {
@@ -164,10 +163,8 @@ body {
 }
 
 .eventDetails{
-	border-style:solid;
-	border-color:#222;
-	border-width:1px;
-	margin-bottom:5px;
+    border: 1px solid #222;
+    margin-bottom:5px;
 
 	background:#fff;
 	color:#333;
@@ -247,24 +244,22 @@ h2 {
     -moz-border-radius: 10px;
     border-radius: 10px;
     /* next two need to have same color */
-    border:10px solid FFD547;
-    background:FFD547;
+    border:10px solid #FFD547;
+    background:#FFD547;
     color:black;
-    text-size:30px;
+    font-size:30px;
 }
 
 
 #regTable #center {
     font-weight: 900;
     text-align:center;
-    vertical-align:center;
 }
 
 #regTable #center2 {
     width:60px;
     text-align:center;
-    vertical-align:center;
-    margin-right: 110;
+    margin-right: 110px;
 }
 
 
@@ -277,7 +272,7 @@ h2 {
 	border:1px solid #cf831f;
 	display:inline-block;
 	color:#ffffff;
-	font-family:Verdana;
+	font-family:Verdana,serif;
 	font-size:13px;
 	font-weight:bold;
 	font-style:normal;
@@ -313,7 +308,6 @@ h2 {
 
 #overlayModal {
     position:absolute;
-    background:url(tint20.png) 0 0 repeat;
     background:rgba(0,0,0,0.2);
     border-radius:14px;
     padding:8px;
