@@ -1,8 +1,10 @@
 <?
-session_start();
 ini_set('display_errors',1);
 ini_set('display_startup_errors',1);
 error_reporting(-1);
+
+include_once("backend/functions/log.php");
+
 
 class PageBuilder {
     private $CSSImports = array('<link rel="stylesheet" type="text/css" href="styles/main.css">');
@@ -12,16 +14,22 @@ class PageBuilder {
     private $title;
 
     function __construct($title) {
-        if (isset($_SESSION['user'])) {
-            $logged = "Welcome back " . $_SESSION["user"];
+        $this->title = '<title>Alternative Spaces &raquo; '. $title .'</title>';
+        $this->addJSImport("https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js");
+        $this->addJSImport("js/overlay.js");
+
+        if (isLoggedIn()) {
+            $logged = "Welcome back " . $_SESSION["first_name"] . " " . $_SESSION["last_name"] . '<a href="backend/functions/log.php?out" class="submitButton right">Logout</a>';
         } else {
             $logged = '<button type="button" id="loginButton" class="submitButton right">Login</button><button type="button" id="signupButton" class="submitButton right">Signup</button>';
+
+            $navbarButtonsJS = '<script type="text/javascript">$(document).ready(function(){
+            $("#signupButton").click(function(e){$.get("backend/forms/regform.php", function(data){modal.open({content: data});});});
+            $("#loginButton").click(function(e){$.get("backend/forms/logform.php", function(data){modal.open({content: data});});});
+            });</script>';
+            array_push($this->JSImports, $navbarButtonsJS);
         }
 
-        $navbarButtonsJS = '<script type="text/javascript">$(document).ready(function(){
-        $("#signupButton").click(function(e){$.get("backend/forms/regform.php", function(data){modal.open({content: data});});});
-        $("#loginButton").click(function(e){$.get("backend/forms/logform.php", function(data){modal.open({content: data});});});
-        });</script>';
 
         $navbar = '<div id="navbar">
                        <div id="navbarContent">
@@ -30,12 +38,7 @@ class PageBuilder {
                            . $logged.
                        '</div>
                    </div>';
-
         $this->addContentSibling($navbar);
-        $this->title = '<title>Alternative Spaces &raquo; '. $title .'</title>';
-        $this->addJSImport("https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js");
-        $this->addJSImport("js/overlay.js");
-        array_push($this->JSImports, $navbarButtonsJS);
     }
 
     public function addCSSImport($URL) {
