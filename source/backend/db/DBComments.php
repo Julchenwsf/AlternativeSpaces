@@ -29,9 +29,7 @@ function getComments() {
 
 
 function showComment($arr) {
-    echo '
-    <div class="commentBox com-'.$arr['comment_id'].'">
-
+    echo '<div class="commentBox com-'.$arr['comment_id'].'">
         <div class="comment">
         <div class="commentTime">'. commentTimeFormat($arr["time"]) .'</div>
         <div class="commentAvatar">
@@ -40,13 +38,12 @@ function showComment($arr) {
 
         <div class="commentText">
         <span class="commentName">'.$arr['username'].':</span> '.$arr['comment'].'
-        </div>
+        </div>';
 
-        <div class="commentReply">
-        <a href="" onclick="addComment(this,'.$arr['comment_id'].');return false;">Reply &raquo;</a>
-        </div>
+        if(isLoggedIn())
+            echo '<div class="commentReply"><a href="" onclick="addComment(this,'.$arr['comment_id'].');return false;">Reply &raquo;</a></div>';
 
-        <div class="clear"></div>
+        echo'<div class="clear"></div>
     </div>';
 
     // Output the comment, and its replies, if any
