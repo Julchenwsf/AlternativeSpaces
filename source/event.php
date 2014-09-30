@@ -41,7 +41,7 @@ $eventHeader = <<<EOT
                                 <legend>Event status</legend>
                                     10/20
                             </fieldset>
-                            <button type="button" id="attendButton" class="submitButton right">Attend</button>
+                            <button type="button" id="attendButton" class="submitButton">Attend</button>
                             </div>
                         </div>
                         <div id="eventComments">
