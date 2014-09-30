@@ -14,7 +14,7 @@ class PageBuilder {
     private $title;
 
     function __construct($title) {
-        $this->title = '<title>Alternative Spaces &raquo; '. $title .'</title>';
+        $this->title = '<title>Alternative Spaces &raquo; '. $title .'</title><meta charset="UTF-8">';
         $this->addJSImport("https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js");
         $this->addJSImport("js/overlay.js");
 

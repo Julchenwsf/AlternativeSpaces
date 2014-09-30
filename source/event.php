@@ -15,7 +15,7 @@ $eventHeader = <<<EOT
                                 </div>
                                 <fieldset>
                                     <legend>When</legend>
-                                        jhdasld
+                                        Tøyen
                                 </fieldset>
                                 <fieldset>
                                     <legend>Where</legend>
@@ -44,10 +44,19 @@ $eventHeader = <<<EOT
                             <button type="button" id="attendButton" class="submitButton">Attend</button>
                             </div>
                         </div>
+
+                       <div id="eventComments">
+                            <div id="addComment">
+                                <h2>Come play football</h2>
+                                <hr/>
+                                Here is some description. Here is some description. Here is some description. Here is some description. Here is some description. Here is some description.
+                            </div>
+                        </div>
+
                         <div id="eventComments">
                             <div id="addComment">
                                 <a id="commentTitle">New Comment</a>
-                                <div id="horizontalRule"></div>
+                                <br/><hr/>
                             </div>
                         </div>
                    </div>
