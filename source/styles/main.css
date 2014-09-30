@@ -332,12 +332,16 @@ h2 {
 
 #eventPage {
     margin:0 auto;
+    width: 100%;
 
 
 }
 
 #eventDetails {
-    height: 50px;
+    float:left;
+    height: 100px;
+    width:100px;
+    margin:0 auto;
     text-align:center;
     vertical-align:middle;
     line-height:45px;
@@ -346,12 +350,14 @@ h2 {
     border-radius: 10px;
     /* next two need to have same color */
     border:1px solid #FDA728;
+    display:inline-block;
 
 }
 
 #eventComments {
     height:100px;
-    margin:10px auto;
+    width:100px;
+    margin:0 auto;
     text-align:center;
     vertical-align:middle;
     line-height:45px;
@@ -360,11 +366,14 @@ h2 {
     border-radius: 10px;
     /* next two need to have same color */
     border:1px solid #FDA728;
+    display:inline-block;
 }
 
 #eventMap {
+    float:right;
     height:100px;
-    margin:10px auto;
+    width:100px;
+    margin:0 auto;
     text-align:center;
     vertical-align:middle;
     line-height:45px;
@@ -373,5 +382,6 @@ h2 {
     border-radius: 10px;
     /* next two need to have same color */
     border:1px solid #FDA728;
+    display:inline-block;
 }
 
