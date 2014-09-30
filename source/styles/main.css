@@ -330,3 +330,18 @@ h2 {
     right:-7px;
 }
 
+#eventPage {
+    width: 375px;
+    margin:0 auto;
+    text-align:center;
+
+
+#eventPage #eventHeader {
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    /* next two need to have same color */
+    border:10px solid #F5F2EC;
+}
+
+}
