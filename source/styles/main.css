@@ -341,9 +341,7 @@ h2 {
     float:left;
     height: 100px;
     width:100px;
-    margin:0 auto;
     text-align:center;
-    vertical-align:middle;
     line-height:45px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
@@ -359,7 +357,6 @@ h2 {
     width:100px;
     margin:0 auto;
     text-align:center;
-    vertical-align:middle;
     line-height:45px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
@@ -373,9 +370,7 @@ h2 {
     float:right;
     height:100px;
     width:100px;
-    margin:0 auto;
     text-align:center;
-    vertical-align:middle;
     line-height:45px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
