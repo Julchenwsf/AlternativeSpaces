@@ -1,7 +1,9 @@
 <?
+set_include_path(get_include_path() . '/source/');
 include_once("backend/PageBuilder.php");
+include_once("backend/forms/commentform.php");
 
-
+$comments = getCommentsForm(4);
 
 $eventHeader = <<<EOT
                    <div id="eventPage">
@@ -30,8 +32,7 @@ $eventHeader = <<<EOT
                         </div>
                         <div id="eventMap">
                             <div id="eventImage">
-                                <img src="http://maps.googleapis.com/maps/api/staticmap?center=40.718217,-73.998284&zoom=13&size=175x175&maptype=roadmap
-                                                          &markers=color:red%7Clabel:C%7C40.718217,-73.998284" />
+                                <img src="http://maps.googleapis.com/maps/api/staticmap?center=40.718217,-73.998284&zoom=13&size=175x175&maptype=roadmap&markers=color:red%7Clabel:C%7C40.718217,-73.998284" />
                             </div>
                             <div id="eventDescription">
                                 <div id="eventDescriptionHeader">
@@ -53,18 +54,19 @@ $eventHeader = <<<EOT
                             </div>
                         </div>
 
-                        <div id="eventComments">
+                       <div id="eventComments">
                             <div id="addComment">
-                                <a id="commentTitle">New Comment</a>
-                                <br/><hr/>
+                                $comments
                             </div>
-                        </div>
+                       </div>
                    </div>
 EOT;
 
 
 $pb = new PageBuilder("Event");
 $pb->addCSSImport("styles/event.css");
+$pb->addCSSImport("styles/comments.css");
+$pb->addJSImport("js/comment.js");
 $pb->appendContent($eventHeader);
 echo $pb->toHTML();
 ?>

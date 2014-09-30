@@ -29,7 +29,7 @@ function getComments() {
 
 
 function showComment($arr) {
-    echo '<div class="commentBox com-'.$arr['comment_id'].'">
+    $temp = '<div class="commentBox com-'.$arr['comment_id'].'">
         <div class="comment">
         <div class="commentTime">'. commentTimeFormat($arr["time"]) .'</div>
         <div class="commentAvatar">
@@ -41,17 +41,18 @@ function showComment($arr) {
         </div>';
 
         if(isLoggedIn())
-            echo '<div class="commentReply"><a href="" onclick="addComment(this,'.$arr['comment_id'].');return false;">Reply &raquo;</a></div>';
+            $temp .= '<div class="commentReply"><a href="" onclick="addComment(this,'.$arr['comment_id'].');return false;">Reply &raquo;</a></div>';
 
-        echo'<div class="clear"></div>
+        $temp .= '<div class="clear"></div>
     </div>';
 
     // Output the comment, and its replies, if any
     if($arr['children']) {
         foreach($arr['children'] as $r)
-        showComment($r);
+            $temp .= showComment($r);
     }
-    echo '</div>';
+    $temp .= '</div>';
+    return $temp;
 }
 
 
