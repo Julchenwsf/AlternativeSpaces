@@ -41,7 +41,7 @@ if(isset($_GET["search"]) && $_GET["search"] == "2D") {
         $res = searchPhotos($_GET["interests"], $_GET["boxloc"], $_GET["page"]);    //Do the search
         foreach($res as &$row) {
             //For each search result, pack it nicely into its HTML representation. Currently a simple img inside div
-            echo '<div class="photoBox"><img src="http://org.ntnu.no/cdpgroup4/images/thumb/' . $row["photo_id"] . '.jpg" /></div>';
+            echo '<div class="photoBox" data-photo-id="' . $row["photo_id"] . '"><img src="http://org.ntnu.no/cdpgroup4/images/thumb/' . $row["photo_id"] . '.jpg" /></div>';
         }
     }
 }

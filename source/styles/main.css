@@ -330,3 +330,9 @@ h2 {
     right:-7px;
 }
 
+.largePhoto {
+    min-width: 1050px;
+    min-height: 800px;
+    text-align:center;
+}
+
