@@ -11,7 +11,7 @@ function addComment(where, parent) {
     if(!where)
         $el = $('#commentArea');
     else
-        $el = $(where).closest('.waveComment');
+        $el = $(where).closest('.commentBox');
 
     if(!parent) parent=0;
 
@@ -19,7 +19,7 @@ function addComment(where, parent) {
     $('.waveComment').show('slow');
 
     // Move the slider to the end point and show all comments
-    var comment = '<div class="waveComment addComment">\
+    var comment = '<div class="commentBox addComment">\
     \
     <div class="comment">\
     <div class="commentAvatar">\
@@ -41,39 +41,26 @@ function addComment(where, parent) {
 }
 
 function cancelAdd(el) {
-    $(el).closest('.waveComment').remove();
+    $(el).closest('.commentBox').remove();
 }
 
-function addSubmit(el,parent) {
+function addSubmit(el, parent) {
     /* Executed when clicking the submit button */
     var cText = $(el).closest('.commentText');
     var text = cText.find('textarea').val();
-    var wC = $(el).closest('.waveComment');
+    var wC = $(el).closest('.commentBox');
     if(text.length < 4) {
         alert("Your comment is too short!");
         return false;
     }
 
-    $(el).parent().html('<img src="img/ajax_load.gif" width="16" height="16" />');
-    // Showing the loading gif animation
-    // Send an AJAX request:
-
     $.ajax({
         type: "POST",
-        url: "ajax/saveComment.php",
+        url: "backend/forms/commentform.php",
         data: "comment="+encodeURIComponent(text)+"&parent="+parent,
         /* Sending both the text and the parent of the comment */
         success: function(msg){
-
-            /* PHP returns the automatically assigned ID of the new comment */
-            var ins_id = parseInt(msg);
-            transForm(text,cText);
-            // Hiding the form and showing the newly-added comment in its place
+            wC.replaceWith(msg);
         }
     });
-}
-
-function transForm(text,cText) {
-    var tmpStr ='<span class="name">Demo:</span> '+text;
-    cText.html(tmpStr);
 }
