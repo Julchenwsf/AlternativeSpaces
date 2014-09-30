@@ -7,7 +7,7 @@ function addUser($username, $password, $firstName, $lastName, $gender) {
     $firstName = mysql_real_escape_string(trim($firstName));
     $lastName = mysql_real_escape_string(trim($lastName));
     $username = mysql_real_escape_string(trim($username));
-    $password = mysql_real_escape_string($password);
+    $password = sha1($password);
     $gender = mysql_real_escape_string($gender);
 
     if(empty($username)) {
@@ -45,7 +45,7 @@ function addUser($username, $password, $firstName, $lastName, $gender) {
 
 function checkLogin($username, $password) {
     $username = mysql_real_escape_string($username);
-    $password = mysql_real_escape_string($password);
+    $password = sha1($password);
 
     $result = mysql_query("SELECT * FROM users WHERE username='$username' AND password='$password'") or die(mysql_error());
     $row = mysql_fetch_assoc($result);
@@ -54,6 +54,7 @@ function checkLogin($username, $password) {
 
 
 function usernameExists($username) {
+    $username = mysql_real_escape_string($username);
     $query = mysql_query("SELECT username FROM users WHERE username='" . $username . "'") or die(mysql_error());
     return mysql_num_rows($query) != 0;
 }

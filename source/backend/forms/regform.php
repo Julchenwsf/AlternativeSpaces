@@ -32,7 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="2" id="center"><input class="submitButton" name="regformSubmit" type="submit" value="Submit" /></td>
+                    <td colspan="2" id="center"><input class="submitButton" name="regformSubmit" type="submit" value="Register" /></td>
                 </tr>
             </table>
         </form>
