@@ -27,6 +27,7 @@ body {
     background:#FDA728;
     height:40px;
     border-bottom: 1px solid #CF8414;
+    z-index:1000;
 }
 
 #navbarContent {
@@ -107,7 +108,7 @@ body {
 
 }
 
-.photoBox {
+.contentBox {
 	background-color:#FDA728;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
@@ -124,7 +125,7 @@ body {
     cursor:pointer;
 }
 
-.photoBox:hover {
+.contentBox:hover {
 	background-color:#F1C871;
 	-webkit-transform: scale(1.2);
     -moz-transform: scale(1.2);
@@ -132,10 +133,20 @@ body {
     transform: scale(1.2);
     transition: all 0.3s;
     -webkit-transition: all 0.3s;
+    z-index:1;
 }
 
-.photoBox img {
+.contentBox img {
     vertical-align:top;
+}
+
+.largeContentBox {
+    min-width: 1050px;
+    min-height: 800px;
+}
+
+#enlargedPhoto {
+    text-align:center;
 }
 
 
@@ -329,4 +340,5 @@ h2 {
     top:-7px;
     right:-7px;
 }
+
 

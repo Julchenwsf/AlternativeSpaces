@@ -56,5 +56,9 @@ var modal = (function(){
         method.close();
     });
 
+    $overlay.click(function(e){
+        method.close();
+    });
+
     return method;
 }());

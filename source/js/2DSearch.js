@@ -64,8 +64,8 @@ $(document).ready(function() {
 });
 
 
-$(document).on('click', '.photoBox', function(e){
-    //Is called when used clicks on one of the photos - TODO: Expand it to include various photo data (i.e. votes, title...) and comments
+$(document).on('click', '.contentBox', function(e){
+    $.get("backend/forms/photoenlarge.php", {photo_id: $(this).attr("data-photo-id")}, function(data){modal.open({content: data});});
 });
 
 
