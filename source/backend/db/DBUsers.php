@@ -15,6 +15,8 @@ function addUser($username, $password, $firstName, $lastName, $gender) {
     } else {
         if (!preg_match("/^[a-zA-Z0-9 ]*$/", $username)) {
             array_push($errors, "Username can only contain letters, numbers and whitespace");
+        } else if(strlen($username) > 20) {
+            array_push($errors, "Username is too long (max 20 characters)");
         } else if(usernameExists($username)) {
             array_push($errors, $username . " is already taken. Select another username");
         }
@@ -28,10 +30,14 @@ function addUser($username, $password, $firstName, $lastName, $gender) {
 
     if(empty($firstName)) {
         array_push($errors, "First name cannot be left blank");
+    } else if(strlen($firstName) > 20) {
+        array_push($errors, "First name is too long (max 20 characters)");
     }
 
     if(empty($lastName)) {
         array_push($errors, "Last name cannot be left blank");
+    } else if(strlen($lastName) > 20) {
+        array_push($errors, "Last name is too long (max 20 characters)");
     }
 
     if($gender != "male" and $gender != "female") { //Sigh...
