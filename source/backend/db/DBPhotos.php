@@ -6,7 +6,7 @@ function addPhoto($id, $title, $lat, $lng, $interests) {
     $title = mysql_real_escape_string($title);                  //Run mysql_real_escape_string on all user input to avoid SQL injections
     if(!is_numeric($lat) || !is_numeric($lng)) return false;    //Lat and lng should be plain numbers
     if(!preg_match("/^[0-9 ]+$/", $interests)) return false;    //Interests string should be only space-separated numbers
-    mysql_query("INSERT INTO photos (photo_id, location, photo_title, interests, upload_time, rating) VALUES (".$id.", (GeomFromText('POINT(" . $lat . " " . $lng . ")')), '" . $title . "', '" . $interests . "', " . (time() - rand(0,  864000)) . ", " . rand(50, 100) . ")")
+    mysql_query("INSERT INTO photos (location, photo_title, interests, upload_time, rating) VALUES ((GeomFromText('POINT(" . $lat . " " . $lng . ")')), '" . $title . "', '" . $interests . "', " . time() . ", 0)")
     or die(mysql_error());
     return true;
 }
@@ -21,7 +21,7 @@ function searchPhotos($tags, $bounds, $page) {
 
     $bounds = mysql_real_escape_string($bounds);    //Should probably be replaced with some fancy regex
     $page = intval($page);
-    $result = mysql_query("SELECT photo_id, photo_title, interests FROM photos WHERE " . $tagsFilter ." MBRContains(GeomFromText('LINESTRING(" . $bounds . ")'), photos.location) ORDER BY rating DESC LIMIT " . 20*$page . ", 20") or die(mysql_error());
+    $result = mysql_query("SELECT photo_id FROM photos WHERE " . $tagsFilter ." MBRContains(GeomFromText('LINESTRING(" . $bounds . ")'), photos.location) ORDER BY rating DESC LIMIT " . 20*$page . ", 20") or die(mysql_error());
     $return_arr = array();
 
     //Format the result to be an array of dictionaries for each row/result.
@@ -41,18 +41,8 @@ if(isset($_GET["search"]) && $_GET["search"] == "2D") {
         $res = searchPhotos($_GET["interests"], $_GET["boxloc"], $_GET["page"]);    //Do the search
         foreach($res as &$row) {
             //For each search result, pack it nicely into its HTML representation. Currently a simple img inside div
-            echo '<div class="photoBox"><img src="http://org.ntnu.no/cdpgroup4/images/thumb/' . $row["photo_id"] . '.jpg" /></div>';
+            echo '<div class="contentBox" data-photo-id="' . $row["photo_id"] . '"><img src="http://org.ntnu.no/cdpgroup4/images/thumb/' . $row["photo_id"] . '.jpg" /></div>';
         }
     }
 }
-
-//This is used to populate the database via my Python script, ignore.
-if(isset($_GET["upload"])) {
-    if(addPhoto($_GET["id"], $_GET["title"], $_GET["lat"], $_GET["lng"], $_GET["interests"])) {
-        echo "OK";
-    } else {
-        echo "FAIL";
-    }
-}
-
 ?>
