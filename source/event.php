@@ -46,7 +46,7 @@ $eventHeader = <<<EOT
                         </div>
                         <div id="eventComments">
                             <div id="addComment">
-                                <a id="titleText">New Comment</a>
+                                <a id="commentTitle">New Comment</a>
                                 <div id="horizontalRule"></div>
                             </div>
                         </div>
