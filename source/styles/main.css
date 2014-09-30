@@ -107,7 +107,7 @@ body {
 
 }
 
-.photoBox {
+.contentBox {
 	background-color:#FDA728;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
@@ -124,7 +124,7 @@ body {
     cursor:pointer;
 }
 
-.photoBox:hover {
+.contentBox:hover {
 	background-color:#F1C871;
 	-webkit-transform: scale(1.2);
     -moz-transform: scale(1.2);
@@ -134,8 +134,14 @@ body {
     -webkit-transition: all 0.3s;
 }
 
-.photoBox img {
+.contentBox img {
     vertical-align:top;
+}
+
+.largeContentBox {
+    min-width: 1050px;
+    min-height: 800px;
+    text-align:center;
 }
 
 
@@ -330,9 +336,4 @@ h2 {
     right:-7px;
 }
 
-.largePhoto {
-    min-width: 1050px;
-    min-height: 800px;
-    text-align:center;
-}
 

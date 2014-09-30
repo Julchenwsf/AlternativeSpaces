@@ -64,7 +64,7 @@ $(document).ready(function() {
 });
 
 
-$(document).on('click', '.photoBox', function(e){
+$(document).on('click', '.contentBox', function(e){
     $.get("backend/forms/photoenlarge.php", {photo_id: $(this).attr("data-photo-id")}, function(data){modal.open({content: data});});
 });
 
