@@ -1,8 +1,10 @@
 <?
-session_start();
 ini_set('display_errors',1);
 ini_set('display_startup_errors',1);
 error_reporting(-1);
+
+include_once("backend/functions/log.php");
+
 
 class PageBuilder {
     private $CSSImports = array('<link rel="stylesheet" type="text/css" href="styles/main.css">');
@@ -12,16 +14,24 @@ class PageBuilder {
     private $title;
 
     function __construct($title) {
-        if (isset($_SESSION['user'])) {
-            $logged = "Welcome back " . $_SESSION["user"];
+        $this->title = '<title>Alternative Spaces &raquo; '. $title .'</title>';
+        $this->addJSImport("https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js");
+        $this->addJSImport("js/overlay.js");
+
+        if (isLoggedIn()) {
+            $logged = "Welcome back " . $_SESSION["first_name"] . " " . $_SESSION["last_name"] . '<a href="backend/functions/log.php?out" class="submitButton right">Logout</a><button type="button" id="eventButton" class="submitButton right">New Event</button>';
+            $navbarButtonsJS = '<script type="text/javascript">$(document).ready(function(){
+            $("#eventButton").click(function(e){$.get("backend/forms/eventform.php", function(data){modal.open({content: data});});});
+            });</script>';
         } else {
             $logged = '<button type="button" id="loginButton" class="submitButton right">Login</button><button type="button" id="signupButton" class="submitButton right">Signup</button>';
+
+            $navbarButtonsJS = '<script type="text/javascript">$(document).ready(function(){
+            $("#signupButton").click(function(e){$.get("backend/forms/regform.php", function(data){modal.open({content: data});});});
+            $("#loginButton").click(function(e){$.get("backend/forms/logform.php", function(data){modal.open({content: data});});});
+            });</script>';
         }
 
-        $navbarButtonsJS = '<script type="text/javascript">$(document).ready(function(){
-        $("#signupButton").click(function(e){$.get("backend/forms/regform.php", function(data){modal.open({content: data});});});
-        $("#loginButton").click(function(e){$.get("backend/forms/logform.php", function(data){modal.open({content: data});});});
-        });</script>';
 
         $navbar = '<div id="navbar">
                        <div id="navbarContent">
@@ -30,11 +40,7 @@ class PageBuilder {
                            . $logged.
                        '</div>
                    </div>';
-
         $this->addContentSibling($navbar);
-        $this->title = '<title>Alternative Spaces &raquo; '. $title .'</title>';
-        $this->addJSImport("https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js");
-        $this->addJSImport("js/overlay.js");
         array_push($this->JSImports, $navbarButtonsJS);
     }
 
@@ -56,11 +62,9 @@ class PageBuilder {
 
     public function toHTML() {
         $head = "<head>" . $this->title . join("\n\t", $this->CSSImports) . join("\n\t", $this->JSImports) . "</head>";
-        $body = '<body><div id="everything">' . join("\n", $this->contentSiblings) . '<div id="contentFlex"><div id="content">' . $this->content . '</div></div></div></body>';
-        $footer = '<div id="footer">TDT4290 Customer driven project - Group 4</div>';
+        $body = '<body><div id="everything">' . join("\n", $this->contentSiblings) . '<div id="contentFlex"><div id="content">' . $this->content . '</div></div></div>';
+        $footer = '<div id="footer">TDT4290 Customer driven project - Group 4</div></body>';
         return "<html>" . $head . $body . $footer . "</html>";
     }
 }
-
-
 ?>
