@@ -15,15 +15,15 @@ $eventHeader = <<<EOT
                                 </div>
                                 <fieldset>
                                     <legend>When</legend>
-                                        jhdasld
+                                        15. October at 13:00
                                 </fieldset>
                                 <fieldset>
                                     <legend>Where</legend>
-                                        jhdasld
+                                        Toyenparken
                                 </fieldset>
                                 <fieldset>
                                     <legend>What</legend>
-                                        jhdasld
+                                        Play football
                                 </fieldset>
                             </div>
 
