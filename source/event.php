@@ -4,7 +4,7 @@ include_once("backend/PageBuilder.php");
 $eventHeader = <<<EOT
                    <div id="eventPage">
                         <div id="eventDetails"></div>
-                        <div id="eventMap"></div>
+                        <div id="eventMap2"></div>
                         <div id="eventComments"></div>
                    </div>
 EOT;
