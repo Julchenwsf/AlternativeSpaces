@@ -2,7 +2,7 @@
 
 include_once("backend/PageBuilder.php");
 include_once("backend/forms/commentform.php");
-$comments = getCommentsForm(4);
+$comments = getCommentsForm("e1");
 
 $eventHeader = <<<EOT
 <div id="eventPage">
