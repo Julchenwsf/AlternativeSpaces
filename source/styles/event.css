@@ -1,5 +1,5 @@
 
-#eventPage #eventDetails {
+#eventPage .eventLeft {
     float:left;
     width:200px;
     border-radius: 5px;
@@ -8,20 +8,7 @@
 
 }
 
-#eventImage {
-    height:175px;
-    width:175px;
-    margin:15px auto;
-    margin-left:10px;
-    border-radius: 5px;
-    border:1px solid #CF8414;
-}
-
-#eventImage img{
-    border-radius: 5px;
-}
-
-#eventPage #eventComments {
+#eventPage .eventMiddle {
     width:680px;
     margin:0 auto 10px;
     border-radius: 5px;
@@ -29,26 +16,14 @@
     background:white;
 }
 
-#eventPage #eventComments #addComment{
-    width: 600px;
-    margin: 15px auto;
+#eventPage .eventContent{
+    margin: 15px;
     border-radius: 5px;
     border:1px solid #CF8414;
     padding:10px;
 }
 
-#titleText{
-    float:left;
-    margin-left: 12px;
-    color: white;
-}
-#commentTitle {
-    float:left;
-    margin-left:12px;
-    color: #CF8414;
-}
-
-#eventPage #eventMap {
+#eventPage .eventRight {
     float:right;
     height:auto;
     width:200px;
@@ -59,10 +34,33 @@
     margin:0;
 }
 
-#eventDescription{
+.titleText{
+    float:left;
+    margin-left: 12px;
+    color: white;
+}
+
+.commentTitle {
+    float:left;
+    margin-left:12px;
+    color: #CF8414;
+}
+
+.eventImage {
+    height:175px;
     width:175px;
     margin:15px auto;
-    margin-left:10px;
+    border-radius: 5px;
+    border:1px solid #CF8414;
+}
+
+.eventImage img{
+    border-radius: 5px;
+}
+
+.eventDescription{
+    width:175px;
+    margin:15px auto;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     border:1px solid #CF8414;
@@ -72,25 +70,12 @@
     margin: 10px auto;
 }
 
-#eventDescriptionHeader {
+.eventDescriptionHeader {
     height: 20px;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
     background: #FDA728
 }
-
-#descriptionRuler {
-    height:1px;
-    width:150px;
-    margin:20px auto;
-    background:#CF8414;
-}
-
-#infoText {
-    margin:0 auto;
-    margin-left: 12px;
-    color:#CF8414;
- }
 
 #eventPage fieldset {
     margin:3px 5px;

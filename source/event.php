@@ -6,13 +6,13 @@ $comments = getCommentsForm(4);
 
 $eventHeader = <<<EOT
 <div id="eventPage">
-    <div id="eventDetails">
-        <div id="eventImage">
-        <a href="index.php"><img src="img/design/football.png" /></a>
+    <div class="eventLeft">
+        <div class="eventImage">
+            <a href="index.php"><img src="img/design/football.png" /></a>
         </div>
-        <div id="eventDescription">
-            <div id="eventDescriptionHeader">
-                <a id="titleText">Description</a>
+        <div class="eventDescription">
+            <div class="eventDescriptionHeader">
+                <a class="titleText">Description</a>
             </div>
             <fieldset>
                 <legend>When</legend>
@@ -29,13 +29,13 @@ $eventHeader = <<<EOT
         </div>
 
     </div>
-    <div id="eventMap">
-        <div id="eventImage">
+    <div class="eventRight">
+        <div class="eventImage">
             <img src="http://maps.googleapis.com/maps/api/staticmap?center=59.9162809,10.7775311&zoom=13&size=175x175&maptype=roadmap&markers=color:red%7Clabel:C%7C40.718217,-73.998284" />
         </div>
-        <div id="eventDescription">
-            <div id="eventDescriptionHeader">
-                <a id="titleText">Join the event</a>
+        <div class="eventDescription">
+            <div class="eventDescriptionHeader">
+                <a class="titleText">Join the event</a>
             </div>
         <fieldset>
             <legend>Event status</legend>
@@ -45,17 +45,17 @@ $eventHeader = <<<EOT
         </div>
     </div>
 
-   <div id="eventComments">
-        <div id="addComment">
+   <div class="eventMiddle">
+        <div class="eventContent">
             <h2>Come play football</h2>
             <hr/>
             Here is some description. Here is some description. Here is some description. Here is some description. Here is some description. Here is some description.
         </div>
     </div>
 
-   <div id="eventComments">
-        <div id="addComment">
-        $comments
+   <div class="eventMiddle">
+        <div class="eventContent">
+            $comments
         </div>
    </div>
 </div>
