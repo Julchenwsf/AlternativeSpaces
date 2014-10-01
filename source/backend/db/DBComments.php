@@ -3,8 +3,8 @@ $path = substr(realpath("."), 0, strpos(realpath("."), "/source")+7) . "/";
 include_once($path . "backend/db/DBConnection.php");
 
 
-function getComments() {
-    $result = mysql_query("SELECT * FROM comments") or die(mysql_error());
+function getComments($threadID) {
+    $result = mysql_query("SELECT comment_id, comment_parent, username, comment, time FROM comments WHERE thread_id='$threadID'") or die(mysql_error());
     $comments = array();
     while($row = mysql_fetch_assoc($result)) {
         $row['children'] = array();
@@ -27,6 +27,16 @@ function getComments() {
 
     return $comments;
 }
+
+
+function insertComment($threadID, $parent, $username, $comment) {
+    $threadID = mysql_real_escape_string($threadID);
+    $comment = mysql_real_escape_string($comment);
+    if(!is_numeric($parent)) return false;
+    mysql_query("INSERT INTO comments (thread_id, comment_parent, username, comment, time) VALUES ('$threadID', '$parent', '$username', '$comment', '" . time() ."')") or die(mysql_error());
+    return mysql_insert_id();
+}
+
 
 
 function showComment($arr) {
