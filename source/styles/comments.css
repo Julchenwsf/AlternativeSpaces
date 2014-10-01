@@ -1,10 +1,9 @@
 #commentArea {
-    padding:10px;
     color:#444444;
 }
 
 .comment {
-    margin:5px 10px;
+    margin:5px 0;
     padding:8px 10px;
     border:2px solid #cccccc;
 
