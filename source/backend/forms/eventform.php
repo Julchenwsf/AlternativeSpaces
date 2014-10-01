@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     echo <<<EOT
     <div id="regTable">
         <div id="response"></div>
-        <form id="submitTable" action="backend/forms/regform.php" method="post">
+        <form id="submitTable" action="backend/forms/eventform.php" method="post">
             <table>
                 <tr>
                     <td colspan="2" id="center">Create Event</td>
