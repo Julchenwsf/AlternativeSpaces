@@ -49,6 +49,7 @@ function addSubmit(el, parent) {
     var cText = $(el).closest('.commentText');
     var text = cText.find('textarea').val();
     var wC = $(el).closest('.commentBox');
+
     if(text.length < 4) {
         alert("Your comment is too short!");
         return false;
@@ -57,7 +58,7 @@ function addSubmit(el, parent) {
     $.ajax({
         type: "POST",
         url: "backend/forms/commentform.php",
-        data: "comment="+encodeURIComponent(text)+"&parent="+parent,
+        data: "comment=" + encodeURIComponent(text) + "&parent=" + parent + "&thread=" + $("#commentArea").attr("data-thread-id"),
         /* Sending both the text and the parent of the comment */
         success: function(msg){
             wC.replaceWith(msg);

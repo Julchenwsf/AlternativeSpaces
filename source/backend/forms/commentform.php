@@ -5,7 +5,7 @@ include_once($path . "backend/db/DBComments.php");
 function getCommentsForm($id) {
     $temp = '<div id="commentArea" data-thread-id="' . $id . '">';
 
-    $comments = getComments();
+    $comments = getComments($id);
     foreach($comments as $c) {
         $temp .= showComment($c);
     }
@@ -18,7 +18,10 @@ function getCommentsForm($id) {
 
 
 if(isset($_POST["comment"])) {
-    $arr = array("comment_id" => 4, "comment_parent" => $_POST["parent"], "username" => $_SESSION["username"], "comment" => $_POST["comment"], "time" => time());
+    if(!isLoggedIn()) return;
+    $status = insertComment($_POST["thread"], $_POST["parent"], $_SESSION["username"], $_POST["comment"]);
+    if(!$status) return;
+    $arr = array("comment_id" => $status, "comment_parent" => $_POST["parent"], "username" => $_SESSION["username"], "comment" => $_POST["comment"], "time" => time());
     echo showComment($arr);
 }
 
