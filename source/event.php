@@ -1,8 +1,7 @@
 <?
-set_include_path(get_include_path() . '/source/');
+
 include_once("backend/PageBuilder.php");
 include_once("backend/forms/commentform.php");
-
 $comments = getCommentsForm(4);
 
 $eventHeader = <<<EOT
@@ -56,7 +55,7 @@ $eventHeader = <<<EOT
 
                        <div id="eventComments">
                             <div id="addComment">
-                                $comments
+                            $comments
                             </div>
                        </div>
                    </div>

@@ -1,5 +1,6 @@
 <?
-include_once("backend/db/DBComments.php");
+$path = substr(realpath("."), 0, strpos(realpath("."), "/source")+7) . "/";
+include_once($path . "backend/db/DBComments.php");
 
 function getCommentsForm($id) {
     $temp = '<div id="commentArea" data-thread-id="' . $id . '">';
@@ -18,7 +19,7 @@ function getCommentsForm($id) {
 
 if(isset($_POST["comment"])) {
     $arr = array("comment_id" => 4, "comment_parent" => $_POST["parent"], "username" => $_SESSION["username"], "comment" => $_POST["comment"], "time" => time());
-    showComment($arr);
+    echo showComment($arr);
 }
 
 

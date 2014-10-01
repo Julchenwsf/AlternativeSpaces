@@ -1,5 +1,6 @@
 <?
-include_once("DBConnection.php");
+$path = substr(realpath("."), 0, strpos(realpath("."), "/source")+7) . "/";
+include_once($path . "backend/db/DBConnection.php");
 
 
 function getComments() {
