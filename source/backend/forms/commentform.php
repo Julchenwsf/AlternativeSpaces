@@ -12,7 +12,7 @@ function getCommentsForm($id) {
 
     $temp .= '</div>';
     if(isLoggedIn())
-        $temp .= '<input type="button" class="waveButtonMain" value="Add a comment" onclick="addComment()" />';
+        $temp .= '<input type="button" class="submitButton" value="Add a comment" onclick="addComment()" />';
     return $temp;
 }
 
