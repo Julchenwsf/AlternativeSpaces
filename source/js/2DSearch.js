@@ -88,7 +88,7 @@ function doSearch(tags, bounds, append) {
     //Format the bounding box to be on format:
     //SW_lat SW_lng,NE_lat NE_lng
     var formattedBounds = toStringCoordinate(bounds.getSouthWest()) + "," + toStringCoordinate(bounds.getNorthEast());
-    $.get("backend/db/DBPhotos?search=2D&boxloc=" + formattedBounds + "&interests=" + tags + "&page=" + pageNum, function(data) {
+    $.get("backend/db/DBPhotos.php?search=2D&boxloc=" + formattedBounds + "&interests=" + tags + "&page=" + pageNum, function(data) {
         $("#searchResults").append(data);
     });
 }
