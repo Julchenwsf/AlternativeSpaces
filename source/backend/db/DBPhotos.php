@@ -2,11 +2,12 @@
 include_once("DBConnection.php");
 
 //Function to add photo to the database
-function addPhoto($id, $title, $lat, $lng, $interests) {
+function addPhoto($title, $lat, $lng, $interests, $description) {
     $title = mysql_real_escape_string($title);                  //Run mysql_real_escape_string on all user input to avoid SQL injections
     if(!is_numeric($lat) || !is_numeric($lng)) return false;    //Lat and lng should be plain numbers
     if(!preg_match("/^[0-9 ]+$/", $interests)) return false;    //Interests string should be only space-separated numbers
-    mysql_query("INSERT INTO photos (location, photo_title, interests, upload_time, rating) VALUES ((GeomFromText('POINT(" . $lat . " " . $lng . ")')), '" . $title . "', '" . $interests . "', " . time() . ", 0)")
+    mysql_query("INSERT INTO photos (location, photo_title, interests, description, upload_time)
+    VALUES ((GeomFromText('POINT(" . $lat . " " . $lng . ")')), '" . $title . "', '" . $interests . "', '" . $description . "', " . time() . ")")
     or die(mysql_error());
     return true;
 }
