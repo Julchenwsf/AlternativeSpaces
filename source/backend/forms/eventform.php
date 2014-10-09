@@ -7,13 +7,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     echo <<<EOT
     <div id="regTable">
         <div id="response"></div>
-        <form id="submitTable" action="backend/forms/regform.php" method="post">
+        <form id="submitTable" action="backend/forms/eventform.php" method="post">
             <table>
                 <tr>
                     <td colspan="2" id="center">Event Creation</td>
                 </tr>
                     <td><input type="text" Event name="Ename" placeholder="Event name" /></td>
                     <td><input type="text" Place="Loc" placeholder="Location" /></td>
+
                 <tr>
 
                    <td>
@@ -73,6 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <tr>
                     <td >
                     Year(yyyy)<input type=text name=year size=4 value=2005>
+                    <td><input type="int" no of people="no" placeholder="No of people invited" /></td>
 
                     </table>
 
@@ -117,5 +119,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </table>
         </form>
     </div>
+    <script type="text/javascript">
+                $('#submitTable').submit(function (ev) {
+                    $.ajax({
+                        type: "POST",
+                        url: "backend/forms/eventform.php",
+                        data: $("#submitTable").serialize(),
+                        dataType: "JSON",
+                        success: function(data) {
+                           if(data["success"]) {
+                               $("#submitTable").html(""); //Hide the form
+                               $("#response").html('<div class="success">Success!</div>'); //TODO: Write better message
+                           } else {
+                               var out = "";
+                               for(var error in data["response"]) {
+                                   out += "<li>" + data["response"][error] + "</li>";
+                               }
+                               $("#response").html('<div class="error"><ul>' + out + "</ul></div>");
+                           }
+                        }
+                    });
+                    ev.preventDefault();
+              });
+     </script>
 EOT;
 } ?>
