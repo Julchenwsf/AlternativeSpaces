@@ -1,5 +1,5 @@
 var modal = (function(){
-    var method = {}, $overlay, $modal, $content, $close;
+    var method = {}, $overlay, $modal, $content, $close, closeCallback;
 
     // Center the modal in the viewport
     method.center = function () {
@@ -16,6 +16,7 @@ var modal = (function(){
 
     // Open the modal
     method.open = function (settings) {
+        closeCallback = settings.closeCallback;
         $content.empty().append(settings.content);
 
         $modal.css({
@@ -35,6 +36,7 @@ var modal = (function(){
         $overlay.hide();
         $content.empty();
         $(window).unbind('resize.modal');
+        if(closeCallback) closeCallback();
     };
 
     // Generate the HTML and add it to the document

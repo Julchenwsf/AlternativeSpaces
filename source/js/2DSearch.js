@@ -66,7 +66,7 @@ $(document).ready(function() {
 
 $(document).on('click', '.contentBox', function(e){
     var id = $(this).attr("data-photo-id");
-    window.location.href = 'photos.php?photo='+id;
+    window.history.pushState({"pageTitle": "Photo viewer"},"", 'photos.php?photo='+id);
     openPhotoOverlay(id);
 });
 
@@ -79,9 +79,12 @@ $(window).scroll(function() {
     }
 });
 
-
 function openPhotoOverlay(id) {
-    $.get("backend/forms/photoenlarge.php", {photo_id: id}, function(data){modal.open({content: data});});
+    $.get("backend/forms/photoenlarge.php", {photo_id: id}, function(data){modal.open({content: data, closeCallback:closePhotoOverlay});});
+}
+
+function closePhotoOverlay() {
+    window.history.pushState({"pageTitle": "Photo viewer"},"", 'photos.php');
 }
 
 //Function to deal with AJAX search
