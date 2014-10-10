@@ -1,4 +1,4 @@
-CREATE TABLE users (
+CREATE TABLE events (
     event_id int(9) NOT NULL AUTO_INCREMENT,
     eventname varchar(30) NOT NULL,
     DAY int(4) NOT NULL,
