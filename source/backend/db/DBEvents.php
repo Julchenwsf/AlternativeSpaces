@@ -2,7 +2,7 @@
 include('DBConnection.php');
 
 
-function addEvent($eventname, $location, $Day, $Month, $year, $hour, $Minutes) {
+function addEvent($eventname, $location, $day, $month, $year, $hour, $minutes, $no of people invited, $description) {
     $errors = array();
     $eventName = mysql_real_escape_string(trim($eventName));
     $location = mysql_real_escape_string(trim($location));
@@ -11,6 +11,8 @@ function addEvent($eventname, $location, $Day, $Month, $year, $hour, $Minutes) {
     $year = mysql_real_escape_string($year);
     $hour = mysql_real_escape_string($hour);
     $minutes = mysql_real_escape_string($minutes);
+    $no of people invited = mysql_real_escape_string($minutes);
+    $description = mysql_real_escape_string(trim($description));
 
     if(empty($eventname)) {
         array_push($errors, "eventname cannot be left blank");
