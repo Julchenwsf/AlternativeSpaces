@@ -76,6 +76,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     Year(yyyy)<input type=text name=year size=4 value=2005>
                     <td><input type="int" no of people="no" placeholder="No of people invited" /></td>
 
+                    <tr>
+                    <td colspan="2" id="center"><input type="text" Place="Description" placeholder="Description" /></td>
+
+                     </tr>
+
+
                     </table>
 
 
