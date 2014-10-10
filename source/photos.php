@@ -11,6 +11,10 @@ $sidebar = '    <div id="sidebarSearchFlex">
                     </aside>
                 </div>';
 
+if(isset($_GET["photo"])) {
+    $sidebar .= '<script type="text/javascript">openPhotoOverlay('. $_GET["photo"] .');</script>';
+}
+
 
 $pb = new PageBuilder("Photos");
 $pb->addCSSImport("styles/token-input.css");
