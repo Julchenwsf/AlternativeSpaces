@@ -1,0 +1,89 @@
+
+#eventPage .eventLeft {
+    float:left;
+    width:200px;
+    border-radius: 5px;
+    border:1px solid #CF8414;
+    background: white;
+
+}
+
+#eventPage .eventMiddle {
+    width:680px;
+    margin:0 auto 10px;
+    border-radius: 5px;
+    border:1px solid #CF8414;
+    background:white;
+}
+
+#eventPage .eventContent{
+    margin: 15px;
+    border-radius: 5px;
+    border:1px solid #CF8414;
+    padding:10px;
+}
+
+#eventPage .eventRight {
+    float:right;
+    height:auto;
+    width:200px;
+    text-align:center;
+    border-radius: 5px;
+    border:1px solid #CF8414;
+    background:white;
+    margin:0;
+}
+
+.titleText{
+    float:left;
+    margin-left: 12px;
+    color: white;
+}
+
+.commentTitle {
+    float:left;
+    margin-left:12px;
+    color: #CF8414;
+}
+
+.eventImage {
+    height:175px;
+    width:175px;
+    margin:15px auto;
+    border-radius: 5px;
+    border:1px solid #CF8414;
+}
+
+.eventImage img{
+    border-radius: 5px;
+}
+
+.eventDescription{
+    width:175px;
+    margin:15px auto;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border:1px solid #CF8414;
+}
+
+#attendButton{
+    margin: 10px auto;
+}
+
+.eventDescriptionHeader {
+    height: 20px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    background: #FDA728
+}
+
+#eventPage fieldset {
+    margin:3px 5px;
+    border: 1px solid #CF8414;
+    color: #CF8414;
+}
+
+#eventPage hr {
+    border: 0; border-top: 1px solid #CF8414;
+}
+

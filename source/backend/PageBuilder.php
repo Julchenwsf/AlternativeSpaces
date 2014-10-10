@@ -3,7 +3,8 @@ ini_set('display_errors',1);
 ini_set('display_startup_errors',1);
 error_reporting(-1);
 
-include_once("backend/functions/log.php");
+$path = substr(realpath("."), 0, strpos(realpath("."), "/source")+7) . "/";
+include_once($path . "backend/functions/log.php");
 
 
 class PageBuilder {
@@ -14,7 +15,7 @@ class PageBuilder {
     private $title;
 
     function __construct($title) {
-        $this->title = '<title>Alternative Spaces &raquo; '. $title .'</title>';
+        $this->title = '<title>Alternative Spaces &raquo; '. $title .'</title><meta charset="UTF-8">';
         $this->addJSImport("https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js");
         $this->addJSImport("js/overlay.js");
 

@@ -11,12 +11,18 @@ $sidebar = '    <div id="sidebarSearchFlex">
                     </aside>
                 </div>';
 
+if(isset($_GET["photo"])) {
+    $sidebar .= '<script type="text/javascript">openPhotoOverlay('. $_GET["photo"] .');</script>';
+}
+
 
 $pb = new PageBuilder("Photos");
 $pb->addCSSImport("styles/token-input.css");
+$pb->addCSSImport("styles/comments.css");
 $pb->addJSImport("https://maps.googleapis.com/maps/api/js?sensor=false");
 $pb->addJSImport("js/jquery.tokeninput.js");
 $pb->addJSImport("js/2DSearch.js");
+$pb->addJSImport("js/comment.js");
 
 $pb->appendContent('<div id="searchResults"></div>');
 $pb->addContentSibling($sidebar);

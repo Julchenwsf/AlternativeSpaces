@@ -1,8 +1,7 @@
 <?
 session_start();
 
-function login($userId, $username, $firstName, $lastName) {
-    $_SESSION["user_id"] = $userId;
+function login($username, $firstName, $lastName) {
     $_SESSION["username"] = $username;
     $_SESSION["first_name"] = $firstName;
     $_SESSION["last_name"] = $lastName;
@@ -14,7 +13,7 @@ function logout() {
 
 
 function isLoggedIn() {
-    return isset($_SESSION["user_id"]);
+    return isset($_SESSION["username"]);
 }
 
 if(isset($_GET["out"])) {

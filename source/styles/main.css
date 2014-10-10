@@ -5,6 +5,11 @@ body {
     background: #F5F2EC;
 }
 
+a {
+    margin:0;
+    padding:0;
+}
+
 #everything{
     display:flex;
 }
@@ -27,6 +32,7 @@ body {
     background:#FDA728;
     height:40px;
     border-bottom: 1px solid #CF8414;
+    z-index:10;
 }
 
 #navbarContent {
@@ -56,8 +62,6 @@ body {
 #login {
     height: 30px;
     width: 100px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
     border-radius: 3px;
     border: 1px solid #CF8414;
     display:inline-block;
@@ -107,7 +111,7 @@ body {
 
 }
 
-.photoBox {
+.contentBox {
 	background-color:#FDA728;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
@@ -124,18 +128,24 @@ body {
     cursor:pointer;
 }
 
-.photoBox:hover {
+.contentBox:hover {
 	background-color:#F1C871;
-	-webkit-transform: scale(1.2);
-    -moz-transform: scale(1.2);
-    -o-transform: scale(1.2);
-    transform: scale(1.2);
+    transform: scale(1.1);
     transition: all 0.3s;
-    -webkit-transition: all 0.3s;
+    z-index:1;
 }
 
-.photoBox img {
+.contentBox img {
     vertical-align:top;
+}
+
+.largeContentBox {
+    min-width: 1050px;
+    min-height: 800px;
+}
+
+#enlargedPhoto {
+    text-align:center;
 }
 
 
@@ -303,7 +313,7 @@ h2 {
     height:100%;
     background:#000;
     opacity:0.5;
-    filter:alpha(opacity=50);
+    z-index:11; /* Must be +1 over navbar */
 }
 
 #overlayModal {
@@ -311,6 +321,7 @@ h2 {
     background:rgba(0,0,0,0.2);
     border-radius:14px;
     padding:8px;
+    z-index:12; /* Must be +1 over overlay */
 }
 
 #overlayContent {
@@ -329,4 +340,5 @@ h2 {
     top:-7px;
     right:-7px;
 }
+
 
