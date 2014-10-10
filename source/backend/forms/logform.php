@@ -6,7 +6,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $status = checkLogin($_POST["username"], $_POST["password"]);
     $response = array("success" => !empty($status), "response" => (!empty($status)) ? array() : array("Incorrect username/password"));
-    login($status["user_id"], $status["username"], $status["first_name"], $status["last_name"]);
+    login($status["username"], $status["first_name"], $status["last_name"]);
     echo json_encode($response);
 
 } else if ($_SERVER['REQUEST_METHOD'] == 'GET') {

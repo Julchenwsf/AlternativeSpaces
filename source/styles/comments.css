@@ -1,0 +1,56 @@
+#commentArea {
+    color:#444444;
+}
+
+.comment {
+    margin:5px 0;
+    padding:8px 10px;
+    border:1px solid #CF8414;
+
+    /* Rounding the comment */
+    -moz-border-radius:6px;
+    -khtml-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius:6px;
+
+    overflow:hidden;
+}
+
+.textArea {
+    padding:4px;
+    font-family:Arial,Helvetica,Sans-serif;
+    font-size:12px;
+    color:#666666;
+    border:1px solid #66aff9;
+    margin-bottom:10px;
+}
+
+.commentReply {
+    float:right;
+}
+
+.commentText {
+    margin-left:40px;
+}
+
+.commentAvatar {
+    width:30px;
+    height:30px;
+    float:left;
+    margin-right:10px;
+}
+
+.commentName{
+    font-weight:bold;
+    color:#999999;
+}
+
+.commentTime {
+    color:#999999;
+    float:right;
+    font-size:10px;
+}
+
+.commentBox .commentBox{
+    padding-left:30px;
+}

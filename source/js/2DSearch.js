@@ -64,8 +64,10 @@ $(document).ready(function() {
 });
 
 
-$(document).on('click', '.photoBox', function(e){
-    //Is called when used clicks on one of the photos - TODO: Expand it to include various photo data (i.e. votes, title...) and comments
+$(document).on('click', '.contentBox', function(e){
+    var id = $(this).attr("data-photo-id");
+    window.location.href = 'photos.php?photo='+id;
+    openPhotoOverlay(id);
 });
 
 
@@ -78,6 +80,10 @@ $(window).scroll(function() {
 });
 
 
+function openPhotoOverlay(id) {
+    $.get("backend/forms/photoenlarge.php", {photo_id: id}, function(data){modal.open({content: data});});
+}
+
 //Function to deal with AJAX search
 function doSearch(tags, bounds, append) {
     if(!append) {   //Set append to true in order to append the result to already existing results. If false, the previous results are cleared
@@ -88,7 +94,7 @@ function doSearch(tags, bounds, append) {
     //Format the bounding box to be on format:
     //SW_lat SW_lng,NE_lat NE_lng
     var formattedBounds = toStringCoordinate(bounds.getSouthWest()) + "," + toStringCoordinate(bounds.getNorthEast());
-    $.get("backend/db/DBPhotos?search=2D&boxloc=" + formattedBounds + "&interests=" + tags + "&page=" + pageNum, function(data) {
+    $.get("backend/db/DBPhotos.php?search=2D&boxloc=" + formattedBounds + "&interests=" + tags + "&page=" + pageNum, function(data) {
         $("#searchResults").append(data);
     });
 }
