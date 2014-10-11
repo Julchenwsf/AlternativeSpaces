@@ -20,6 +20,14 @@ function removePhoto($id) {
 }
 
 
+function getPhotoDetails($id) {
+    if(!is_numeric($id)) return false;
+    $result = mysql_query("SELECT * FROM photos WHERE photo_id='$id'") or die(mysql_error());
+    $row = mysql_fetch_assoc($result);
+    return $row;
+}
+
+
 //Parameters format:
 //  Tags: +[interest_id] +[interest_id2]
 //  Bounds: SW_lat SW_lng, NE_lat NE_lng
