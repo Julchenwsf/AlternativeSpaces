@@ -24,7 +24,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                    <td>
                     Month<select name=month >
-
                     <option value='01'>Jan</option>
                     <option value='02'>Feb</option>
                     <option value='03'>Mar</option>
@@ -42,8 +41,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     </td><td>
                     Day<select name=dt >
                     <option value='01'>01</option>
-
-
                     <option value='02'>02</option>
                     <option value='03'>03</option>
                     <option value='04'>04</option>
@@ -85,18 +82,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <td colspan="2" id="center"><input type="text" Place="Description" placeholder="Description" /></td>
 
                      </tr>
-
-
                     </table>
-
-
-                                   </select>
-                                        </td>
+                            </select>
+                                    </td>
                                     </tr>
                                     Hour<select name=hr >
                                                         <option value='01'>01</option>
-
-
                                                         <option value='02'>02</option>
                                                         <option value='03'>03</option>
                                                         <option value='04'>04</option>
@@ -125,33 +116,33 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                          </tr>
                                Min(mm)<input type=text name=min size=2 value=00>
 
-                    <td colspan="2" id="center"><input class="submitButton" name="eventformSubmit" type="submit" value="Create Event" /></td>
-                </tr>
-            </table>
+                  <td colspan="2" id="center"><input class="submitButton" name="eventformSubmit" type="submit" value="Create Event" /></td>
+               </tr>
+           </table>
         </form>
     </div>
     <script type="text/javascript">
-        $('#submitTable').submit(function (ev) {
-            $.ajax({
-                type: "POST",
-                url: "backend/forms/eventform.php",
-                data: $("#submitTable").serialize(),
-                dataType: "JSON",
-                success: function(data) {
-                   if(data["success"]) {
-                       $("#submitTable").html(""); //Hide the form
-                       $("#response").html('<div class="success">Success!</div>'); //TODO: Write better message
-                   } else {
-                       var out = "";
-                       for(var error in data["response"]) {
-                           out += "<li>" + data["response"][error] + "</li>";
-                       }
-                       $("#response").html('<div class="error"><ul>' + out + "</ul></div>");
+    $('#submitTable').submit(function (ev) {
+        $.ajax({
+            type: "POST",
+            url: "backend/forms/eventform.php",
+            data: $("#submitTable").serialize(),
+            dataType: "JSON",
+            success: function(data) {
+                if(data["success"]) {
+                   $("#submitTable").html(""); //Hide the form
+                   $("#response").html('<div class="success">Success!</div>'); //TODO: Write better message
+                } else {
+                   var out = "";
+                   for(var error in data["response"]) {
+                       out += "<li>" + data["response"][error] + "</li>";
                    }
+                   $("#response").html('<div class="error"><ul>' + out + "</ul></div>");
                 }
-            });
-            ev.preventDefault();
+            }
         });
-        </script>
+        ev.preventDefault();
+    });
+    </script>
 EOT;
 } ?>
