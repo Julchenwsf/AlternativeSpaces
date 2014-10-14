@@ -1,6 +1,7 @@
 <?
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+include_once("../db/DBevents.php");
 
 
 } else if ($_SERVER['REQUEST_METHOD'] == 'GET') {

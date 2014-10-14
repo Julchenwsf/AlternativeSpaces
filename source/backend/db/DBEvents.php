@@ -2,9 +2,9 @@
 include('DBConnection.php');
 
 
-function addEvent($eventname, $location, $day, $month, $year, $hour, $minutes, $no of people invited, $description) {
+function addEvent($event_name, $location, $day, $month, $year, $hour, $minutes, $no of people invited, $description) {
     $errors = array();
-    $eventName = mysql_real_escape_string(trim($eventName));
+    $event_name = mysql_real_escape_string(trim($event_name));
     $location = mysql_real_escape_string(trim($location));
     $day = mysql_real_escape_string($day);
     $month = mysql_real_escape_string($month);
@@ -14,13 +14,13 @@ function addEvent($eventname, $location, $day, $month, $year, $hour, $minutes, $
     $no of people invited = mysql_real_escape_string($minutes);
     $description = mysql_real_escape_string(trim($description));
 
-    if(empty($eventname)) {
-        array_push($errors, "eventname cannot be left blank");
+    if(empty($event_name)) {
+        array_push($errors, "event_name cannot be left blank");
     } else {
-        if (!preg_match("/^[a-zA-Z0-9 ]*$/", $username)) {
-            array_push($errors, "Username can only contain letters, numbers and whitespace");
-        } else if(usernameExists($username)) {
-            array_push($errors, $username . " is already taken. Select another username");
+        if (!preg_match("/^[a-zA-Z0-9 ]*$/", $event_name)) {
+            array_push($errors, "event_name can only contain letters, numbers and whitespace");
+        } else if(event_nameExists($username)) {
+            array_push($errors, $event_name . " is already taken. Select another event_name");
         }
     }
 
@@ -54,19 +54,19 @@ function addEvent($eventname, $location, $day, $month, $year, $hour, $minutes, $
 }
 
 
-function fetchEvent($eventname, $event_id) {
-    $eventname = mysql_real_escape_string($eventname);
+function fetchEvent($event_name, $event_id) {
+    $event_name = mysql_real_escape_string($event_name);
     $event_id = mysql_real_escape_string($event_id);
 
-    $result = mysql_query("SELECT * FROM events WHERE username='$eventname' AND event_id='$event_id'") or die(mysql_error());
+    $result = mysql_query("SELECT * FROM events WHERE username='$event_name' AND event_id='$event_id'") or die(mysql_error());
     $row = mysql_fetch_assoc($result);
     return $row;
 }
 
 
-function eventnameExists($eventname) {
-    $eventname = mysql_real_escape_string($eventname);
-    $query = mysql_query("SELECT eventname FROM events WHERE eventname='" . $eventname . "'") or die(mysql_error());
+function even_tnameExists($event_name) {
+    $event_name = mysql_real_escape_string($event_name);
+    $query = mysql_query("SELECT event_name FROM events WHERE event_name='" . $event_name . "'") or die(mysql_error());
     return mysql_num_rows($query) != 0;
 }
 
