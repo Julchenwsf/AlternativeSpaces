@@ -70,4 +70,10 @@ function eventnameExists($eventname) {
     return mysql_num_rows($query) != 0;
 }
 
+function eventTimeFormat($t){
+    if(date('d')==date('d', $t)) return date('H:i', $t);
+    return date('j. M Y \a\t H:i', $t);
+}
+
+
 ?>
