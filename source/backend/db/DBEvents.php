@@ -11,7 +11,7 @@ function addEvent($event_name, $location, $day, $month, $year, $hour, $minutes, 
     $year = mysql_real_escape_string($year);
     $hour = mysql_real_escape_string($hour);
     $minutes = mysql_real_escape_string($minutes);
-    $no of people invited = mysql_real_escape_string($minutes);
+    $no_of_people_invited = mysql_real_escape_string($minutes);
     $description = mysql_real_escape_string(trim($description));
 
     if(empty($event_name)) {
@@ -49,7 +49,7 @@ function addEvent($event_name, $location, $day, $month, $year, $hour, $minutes, 
             }
 
 
-    if(empty($errors)) mysql_query("INSERT INTO events (event_name, location, day, month, year, hour, minutes) VALUES ('$eventName', '$location', '$day', '$month', '$year', '$hour', '$minutes')") or array_push($errors, mysql_error());
+    if(empty($errors)) mysql_query("INSERT INTO events (event_name, location,no_of_people, day, month, year,description, hour, minutes) VALUES ('$event_name', '$location', '$no_of_people', '$day', '$month', '$year', '$description', '$hour', '$minutes')") or array_push($errors, mysql_error());
     return $errors;
 }
 
