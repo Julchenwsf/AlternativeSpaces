@@ -10,7 +10,7 @@ $status = addEvent($_POST["event_name"], $_POST["location"], $_POST["day"], $_PO
 
 } else if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     echo <<<EOT
-    <div id="eventTable">
+    <div id="regTable">
         <div id="response"></div>
         <form id="submitTable" action="backend/forms/eventform.php" method="post">
             <table>
