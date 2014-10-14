@@ -2,11 +2,15 @@
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 include_once("../db/DBEvents.php");
+$status = addEvent($_POST["event_name"], $_POST["location"], $_POST["day"], $_POST["month"], $_POST["year"],
+ $_POST["hour"], $_POST["min"]);
+    $response = array("success" => empty($status), "response" => $status);
+    echo json_encode($response);
 
 
 } else if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     echo <<<EOT
-    <div id="regTable">
+    <div id="eventTable">
         <div id="response"></div>
         <form id="submitTable" action="backend/forms/eventform.php" method="post">
             <table>
