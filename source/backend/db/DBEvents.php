@@ -58,13 +58,13 @@ function fetchEvent($event_name, $event_id) {
     $event_name = mysql_real_escape_string($event_name);
     $event_id = mysql_real_escape_string($event_id);
 
-    $result = mysql_query("SELECT * FROM events WHERE username='$event_name' AND event_id='$event_id'") or die(mysql_error());
+    $result = mysql_query("SELECT * FROM events WHERE event_name='$event_name' AND event_id='$event_id'") or die(mysql_error());
     $row = mysql_fetch_assoc($result);
     return $row;
 }
 
 
-function even_tnameExists($event_name) {
+function event_nameExists($event_name) {
     $event_name = mysql_real_escape_string($event_name);
     $query = mysql_query("SELECT event_name FROM events WHERE event_name='" . $event_name . "'") or die(mysql_error());
     return mysql_num_rows($query) != 0;
