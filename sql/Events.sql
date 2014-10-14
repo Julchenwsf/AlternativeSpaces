@@ -2,8 +2,8 @@ CREATE TABLE events (
     event_id int(9) NOT NULL AUTO_INCREMENT,
     location Text NOT NULL,
     event_time int(11) NOT NULL,
-    eventname varchar(30) NOT NULL,
-    no of people(9) NOT NULL,
+    event_name varchar(30) NOT NULL,
+    no_of_people int(9) NOT NULL,
     description Text NOT NULL,
     PRIMARY KEY (event_id)
 ) ENGINE=MyISAM
