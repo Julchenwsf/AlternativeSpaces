@@ -1,2 +1,7 @@
 .idea/
 *.iml
+*.pdf
+*.synctex.gz
+*.aux
+*.log
+*.toc
