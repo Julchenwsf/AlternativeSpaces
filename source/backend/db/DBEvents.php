@@ -19,7 +19,7 @@ function addEvent($event_name, $location, $day, $month, $year, $hour, $minutes, 
     } else {
         if (!preg_match("/^[a-zA-Z0-9 ]*$/", $event_name)) {
             array_push($errors, "event_name can only contain letters, numbers and whitespace");
-        } else if(event_nameExists($username)) {
+        } else if(event_nameExists($event_name)) {
             array_push($errors, $event_name . " is already taken. Select another event_name");
         }
     }
