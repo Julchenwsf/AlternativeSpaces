@@ -3,13 +3,38 @@ include_once("DBConnection.php");
 
 //Function to add photo to the database
 function addPhoto($title, $lat, $lng, $interests, $description) {
+    $errors = array();
     $title = mysql_real_escape_string($title);                  //Run mysql_real_escape_string on all user input to avoid SQL injections
     $description = mysql_real_escape_string($description);
-    if(!is_numeric($lat) || !is_numeric($lng)) return false;    //Lat and lng should be plain numbers
-    if(!preg_match("/^[0-9 ]+$/", $interests)) return false;    //Interests string should be only space-separated numbers
-    mysql_query("INSERT INTO photos (location, photo_title, interests, description, upload_time)
-    VALUES ((GeomFromText('POINT(" . $lat . " " . $lng . ")')), '" . $title . "', '" . $interests . "', '" . $description . "', " . time() . ")") or die(mysql_error());
-    return mysql_insert_id();
+
+    if(!is_numeric($lat) || !is_numeric($lng)) {
+        $errors[] = "Illegal latitude or longitude";           //Lat and lng should be plain numbers
+    }
+
+    if(!preg_match("/^[0-9 ]+$/", $interests)){
+        $errors[] = "Illegal interest ids";                    //Interests string should be only space-separated numbers
+    }
+
+    if(strlen($title) < 4) {
+        $errors[] = "Title too short (min 4 characters)";
+    } else if(strlen($title) > 50) {
+        $errors[] = "Title too long (max 50 characters)";
+    }
+
+    if(strlen($description) < 10) {
+        $errors[] = "Description too short (min 10 characters)";
+    } else if(strlen($description) > 1000) {
+        $errors[] = "Description too long (max 1000 characters)";
+    }
+
+    $numInterests = sizeof(explode(" ", $interests));
+    if($numInterests < 1) {
+        $errors[] = "Enter at least 1 interest";
+    }
+
+    if(empty($errors)) mysql_query("INSERT INTO photos (location, photo_title, interests, description, upload_time)
+    VALUES ((GeomFromText('POINT(" . $lat . " " . $lng . ")')), '" . $title . "', '" . $interests . "', '" . $description . "', " . time() . ")") or array_push($errors, mysql_error());
+    return (empty($errors)) ? mysql_insert_id() : $errors;
 }
 
 
