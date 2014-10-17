@@ -2,7 +2,7 @@
 include_once("DBConnection.php");
 
 //Function to add photo to the database
-function addPhoto($title, $lat, $lng, $interests, $description) {
+function addPhoto($uploader, $title, $lat, $lng, $interests, $description) {
     $errors = array();
     $title = mysql_real_escape_string($title);                  //Run mysql_real_escape_string on all user input to avoid SQL injections
     $description = mysql_real_escape_string($description);
@@ -32,8 +32,8 @@ function addPhoto($title, $lat, $lng, $interests, $description) {
         $errors[] = "Enter at least 1 interest";
     }
 
-    if(empty($errors)) mysql_query("INSERT INTO photos (location, photo_title, interests, description, upload_time)
-    VALUES ((GeomFromText('POINT(" . $lat . " " . $lng . ")')), '" . $title . "', '" . $interests . "', '" . $description . "', " . time() . ")") or array_push($errors, mysql_error());
+    if(empty($errors)) mysql_query("INSERT INTO photos (location, photo_title, photo_uploader, interests, description, upload_time)
+    VALUES ((GeomFromText('POINT(" . $lat . " " . $lng . ")')), '$title', '$uploader', '$interests', '$description', " . time() . ")") or array_push($errors, mysql_error());
     return (empty($errors)) ? mysql_insert_id() : $errors;
 }
 

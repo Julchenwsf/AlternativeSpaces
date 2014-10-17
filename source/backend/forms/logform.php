@@ -1,12 +1,10 @@
 <?
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    include_once("../db/DBUsers.php");
     include_once("../functions/log.php");
 
-    $status = checkLogin($_POST["username"], $_POST["password"]);
+    $status = loginPlainText($_POST["username"], $_POST["password"]);
     $response = array("success" => !empty($status), "response" => (!empty($status)) ? array() : array("Incorrect username/password"));
-    login($status["username"], $status["first_name"], $status["last_name"]);
     echo json_encode($response);
 
 } else if ($_SERVER['REQUEST_METHOD'] == 'GET') {

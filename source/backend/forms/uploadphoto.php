@@ -2,9 +2,12 @@
 $path = substr(realpath("."), 0, strpos(realpath("."), "/source")+7) . "/";
 include_once($path . "backend/db/DBPhotos.php");
 include_once($path . "backend/functions/image.php");
+include_once($path . "backend/functions/log.php");
 
 
 if(isset($_FILES['image'])) {
+    if(!isLoggedIn() && isset($_POST["username"]) && isset($_POST["password"])) login($_POST["username"], $_POST["password"]);
+
     $status = uploadImage($_POST["title"], $_POST["interests"], $_POST["description"], $_FILES["image"]);
     $response = array("success" => empty($status) == "OK", "response" => $status);
     echo json_encode($response);
@@ -28,7 +31,7 @@ function uploadImage($title, $interests, $description, $image) {
     list($lat, $lng) = $coordinates;
 
     if(!empty($errors)) return $errors;
-    $photoID = addPhoto($title, $lat, $lng, $interests, $description);
+    $photoID = addPhoto($_SESSION["username"], $title, $lat, $lng, $interests, $description);
     if(!is_numeric($photoID)) return $photoID;
 
     if(!(scaleImage($image, 1024, 1024, $uploaddir . "large/" . $photoID . "." . $ext) and scaleImage($image, 240, 240, $uploaddir . "thumb/" . $photoID . "." . $ext))) {
