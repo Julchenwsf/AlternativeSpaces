@@ -2,7 +2,7 @@
 include('DBConnection.php');
 
 
-function addEvent($event_name, $location, $day, $month, $year, $hour, $minutes, $no of people invited, $description) {
+function addEvent($event_name, $location, $day, $month, $year, $hour, $minutes, $noOfPeople, $description) {
     $errors = array();
     $event_name = mysql_real_escape_string(trim($event_name));
     $location = mysql_real_escape_string(trim($location));
@@ -11,7 +11,7 @@ function addEvent($event_name, $location, $day, $month, $year, $hour, $minutes, 
     $year = mysql_real_escape_string($year);
     $hour = mysql_real_escape_string($hour);
     $minutes = mysql_real_escape_string($minutes);
-    $no_of_people_invited = mysql_real_escape_string($minutes);
+    $noOfPeople = mysql_real_escape_string($noOfPeople);
     $description = mysql_real_escape_string(trim($description));
 
     if(empty($event_name)) {
@@ -19,8 +19,6 @@ function addEvent($event_name, $location, $day, $month, $year, $hour, $minutes, 
     } else {
         if (!preg_match("/^[a-zA-Z0-9 ]*$/", $event_name)) {
             array_push($errors, "event_name can only contain letters, numbers and whitespace");
-        } else if(event_nameExists($event_name)) {
-            array_push($errors, $event_name . " is already taken. Select another event_name");
         }
     }
 
@@ -41,15 +39,15 @@ function addEvent($event_name, $location, $day, $month, $year, $hour, $minutes, 
     }
 
     if(empty($hour)) {
-            array_push($errors, "hour cannot be left blank");
-        }
+        array_push($errors, "hour cannot be left blank");
+    }
 
-        if(empty($minutes)) {
-                array_push($errors, "minutes cannot be left blank");
-            }
+    if(empty($minutes)) {
+        array_push($errors, "minutes cannot be left blank");
+    }
 
 
-    if(empty($errors)) mysql_query("INSERT INTO events (event_name, location, no_of_people, day, month, year, description, hour, minutes) VALUES ('$event_name', '$location', '$no_of_people', '$day', '$month', '$year', '$description', '$hour', '$minutes')") or array_push($errors, mysql_error());
+    if(empty($errors)) mysql_query("INSERT INTO events (event_name, location, no_of_people, day, month, year, description, hour, minutes) VALUES ('$event_name', '$location', '$noOfPeople', '$day', '$month', '$year', '$description', '$hour', '$minutes')") or array_push($errors, mysql_error());
     return $errors;
 }
 
@@ -64,16 +62,10 @@ function fetchEvent($event_name, $event_id) {
 }
 
 
-function event_nameExists($event_name) {
-    $event_name = mysql_real_escape_string($event_name);
-    $query = mysql_query("SELECT event_name FROM events WHERE event_name='" . $event_name . "'") or die(mysql_error());
-    return mysql_num_rows($query) != 0;
-}
 
 function eventTimeFormat($t){
     if(date('d')==date('d', $t)) return date('H:i', $t);
     return date('j. M Y \a\t H:i', $t);
 }
-
 
 ?>
