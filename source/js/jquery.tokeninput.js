@@ -28,6 +28,7 @@ var DEFAULT_SETTINGS = {
     hintText: "Type in a search term",
     noResultsText: "No results",
     searchingText: "Searching...",
+    searchingHint: "Search",
     deleteText: "&times;",
     animateDropdown: true,
     theme: null,
@@ -235,7 +236,7 @@ $.TokenList = function (input, url_or_data, settings) {
     var input_val;
 
     // Create a new text input an attach keyup events
-    var input_box = $("<input type=\"text\"  autocomplete=\"off\" placeholder=\"Interests\">")
+    var input_box = $("<input type=\"text\"  autocomplete=\"off\" placeholder=\"" + $(input).data("settings").searchingHint + "\">")
         .css({
             outline: "none"
         })

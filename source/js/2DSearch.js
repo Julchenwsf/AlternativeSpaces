@@ -24,54 +24,22 @@ function initializeGMaps() {
         styles: styles };
     map = new google.maps.Map(document.getElementById("sidebarSearchMap"), mapOptions);
 
-    var markers = []
+    var autocomplete = new google.maps.places.Autocomplete(document.getElementById('input-address-search'));
+    autocomplete.bindTo('bounds', map);
 
-    var input = (document.getElementById('input-address-search'));
+    google.maps.event.addListener(autocomplete, 'place_changed', function() {
+        var place = autocomplete.getPlace();
+        if (!place.geometry) return;
 
-    var searchBox = new google.maps.places.SearchBox((input));
-
-      google.maps.event.addListener(searchBox, 'places_changed', function() {
-        var places = searchBox.getPlaces();
-
-        if (places.length == 0) {
-          return;
+        // If the place has a geometry, then present it on a map.
+        if (place.geometry.viewport) {
+            map.fitBounds(place.geometry.viewport);
+        } else {
+            map.setCenter(place.geometry.location);
+            map.setZoom(17);  // Why 17? Because it looks good.
         }
-        for (var i = 0, marker; marker = markers[i]; i++) {
-          marker.setMap(null);
-        }
+    });
 
-        // For each place, get the icon, place name, and location.
-        markers = [];
-        var bounds = new google.maps.LatLngBounds();
-        for (var i = 0, place; place = places[i]; i++) {
-          var image = {
-            url: place.icon,
-            size: new google.maps.Size(71, 71),
-            origin: new google.maps.Point(0, 0),
-            anchor: new google.maps.Point(17, 34),
-            scaledSize: new google.maps.Size(25, 25)
-          };
-
-          // Create a marker for each place.
-          var marker = new google.maps.Marker({
-            map: map,
-            icon: image,
-            title: place.name,
-            position: place.geometry.location
-          });
-
-          markers.push(marker);
-
-          bounds.extend(place.geometry.location);
-        }
-
-        map.fitBounds(bounds);
-      });
-
-        google.maps.event.addListener(map, 'bounds_changed', function() {
-          var bounds = map.getBounds();
-          searchBox.setBounds(bounds);
-        });
 
 
     google.maps.event.addListener(map, "dragend", function() {      //Listener for when the map is dragged, fires at the end of drag.
@@ -97,6 +65,7 @@ $(document).ready(function() {
         tokenLimit: 9,                  //Number of maximum simultaneous tags/interests
         resultsLimit: 10,               //Number of maximum auto-complete "suggestions"
         preventDuplicates: true,        //Ignore duplicate tags
+        searchingHint: "Interests",
         propertyToSearch: "interest_name",  //Property to search in the JS dict structure
         tokenValue: "interest_id",
         resultsFormatter: function(item){   //Custom formatting for the auto-complete results
