@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     echo <<<EOT
     <div id="eventTable" class="submitTable">
         <div id="response"></div>
-        <form action="backend/forms/eventform.php" method="post" onkeypress="return event.keyCode != 13;">
+        <form id="newEventForm" action="backend/forms/eventform.php" method="post" onkeypress="return event.keyCode != 13;">
             <table>
                 <tr>
                     <td colspan="2" id="center">Event Creation</td>
@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </form>
     </div>
     <script type="text/javascript">
-    $('#submitTable').submit(function (ev) {
+    $('#newEventForm').submit(function (ev) {
         $.ajax({
             type: "POST",
             url: "backend/forms/eventform.php",

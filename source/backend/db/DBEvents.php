@@ -2,7 +2,7 @@
 include('DBConnection.php');
 
 
-function addEvent($event_name, $description, $lat, $lng, $numPeople, $time) {
+function addEvent($event_name, $description, $interests, $lat, $lng, $numPeople, $time) {
     $errors = array();
     $event_name = mysql_real_escape_string(trim($event_name));
     $numPeople = mysql_real_escape_string($numPeople);
@@ -32,6 +32,13 @@ function addEvent($event_name, $description, $lat, $lng, $numPeople, $time) {
 
     if(!is_numeric($numPeople)) {
         array_push($errors, "Number of people must be a number");
+    }
+
+    $numInterests = sizeof(explode(" ", $interests));
+    if($numInterests < 1) {
+        array_push($errors, "Enter at least 1 interest");
+    } elseif (!preg_match("/^[0-9 ]*$/", $interests)) {
+        array_push($errors, "Illegal interests");
     }
 
     if(empty($errors)) mysql_query("INSERT INTO events (event_name, location, no_of_people, description, event_time) VALUES ('$event_name', (GeomFromText('POINT(" . $lat . " " . $lng . ")')), '$numPeople', '$description', '$time')") or array_push($errors, mysql_error());

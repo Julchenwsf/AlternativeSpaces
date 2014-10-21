@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     echo <<<EOT
     <div id="regTable" class="submitTable">
         <div id="response"></div>
-        <form action="backend/forms/logform.php" method="post">
+        <form id="loginForm" action="backend/forms/logform.php" method="post">
             <table>
                 <tr>
                     <td colspan="2" id="center">Login</td>
@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </form>
     </div>
     <script type="text/javascript">
-    $('#submitTable').submit(function (ev) {
+    $('#loginForm').submit(function (ev) {
         $.ajax({
             type: "POST",
             url: "backend/forms/logform.php",
