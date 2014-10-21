@@ -41,7 +41,7 @@ class PageBuilder {
         $navbar = '<div id="navbar">
                        <div id="navbarContent">
                            <div id="navbarLogo"><a href="index.php"><img src="img/design/logo.png" /></a></div>
-                           <div id="navbarTitle">Alternative Spaces</div>'
+                           <div id="navbarTitle">Spaces</div>'
                            . $logged.
                        '</div>
                    </div>';

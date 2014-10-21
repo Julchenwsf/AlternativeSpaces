@@ -1,4 +1,11 @@
 \documentclass[11pt]{report}
+%%%%%%%%%%
+%Import Packages
+\usepackage{graphicx}
+\usepackage{titlesec}
+\usepackage{caption}
+\usepackage[table]{xcolor}
+%%%%%%%%%%
 
 \begin{document}
 
@@ -29,12 +36,13 @@
 \maketitle
 \end{titlepage}
 
+\input{./Abstract/Abstract}
 \tableofcontents
 
-\input{./Chapter1}
-%\input{./Chapter2}
+\input{./Introduction/Introduction}
 %\input{./Chapter3}
-%\input{./Chapter4}
+\input{./Sprint1/Sprint1}
+%\input{./Sprint2/Sprint2}
 %\input{./Chapter5}
 %\input{./Chapter6}
 %\input{./Chapter7}
@@ -44,5 +52,8 @@
 %\input{./Chapter11}
 %\input{./Chapter12}
 \appendix
-\input{./ProjectPlan}
+
+
+%\input{./ProjectPlan}
 \end{document}
+

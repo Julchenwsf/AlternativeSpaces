@@ -51,11 +51,11 @@ function addUser($username, $password, $firstName, $lastName, $gender) {
 
 function checkLogin($username, $password) {
     $username = mysql_real_escape_string($username);
-    $password = sha1($password);
+    $password = mysql_real_escape_string($password);
 
-    $result = mysql_query("SELECT * FROM users WHERE username='$username' AND password='$password'") or die(mysql_error());
+    $result = mysql_query("SELECT * FROM users WHERE username='$username'") or die(mysql_error());
     $row = mysql_fetch_assoc($result);
-    return $row;
+    return (sha1($row["password"]) == $password) ? $row : array();
 }
 
 
