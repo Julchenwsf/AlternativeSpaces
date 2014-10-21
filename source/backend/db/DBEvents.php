@@ -2,17 +2,17 @@
 include('DBConnection.php');
 
 
-function addEvent($event_name, $location, $day, $month, $year, $hour, $minutes, $noOfPeople, $description) {
+function addEvent($event_name, $location, $Day, $Month, $Year, $no_of_People, $description, $Hour, $Min) {
     $errors = array();
     $event_name = mysql_real_escape_string(trim($event_name));
     $location = mysql_real_escape_string(trim($location));
-    $day = mysql_real_escape_string($day);
-    $month = mysql_real_escape_string($month);
-    $year = mysql_real_escape_string($year);
-    $hour = mysql_real_escape_string($hour);
-    $minutes = mysql_real_escape_string($minutes);
-    $noOfPeople = mysql_real_escape_string($noOfPeople);
+    $Day = mysql_real_escape_string($Day);
+    $Month = mysql_real_escape_string($Month);
+    $Year = mysql_real_escape_string($Year);
+    $no_of_People = mysql_real_escape_string($no_of_People);
     $description = mysql_real_escape_string(trim($description));
+    $Hour = mysql_real_escape_string($Hour);
+    $Min = mysql_real_escape_string($Min);
 
     if(empty($event_name)) {
         array_push($errors, "event_name cannot be left blank");
@@ -26,28 +26,28 @@ function addEvent($event_name, $location, $day, $month, $year, $hour, $minutes, 
         array_push($errors, "location cannot be left blank");
     }
 
-    if(empty($day)) {
+    if(empty($Day)) {
         array_push($errors, "Day cannot be left blank");
     }
 
-    if(empty($month)) {
+    if(empty($Month)) {
         array_push($errors, "Month cannot be left blank");
     }
 
-    if(empty($year)) {
+    if(empty($Year)) {
         array_push($errors, "year cannot be left blank");
     }
 
-    if(empty($hour)) {
-        array_push($errors, "hour cannot be left blank");
+    if(empty($Hour)) {
+        array_push($errors, "Hour cannot be left blank");
     }
 
-    if(empty($minutes)) {
-        array_push($errors, "minutes cannot be left blank");
+    if(empty($Min)) {
+        array_push($errors, "Min cannot be left blank");
     }
 
-
-    if(empty($errors)) mysql_query("INSERT INTO events (event_name, location, no_of_people, day, month, year, description, hour, minutes) VALUES ('$event_name', '$location', '$noOfPeople', '$day', '$month', '$year', '$description', '$hour', '$minutes')") or array_push($errors, mysql_error());
+    $unixtime = strtotime($Year . "-" . $Month . "-" . $Day . " " . $Hour . ":" . $Min . ":00");
+    if(empty($errors)) mysql_query("INSERT INTO events (event_name, location, no_of_people, description, event_time) VALUES ('$event_name', '$location', '$noOfPeople', '$description', '$unixtime')") or array_push($errors, mysql_error());
     return $errors;
 }
 

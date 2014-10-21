@@ -2,8 +2,8 @@
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   include_once("../db/DBEvents.php");
-  $status = addEvent($_POST["event_name"], $_POST["location"], $_POST["day"], $_POST["month"], $_POST["year"],
-  $_POST["no_of_people"], $_POST["description"], $_POST["hour"], $_POST["min"]);
+  $status = addEvent($_POST["event_name"], $_POST["location"], $_POST["Day"], $_POST["Month"], $_POST["Year"],
+  $_POST["no_of_people"], $_POST["description"], $_POST["Hour"], $_POST["Min"]);
     $response = array("success" => empty($status), "response" => $status);
     echo json_encode($response);
 
@@ -17,13 +17,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <tr>
                     <td colspan="2" id="center">Event Creation</td>
                 </tr>
-                    <td><input type="text" Event name="Ename" placeholder="Event name" /></td>
-                    <td><input type="text" Place="Loc" placeholder="Location" /></td>
+                    <td><input type="text" name="event_name" placeholder="Event name" /></td>
+                    <td><input type="text" name="location" placeholder="Location" /></td>
 
                 <tr>
 
                    <td>
-                    Month<select name=month >
+                    Month<select name=Month >
                     <option value='01'>Jan</option>
                     <option value='02'>Feb</option>
                     <option value='03'>Mar</option>
@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     </select>
 
                     </td><td>
-                    Day<select name=dt >
+                    Day<select name=Day >
                     <option value='01'>01</option>
                     <option value='02'>02</option>
                     <option value='03'>03</option>
@@ -75,18 +75,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                     <tr>
                     <td >
-                    Year(yyyy)<input type=text name=year size=4 value=2005>
+                    Year(yyyy)<input type=text name=Year size=4 value=2005>
                     <td><input type="int" no of people="no" placeholder="No of people invited" /></td>
 
                     <tr>
                     <td colspan="2" id="center"><input type="text" Place="Description" placeholder="Description" /></td>
 
                      </tr>
-                    </table>
+
                             </select>
                                     </td>
                                     </tr>
-                                    Hour<select name=hr >
+                                    <tr>
+                                    <td>
+                                    Hour<select name="Hour" >
                                                         <option value='01'>01</option>
                                                         <option value='02'>02</option>
                                                         <option value='03'>03</option>
@@ -113,8 +115,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                         <option value='24'>24</option>
                                                          </select>
                                                          </td>
-                                                         </tr>
-                               Min(mm)<input type=text name=min size=2 value=00>
+
+                     <td>
+
+                               Min(mn)<input type=text name="Min" size=2 value=00>
+                    </td>
+                </tr>
 
                   <td colspan="2" id="center"><input class="submitButton" name="eventformSubmit" type="submit" value="Create Event" /></td>
                </tr>
