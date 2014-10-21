@@ -52,11 +52,10 @@ function addEvent($event_name, $location, $Day, $Month, $Year, $no_of_People, $d
 }
 
 
-function fetchEvent($event_name, $event_id) {
-    $event_name = mysql_real_escape_string($event_name);
+function fetchEvent($event_id) {
     $event_id = mysql_real_escape_string($event_id);
 
-    $result = mysql_query("SELECT * FROM events WHERE event_name='$event_name' AND event_id='$event_id'") or die(mysql_error());
+    $result = mysql_query("SELECT * FROM events WHERE event_id='$event_id'") or die(mysql_error());
     $row = mysql_fetch_assoc($result);
     return $row;
 }
