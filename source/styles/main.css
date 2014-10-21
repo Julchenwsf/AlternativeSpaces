@@ -19,8 +19,7 @@ a {
 }
 
 #content {
-	width:1110px;
-	margin:0 auto;
+	margin:0 10px;
 	padding-top:70px;
 }
 
@@ -82,12 +81,12 @@ a {
 
 /* Sidebar search menu */
 #sidebarSearchContent {
-    margin-left:210px;
+    margin-left:410px;
     width:1000px;
 }
 
 #sidebarSearchFlex {
-    width: 215px;
+    width: 415px;
     height:100%;
 }
 
@@ -98,13 +97,22 @@ a {
     left: 0;
     border-right: 1px solid #CF8414;
     padding:5px;
-    width: 200px;
+    width: 400px;
+}
+
+#sidebarSearchAddress {
+    margin:8px 0;
+    border: 1px solid #CF8414;
+}
+
+#sidebarSearchAddress input {
+    width:100%;
+    border:0;
+    padding:3px 8px;
 }
 
 #sidebarSearchMap {
-    height: 150px;
-    margin:8px 0;
-    border: 1px solid #CF8414;
+    height: 300px;
 }
 
 #sidebarSearchInput {

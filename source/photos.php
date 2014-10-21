@@ -4,7 +4,10 @@ include_once("backend/PageBuilder.php");
 $sidebar = '    <div id="sidebarSearchFlex">
                     <aside id="sidebarSearch">
                         <b>Search</b>
-                        <div id="sidebarSearchMap"></div>
+                        <div id="sidebarSearchAddress">
+                            <input type="text" id="input-address-search" placeholder="Address" />
+                            <div id="sidebarSearchMap"></div>
+                        </div>
                         <div id="sidebarSearchInput">
                             <input type="text" id="input-interest-search" />
                         </div>

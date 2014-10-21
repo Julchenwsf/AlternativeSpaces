@@ -13,7 +13,7 @@ function initializeGMaps() {
 
     var mapOptions = {
         center: new google.maps.LatLng(0, 0),
-        zoom: 0,
+        zoom: 1,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         panControl:false,
         mapTypeControl:false,
