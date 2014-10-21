@@ -19,8 +19,7 @@ a {
 }
 
 #content {
-	width:1110px;
-	margin:0 auto;
+	margin:0 10px;
 	padding-top:70px;
 }
 
@@ -29,9 +28,9 @@ a {
     left:0;
     right:0;
     position:fixed;
-    background:#FDA728;
+    background:#303f9f;
     height:40px;
-    border-bottom: 1px solid #CF8414;
+    border-bottom: 1px solid #9fa8da;
     z-index:10;
 }
 
@@ -82,12 +81,12 @@ a {
 
 /* Sidebar search menu */
 #sidebarSearchContent {
-    margin-left:210px;
+    margin-left:410px;
     width:1000px;
 }
 
 #sidebarSearchFlex {
-    width: 215px;
+    width: 415px;
     height:100%;
 }
 
@@ -96,15 +95,24 @@ a {
     top: 41px;
     bottom: 0;
     left: 0;
-    border-right: 1px solid #CF8414;
+    border-right: 1px solid #9fa8da;
     padding:5px;
-    width: 200px;
+    width: 400px;
+}
+
+#sidebarSearchAddress {
+    margin:8px 0;
+    border: 1px solid #9fa8da;
+}
+
+#sidebarSearchAddress input {
+    width:100%;
+    border:0;
+    padding:3px 8px;
 }
 
 #sidebarSearchMap {
-    height: 150px;
-    margin:8px 0;
-    border: 1px solid #CF8414;
+    height: 300px;
 }
 
 #sidebarSearchInput {
@@ -112,24 +120,25 @@ a {
 }
 
 .contentBox {
-	background-color:#FDA728;
+	background-color:#c5cae9;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 10px;
-	border:1px solid #CF8414;
+	border:1px solid #9fa8da;
 	display:inline-block;
 	color:#777777;
 	text-align:center;
 
     min-width:250px;
-    min-height:250px;
+    min-height:265px;
     margin:5px;
     padding:5px;
     cursor:pointer;
+    float:left;
 }
 
 .contentBox:hover {
-	background-color:#F1C871;
+	background-color:#5c6bc0;
     transform: scale(1.1);
     transition: all 0.3s;
     z-index:1;
@@ -233,8 +242,8 @@ h2 {
     display:inline-block;
 }
 
-/* REGISTRATION TABLE DESIGN */
 
+/* REGISTRATION TABLE DESIGN */
 #regTable {
     background:#FDA728;
     width:400px;
@@ -275,11 +284,11 @@ h2 {
 
 
 .submitButton {
-	background-color:#fda828;
+	background-color:#ff9100;
 	-webkit-border-radius:3px;
 	-moz-border-radius:3px;
 	border-radius:3px;
-	border:1px solid #cf831f;
+	border:1px solid #ff6d00;
 	display:inline-block;
 	color:#ffffff;
 	font-family:Verdana,serif;
@@ -295,7 +304,7 @@ h2 {
 }
 
 .submitButton:hover {
-	background-color:#fb9e25;
+	background-color:#ff6d00;
 
 }.submitButton:active {
 	position:relative;
@@ -339,6 +348,20 @@ h2 {
     text-indent:-9999px;
     top:-7px;
     right:-7px;
+}
+
+.likeButton {
+    width:25px;
+    height:25px;
+    display:inline-block;
+    background:url(../img/design/thumbsUp.png);
+}
+
+.dislikeButton {
+    width:25px;
+    height:25px;
+    display:inline-block;
+    background:url(../img/design/thumbsDown.png);
 }
 
 .share-buttons{

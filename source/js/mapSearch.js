@@ -11,6 +11,7 @@ function initialize() {
         "stylers": [{"visibility": "off"}]
     }];
 
+    var markers = []
     var mapOptions = {
         center: new google.maps.LatLng(59.92, 10.78),   //Center somewhere around Tøyen area
         zoom: 14,                                       //[0, 21]
@@ -23,7 +24,7 @@ function initialize() {
         rotateControl:false,
         styles: styles };
     map = new google.maps.Map(document.getElementById("eventMap"), mapOptions);
-}
+
 
 //Function to add a marker to map
 function createMarker(markerData, currentInterest) {

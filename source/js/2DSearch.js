@@ -13,7 +13,7 @@ function initializeGMaps() {
 
     var mapOptions = {
         center: new google.maps.LatLng(0, 0),
-        zoom: 0,
+        zoom: 1,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         panControl:false,
         mapTypeControl:false,
@@ -23,6 +23,24 @@ function initializeGMaps() {
         rotateControl:false,
         styles: styles };
     map = new google.maps.Map(document.getElementById("sidebarSearchMap"), mapOptions);
+
+    var autocomplete = new google.maps.places.Autocomplete(document.getElementById('input-address-search'));
+    autocomplete.bindTo('bounds', map);
+
+    google.maps.event.addListener(autocomplete, 'place_changed', function() {
+        var place = autocomplete.getPlace();
+        if (!place.geometry) return;
+
+        // If the place has a geometry, then present it on a map.
+        if (place.geometry.viewport) {
+            map.fitBounds(place.geometry.viewport);
+        } else {
+            map.setCenter(place.geometry.location);
+            map.setZoom(17);  // Why 17? Because it looks good.
+        }
+    });
+
+
 
     google.maps.event.addListener(map, "dragend", function() {      //Listener for when the map is dragged, fires at the end of drag.
        doSearch(interestsInput.val(), map.getBounds());
@@ -47,6 +65,7 @@ $(document).ready(function() {
         tokenLimit: 9,                  //Number of maximum simultaneous tags/interests
         resultsLimit: 10,               //Number of maximum auto-complete "suggestions"
         preventDuplicates: true,        //Ignore duplicate tags
+        searchingHint: "Interests",
         propertyToSearch: "interest_name",  //Property to search in the JS dict structure
         tokenValue: "interest_id",
         resultsFormatter: function(item){   //Custom formatting for the auto-complete results
