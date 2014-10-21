@@ -10,9 +10,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 } else if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     echo <<<EOT
-    <div id="regTable">
+    <div id="regTable" class="submitTable">
         <div id="response"></div>
-        <form id="submitTable" action="backend/forms/regform.php" method="post">
+        <form action="backend/forms/regform.php" method="post">
             <table>
                 <tr>
                     <td colspan="2" id="center">Register</td>

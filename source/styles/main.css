@@ -245,8 +245,11 @@ h2 {
 
 /* REGISTRATION TABLE DESIGN */
 #regTable {
-    background:#FDA728;
     width:400px;
+}
+
+.submitTable {
+    background:#FDA728;
     margin:0 auto;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
@@ -254,11 +257,11 @@ h2 {
     border:10px solid #FDA728;
 }
 
-#regTable table {
+.submitTable table {
     width:100%;
 }
 
-#regTable td {
+.submitTable td {
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 10px;
@@ -270,16 +273,14 @@ h2 {
 }
 
 
-#regTable #center {
+.submitTable #center {
     font-weight: 900;
     text-align:center;
 }
 
-#eventTable input {
-    width:100%;
+#eventTable {
+    width:430px;
 }
-
-
 
 .submitButton {
 	background-color:#ff9100;
@@ -370,4 +371,8 @@ h2 {
     display: inline;
 }
 
+input {
+    width:100%;
+    padding: 3px 8px;
+}
 

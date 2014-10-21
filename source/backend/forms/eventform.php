@@ -12,9 +12,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 } else if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
     echo <<<EOT
-    <div id="regTable">
+    <div id="eventTable" class="submitTable">
         <div id="response"></div>
-        <form id="eventTable" action="backend/forms/eventform.php" method="post" onkeypress="return event.keyCode != 13;">
+        <form action="backend/forms/eventform.php" method="post" onkeypress="return event.keyCode != 13;">
             <table>
                 <tr>
                     <td colspan="2" id="center">Event Creation</td>
@@ -26,11 +26,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <td colspan="2"><input type="text" name="locationDisplay" placeholder="Location" id="location" /><input type="hidden" name="location" id="locationHidden"></td>
                 </tr>
                 <tr>
+                    <td colspan="2"><input type="text" id="eventInterests" name="interests" /></td>
+                </tr>
+                <tr>
                     <td><input type="text" id="datetimepicker" name="datetime" placeholder="Date & time" /></td>
                     <td><input type="text" name="numPeople" placeholder="No of people invited" /></td>
                 </tr>
                 <tr>
-                    <td colspan="2" id="center"><textarea rows="4" cols="50" name="description" placeholder="Description"></textarea></td>
+                    <td colspan="2" id="center"><textarea rows="4" cols="55" name="description" placeholder="Description"></textarea></td>
 
                 </tr>
                 <tr>
@@ -76,6 +79,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $("#locationHidden").val(place.geometry.location.lat() + " " + place.geometry.location.lng());
 
+    });
+
+    $(document).ready(function() {
+        interestsInput = $("#eventInterests");
+
+        interestsInput.tokenInput("backend/db/DBInterests.php", {
+            tokenLimit: 4,                  //Number of maximum simultaneous tags/interests
+            resultsLimit: 10,               //Number of maximum auto-complete "suggestions"
+            preventDuplicates: true,        //Ignore duplicate tags
+            searchingHint: "Interests",
+            propertyToSearch: "interest_name",  //Property to search in the JS dict structure
+            tokenValue: "interest_id",
+            resultsFormatter: function(item){   //Custom formatting for the auto-complete results
+                return "<li><p class='interest_name'><img src='img/interests/" + item.interest_icon + "' /> " + item.interest_name + "</p><div style='clear:both'></div></li>" }
+        });
     });
     </script>
 EOT;

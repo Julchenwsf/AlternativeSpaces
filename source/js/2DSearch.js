@@ -62,14 +62,14 @@ $(document).ready(function() {
     initializeGMaps();                  //Initialize the map
 
     interestsInput.tokenInput("backend/db/DBInterests.php", {
-        tokenLimit: 9,                  //Number of maximum simultaneous tags/interests
+        tokenLimit: 4,                  //Number of maximum simultaneous tags/interests
         resultsLimit: 10,               //Number of maximum auto-complete "suggestions"
         preventDuplicates: true,        //Ignore duplicate tags
         searchingHint: "Interests",
         propertyToSearch: "interest_name",  //Property to search in the JS dict structure
         tokenValue: "interest_id",
         resultsFormatter: function(item){   //Custom formatting for the auto-complete results
-            return "<li><p class='interest_name'><img src='img/interests/" + item.interest_icon + "' /> " + item.interest_name + "</p><p class='score'>" + 2000 + "</p><div style='clear:both'></div></li>" },
+            return "<li><p class='interest_name'><img src='img/interests/" + item.interest_icon + "' /> " + item.interest_name + "</p><div style='clear:both'></div></li>" },
 
         onAdd: function (item) {        //Is executed when user selects an option
             doSearch(interestsInput.val(), map.getBounds());
