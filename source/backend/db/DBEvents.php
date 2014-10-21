@@ -2,52 +2,39 @@
 include('DBConnection.php');
 
 
-function addEvent($event_name, $location, $Day, $Month, $Year, $no_of_People, $description, $Hour, $Min) {
+function addEvent($event_name, $description, $lat, $lng, $numPeople, $time) {
     $errors = array();
     $event_name = mysql_real_escape_string(trim($event_name));
-    $location = mysql_real_escape_string(trim($location));
-    $Day = mysql_real_escape_string($Day);
-    $Month = mysql_real_escape_string($Month);
-    $Year = mysql_real_escape_string($Year);
-    $no_of_People = mysql_real_escape_string($no_of_People);
+    $numPeople = mysql_real_escape_string($numPeople);
     $description = mysql_real_escape_string(trim($description));
-    $Hour = mysql_real_escape_string($Hour);
-    $Min = mysql_real_escape_string($Min);
 
     if(empty($event_name)) {
-        array_push($errors, "event_name cannot be left blank");
+        array_push($errors, "Event title cannot be left blank");
     } else {
         if (!preg_match("/^[a-zA-Z0-9 ]*$/", $event_name)) {
-            array_push($errors, "event_name can only contain letters, numbers and whitespace");
+            array_push($errors, "Event title can only contain letters, numbers and whitespace");
+        } else if(strlen($event_name) > 50) {
+            array_push($errors, "Event title too long (max 50 characters)");
         }
     }
 
-    if(empty($location)) {
-        array_push($errors, "location cannot be left blank");
+    if(empty($description)) {
+        array_push($errors, "Description cannot be left blank");
     }
 
-    if(empty($Day)) {
-        array_push($errors, "Day cannot be left blank");
+    if(!is_numeric($lat) || !is_numeric($lng)) {
+        array_push($errors, "Illegal location");
     }
 
-    if(empty($Month)) {
-        array_push($errors, "Month cannot be left blank");
+    if(empty($time)) {
+        array_push($errors, "Illegal date/time");
     }
 
-    if(empty($Year)) {
-        array_push($errors, "year cannot be left blank");
+    if(!is_numeric($numPeople)) {
+        array_push($errors, "Number of people must be a number");
     }
 
-    if(empty($Hour)) {
-        array_push($errors, "Hour cannot be left blank");
-    }
-
-    if(empty($Min)) {
-        array_push($errors, "Min cannot be left blank");
-    }
-
-    $unixtime = strtotime($Year . "-" . $Month . "-" . $Day . " " . $Hour . ":" . $Min . ":00");
-    if(empty($errors)) mysql_query("INSERT INTO events (event_name, location, no_of_people, description, event_time) VALUES ('$event_name', '$location', '$no_of_People', '$description', '$unixtime')") or array_push($errors, mysql_error());
+    if(empty($errors)) mysql_query("INSERT INTO events (event_name, location, no_of_people, description, event_time) VALUES ('$event_name', (GeomFromText('POINT(" . $lat . " " . $lng . ")')), '$numPeople', '$description', '$time')") or array_push($errors, mysql_error());
     return $errors;
 }
 
