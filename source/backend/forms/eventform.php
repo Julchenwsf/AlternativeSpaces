@@ -76,10 +76,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <tr>
                     <td >
                     Year(yyyy)<input type=text name=Year size=4 value=2005>
-                    <td><input type="int" no of people="no" placeholder="No of people invited" /></td>
+                    <td><input type="int" no_of_people="no_of_people" placeholder="No of people invited" /></td>
 
                     <tr>
-                    <td colspan="2" id="center"><input type="text" Place="Description" placeholder="Description" /></td>
+                    <td colspan="2" id="center"><input type="text" Place="description" placeholder="Description" /></td>
 
                      </tr>
 

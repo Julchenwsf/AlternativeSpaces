@@ -47,7 +47,7 @@ function addEvent($event_name, $location, $Day, $Month, $Year, $no_of_People, $d
     }
 
     $unixtime = strtotime($Year . "-" . $Month . "-" . $Day . " " . $Hour . ":" . $Min . ":00");
-    if(empty($errors)) mysql_query("INSERT INTO events (event_name, location, no_of_people, description, event_time) VALUES ('$event_name', '$location', '$noOfPeople', '$description', '$unixtime')") or array_push($errors, mysql_error());
+    if(empty($errors)) mysql_query("INSERT INTO events (event_name, location, no_of_people, description, event_time) VALUES ('$event_name', '$location', '$no_of_People', '$description', '$unixtime')") or array_push($errors, mysql_error());
     return $errors;
 }
 
