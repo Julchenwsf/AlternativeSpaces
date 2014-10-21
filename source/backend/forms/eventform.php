@@ -2,9 +2,11 @@
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     include_once("../db/DBEvents.php");
+    if(!isLoggedIn()) return array("success" => false, "response" => array("Must me logged in to create event"));
+
     $time = strtotime($_POST["datetime"]);
     list($lat, $lng) = explode(' ', $_POST["location"]);
-    $status = addEvent($_POST["title"], $_POST["description"], $lat, $lng, $_POST["numPeople"], $time);
+    $status = addEvent($_SESSION["username"], $_POST["title"], $_POST["description"], $_POST["interests"], $lat, $lng, $_POST["numPeople"], $time);
     $response = array("success" => empty($status), "response" => $status);
     echo json_encode($response);
 
@@ -47,11 +49,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $.ajax({
             type: "POST",
             url: "backend/forms/eventform.php",
-            data: $("#submitTable").serialize(),
+            data: $("#newEventForm").serialize(),
             dataType: "JSON",
             success: function(data) {
                 if(data["success"]) {
-                   $("#submitTable").html(""); //Hide the form
+                   $("#newEventForm").html(""); //Hide the form
                    $("#response").html('<div class="success">Success!</div>'); //TODO: Write better message
                 } else {
                    var out = "";

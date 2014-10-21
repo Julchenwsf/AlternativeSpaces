@@ -31,14 +31,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $.ajax({
             type: "POST",
             url: "backend/forms/logform.php",
-            data: $("#submitTable").serialize(),
+            data: $("#loginForm").serialize(),
             dataType: "JSON",
             success: function(data) {
                if(data["success"]) {
                    location.reload(true);
                } else {
                    var out = "";
-                   console.log(data["response"]);
                    for(var error in data["response"]) {
                        out += "<li>" + data["response"][error] + "</li>";
                    }

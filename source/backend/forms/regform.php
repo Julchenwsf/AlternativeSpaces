@@ -44,11 +44,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $.ajax({
             type: "POST",
             url: "backend/forms/regform.php",
-            data: $("#submitTable").serialize(),
+            data: $("#registerForm").serialize(),
             dataType: "JSON",
             success: function(data) {
                if(data["success"]) {
-                   $("#submitTable").html(""); //Hide the form
+                   $("#loginForm").html(""); //Hide the form
                    $("#response").html('<div class="success">Success!</div>'); //TODO: Write better message
                    location.reload(true)
                } else {
