@@ -2,8 +2,10 @@
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     include_once("../db/DBUsers.php");
+    include_once("../functions/log.php");
     $status = addUser($_POST["username"], $_POST["password"], $_POST["fname"], $_POST["lname"], $_POST["gender"]);
     $response = array("success" => empty($status), "response" => $status);
+    $status = loginPlainText($_POST["username"], $_POST["password"]);
     echo json_encode($response);
 
 } else if ($_SERVER['REQUEST_METHOD'] == 'GET') {
@@ -48,6 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                if(data["success"]) {
                    $("#submitTable").html(""); //Hide the form
                    $("#response").html('<div class="success">Success!</div>'); //TODO: Write better message
+                   location.reload(true)
                } else {
                    var out = "";
                    for(var error in data["response"]) {
