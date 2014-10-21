@@ -3,7 +3,8 @@
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     include_once("../db/DBEvents.php");
     $time = strtotime($_POST["datetime"]);
-    $status = addEvent($_POST["title"], $_POST["description"], 0, 0, $_POST["numPeople"], $time);
+    list($lat, $lng) = explode(' ', $_POST["location"]);
+    $status = addEvent($_POST["title"], $_POST["description"], $lat, $lng, $_POST["numPeople"], $time);
     $response = array("success" => empty($status), "response" => $status);
     echo json_encode($response);
 
@@ -20,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </tr>
                 <tr>
                     <td><input type="text" name="title" placeholder="Title" /></td>
-                    <td><input type="text" name="location" placeholder="Location" /></td>
+                    <td><input type="text" name="locationDisplay" placeholder="Location" id="location" /><input type="hidden" name="location" id="locationHidden"></td>
                 </tr>
                 <tr>
                     <td><input type="text" id="datetimepicker" name="datetime" placeholder="Date & time" /></td>
@@ -64,6 +65,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         minDate: 0,
         maxData: "1Y",
         startDate: new Date()
+    });
+
+    var autocomplete = new google.maps.places.Autocomplete(document.getElementById('location'), { types: ['geocode'] });
+    google.maps.event.addListener(autocomplete, 'place_changed', function() {
+        var place = autocomplete.getPlace();
+        if (!place.geometry) return;
+
+        $("#locationHidden").val(place.geometry.location.lat() + " " + place.geometry.location.lng());
+
     });
     </script>
 EOT;
