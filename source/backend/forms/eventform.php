@@ -2,12 +2,15 @@
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     include_once("../db/DBEvents.php");
-    if(!isLoggedIn()) return array("success" => false, "response" => array("Must me logged in to create event"));
+    if(!isLoggedIn()) {
+        echo json_encode(array("success" => false, "response" => array("Must me logged in to create event")));
+        return;
+    }
 
     $time = strtotime($_POST["datetime"]);
     list($lat, $lng) = explode(' ', $_POST["location"]);
     $status = addEvent($_SESSION["username"], $_POST["title"], $_POST["description"], $_POST["interests"], $lat, $lng, $_POST["numPeople"], $time);
-    $response = array("success" => empty($status), "response" => $status);
+    $response = array("success" => is_numeric($status), "response" => $status);
     echo json_encode($response);
 
 
@@ -53,8 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             dataType: "JSON",
             success: function(data) {
                 if(data["success"]) {
-                   $("#newEventForm").html(""); //Hide the form
-                   $("#response").html('<div class="success">Success!</div>'); //TODO: Write better message
+                   window.location.replace("event.php?id=" + data["response"]);
                 } else {
                    var out = "";
                    for(var error in data["response"]) {

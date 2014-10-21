@@ -42,7 +42,7 @@ function addEvent($creator, $event_name, $description, $interests, $lat, $lng, $
     }
 
     if(empty($errors)) mysql_query("INSERT INTO events (event_creator, event_name, interests, location, no_of_people, description, event_time) VALUES ('$creator', '$event_name', '$interests', (GeomFromText('POINT(" . $lat . " " . $lng . ")')), '$numPeople', '$description', '$time')") or array_push($errors, mysql_error());
-    return $errors;
+    return (empty($errors)) ? mysql_insert_id() : $errors;
 }
 
 
