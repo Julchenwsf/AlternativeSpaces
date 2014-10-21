@@ -14,14 +14,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     echo <<<EOT
     <div id="regTable">
         <div id="response"></div>
-        <form id="submitTable" action="backend/forms/eventform.php" method="post">
+        <form id="eventTable" action="backend/forms/eventform.php" method="post" onkeypress="return event.keyCode != 13;">
             <table>
                 <tr>
                     <td colspan="2" id="center">Event Creation</td>
                 </tr>
                 <tr>
-                    <td><input type="text" name="title" placeholder="Title" /></td>
-                    <td><input type="text" name="locationDisplay" placeholder="Location" id="location" /><input type="hidden" name="location" id="locationHidden"></td>
+                    <td colspan="2"><input type="text" name="title" placeholder="Title" /></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="text" name="locationDisplay" placeholder="Location" id="location" /><input type="hidden" name="location" id="locationHidden"></td>
                 </tr>
                 <tr>
                     <td><input type="text" id="datetimepicker" name="datetime" placeholder="Date & time" /></td>

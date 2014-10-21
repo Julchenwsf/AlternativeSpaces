@@ -275,10 +275,8 @@ h2 {
     text-align:center;
 }
 
-#regTable #center2 {
-    width:60px;
-    text-align:center;
-    margin-right: 110px;
+#eventTable input {
+    width:100%;
 }
 
 
