@@ -20,9 +20,8 @@ if(isset($_GET["photo"])) {
 
 
 $pb = new PageBuilder("Photos");
-$pb->addCSSImport("styles/token-input.css");
 $pb->addCSSImport("styles/comments.css");
-$pb->addJSImport("js/jquery.tokeninput.js");
+
 $pb->addJSImport("js/2DSearch.js");
 $pb->addJSImport("js/comment.js");
 
