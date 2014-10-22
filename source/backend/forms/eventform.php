@@ -28,7 +28,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <td colspan="2"><input type="text" name="title" placeholder="Title" /></td>
                 </tr>
                 <tr>
-                    <td colspan="2"><input type="text" name="locationDisplay" placeholder="Location" id="location" /><input type="hidden" name="location" id="locationHidden"></td>
+                    <td colspan="2"><button type="button" onClick='openMapPicker()' class="submitButton right">Map</button>
+                    <div style="width:350px;float:left"><input type="text" name="locationDisplay" placeholder="Location" id="location" /></div>
+                    <input type="hidden" name="location" id="locationHidden"></td>
                 </tr>
                 <tr>
                     <td colspan="2"><input type="text" id="eventInterests" name="interests" /></td>
@@ -82,8 +84,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (!place.geometry) return;
 
         $("#locationHidden").val(place.geometry.location.lat() + " " + place.geometry.location.lng());
-
     });
+
+
+    function openMapPicker() {
+        window.open("http://folk.ntnu.no/valerijf/div/AlternativeSpaces/source/backend/forms/maplookup.php",
+            "Select location", "width=620,height=440,location=no,menubar=no,resizable=no,status=no,toolbar=no");
+    }
+
+    function mapSelectionCallback(result) {
+        $("#locationHidden").val(result.lat() + " " + result.lng());
+
+        new google.maps.Geocoder().geocode({'latLng': new google.maps.LatLng(result.lat(), result.lng())}, function(results, status) {
+            if (status == google.maps.GeocoderStatus.OK && results[0]) {
+                $("#location").val(results[0].formatted_address);
+            } else {
+                $("#location").val("Selected from map");
+            }
+        });
+	}
 
     $(document).ready(function() {
         interestsInput = $("#eventInterests");
