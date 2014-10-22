@@ -9,9 +9,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 } else if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     echo <<<EOT
-    <div id="regTable">
+    <div id="regTable" class="submitTable">
         <div id="response"></div>
-        <form id="submitTable" action="backend/forms/logform.php" method="post">
+        <form id="loginForm" action="backend/forms/logform.php" method="post">
             <table>
                 <tr>
                     <td colspan="2" id="center">Login</td>
@@ -27,18 +27,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </form>
     </div>
     <script type="text/javascript">
-    $('#submitTable').submit(function (ev) {
+    $('#loginForm').submit(function (ev) {
         $.ajax({
             type: "POST",
             url: "backend/forms/logform.php",
-            data: $("#submitTable").serialize(),
+            data: $("#loginForm").serialize(),
             dataType: "JSON",
             success: function(data) {
                if(data["success"]) {
                    location.reload(true);
                } else {
                    var out = "";
-                   console.log(data["response"]);
                    for(var error in data["response"]) {
                        out += "<li>" + data["response"][error] + "</li>";
                    }

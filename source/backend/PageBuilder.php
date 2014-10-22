@@ -8,7 +8,7 @@ include_once($path . "backend/functions/log.php");
 
 
 class PageBuilder {
-    private $CSSImports = array('<link rel="stylesheet" type="text/css" href="styles/main.css">');
+    private $CSSImports = array();
     private $JSImports = array();
     private $contentSiblings = array();
     private $content = "";
@@ -17,7 +17,14 @@ class PageBuilder {
     function __construct($title) {
         $this->title = '<title>Alternative Spaces &raquo; '. $title .'</title><meta charset="UTF-8">';
         $this->addJSImport("https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js");
+        $this->addJSImport("https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places");
+        $this->addJSImport("js/jquery.datetimepicker.js");
         $this->addJSImport("js/overlay.js");
+        $this->addJSImport("js/jquery.tokeninput.js");
+
+        $this->addCSSImport("styles/main.css");
+        $this->addCSSImport("styles/jquery.datetimepicker.css");
+        $this->addCSSImport("styles/token-input.css");
 
         if (isLoggedIn()) {
             $logged = "Welcome back " . $_SESSION["first_name"] . " " . $_SESSION["last_name"] . '<a href="backend/functions/log.php?out" class="submitButton right">Logout</a><button type="button" id="eventButton" class="submitButton right">New Event</button>';
