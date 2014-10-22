@@ -15,12 +15,12 @@ class PageBuilder {
     private $title;
 
     function __construct($title) {
-        $this->title = '<title>Alternative Spaces &raquo; '. $title .'</title><meta charset="UTF-8">';
+        $this->title = '<title>ASpaces &raquo; '. $title .'</title><meta charset="UTF-8">';
         $this->addJSImport("https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js");
         $this->addJSImport("https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places");
         $this->addJSImport("js/jquery.datetimepicker.js");
-        $this->addJSImport("js/overlay.js");
         $this->addJSImport("js/jquery.tokeninput.js");
+        $this->addJSImport("js/overlay.js");
 
         $this->addCSSImport("styles/main.css");
         $this->addCSSImport("styles/jquery.datetimepicker.css");
