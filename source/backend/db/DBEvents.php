@@ -49,7 +49,7 @@ function addEvent($creator, $event_name, $description, $interests, $lat, $lng, $
 function fetchEvent($event_id) {
     $event_id = mysql_real_escape_string($event_id);
 
-    $result = mysql_query("SELECT * FROM events WHERE event_id='$event_id'") or die(mysql_error());
+    $result = mysql_query("SELECT *, X(location) AS latitude, Y(location) AS longitude FROM events WHERE event_id='$event_id'") or die(mysql_error());
     $row = mysql_fetch_assoc($result);
     return $row;
 }
@@ -58,7 +58,7 @@ function fetchEvent($event_id) {
 
 function eventTimeFormat($t){
     if(date('d')==date('d', $t)) return date('H:i', $t);
-    return date('j. M Y \a\t H:i', $t);
+    return date('j. M y \a\t H:i', $t);
 }
 
 ?>

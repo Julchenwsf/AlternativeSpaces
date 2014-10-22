@@ -4,6 +4,7 @@ include_once($path . "backend/db/DBConnection.php");
 
 
 function getComments($threadID) {
+    $threadID = mysql_real_escape_string($threadID);
     $result = mysql_query("SELECT comment_id, comment_parent, username, comment, time FROM comments WHERE thread_id='$threadID'") or die(mysql_error());
     $comments = array();
     while($row = mysql_fetch_assoc($result)) {
