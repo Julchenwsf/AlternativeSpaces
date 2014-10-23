@@ -10,15 +10,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 } else if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     echo <<<EOT
-    <div id="regTable" class="submitTable">
+    <div class="submitTable">
         <div id="response"></div>
         <form id="registerForm" action="backend/forms/regform.php" method="post">
             <table>
-                <thead>
                 <tr>
                     <th colspan="2">Register</th>
                 </tr>
-                </thead>
                 <tr>
                     <td><input type="text" name="fname" placeholder="First name" /></td>
                     <td><input type="text" name="lname" placeholder="Last name" /></td>
@@ -36,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="2" id="center"><div><button class="submitButton" name="regformSubmit" type="submit" >Register</button></div></td>
+                    <td colspan="2" id="center"><button class="submitButton" name="regformSubmit" type="submit">Register</button></td>
                 </tr>
             </table>
         </form>

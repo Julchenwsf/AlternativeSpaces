@@ -17,19 +17,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 } else if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
     echo <<<EOT
-    <div id="eventTable" class="submitTable">
+    <div class="submitTable">
         <div id="response"></div>
         <form id="newEventForm" action="backend/forms/eventform.php" method="post" onkeypress="return event.keyCode != 13;">
             <table>
                 <tr>
-                    <td colspan="2" id="center">Event Creation</td>
+                    <th colspan="2" id="center">Event Creation</th>
                 </tr>
                 <tr>
                     <td colspan="2"><input type="text" name="title" placeholder="Title" /></td>
                 </tr>
                 <tr>
                     <td colspan="2"><button type="button" onClick='openMapPicker()' class="submitButton right">Map</button>
-                    <div style="width:350px;float:left"><input type="text" name="locationDisplay" placeholder="Location" id="location" /></div>
+                    <div style="width:360px;float:left"><input type="text" name="locationDisplay" placeholder="Location" id="location" /></div>
                     <input type="hidden" name="location" id="locationHidden"></td>
                 </tr>
                 <tr>
@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                 </tr>
                 <tr>
-                  <td colspan="2" id="center"><input class="submitButton" name="submit" type="submit" value="Create Event" /></td>
+                  <td colspan="2" id="center"><button class="submitButton" name="submit" type="submit">Create Event</button></td>
                </tr>
            </table>
         </form>

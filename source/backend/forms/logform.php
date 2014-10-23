@@ -9,19 +9,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 } else if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     echo <<<EOT
-    <div id="regTable" class="submitTable">
+    <div class="submitTable">
         <div id="response"></div>
         <form id="loginForm" action="backend/forms/logform.php" method="post">
             <table>
                 <tr>
-                    <td colspan="2" id="center">Login</td>
+                    <th colspan="2" id="center">Login</th>
                 </tr>
                 <tr>
                     <td><input type="text" name="username" placeholder="Username" /></td>
                     <td><input type="password" name="password" placeholder="Password" /></td>
                 </tr>
                 <tr>
-                    <td colspan="2" id="center"><input class="submitButton" name="logformSubmit" type="submit" value="Login" /></td>
+                    <td colspan="2" id="center"><button class="submitButton" name="logformSubmit" type="submit">Login</button></td>
                 </tr>
             </table>
         </form>

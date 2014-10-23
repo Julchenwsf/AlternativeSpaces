@@ -244,10 +244,6 @@ h2 {
 
 
 /* REGISTRATION TABLE DESIGN */
-#regTable {
-    width:420px;
-}
-
 .submitTable {
     background:#ffffff;
     margin:0 auto;
@@ -255,7 +251,7 @@ h2 {
     -moz-border-radius: 10px;
     border-radius: 10px;
     border:10px solid #303f9f;
-
+    width:430px;
 }
 
 .submitTable table {
@@ -266,8 +262,7 @@ h2 {
 .submitTable td {;
     color:black;
     font-size:15px;
-    padding: 5px;
-    padding-top:15px;
+    padding: 10px 5px 5px;
 }
 
 .submitTable input{
@@ -279,9 +274,10 @@ h2 {
     text-align:center;
     color:white;
     font-family:Verdana,serif;
-    font-size:13px;
+    font-size:15px;
     font-weight:bold;
     font-style:normal;
+    padding:0 0 10px;
 }
 
 
@@ -290,13 +286,10 @@ h2 {
     text-align:center;
 }
 
-.submitTable button{
-    width: 400px;
+.submitTable #center button{
+    width: 410px;
 }
 
-#eventTable {
-    width:430px;
-}
 
 .submitButton {
 	background-color:#ff9100;
