@@ -267,9 +267,14 @@ h2 {
     color:black;
     font-size:15px;
     padding: 5px;
+    padding-top:15px;
 }
 
-.submitTable .title{
+.submitTable input{
+    border: 1px solid #9fa8da;
+}
+
+.submitTable th{
     background: #303f9f;
     text-align:center;
     color:white;
@@ -283,6 +288,10 @@ h2 {
 .submitTable #center {
     font-weight: 900;
     text-align:center;
+}
+
+.submitTable button{
+    width: 400px;
 }
 
 #eventTable {
