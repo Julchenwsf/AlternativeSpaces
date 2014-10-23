@@ -27,12 +27,12 @@ class PageBuilder {
         $this->addCSSImport("styles/token-input.css");
 
         if (isLoggedIn()) {
-            $logged = "Welcome back " . $_SESSION["first_name"] . " " . $_SESSION["last_name"] . '<a href="backend/functions/log.php?out" class="submitButton right">Logout</a><button type="button" id="eventButton" class="submitButton right">New Event</button>';
+            $logged = "Welcome back " . $_SESSION["first_name"] . " " . $_SESSION["last_name"] . '<a href="backend/functions/log.php?out" class="submitButton right">Sign out</a><button type="button" id="eventButton" class="submitButton right">New Event</button>';
             $navbarButtonsJS = '<script type="text/javascript">$(document).ready(function(){
             $("#eventButton").click(function(e){$.get("backend/forms/eventform.php", function(data){modal.open({content: data});});});
             });</script>';
         } else {
-            $logged = '<button type="button" id="loginButton" class="submitButton right">Login</button><button type="button" id="signupButton" class="submitButton right">Signup</button>';
+            $logged = '<button type="button" id="loginButton" class="submitButton right">Sign in</button><button type="button" id="signupButton" class="submitButton right">Sign up</button>';
 
             $navbarButtonsJS = '<script type="text/javascript">$(document).ready(function(){
             $("#signupButton").click(function(e){$.get("backend/forms/regform.php", function(data){modal.open({content: data});});});

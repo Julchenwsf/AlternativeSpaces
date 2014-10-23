@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <form id="registerForm" action="backend/forms/regform.php" method="post">
             <table>
                 <tr>
-                    <th colspan="2">Register</th>
+                    <th colspan="2">Sign up</th>
                 </tr>
                 <tr>
                     <td><input type="text" name="fname" placeholder="First name" /></td>
@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="2" id="center"><button class="submitButton" name="regformSubmit" type="submit">Register</button></td>
+                    <td colspan="2" id="center"><button class="submitButton" name="regformSubmit" type="submit">Sign up</button></td>
                 </tr>
             </table>
         </form>

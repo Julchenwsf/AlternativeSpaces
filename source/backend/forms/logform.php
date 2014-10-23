@@ -14,14 +14,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <form id="loginForm" action="backend/forms/logform.php" method="post">
             <table>
                 <tr>
-                    <th colspan="2" id="center">Login</th>
+                    <th colspan="2" id="center">Sign in</th>
                 </tr>
                 <tr>
                     <td><input type="text" name="username" placeholder="Username" /></td>
                     <td><input type="password" name="password" placeholder="Password" /></td>
                 </tr>
                 <tr>
-                    <td colspan="2" id="center"><button class="submitButton" name="logformSubmit" type="submit">Login</button></td>
+                    <td colspan="2" id="center"><button class="submitButton" name="logformSubmit" type="submit">Sign in</button></td>
                 </tr>
             </table>
         </form>
