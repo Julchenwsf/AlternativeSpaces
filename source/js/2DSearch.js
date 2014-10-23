@@ -38,20 +38,21 @@ function initializeGMaps() {
             map.setCenter(place.geometry.location);
             map.setZoom(17);  // Why 17? Because it looks good.
         }
+        doSearch();
     });
 
 
 
     google.maps.event.addListener(map, "dragend", function() {      //Listener for when the map is dragged, fires at the end of drag.
-       doSearch(interestsInput.val(), map.getBounds());
+       doSearch();
     });
 
     google.maps.event.addListener(map, "zoom_changed", function() { //Listener for when the map changes zoom level.
-       doSearch(interestsInput.val(), map.getBounds());
+       doSearch();
     });
 
     google.maps.event.addListenerOnce(map, 'idle', function(){      //Listener that fires when the map is first initialized.
-        doSearch(interestsInput.val(), map.getBounds());
+        doSearch();
     });
 }
 
@@ -72,11 +73,11 @@ $(document).ready(function() {
             return "<li><p class='interest_name'><img src='img/interests/" + item.interest_icon + "' /> " + item.interest_name + "</p><div style='clear:both'></div></li>" },
 
         onAdd: function (item) {        //Is executed when user selects an option
-            doSearch(interestsInput.val(), map.getBounds());
+            doSearch();
         },
 
         onDelete: function (item) {     //Is executed when user removes a tag/token
-            doSearch(interestsInput.val(), map.getBounds());
+            doSearch();
         }
         //prePopulate: interests.slice(0, 3)                          //Pre-populate the search-bar with the 3 first interest-tags
     });
@@ -94,7 +95,7 @@ $(document).on('click', '.contentBox', function(e){
 $(window).scroll(function() {
     //When users position at the page is within 100px from the end, get more pictures
     if($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
-        doSearch(interestsInput.val(), map.getBounds(), true);
+        doSearch(true);
     }
 });
 
@@ -107,7 +108,8 @@ function closePhotoOverlay() {
 }
 
 //Function to deal with AJAX search
-function doSearch(tags, bounds, append) {
+function doSearch(append) {
+    var tags = interestsInput.val(), bounds = map.getBounds();
     if(!append) {   //Set append to true in order to append the result to already existing results. If false, the previous results are cleared
         pageNum = 0;
         $("#searchResults").html('');
