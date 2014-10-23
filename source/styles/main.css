@@ -245,31 +245,38 @@ h2 {
 
 /* REGISTRATION TABLE DESIGN */
 #regTable {
-    width:400px;
+    width:420px;
 }
 
 .submitTable {
-    background:#FDA728;
+    background:#ffffff;
     margin:0 auto;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     border-radius: 10px;
-    border:10px solid #FDA728;
+    border:10px solid #303f9f;
+
 }
 
 .submitTable table {
     width:100%;
+    border-collapse: collapse;
 }
 
-.submitTable td {
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
-    /* next two need to have same color */
-    border:10px solid #FFD547;
-    background:#FFD547;
+.submitTable td {;
     color:black;
     font-size:15px;
+    padding: 5px;
+}
+
+.submitTable .title{
+    background: #303f9f;
+    text-align:center;
+    color:white;
+    font-family:Verdana,serif;
+    font-size:13px;
+    font-weight:bold;
+    font-style:normal;
 }
 
 
