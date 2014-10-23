@@ -85,7 +85,7 @@ $(document).ready(function() {
 
 $(document).on('click', '.contentBox', function(e){
     var id = $(this).attr("data-photo-id");
-    window.history.pushState({"html": document.documentElement.innerHTML, "pageTitle": "Photo viewer"},"", 'photos.php?photo='+id);
+    window.history.pushState({"html": document.documentElement.innerHTML, "pageTitle": "Photo viewer"},"", 'index.php?photo='+id);
     openPhotoOverlay(id);
 });
 
@@ -103,7 +103,7 @@ function openPhotoOverlay(id) {
 }
 
 function closePhotoOverlay() {
-    window.history.pushState({"html": document.documentElement.innerHTML, "pageTitle": "Photo viewer"},"", 'photos.php');
+    window.history.pushState({"html": document.documentElement.innerHTML, "pageTitle": "Photo viewer"},"", 'index.php');
 }
 
 //Function to deal with AJAX search
