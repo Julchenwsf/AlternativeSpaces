@@ -48,9 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             dataType: "JSON",
             success: function(data) {
                if(data["success"]) {
-                   $("#loginForm").html(""); //Hide the form
-                   $("#response").html('<div class="success">Success!</div>'); //TODO: Write better message
-                   location.reload(true)
+                   location.reload(true);
                } else {
                    var out = "";
                    for(var error in data["response"]) {
