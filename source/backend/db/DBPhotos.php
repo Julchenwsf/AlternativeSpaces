@@ -66,7 +66,7 @@ function searchPhotos($tags, $bounds, $page) {
 
     $bounds = mysql_real_escape_string($bounds);    //Should probably be replaced with some fancy regex
     $page = intval($page);
-    $result = mysql_query("SELECT photo_id FROM photos WHERE " . $tagsFilter ." MBRContains(GeomFromText('LINESTRING(" . $bounds . ")'), photos.location) ORDER BY rating DESC LIMIT " . 20*$page . ", 20") or die(mysql_error());
+    $result = mysql_query("SELECT photo_id, photo_title FROM photos WHERE " . $tagsFilter ." MBRContains(GeomFromText('LINESTRING(" . $bounds . ")'), photos.location) ORDER BY rating DESC LIMIT " . 20*$page . ", 20") or die(mysql_error());
     $return_arr = array();
 
     //Format the result to be an array of dictionaries for each row/result.
@@ -86,7 +86,15 @@ if(isset($_GET["search"]) && $_GET["search"] == "2D") {
         $res = searchPhotos($_GET["interests"], $_GET["boxloc"], $_GET["page"]);    //Do the search
         foreach($res as &$row) {
             //For each search result, pack it nicely into its HTML representation. Currently a simple img inside div
-            echo '<div class="contentBox" data-content-id="' . $row["photo_id"] . '"><img src="http://org.ntnu.no/cdpgroup4/images/thumb/' . $row["photo_id"] . '.jpg" /><br><a href="#" class="likeButton"></a><a href="#" class="dislikeButton"></a></div>';
+            echo '<div class="photo">
+                    <div class="photo-wrapper">
+                        <div class="bg"></div>
+
+                        <time class="photo-date">' . $row["photo_title"] . '</time>
+                        <div class="img"><img src="http://org.ntnu.no/cdpgroup4/images/thumb/' . $row["photo_id"] . '.jpg" /></div>
+                        <div class="photo-stats"><a href="#" class="likeButton"></a><a href="#" class="dislikeButton"></a></div>
+                    </div>
+                </div>';
         }
     }
 }
