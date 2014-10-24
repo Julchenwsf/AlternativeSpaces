@@ -14,4 +14,10 @@ if(isset($_GET["q"])) {
     echo json_encode($return_arr);  //Return JSON encoded reply
 }
 
+function getInterest($id) {
+    if(!is_numeric($id)) return false;
+    $result = mysql_query("SELECT * FROM interests WHERE interest_id='$id'") or die(mysql_error());
+    $row = mysql_fetch_assoc($result);
+    return $row;
+}
 ?>
