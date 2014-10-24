@@ -32,12 +32,16 @@ function addUser($username, $password, $firstName, $lastName, $gender) {
         array_push($errors, "First name cannot be left blank");
     } else if(strlen($firstName) > 20) {
         array_push($errors, "First name is too long (max 20 characters)");
+    } else if (!preg_match("/^[a-zA-Z0-9 ]*$/", $firstName)) {
+        array_push($errors, "Illegal characters in first name (only letters, numbers and spaces)");
     }
 
     if(empty($lastName)) {
         array_push($errors, "Last name cannot be left blank");
     } else if(strlen($lastName) > 30) {
         array_push($errors, "Last name is too long (max 30 characters)");
+    } else if (!preg_match("/^[a-zA-Z0-9 ]*$/", $lastName)) {
+        array_push($errors, "Illegal characters in last name (only letters, numbers and spaces)");
     }
 
     if($gender != "male" and $gender != "female") { //Sigh...

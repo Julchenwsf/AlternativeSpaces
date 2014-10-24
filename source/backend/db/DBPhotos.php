@@ -19,12 +19,16 @@ function addPhoto($uploader, $title, $lat, $lng, $interests, $description) {
         $errors[] = "Title too short (min 4 characters)";
     } else if(strlen($title) > 50) {
         $errors[] = "Title too long (max 50 characters)";
+    } else if (!preg_match("/^[a-zA-Z0-9 ]*$/", $title)) {
+        $errors[] = "Illegal characters in title (only letters, numbers and spaces)";
     }
 
     if(strlen($description) < 10) {
         $errors[] = "Description too short (min 10 characters)";
     } else if(strlen($description) > 1000) {
         $errors[] = "Description too long (max 1000 characters)";
+    } else if (!preg_match("/^[a-zA-Z0-9 ,.!?()@\/]*$/", $description)) {
+        array_push($errors, "Illegal characters in description");
     }
 
     $numInterests = sizeof(explode(" ", $interests));

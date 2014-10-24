@@ -387,6 +387,9 @@ h2 {
 
 .share-buttons{
     list-style: none;
+    width:248px;
+    padding:0;
+    margin:5px auto 0;
 }
 
 .share-buttons li{
