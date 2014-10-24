@@ -16,11 +16,11 @@ if (isset($_GET["id"])) {
     $numPeople = $eventData["no_of_people"];
     $creator = $eventData["event_creator"];
 
-    $eventHeader = <<<EOT
+    echo <<<EOT
     <div id="eventPage">
         <div class="eventLeft">
             <div class="eventImage">
-                <a href="index.php"><img src="img/design/football.png" /></a>
+                <img src="http://maps.googleapis.com/maps/api/staticmap?center=$lat,$lng&zoom=13&size=175x175&maptype=roadmap&markers=color:red%7Clabel:A%7C$lat,$lng" />
             </div>
             <div class="eventDescription">
                 <div class="eventDescriptionHeader">
@@ -39,20 +39,15 @@ if (isset($_GET["id"])) {
                 </fieldset>
             </div>
 
-        </div>
-        <div class="eventRight">
-            <div class="eventImage">
-                <img src="http://maps.googleapis.com/maps/api/staticmap?center=$lat,$lng&zoom=13&size=175x175&maptype=roadmap&markers=color:red%7Clabel:A%7C$lat,$lng" />
-            </div>
-            <div class="eventDescription">
+            <div class="eventDescription center">
                 <div class="eventDescriptionHeader">
                     <span class="titleText">Join the event</span>
                 </div>
-            <fieldset>
-                <legend>Event status</legend>
-                0/$numPeople
-            </fieldset>
-            <button type="button" id="attendButton" class="submitButton">Attend</button>
+                <fieldset>
+                    <legend>Event status</legend>
+                    0/$numPeople
+                </fieldset>
+                <button type="button" id="attendButton" class="submitButton">Attend</button>
             </div>
         </div>
 
@@ -85,12 +80,5 @@ if (isset($_GET["id"])) {
     </script>
 EOT;
 
-
-    $pb = new PageBuilder("Event");
-    $pb->addCSSImport("styles/event.css");
-    $pb->addCSSImport("styles/comments.css");
-    $pb->addJSImport("js/comment.js");
-    $pb->appendContent($eventHeader);
-    echo $pb->toHTML();
 }
 ?>
