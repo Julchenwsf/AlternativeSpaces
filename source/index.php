@@ -21,6 +21,7 @@ if(isset($_GET["photo"])) {
 
 $pb = new PageBuilder("Photos");
 $pb->addCSSImport("styles/comments.css");
+$pb->addCSSImport("styles/event.css");
 
 $pb->addJSImport("js/2DSearch.js");
 $pb->addJSImport("js/comment.js");

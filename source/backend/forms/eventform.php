@@ -58,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             dataType: "JSON",
             success: function(data) {
                 if(data["success"]) {
-                   window.location.replace("event.php?id=" + data["response"]);
+                   window.location.replace("eventoverlay.php?id=" + data["response"]);
                 } else {
                    var out = "";
                    for(var error in data["response"]) {
@@ -79,8 +79,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     });
 
     var autocomplete = new google.maps.places.Autocomplete(document.getElementById('location'), { types: ['geocode'] });
+    var place;
     google.maps.event.addListener(autocomplete, 'place_changed', function() {
-        var place = autocomplete.getPlace();
+        place = autocomplete.getPlace();
         if (!place.geometry) return;
 
         $("#locationHidden").val(place.geometry.location.lat() + " " + place.geometry.location.lng());
@@ -88,8 +89,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
     function openMapPicker() {
-        window.open("http://folk.ntnu.no/valerijf/div/AlternativeSpaces/source/backend/forms/maplookup.php",
-            "Select location", "width=620,height=440,location=no,menubar=no,resizable=no,status=no,toolbar=no");
+        window.open("backend/forms/maplookup.php",
+            "Select location", "width=620,height=460,location=no,menubar=no,resizable=no,status=no,toolbar=no");
     }
 
     function mapSelectionCallback(result) {

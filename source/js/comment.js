@@ -22,6 +22,7 @@ function addComment(where, parent) {
     </div> </div></div>';
 
     $el.append(comment);
+    $(window).scrollTop($('.commentButton').offset().top);
 }
 
 function cancelAdd(el) {

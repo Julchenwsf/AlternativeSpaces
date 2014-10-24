@@ -100,7 +100,7 @@ $(window).scroll(function() {
 });
 
 function openPhotoOverlay(id) {
-    $.get("backend/forms/photoenlarge.php", {photo_id: id}, function(data){modal.open({content: data, closeCallback:closePhotoOverlay});});
+    $.get("backend/forms/photooverlay.php", {photo_id: id}, function(data){modal.open({content: data, closeCallback:closePhotoOverlay});});
 }
 
 function closePhotoOverlay() {
