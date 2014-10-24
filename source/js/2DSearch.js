@@ -1,4 +1,4 @@
-var map, interestsInput, pageNum = 0;
+var map, interestsInput, database, pageNum = 0;
 
 
 //==== GMaps ====
@@ -59,6 +59,7 @@ function initializeGMaps() {
 
 //==== Search bar ====
 $(document).ready(function() {
+    database = $('input[name="database"]:checked').val();
     interestsInput = $("#input-interest-search");
     initializeGMaps();                  //Initialize the map
 
@@ -81,13 +82,21 @@ $(document).ready(function() {
         }
         //prePopulate: interests.slice(0, 3)                          //Pre-populate the search-bar with the 3 first interest-tags
     });
+
+
+    $("input[name=database]:radio").change(function () {
+        database = $('input[name="database"]:checked').val();
+        closeOverlay();
+        doSearch();
+    });
+
 });
 
 
 $(document).on('click', '.contentBox', function(e){
-    var id = $(this).attr("data-photo-id");
-    window.history.pushState({"html": document.documentElement.innerHTML, "pageTitle": "Photo viewer"},"", 'index.php?photo='+id);
-    openPhotoOverlay(id);
+    var id = $(this).attr("data-content-id");
+    window.history.pushState({"html": document.documentElement.innerHTML, "pageTitle": "Viewer"},"", 'index.php?type=' + database + '&id='+id);
+    openOverlay(id);
 });
 
 
@@ -99,12 +108,12 @@ $(window).scroll(function() {
     }
 });
 
-function openPhotoOverlay(id) {
-    $.get("backend/forms/photooverlay.php", {photo_id: id}, function(data){modal.open({content: data, closeCallback:closePhotoOverlay});});
+function openOverlay(id) {
+    $.get("backend/forms/overlay" + database + ".php", {id: id}, function(data){modal.open({content: data, closeCallback:closeOverlay});});
 }
 
-function closePhotoOverlay() {
-    window.history.pushState({"html": document.documentElement.innerHTML, "pageTitle": "Photo viewer"},"", 'index.php');
+function closeOverlay() {
+    window.history.pushState({"html": document.documentElement.innerHTML, "pageTitle": ""},"", 'index.php?type=' + database);
 }
 
 //Function to deal with AJAX search
@@ -118,7 +127,7 @@ function doSearch(append) {
     //Format the bounding box to be on format:
     //SW_lat SW_lng,NE_lat NE_lng
     var formattedBounds = toStringCoordinate(bounds.getSouthWest()) + "," + toStringCoordinate(bounds.getNorthEast());
-    $.get("backend/db/DBEvents.php?search=2D&boxloc=" + formattedBounds + "&interests=" + tags + "&page=" + pageNum, function(data) {
+    $.get("backend/db/DB" + capitalize(database) + ".php?search=2D&boxloc=" + formattedBounds + "&interests=" + tags + "&page=" + pageNum, function(data) {
         $("#searchResults").append(data);
     });
 }
@@ -126,4 +135,8 @@ function doSearch(append) {
 //Function to format Google Maps API coordinate instance into a string
 function toStringCoordinate(coordinate) {
     return coordinate.lat().toFixed(5) + " " + coordinate.lng().toFixed(5);
+}
+
+function capitalize(s) {
+    return s && s[0].toUpperCase() + s.slice(1);
 }
