@@ -36,8 +36,8 @@ function addUser($username, $password, $firstName, $lastName, $gender) {
 
     if(empty($lastName)) {
         array_push($errors, "Last name cannot be left blank");
-    } else if(strlen($lastName) > 20) {
-        array_push($errors, "Last name is too long (max 20 characters)");
+    } else if(strlen($lastName) > 30) {
+        array_push($errors, "Last name is too long (max 30 characters)");
     }
 
     if($gender != "male" and $gender != "female") { //Sigh...
