@@ -14,8 +14,8 @@ function addEvent($creator, $event_name, $description, $interests, $lat, $lng, $
     } else {
         if (!preg_match("/^[a-zA-Z0-9 ]*$/", $event_name)) {
             array_push($errors, "Event title can only contain letters, numbers and whitespace");
-        } else if(strlen($event_name) > 30) {
-            array_push($errors, "Event title too long (max 30 characters)");
+        } else if(strlen($event_name) > 60) {
+            array_push($errors, "Event title too long (max 60 characters)");
         }
     }
 
@@ -35,6 +35,8 @@ function addEvent($creator, $event_name, $description, $interests, $lat, $lng, $
 
     if(!is_numeric($numPeople)) {
         array_push($errors, "Number of people must be a number");
+    } else if(intval($numPeople) < 1 || intval($numPeople) > 1000) {
+        array_push($errors, "Illegal number of people [1, 1000]");
     }
 
     if(empty($interests)) {
