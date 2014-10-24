@@ -14,13 +14,15 @@ function addEvent($creator, $event_name, $description, $interests, $lat, $lng, $
     } else {
         if (!preg_match("/^[a-zA-Z0-9 ]*$/", $event_name)) {
             array_push($errors, "Event title can only contain letters, numbers and whitespace");
-        } else if(strlen($event_name) > 50) {
-            array_push($errors, "Event title too long (max 50 characters)");
+        } else if(strlen($event_name) > 30) {
+            array_push($errors, "Event title too long (max 30 characters)");
         }
     }
 
     if(empty($description)) {
         array_push($errors, "Description cannot be left blank");
+    } else if (!preg_match("/^[a-zA-Z0-9 ,.!?()@\/]*$/", $description)) {
+        array_push($errors, "Illegal characters in description");
     }
 
     if(!is_numeric($lat) || !is_numeric($lng)) {
