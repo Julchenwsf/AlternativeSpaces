@@ -134,8 +134,8 @@ a {
 	color:#777777;
 	text-align:center;
 
-    min-width:250px;
-    min-height:265px;
+    width:250px;
+    height:265px;
     margin:5px;
     padding:5px;
     cursor:pointer;
@@ -398,3 +398,45 @@ input {
     padding: 3px 8px;
 }
 
+.contentBox #eventBox{
+    background: white;
+    border-radius:5px;
+    word-wrap: break-word;
+}
+
+.contentBox #eventBox h2{
+    color:white;
+    width:100%;
+    font-family:Verdana,serif;
+    font-size:15px;
+    font-weight:bold;
+    font-style:normal;
+}
+
+.contentBox #eventBox #title{
+    background: #303f9f;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+
+
+}
+
+
+.contentBoxDescription{
+    text-align:left;
+    color:black;
+    padding:5px;
+}
+
+.contentBoxInfo{
+    background: #303f9f;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    color: white;
+    font-family:Verdana,serif;
+    font-size:12px;
+    font-weight:bold;
+    font-style:normal;
+    text-align:center;
+    padding:5px;
+}

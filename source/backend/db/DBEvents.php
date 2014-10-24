@@ -72,7 +72,7 @@ function searchEvents($tags, $bounds, $page) {
 
     $bounds = mysql_real_escape_string($bounds);    //Should probably be replaced with some fancy regex
     $page = intval($page);
-    $result = mysql_query("SELECT event_id, event_name, description FROM events WHERE " . $tagsFilter ." MBRContains(GeomFromText('LINESTRING(" . $bounds . ")'), events.location) ORDER BY rating DESC LIMIT " . 20*$page . ", 20") or die(mysql_error());
+    $result = mysql_query("SELECT event_id, event_name, description, event_time, X(location) AS latitude, Y(location) AS longitude FROM events WHERE " . $tagsFilter ." MBRContains(GeomFromText('LINESTRING(" . $bounds . ")'), events.location) ORDER BY rating DESC LIMIT " . 20*$page . ", 20") or die(mysql_error());
     $return_arr = array();
 
     //Format the result to be an array of dictionaries for each row/result.
@@ -92,7 +92,7 @@ if(isset($_GET["search"]) && $_GET["search"] == "2D") {
         $res = searchEvents($_GET["interests"], $_GET["boxloc"], $_GET["page"]);    //Do the search
         foreach($res as &$row) {
             //For each search result, pack it nicely into its HTML representation. Currently a simple img inside div
-            echo '<div class="contentBox" data-content-id="' . $row["event_id"] . '"><div id=eventBox><h2>' . $row["event_name"] .'</h2><br>' . $row["description"] . '<br><a href="#" class="likeButton"></a><a href="#" class="dislikeButton"></a></div></div>';
+            echo '<div class="contentBox" data-event-id="' . $row["event_id"] . '"><div id = "eventBox"><div id= "title"><h2>' . $row["event_name"] .'</h2></div><div class="contentBoxDescription">' . (strlen($row["description"])>70 ? substr($row["description"],0,70) . '...' : $row["description"]) . '</div><div class="contentBoxInfo">When</div><div class="contentBoxDescription">' . eventTimeFormat($row["event_time"]) .'</div></div><br><a href="#" class="likeButton"></a><a href="#" class="dislikeButton"></a></div>';
         }
     }
 }
