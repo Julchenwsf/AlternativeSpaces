@@ -90,7 +90,7 @@ if(isset($_GET["search"]) && $_GET["search"] == "2D") {
                     <div class="photo-wrapper">
                         <div class="bg"></div>
 
-                        <time class="photo-date">' . $row["photo_title"] . '</time>
+                        <time class="photo-date">' . (strlen($row["photo_title"])>26 ? substr($row["photo_title"],0,23) . '...' : $row["photo_title"]) . '</time>
                         <div class="img"><img src="http://org.ntnu.no/cdpgroup4/images/thumb/' . $row["photo_id"] . '.jpg" /></div>
                         <div class="photo-stats"><a href="#" class="likeButton"></a><a href="#" class="dislikeButton"></a></div>
                     </div>

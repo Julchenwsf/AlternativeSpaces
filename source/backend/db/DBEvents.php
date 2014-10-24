@@ -98,7 +98,7 @@ if(isset($_GET["search"]) && $_GET["search"] == "2D") {
                          <div class="photo-wrapper">
                              <div class="bg"></div>
 
-                             <time class="photo-date">' . (strlen($row["event_name"])>30 ? substr($row["event_name"],0,30) . '...' : $row["event_name"]) . '</time>
+                             <time class="photo-date">' . (strlen($row["event_name"])>26 ? substr($row["event_name"],0,23) . '...' : $row["event_name"]) . '</time>
                              <div class="content-text">
                              <div class= "contentBoxInfo">Description</div><div class="contentBoxDescription">' . (strlen($row["description"])>70 ? substr($row["description"],0,70) . '...' : $row["description"]) . '</div>
                              <div class="contentBoxInfo">When</div><div class="contentBoxDescription">' . eventTimeFormat($row["event_time"]) .'</div>
