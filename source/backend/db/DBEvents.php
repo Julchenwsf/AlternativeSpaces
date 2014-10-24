@@ -92,7 +92,7 @@ if(isset($_GET["search"]) && $_GET["search"] == "2D") {
         $res = searchEvents($_GET["interests"], $_GET["boxloc"], $_GET["page"]);    //Do the search
         foreach($res as &$row) {
             //For each search result, pack it nicely into its HTML representation. Currently a simple img inside div
-            echo '<div class="contentBox" data-event-id="' . $row["event_id"] . '"><div id = eventBox><h2>' . $row["event_name"] .'</h2><br>' . $row["description"] . '<br><a href="#" class="likeButton"></a><a href="#" class="dislikeButton"></a></div></div>';
+            echo '<div class="contentBox" data-content-id="' . $row["event_id"] . '"><div id=eventBox><h2>' . $row["event_name"] .'</h2><br>' . $row["description"] . '<br><a href="#" class="likeButton"></a><a href="#" class="dislikeButton"></a></div></div>';
         }
     }
 }
