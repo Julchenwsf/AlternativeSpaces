@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                    for(var error in data["response"]) {
                        out += "<li>" + data["response"][error] + "</li>";
                    }
-                   $("#response").html('<div class="error"><ul>' + out + "</ul></div>");
+                   $("#response").html('<ul class="error">' + out + "</ul>");
                }
             }
         });
