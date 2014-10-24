@@ -61,4 +61,38 @@ function eventTimeFormat($t){
     return date('j. M y \a\t H:i', $t);
 }
 
+//Parameters format:
+//  Tags: +[interest_id] +[interest_id2]
+//  Bounds: SW_lat SW_lng, NE_lat NE_lng
+function searchEvents($tags, $bounds, $page) {
+    //If the tags is not set, ignore it from SQL (This way you get all possible interests), otherwise separate all interest IDs with plus signs (to get the AND relation)
+    $tagsFilter = (strlen($tags) == 0) ? '' : "MATCH (interests) AGAINST ('" . mysql_real_escape_string("+" . str_replace(",", " +", $tags)) . "' IN BOOLEAN MODE) AND";
+
+    $bounds = mysql_real_escape_string($bounds);    //Should probably be replaced with some fancy regex
+    $page = intval($page);
+    $result = mysql_query("SELECT event_id FROM events WHERE " . $tagsFilter ." MBRContains(GeomFromText('LINESTRING(" . $bounds . ")'), events.location) ORDER BY rating DESC LIMIT " . 20*$page . ", 20") or die(mysql_error());
+    $return_arr = array();
+
+    //Format the result to be an array of dictionaries for each row/result.
+    while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+        array_push($return_arr, $row);
+    }
+    return $return_arr;
+}
+
+
+//If the search argument is set to "2D"...
+if(isset($_GET["search"]) && $_GET["search"] == "2D") {
+    if(! isset($_GET["boxloc"])) echo "Missing bounding box coordinates!";  //Make sure that the bounding box coordinates are specified
+    else if(! isset($_GET["interests"])) echo "Missing interests!";         //Also the interests are specified
+    else if(! isset($_GET["page"])) echo "Missing page!";                   //And finally the page number is specified
+    else {
+        $res = searchEvents($_GET["interests"], $_GET["boxloc"], $_GET["page"]);    //Do the search
+        foreach($res as &$row) {
+            //For each search result, pack it nicely into its HTML representation. Currently a simple img inside div
+            echo '<div class="contentBox" data-event-id="' . $row["event_id"] . '"><div id = eventBox><h2>' . $row["event_name"] .'</h2><br>' . $row["description"] . '<br><a href="#" class="likeButton"></a><a href="#" class="dislikeButton"></a></div></div>';
+        }
+    }
+}
+
 ?>
