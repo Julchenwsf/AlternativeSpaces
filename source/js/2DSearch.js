@@ -100,6 +100,7 @@ $(document).on('click', '.contentBox', function(e){
 });
 
 
+
 //This fires every time the user scrolls
 $(window).scroll(function() {
     //When users position at the page is within 100px from the end, get more pictures
