@@ -23,8 +23,8 @@ $sidebar = '    <div id="sidebarSearchFlex">
                     </aside>
                 </div>';
 
-if(isset($_GET["photo"])) {
-    $sidebar .= '<script type="text/javascript">openPhotoOverlay('. $_GET["photo"] .');</script>';
+if(isset($_GET["id"])) {
+    $sidebar .= '<script type="text/javascript">$(document).ready(function() {openOverlay('. $_GET["id"] .');});</script>';
 }
 
 
