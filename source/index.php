@@ -1,6 +1,8 @@
 <?
 include_once("backend/PageBuilder.php");
 
+$type = $_GET["type"];
+if(!in_array($type, array('photos', 'events'))) $type = "photos";
 $sidebar = '    <div id="sidebarSearchFlex">
                     <aside id="sidebarSearch">
                         <b>Search</b>
@@ -10,6 +12,13 @@ $sidebar = '    <div id="sidebarSearchFlex">
                         </div>
                         <div id="sidebarSearchInput">
                             <input type="text" id="input-interest-search" />
+                        </div>
+
+                        <div id="sidebarSearchDatabase">
+                            <input type="radio" name="database" value="photos" id="photosRadio"' . ($type == "photos" ? " checked" : "") . '>
+                            <label for="photosRadio">Photos</label><br>
+                            <input type="radio" name="database" value="events" id="eventsRadio" ' . ($type == "events" ? " checked" : "") . '>
+                            <label for="eventsRadio">Events</label>
                         </div>
                     </aside>
                 </div>';

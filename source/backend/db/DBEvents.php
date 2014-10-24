@@ -70,7 +70,7 @@ function searchEvents($tags, $bounds, $page) {
 
     $bounds = mysql_real_escape_string($bounds);    //Should probably be replaced with some fancy regex
     $page = intval($page);
-    $result = mysql_query("SELECT event_id FROM events WHERE " . $tagsFilter ." MBRContains(GeomFromText('LINESTRING(" . $bounds . ")'), events.location) ORDER BY rating DESC LIMIT " . 20*$page . ", 20") or die(mysql_error());
+    $result = mysql_query("SELECT event_id, event_name, description FROM events WHERE " . $tagsFilter ." MBRContains(GeomFromText('LINESTRING(" . $bounds . ")'), events.location) ORDER BY rating DESC LIMIT " . 20*$page . ", 20") or die(mysql_error());
     $return_arr = array();
 
     //Format the result to be an array of dictionaries for each row/result.

@@ -119,6 +119,11 @@ a {
 
 }
 
+#sidebarSearchDatabase input {
+    width:auto;
+}
+
+
 .contentBox {
 	background-color:#c5cae9;
     -webkit-border-radius: 10px;
