@@ -87,12 +87,12 @@ if(isset($_GET["search"]) && $_GET["search"] == "2D") {
         foreach($res as &$row) {
             //For each search result, pack it nicely into its HTML representation. Currently a simple img inside div
             echo '<div class="contentBox" data-content-id="' . $row["photo_id"] . '">
-                    <div class="photo-wrapper">
+                    <div class="contentWrapper">
                         <div class="bg"></div>
 
-                        <time class="photo-date">' . (strlen($row["photo_title"])>26 ? substr($row["photo_title"],0,23) . '...' : $row["photo_title"]) . '</time>
-                        <div class="img"><img src="http://org.ntnu.no/cdpgroup4/images/thumb/' . $row["photo_id"] . '.jpg" /></div>
-                        <div class="photo-stats"><a href="#" class="likeButton"></a><a href="#" class="dislikeButton"></a></div>
+                        <div class="contentTitle">' . $row["photo_title"] . '</div>
+                        <div class="contentImage"><img src="http://org.ntnu.no/cdpgroup4/images/thumb/' . $row["photo_id"] . '.jpg" /></div>
+                        <div class="contentStats"><a href="#" class="likeButton"></a><a href="#" class="dislikeButton"></a></div>
                     </div>
                 </div>';
         }

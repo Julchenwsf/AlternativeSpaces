@@ -115,9 +115,7 @@ a {
     height: 300px;
 }
 
-#sidebarSearchInput {
-
-}
+#sidebarSearchInput {}
 
 #sidebarSearchDatabase input {
     width:auto;
@@ -133,52 +131,6 @@ a {
     text-align:center;
 }
 
-
-/* Front-page map & sidebar */
-#eventMapContainer {
-    height:600px;
-}
-
-#eventMapSearch {
-    width:600px;
-    margin: 20px auto;
-}
-
-#eventMap {
-    width:75%;
-    height:100%;
-    float:left;
-    margin-right:1%;
-}
-
-#eventMapSidebar {
-    width:24%;
-    height:100%;
-    float:right;
-}
-
-.eventDetails{
-    border: 1px solid #222;
-    margin-bottom:5px;
-
-	background:#fff;
-	color:#333;
-	padding:3px;
-}
-
-.eventDetailsHeader {
-    font-size: 16px;
-    font-weight:bold;
-    cursor: pointer;
-}
-
-.eventDetailsHeader:hover {
-	background:#eee;
-}
-
-.eventDetailsContent {}
-
-
 /* General */
 .hidden {
     display: none;
@@ -193,26 +145,10 @@ a {
     float:right;
 }
 
-.left {
-    float:left;
-}
-
 .error {
+    padding:5px 0 5px 25px;
+    margin:0;
     background:#ff0000;
-    margin-bottom:5px;
-    -webkit-border-radius:10px;
-    -moz-border-radius:10px;
-    border-radius:10px;
-    padding:5px;
-}
-
-.success {
-    background:#00ff00;
-    margin-bottom:5px;
-    -webkit-border-radius:10px;
-    -moz-border-radius:10px;
-    border-radius:10px;
-    padding:5px;
 }
 
 h2 {
@@ -257,7 +193,7 @@ h2 {
     font-size:15px;
     font-weight:bold;
     font-style:normal;
-    padding:0 0 10px;
+    padding:5px 0 10px;
 }
 
 
@@ -435,13 +371,15 @@ input {
     position: relative;
     float: left;
     display: inline;
-    width: 280px;
+    width: 260px;
+    margin:5px;
     padding: 0 0 23px;
+    cursor: pointer;
 }
 
-.photo-wrapper {
+.contentWrapper {
     position: relative;
-    margin: 0 20px 10px;
+    margin: 0 0 10px;
 }
 
 .contentBox .bg {
@@ -450,9 +388,9 @@ input {
     top: 0;
     left: 0;
     bottom: 0;
-    width: 100%;
-    margin: -5px;
-    padding: 5px;
+    right: 0;
+    margin: 0 0 -5px;
+    padding: 5px 0;
     background: #c5cae9;
     border:1px solid #9fa8da;
     border-radius: 5px;
@@ -460,11 +398,12 @@ input {
 }
 
 .contentBox:hover .bg {
-    margin: -5px -5px -28px -5px;
-    padding: 28px 0 0 10px;
+    margin: 0 0 -28px;
+    padding: 28px 0 0;
 }
 
-.photo-date {
+
+.contentTitle {
     font-size: 16px;
     font-weight: bold;
     color: rgb(119, 119, 119);
@@ -477,24 +416,18 @@ input {
     word-wrap: break-word;
 }
 
-.photo-stats {
-    position: relative;
-    display: block;
-    opacity: 0;
-    transition: opacity 0.3s ease-out 0;
-}
-
-.contentBox:hover .photo-stats {
-    opacity: 1;
-    transition: opacity 0.5s ease-out 1;
-}
-.contentBox .img {
+.contentBox .contentImage {
     display: block;
     position: relative;
     text-align: center;
 }
 
-.photo-stats {
+.contentBox:hover .contentStats {
+    opacity: 1;
+    transition: opacity 0.5s ease-out 1;
+}
+
+.contentStats {
     font-size: 13px;
     color: rgb(153, 153, 153);
     position: absolute;
@@ -503,7 +436,12 @@ input {
     width: 100%;
     text-align: center;
     margin: 0 0 1px;
+    display: block;
+    opacity: 0;
+    transition: opacity 0.3s ease-out 0;
 }
+
+
 
 .photoInfoBoxMain{
     border-radius:5px;
