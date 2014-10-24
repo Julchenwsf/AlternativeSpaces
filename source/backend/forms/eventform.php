@@ -58,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             dataType: "JSON",
             success: function(data) {
                 if(data["success"]) {
-                   window.location.replace("index.php?type=events&id=" + data["response"]);
+                   window.location.replace("index.php?type=id=" + data["response"]);
                 } else {
                    var out = "";
                    for(var error in data["response"]) {
