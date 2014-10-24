@@ -222,6 +222,10 @@ a {
     float:right;
 }
 
+.left {
+    float:left;
+}
+
 .error {
     background:#ff0000;
     margin-bottom:5px;
