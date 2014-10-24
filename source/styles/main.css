@@ -290,6 +290,11 @@ h2 {
     width: 410px;
 }
 
+.submitTable textarea{
+    width: 100%;
+    resize: vertical;
+}
+
 
 .submitButton {
 	background-color:#ff9100;
