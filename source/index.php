@@ -2,7 +2,7 @@
 include_once("backend/PageBuilder.php");
 
 $type = $_GET["type"];
-if(!in_array($type, array('photos', 'events'))) $type = "photos";
+if(!in_array($type, array('photos', 'events'))) header("Location: index.php?type=photos");
 $sidebar = '    <div id="sidebarSearchFlex">
                     <aside id="sidebarSearch">
                         <b>Search</b>
