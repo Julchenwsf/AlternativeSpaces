@@ -5,9 +5,12 @@ if (isset($_GET["id"])) {
     include_once($path . "backend/PageBuilder.php");
     include_once($path . "backend/forms/commentform.php");
     include_once($path . "backend/db/DBEvents.php");
+    include_once($path . "backend/functions/sharing.php");
 
-    $comments = getCommentsForm("e" . $_GET["id"]);
     $eventData = fetchEvent($_GET["id"]);
+    $comments = getCommentsForm("e" . $_GET["id"]);
+    $sharing = getShareButtons("http://folk.ntnu.no/valerijf/div/AlternativeSpaces/source/index.php?type=events&id=" . $_GET["id"], $eventData["event_name"], $eventData["description"]);
+
 
     $eventTime = eventTimeFormat($eventData['event_time']);
     $eventTitle = $eventData["event_name"];
@@ -57,6 +60,7 @@ if (isset($_GET["id"])) {
                 <h2>$eventTitle</h2>
                 <hr/>
                 $eventDesc
+                $sharing
             </div>
         </div>
 
