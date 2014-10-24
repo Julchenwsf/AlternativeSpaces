@@ -124,35 +124,6 @@ a {
 }
 
 
-.contentBox {
-	background-color:#c5cae9;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
-	border:1px solid #9fa8da;
-	display:inline-block;
-	color:#777777;
-	text-align:center;
-
-    width:250px;
-    height:265px;
-    margin:5px;
-    padding:5px;
-    cursor:pointer;
-    float:left;
-}
-
-.contentBox:hover {
-	background-color:#5c6bc0;
-    transform: scale(1.1);
-    transition: all 0.3s;
-    z-index:1;
-}
-
-.contentBox img {
-    vertical-align:top;
-}
-
 .largeContentBox {
     min-width: 1050px;
     min-height: 800px;
@@ -457,12 +428,12 @@ input {
 
 
 
-.photo {
+.contentBox {
     position: relative;
     float: left;
     display: inline;
     width: 280px;
-    padding: 7px 0 23px;
+    padding: 0 0 23px;
 }
 
 .photo-wrapper {
@@ -470,10 +441,10 @@ input {
     margin: 0 20px 10px;
 }
 
-.photo .bg {
+.contentBox .bg {
     display: block;
     position: absolute;
-    top: 25px;
+    top: 0;
     left: 0;
     bottom: 0;
     width: 100%;
@@ -485,10 +456,9 @@ input {
     transition: all 0.15s ease-out 0.1s;
 }
 
-.photo:hover .bg {
-    margin: -28px -12px;
-    padding: 28px 12px;
-    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.04), 0 1px 5px rgba(0, 0, 0, 0.2);
+.contentBox:hover .bg {
+    margin: -5px -5px -28px -5px;
+    padding: 28px 0 0 10px;
 }
 
 .photo-date {
@@ -498,20 +468,22 @@ input {
     height: 20px;
     padding: 1px 0 4px;
     text-align: center;
+    position: relative;
+    display: block;
 }
 
-.photo-date, .photo-stats {
+.photo-stats {
     position: relative;
     display: block;
     opacity: 0;
     transition: opacity 0.3s ease-out 0;
 }
 
-.photo:hover .photo-date, .photo:hover .photo-stats {
+.contentBox:hover .photo-stats {
     opacity: 1;
     transition: opacity 0.5s ease-out 1;
 }
-.photo .img {
+.contentBox .img {
     display: block;
     position: relative;
     text-align: center;
