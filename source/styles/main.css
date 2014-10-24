@@ -136,11 +136,6 @@ a {
     display: none;
 }
 
-.time {
-    font-size: 12px;
-    color: #555;
-}
-
 .right {
     float:right;
 }
@@ -151,6 +146,10 @@ a {
     background:#ff0000;
 }
 
+.center {
+    text-align: center;
+}
+
 h2 {
     font-size:30px;
     color:#444;
@@ -158,13 +157,16 @@ h2 {
     display:inline-block;
 }
 
+input {
+    width:100%;
+    padding: 3px 8px;
+}
 
-/* REGISTRATION TABLE DESIGN */
+
+/* SUBMIT TABLE DESIGN (Register, login, event create)*/
 .submitTable {
     background:#ffffff;
     margin:0 auto;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
     border-radius: 10px;
     border:10px solid #303f9f;
     width:430px;
@@ -212,10 +214,9 @@ h2 {
 }
 
 
+/*  BUTTONS */
 .submitButton {
 	background-color:#ff9100;
-	-webkit-border-radius:3px;
-	-moz-border-radius:3px;
 	border-radius:3px;
 	border:1px solid #ff6d00;
 	display:inline-block;
@@ -240,8 +241,29 @@ h2 {
 	top:1px;
 }
 
-.center {
-    text-align: center;
+.likeButton {
+    width:25px;
+    height:25px;
+    display:inline-block;
+    background:url(../img/design/thumbsUp.png);
+}
+
+.dislikeButton {
+    width:25px;
+    height:25px;
+    display:inline-block;
+    background:url(../img/design/thumbsDown.png);
+}
+
+.share-buttons{
+    list-style: none;
+    width:248px;
+    padding:0;
+    margin:5px auto 0;
+}
+
+.share-buttons li{
+    display: inline;
 }
 
 
@@ -282,92 +304,10 @@ h2 {
     right:-7px;
 }
 
-.likeButton {
-    width:25px;
-    height:25px;
-    display:inline-block;
-    background:url(../img/design/thumbsUp.png);
-}
 
-.dislikeButton {
-    width:25px;
-    height:25px;
-    display:inline-block;
-    background:url(../img/design/thumbsDown.png);
-}
-
-.share-buttons{
-    list-style: none;
-    width:248px;
-    padding:0;
-    margin:5px auto 0;
-}
-
-.share-buttons li{
-    display: inline;
-}
-
-input {
-    width:100%;
-    padding: 3px 8px;
-}
-
-.contentBox #eventBox{
-    background: white;
-    border-radius:5px;
-    word-wrap: break-word;
-}
-
-.contentBox #titleAndDescription{
-    height: 110px;
-}
-
-.contentBox #eventBox h2{
-    color:white;
-    width:100%;
-    font-family:Verdana,serif;
-    font-size:15px;
-    font-weight:bold;
-    font-style:normal;
-}
-
-.contentBox #eventBox #title{
-    background: #303f9f;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-
-
-}
-
-
-.contentBoxDescription{
-    text-align:left;
-    color:black;
-    font-family:monospace;
-    font-size: 14px;
-    padding:5px;
-    background:white;
-    height:60px;
-    word-wrap:break-word;
-}
-
-.contentBoxInfo{
-    background: #303f9f;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    color: white;
-    font-family:Verdana,serif;
-    font-size:12px;
-    font-weight:bold;
-    font-style:normal;
-    text-align:center;
-    padding:5px;
-}
-
-
-
-
+/* CONTENT BOX */
 .contentBox {
+    font-family: monospace;
     position: relative;
     float: left;
     display: inline;
@@ -375,6 +315,7 @@ input {
     margin:5px;
     padding: 0 0 23px;
     cursor: pointer;
+    word-wrap:break-word;
 }
 
 .contentWrapper {
@@ -402,7 +343,6 @@ input {
     padding: 28px 0 0;
 }
 
-
 .contentTitle {
     font-size: 16px;
     font-weight: bold;
@@ -416,10 +356,9 @@ input {
     word-wrap: break-word;
 }
 
-.contentBox .contentImage {
+.contentBox .contentContent {
     display: block;
     position: relative;
-    text-align: center;
 }
 
 .contentBox:hover .contentStats {
@@ -442,7 +381,29 @@ input {
 }
 
 
+.contentBoxDescription{
+    text-align:left;
+    color:black;
+    font-size: 14px;
+    padding:5px;
+    background:white;
+    height:60px;
+}
 
+.contentBoxInfo{
+    background: #303f9f;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    color: white;
+    font-size:12px;
+    font-weight:bold;
+    font-style:normal;
+    text-align:center;
+    padding:5px;
+}
+
+
+/* PHOTO INFO BOX */
 .photoInfoBoxMain{
     border-radius:5px;
     border:1px solid #9fa8da;
@@ -483,9 +444,4 @@ input {
 
 .photoInfoBoxDescription ul.token-input-list{
     border:0;
-}
-
-.content-text{
-    display:block;
-    position: relative;
 }
