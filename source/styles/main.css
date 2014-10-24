@@ -193,10 +193,6 @@ a {
     float:right;
 }
 
-.left {
-    float:left;
-}
-
 .error {
     background:#ff0000;
     margin-bottom:5px;
@@ -432,13 +428,15 @@ input {
     position: relative;
     float: left;
     display: inline;
-    width: 280px;
+    width: 260px;
+    margin:5px;
     padding: 0 0 23px;
+    cursor: pointer;
 }
 
 .photo-wrapper {
     position: relative;
-    margin: 0 20px 10px;
+    margin: 0 0 10px;
 }
 
 .contentBox .bg {
@@ -447,9 +445,9 @@ input {
     top: 0;
     left: 0;
     bottom: 0;
-    width: 100%;
-    margin: -5px;
-    padding: 5px;
+    right: 0;
+    margin: 0 0 -5px;
+    padding: 5px 0;
     background: #c5cae9;
     border:1px solid #9fa8da;
     border-radius: 5px;
@@ -457,8 +455,8 @@ input {
 }
 
 .contentBox:hover .bg {
-    margin: -5px -5px -28px -5px;
-    padding: 28px 0 0 10px;
+    margin: 0 0 -28px;
+    padding: 28px 0 0;
 }
 
 .photo-date {
@@ -499,6 +497,8 @@ input {
     text-align: center;
     margin: 0 0 1px;
 }
+
+
 
 .photoInfoBoxMain{
     border-radius:5px;
