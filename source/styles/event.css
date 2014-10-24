@@ -25,6 +25,7 @@
     border-radius: 5px;
     border:1px solid #303f9f;
     padding:10px;
+    word-wrap:break-word;
 }
 
 
