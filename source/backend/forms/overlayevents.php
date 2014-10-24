@@ -1,9 +1,10 @@
 <?
+$path = substr(realpath("."), 0, strpos(realpath("."), "/source")+7) . "/";
 
 if (isset($_GET["id"])) {
-    include_once("backend/PageBuilder.php");
-    include_once("backend/forms/commentform.php");
-    include_once("backend/db/DBEvents.php");
+    include_once($path . "backend/PageBuilder.php");
+    include_once($path . "backend/forms/commentform.php");
+    include_once($path . "backend/db/DBEvents.php");
 
     $comments = getCommentsForm("e" . $_GET["id"]);
     $eventData = fetchEvent($_GET["id"]);
@@ -67,6 +68,7 @@ if (isset($_GET["id"])) {
             </div>
        </div>
     </div>
+    <div style="clear: both;"></div>
     <script type="text/javascript">
         var geocoder = new google.maps.Geocoder();
         var latlng = new google.maps.LatLng($lat, $lng);
