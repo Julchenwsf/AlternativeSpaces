@@ -95,16 +95,16 @@ if(isset($_GET["search"]) && $_GET["search"] == "2D") {
         foreach($res as &$row) {
             //For each search result, pack it nicely into its HTML representation. Currently a simple img inside div
             echo     '<div class="contentBox" data-content-id="' . $row["event_id"] . '">
-                         <div class="photo-wrapper">
+                         <div class="contentWrapper">
                              <div class="bg"></div>
 
-                             <time class="photo-date">' . (strlen($row["event_name"])>26 ? substr($row["event_name"],0,23) . '...' : $row["event_name"]) . '</time>
+                             <div class="contentTitle">' . (strlen($row["event_name"])>26 ? substr($row["event_name"],0,23) . '...' : $row["event_name"]) . '</div>
                              <div class="content-text">
                              <div class= "contentBoxInfo">Description</div><div class="contentBoxDescription">' . (strlen($row["description"])>70 ? substr($row["description"],0,70) . '...' : $row["description"]) . '</div>
                              <div class="contentBoxInfo">When</div><div class="contentBoxDescription">' . eventTimeFormat($row["event_time"]) .'</div>
                              </div>
 
-                             <div class="photo-stats">Up Down</div>
+                             <div class="contentStats">Up Down</div>
                          </div>
                      </div>';
            /* echo '<div class="contentBox" data-content-id="' . $row["event_id"] . '"><div id = "eventBox"><div id= "title"><h2>' . (strlen($row["event_name"])>30 ? substr($row["event_name"],0,30) . '...' : $row["event_name"]) . '</h2></div><div class="contentBoxDescription">' . (strlen($row["description"])>70 ? substr($row["description"],0,70) . '...' : $row["description"]) . '</div><div class="contentBoxInfo">When</div><div class="contentBoxDescription">' . eventTimeFormat($row["event_time"]) .'</div></div></div>';*/
