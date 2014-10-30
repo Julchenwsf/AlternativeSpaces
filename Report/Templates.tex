@@ -1,22 +1,65 @@
 \documentclass[11pt]{report}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Import Packages
+
 \usepackage{graphicx}
 \usepackage{titlesec}
 \usepackage{caption}
 \usepackage[table]{xcolor}
-%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Other commands
+
 \titleformat{\chapter}{\normalfont\huge}{}{20pt}{\huge\bf}
-%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \begin{document}
 
+
+%%%%%%%%%%%%
+%Template for Figures %
+%%%%%%%%%%%%
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=90mm]{img/Sprint2-GitnGithub.png}
+\caption{Git and GitHub \label{overflow}}
+\end{figure}
+
+
+
+%%%%%%%%%%%%%%%%
+%Template for Sprint Duration %
+%%%%%%%%%%%%%%%%
+
+\begin{minipage}{\linewidth}
+\centering
+\setlength{\tabcolsep}{22pt}
+\textbf{Sprint 2:} 
+\smallskip
+\rowcolors{1}{blue!20}{blue!10}
+\begin{tabular}{ |l l| }
+	\hline
+	\it{Duration} & 1 week \\
+	\it{Start} & September 22nd. \\
+	\it{End} & September 28th. \\
+	\it{Workload} & Hours spent by the entire group on Sprint 2. \\
+	\it{Goal} & 20-25 hours per person \\
+	\hline
+\end{tabular}
+\end{minipage}
+
+
+
 %%%%%%%%%%%%%%%%
 %Template for workload table  %
 %%%%%%%%%%%%%%%%
+
 \begin{minipage}{\linewidth}
 \setlength{\tabcolsep}{15pt}
 \centering
@@ -35,6 +78,8 @@
 %Caption here
 \captionof{table}{Workload of Sprint X.} 
 \end{minipage}
+
+
 
 %%%%%%%%%%%%%%%%%%%
 %Template for Sprint Backlog table    %

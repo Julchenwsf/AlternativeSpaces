@@ -2,6 +2,8 @@
 *.iml
 *.pdf
 *.synctex.gz
+*.synctex.gz(busy)
 *.aux
 *.log
 *.toc
+*.db
