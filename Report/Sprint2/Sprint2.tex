@@ -90,6 +90,109 @@
 
 \section{Sprint Backlog}
 
+\section{Design and Implementation} 
+The design and implementation phase of the second sprint includes several changes in design and implementation focusing on the features regarding signing up, logging in and logging out. 
+
+\paragraph{Design}
+%\textbf{Design} \\ 
+The design of the sprint includes updates in color, creation of different forms, the header, and on the photo-search page. The theme color of the website was set to a hard orange. Buttons, logo, borders, forms, etc. all inherit the theme color. The backgorund color was set to gray, with a hint of orange. Further designs update the creation of a navigation bar, as a part of the header. The navigation bar includes the logo and icon, also designed in this phase. \\
+
+%Picture of Sprint Logo and Icon
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=50mm]{img/Sprint2-logo1.png}
+\caption{First icon and logo of the page in orange. \label{overflow}}
+\end{figure}
+
+\paragraph{} Buttons for signing up, signing in, signin out, and creating an event, were created during this phase for the navigation bar. All buttons are clickable and animated to show a button push. \\
+
+%Pictures of buttons. 
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=40mm]{img/Sprint2-buttons1.png}
+\caption{Navigation buttons before signing in. \label{overflow}}
+\end{figure}
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=40mm]{img/Sprint2-buttons2.png}
+\caption{Navigation buttons after signing in. \label{overflow}}
+\end{figure}
+
+\paragraph{}
+Next was the design of the sign in-form and the sign up-form. These are simple forms, that pop up in an overlay window when the corresponding buttons are pushed in the navigation bar. \\
+
+%Figure: Sign in 
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=90mm]{img/Sprint2-SignInForm.png}
+\caption{The sign In-form. \label{overflow}}
+\end{figure}
+
+%Figure sign up
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=90mm]{img/Sprint2-SignUpForm.png}
+\caption{The sign Up-form. \label{overflow}}
+\end{figure}
+
+\paragraph{} For the media search page, the media posts were updated to be correctly centered and also enlarged upon mouse hover. See below. 
+
+%Figure: Photo page
+\begin{figure}[ht!]
+\centering
+\includegraphics[width={\linewidth}]{img/Sprint2-PhotoPage.png}
+\caption{The photo and location search page, with correctly centered media with the first post enlarged on hover. At the top is the full navigation bar, and on the left side is the map sidebar. \label{overflow}}
+\end{figure}
+
+
+
+\paragraph{Implementation}
+For the implementation phase of the second sprint, on the back-end, most work complements what was discussed in the design section. We created a signup- and login-form that receives input from users. All information is thereafter validated before sent to the database for user creation or login confirmation. If the input information is not valid, there will be error messages displayed. Also, all buttons and icons refer to the correct forms or pages. 
+
+\section{Testing and Results}
+Testing is done during the design and implementation stage. The code is actively functional tested and debugged while code is implemented. The implementation tasks from the sprint backlog are divided into different branches on Github. When each unit is completed, the code is tested before integrated into the git master branch. On merge, integration testing is done to make sure that system, as far as currently developed, is fully functional. Some of the tests include sending valid and invalid inputs to the registration- and sign in-forms, confirming that the information is processed correctly. Lastly, the outputs are checked. \\
+On the design implementation side, tests are irrelevant as the implementation is visually confirmed regularly. 
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width={\linewidth}]{img/Sprint2-testing.png}
+\caption{ Testing of creating users was done at the end of the sprint, by using putty and SQL checking that users were created correctly and if invalid users were found and catched. \label{overflow}}
+\end{figure}
+
+\section{Sprint Retrospective} 
+
+\subsection{Start doing}
+\begin{itemize}
+\item Work more. 
+\item Using the now set up Git, Github, IntelliJ technlogy for development of system and report. 
+\item Look into the use of YouTrack by Jetbrains for our agile development, to track progress of the project and sprint. 
+\item Use the same naming conventions for development items to avoid ambiguity and inconsistency. All names in lowercase. 
+\begin{itemize}
+\item Backend PHP files: \\ db - PHP folder code that queries SQL. 
+\item img - Images resource folder. 
+\item js - JavaScript files
+\item styles - CSS folder for styling the page items. 
+\end{itemize}
+\item Set up new branches when starting to work on new functions of the page that are unrelated to the other branches. 
+\item Scrum Master needs to focus more on Scrum, sprints and work assignment. \\
+\end{itemize}
+
+\subsection{Stop doing}
+\begin{itemize}
+\item Average work amount per person too weak.  \\
+\end{itemize}
+
+\subsection{Continue doing}
+\begin{itemize}
+\item Continue learning skills for the project.
+\item Structurize the folders that have come out of structure. 
+\item Use NTNU Home Area, MySQL server over SSH for running and testing code and testing database. \\
+\end{itemize}
+
+\subsection{Group Dynamics}
+
+\subsection{Customer Feedback}
 
 
 \begin{minipage}{\linewidth}
