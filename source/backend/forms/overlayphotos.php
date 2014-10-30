@@ -29,7 +29,7 @@ if(isset($_GET["id"])) {
                 ' . getShareButtons("http://folk.ntnu.no/valerijf/div/AlternativeSpaces/source/index.php?type=photos&id=" . $_GET["id"], $photoData["photo_title"], $photoData["description"]) . '</div>
             <div class="photoInfoBox">
                 <div class="photoInfoBoxTitle">Comments</div>
-                <div class="photoInfoBoxDescription">' . getCommentsForm("p" . $_GET["photo_id"]) . '</div></div></div>';
+                <div class="photoInfoBoxDescription">' . getCommentsForm("p" . $_GET["id"]) . '</div></div></div>';
     echo '</div>';
 }
 
