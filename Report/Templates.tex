@@ -1,4 +1,22 @@
-%Template for workload table
+\documentclass[11pt]{report}
+
+%Import Packages
+\usepackage{graphicx}
+\usepackage{titlesec}
+\usepackage{caption}
+\usepackage[table]{xcolor}
+%%%%%%%%%%
+
+% Other commands
+\titleformat{\chapter}{\normalfont\huge}{}{20pt}{\huge\bf}
+%%%%%%%%%%
+
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%
+%Template for workload table  %
+%%%%%%%%%%%%%%%%
 \begin{minipage}{\linewidth}
 \setlength{\tabcolsep}{15pt}
 \centering
@@ -18,7 +36,9 @@
 \captionof{table}{Workload of Sprint X.} 
 \end{minipage}
 
-
+%%%%%%%%%%%%%%%%%%%
+%Template for Sprint Backlog table    %
+%%%%%%%%%%%%%%%%%%%
 \begin{minipage}{\linewidth}
 \setlength{\tabcolsep}{12pt}
 \centering
@@ -27,10 +47,14 @@
 \hline
 \cellcolor{gray!25} ID & \cellcolor{gray!25} Description & \cellcolor{gray!25} Estimated Time & \cellcolor{gray!25} Actual Time \\
 \hline
-N/A & \it{Adding the ability to search for photos on a location-interest coordinate system.} & 1 week & 15 hours \\
-N/A & \it{The system requirements still have to be finished} & 1 hour & 1 hour \\
-N/A & \it{System development tasks need to be split up and time for each of these estimated} & 1 week & 4 hours \\
+TA2.1 & \it{Structurize google drive folders, and use the same language in all documents.} & 1 week & 15 hours \\
+TA2.2 & \it{Set up NTNU home area for running and testing code.} & 1 hour & 1 hour \\
+TE2.3 & \it{Use NTNU-s MySQL server over SSH for testing database of user sign up, user creation, validation etc. } & 1 week & 4 hours \\
+D2.4.1 & \it{Find and apply a theme color for the webpage. } & 1 week & 15 hours \\
 \hline
 \end{tabular}
 \captionof{table}{Backlog for sprint 1.} 
 \end{minipage}
+
+
+\end{document}
