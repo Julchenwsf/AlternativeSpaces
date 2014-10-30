@@ -12,7 +12,7 @@
 %%%%%%%%%%%%
 \begin{figure}[ht!]
 \centering
-\includegraphics[width=90mm]{img/Sprint2-GitnGithub.png}
+\includegraphics[width=90mm]{Sprint2/img/Sprint2-GitnGithub.png}
 \caption{Git and GitHub \label{overflow}}
 \end{figure}
 
@@ -74,10 +74,10 @@
 
 \paragraph{} Below is the first version of the product backlog. As we were aware of the major functions required for the project, and had come quite far on developing the system requirement document, the first version of our product backlog was of some use to assign items to the Sprint 2 backlog. Unfortunately, it didn’t take long before we realized that this first version didn’t scale very well with the fast-increasing size of the backlog. 
 
-
+%%%%%%%%Figure%%%%%%%%%
 \begin{figure}[ht!]
 \centering
-\includegraphics[width={\linewidth}]{img/Sprint2-FirstProductBacklog.png}
+\includegraphics[width={\linewidth}]{Sprint2/img/Sprint2-FirstProductBacklog.png}
 \caption{First Product Backlog. \label{overflow}}
 \end{figure}
 
@@ -142,51 +142,52 @@ The design and implementation phase of the second sprint includes several change
 %\textbf{Design} \\ 
 The design of the sprint includes updates in color, creation of different forms, the header, and on the photo-search page. The theme color of the website was set to a hard orange. Buttons, logo, borders, forms, etc. all inherit the theme color. The backgorund color was set to gray, with a hint of orange. Further designs update the creation of a navigation bar, as a part of the header. The navigation bar includes the logo and icon, also designed in this phase. \\
 
-%Picture of Sprint Logo and Icon
+%%%%%%%Picture of Sprint Logo and Icon%%%%%%%
 \begin{figure}[ht!]
 \centering
-\includegraphics[width=50mm]{img/Sprint2-logo1.png}
+\includegraphics[width=50mm]{Sprint2/img/Sprint2-logo1.png}
 \caption{First icon and logo of the page in orange. \label{overflow}}
 \end{figure}
 
 \paragraph{} Buttons for signing up, signing in, signin out, and creating an event, were created during this phase for the navigation bar. All buttons are clickable and animated to show a button push. \\
 
-%Pictures of buttons. 
+%%%%%%%%%Pictures of buttons. %%%%%%%%%%%%
 \begin{figure}[ht!]
 \centering
-\includegraphics[width=40mm]{img/Sprint2-buttons1.png}
+\includegraphics[width=40mm]{Sprint2/img/Sprint2-buttons1.png}
 \caption{Navigation buttons before signing in. \label{overflow}}
 \end{figure}
 
+%%%%%%%%%%% Button2 %%%%%%%%%%%
 \begin{figure}[ht!]
 \centering
-\includegraphics[width=40mm]{img/Sprint2-buttons2.png}
+\includegraphics[width=40mm]{Sprint2/img/Sprint2-buttons2.png}
 \caption{Navigation buttons after signing in. \label{overflow}}
 \end{figure}
 
 \paragraph{}
 Next was the design of the sign in-form and the sign up-form. These are simple forms, that pop up in an overlay window when the corresponding buttons are pushed in the navigation bar. \\
 
-%Figure: Sign in 
+%%%%%%%%%% Figure: Sign in %%%%%%%%%%%%
 \begin{figure}[ht!]
 \centering
-\includegraphics[width=90mm]{img/Sprint2-SignInForm.png}
+\includegraphics[width=90mm]{Sprint2/img/Sprint2-SignInForm.png}
 \caption{The sign In-form. \label{overflow}}
 \end{figure}
 
-%Figure sign up
+%%%%%%%%%%%%% Figure sign up %%%%%%%%%%%
 \begin{figure}[ht!]
 \centering
-\includegraphics[width=90mm]{img/Sprint2-SignUpForm.png}
+\includegraphics[width=90mm]{Sprint2/img/Sprint2-SignUpForm.png}
 \caption{The sign Up-form. \label{overflow}}
 \end{figure}
 
 \paragraph{} For the media search page, the media posts were updated to be correctly centered and also enlarged upon mouse hover. See below. 
 
-%Figure: Photo page
+%%%%%%%%%% Figure: Photo page %%%%%%%%%%
 \begin{figure}[ht!]
 \centering
-\includegraphics[width={\linewidth}]{img/Sprint2-PhotoPage.png}
+\includegraphics[width={\linewidth}]{Sprint2/img/Sprint2-PhotoPage.png}
 \caption{The photo and location search page, with correctly centered media with the first post enlarged on hover. At the top is the full navigation bar, and on the left side is the map sidebar. \label{overflow}}
 \end{figure}
 
@@ -199,9 +200,11 @@ For the implementation phase of the second sprint, on the back-end, most work co
 Testing is done during the design and implementation stage. The code is actively functional tested and debugged while code is implemented. The implementation tasks from the sprint backlog are divided into different branches on Github. When each unit is completed, the code is tested before integrated into the git master branch. On merge, integration testing is done to make sure that system, as far as currently developed, is fully functional. Some of the tests include sending valid and invalid inputs to the registration- and sign in-forms, confirming that the information is processed correctly. Lastly, the outputs are checked. \\
 On the design implementation side, tests are irrelevant as the implementation is visually confirmed regularly. 
 
+
+%%%%%%%%%% Figure Testing %%%%%%%%%%
 \begin{figure}[ht!]
 \centering
-\includegraphics[width={\linewidth}]{img/Sprint2-testing.png}
+\includegraphics[width={\linewidth}]{Sprint2/img/Sprint2-testing.png}
 \caption{ Testing of creating users was done at the end of the sprint, by using putty and SQL checking that users were created correctly and if invalid users were found and catched. \label{overflow}}
 \end{figure}
 
@@ -248,10 +251,9 @@ On the design implementation side, tests are irrelevant as the implementation is
 \paragraph{} As the design, implementation and testing of Sprint 2 took place a couple of questions regarding user anonymity arose. The final product is aimed at end users being teenagers in the age range from ten to 25, and therefore there are pros and cons to how a user is displayed relative to other users. The team came up with three different ways to display users. 
 
 \begin{description}
-Display by: 
-  \item[Custom username: ] Teenagers can hide behind anonymous usernames. For the bullies, this makes it easier to post negatively or harass other users on the website, as it is difficult for other usernames to figure out who is behind a custom username. The only time full names are known with this solution is when users are joining the same events. 
-  \item[First name: ] This is a more neutral approach. It's easier to identify who users are, but difficult to know who's who for sure. Full name is still only available to the people joining the same events. 
-  \item[Complete name: ] Everyone will be able to identify who a user is, and people already vulnerable to bullying and harassment might be at harm. Though this solution to the case would also make most users skeptical to post negatively because it would reflect badly on themselves. 
+\item[Custom username: ] Teenagers can hide behind anonymous usernames. For the bullies, this makes it easier to post negatively or harass other users on the website, as it is difficult for other usernames to figure out who is behind a custom username. The only time full names are known with this solution is when users are joining the same events. 
+\item[First name: ] This is a more neutral approach. It's easier to identify who users are, but difficult to know who's who for sure. Full name is still only available to the people joining the same events. 
+\item[Complete name: ] Everyone will be able to identify who a user is, and people already vulnerable to bullying and harassment might be at harm. Though this solution to the case would also make most users skeptical to post negatively because it would reflect badly on themselves. 
 \end{description}
 
 
