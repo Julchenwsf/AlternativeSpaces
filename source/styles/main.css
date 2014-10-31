@@ -241,6 +241,18 @@ input {
 	top:1px;
 }
 
+.likeBar {
+    height:2px;
+    margin:0 10px;
+    background:#C5C5C5;
+}
+
+.likeBarLikes {
+    width:50%;
+    height: 100%;
+    background:#ff9100;
+}
+
 .likeButton {
     width:22px;
     height:19px;

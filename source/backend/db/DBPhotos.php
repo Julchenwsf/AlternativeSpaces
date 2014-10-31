@@ -95,7 +95,12 @@ if(isset($_GET["search"]) && $_GET["search"] == "2D") {
 
                         <div class="contentTitle">' . $row["photo_title"] . '</div>
                         <div class="contentContent center"><img src="http://org.ntnu.no/cdpgroup4/images/thumb/' . $row["photo_id"] . '.jpg" /></div>
-                        <div class="contentStats"><a href="#" class="likeButton"></a><a href="#" class="dislikeButton"></a></div>
+                        <div class="contentStats">
+                            <div class="likeBar">
+                                <div class="likeBarLikes"></div>
+                            </div>
+                            <a href="#" class="likeButton"></a><a href="#" class="dislikeButton"></a>
+                        </div>
                     </div>
                 </div>';
         }
