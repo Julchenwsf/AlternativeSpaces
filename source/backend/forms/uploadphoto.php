@@ -19,7 +19,7 @@ function uploadImage($title, $interests, $description, $image) {
 
     $fileErrors = array(null, "The file is to big", "The file is to big", "Only part of the file was uploaded", "No file was uploaded", null,
         "Missing a temporary folder", "Failed to write file to disk", "File upload stopped by extension");
-    $uploaddir = '/home/others/groupswww/cdpgroup4/images/';
+    $uploaddir = '/home1/mysplotc/public_html/images/';
     $valid_exts = array('jpeg', 'jpg');
     $ext = strtolower(pathinfo($image['name'], PATHINFO_EXTENSION));
     if(!in_array($ext, $valid_exts)) $errors[] = "Invalid file type, only .jpeg and .jpg";

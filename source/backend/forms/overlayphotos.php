@@ -24,7 +24,7 @@ if(isset($_GET["id"])) {
     $creator = $photoData["photo_uploader"];
     $lat = $photoData["latitude"];
     $lng = $photoData["longitude"];
-    $sharing = getShareButtons("", $photoTitle, $photoDesc);
+    $sharing = getShareButtons("", $photoTitle, $photoDesc); //TODO: Update URL
     $comments = getCommentsForm("p" . $_GET["id"]);
 
     echo <<<EOT
@@ -53,7 +53,7 @@ if(isset($_GET["id"])) {
         </div>
 
        <div class="eventMiddle">
-       <div class="largeContentBox"><div id="enlargedPhoto"><img src="http://org.ntnu.no/cdpgroup4/images/large/$_GET[id].jpg" /></div></div>
+       <div class="largeContentBox"><div id="enlargedPhoto"><img src="/images/large/$_GET[id].jpg" /></div></div>
             <div class="eventContent">
                 <h2>$photoTitle</h2>
                 <hr/>

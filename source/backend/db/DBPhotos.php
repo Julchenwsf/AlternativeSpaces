@@ -103,7 +103,7 @@ if(isset($_GET["search"]) && $_GET["search"] == "2D") {
 
                     <div class="contentClickArea" data-content-id="' . $row["photo_id"] . '">
                         <div class="contentTitle">' . $row["photo_title"] . '</div>
-                        <div class="contentContent center"><img src="http://org.ntnu.no/cdpgroup4/images/thumb/' . $row["photo_id"] . '.jpg" /></div>
+                        <div class="contentContent center"><img src="/images/thumb/' . $row["photo_id"] . '.jpg" /></div>
                     </div>
                     <div class="contentStats">'. getVoter("photos", $row["photo_id"], $row["vote_up"], $row["vote_down"]) . '</div>
                 </div>

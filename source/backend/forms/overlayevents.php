@@ -8,7 +8,7 @@ if (isset($_GET["id"])) {
 
     $eventData = fetchEvent($_GET["id"]);
     $comments = getCommentsForm("e" . $_GET["id"]);
-    $sharing = getShareButtons("http://folk.ntnu.no/valerijf/div/AlternativeSpaces/source/index.php?type=events&id=" . $_GET["id"], $eventData["event_name"], $eventData["description"]);
+    $sharing = getShareButtons("http://folk.ntnu.no/valerijf/div/AlternativeSpaces/source/index.php?type=events&id=" . $_GET["id"], $eventData["event_name"], $eventData["description"]); //TODO: Update URL
 
     $eventTime = eventTimeFormat($eventData['event_time']);
     $eventTitle = $eventData["event_name"];
