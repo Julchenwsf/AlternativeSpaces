@@ -1,6 +1,7 @@
 <?php
 include('DBConnection.php');
 include('DBInterests.php');
+include_once("../forms/voteform.php");
 
 
 function addEvent($creator, $event_name, $description, $interests, $lat, $lng, $numPeople, $time) {
@@ -59,6 +60,14 @@ function fetchEvent($event_id) {
 }
 
 
+function voteEvent($id, $up, $down) {
+    mysql_query("UPDATE events SET vote_up=vote_up+$up, vote_down=vote_down+$down WHERE event_id='$id'");
+    $result = mysql_query("SELECT vote_up, vote_down FROM events WHERE event_id='$id'");
+    $row = mysql_fetch_assoc($result);
+    return array($row["vote_up"], $row["vote_down"]);
+}
+
+
 
 function eventTimeFormat($t){
     if(date('d')==date('d', $t)) return "Today at " . date('H:i', $t);
@@ -74,7 +83,7 @@ function searchEvents($tags, $bounds, $page) {
 
     $bounds = mysql_real_escape_string($bounds);    //Should probably be replaced with some fancy regex
     $page = intval($page);
-    $result = mysql_query("SELECT event_id, event_name, description, event_time,interests, X(location) AS latitude, Y(location) AS longitude FROM events
+    $result = mysql_query("SELECT event_id, event_name, vote_up, vote_down, description, event_time,interests, X(location) AS latitude, Y(location) AS longitude FROM events
     WHERE " . $tagsFilter ." MBRContains(GeomFromText('LINESTRING(" . $bounds . ")'), events.location) AND event_time+86400 > UNIX_TIMESTAMP()
     ORDER BY LOG10(ABS(vote_up - vote_down) + 1) * SIGN(vote_up - vote_down) DESC
     LIMIT " . 20*$page . ", 20") or die(mysql_error());
@@ -115,7 +124,7 @@ if(isset($_GET["search"]) && $_GET["search"] == "2D") {
                              <div class="eventTime">' . eventTimeFormat($row["event_time"]) .' </div>
                          </div>
 
-                         <div class="contentStats">Up Down</div>
+                         <div class="contentStats">'. getVoter("events", $row["event_id"], $row["vote_up"], $row["vote_down"]) . '</div>
                      </div>
                  </div>';
         }

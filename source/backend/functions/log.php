@@ -27,7 +27,11 @@ function logout() {
 
 
 function isLoggedIn() {
-    return isset($_SESSION["username"]);
+    if(isset($_SESSION["username"])) {
+        $_SESSION["username"] = $_SESSION["username"];
+        return true;
+    }
+    return false;
 }
 
 if(isset($_GET["out"])) {

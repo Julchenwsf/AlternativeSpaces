@@ -53,8 +53,15 @@ function removePhoto($id) {
 function getPhotoDetails($id) {
     if(!is_numeric($id)) return false;
     $result = mysql_query("SELECT * FROM photos WHERE photo_id='$id'") or die(mysql_error());
+    return mysql_fetch_assoc($result);
+}
+
+
+function votePhoto($id, $up, $down) {
+    mysql_query("UPDATE photos SET vote_up=vote_up+$up, vote_down=vote_down+$down WHERE photo_id='$id'");
+    $result = mysql_query("SELECT vote_up, vote_down FROM photos WHERE photo_id='$id'");
     $row = mysql_fetch_assoc($result);
-    return $row;
+    return array($row["vote_up"], $row["vote_down"]);
 }
 
 
@@ -67,7 +74,7 @@ function searchPhotos($tags, $bounds, $page) {
 
     $bounds = mysql_real_escape_string($bounds);    //Should probably be replaced with some fancy regex
     $page = intval($page);
-    $result = mysql_query("SELECT photo_id, photo_title FROM photos
+    $result = mysql_query("SELECT photo_id, photo_title, vote_up, vote_down FROM photos
     WHERE " . $tagsFilter ." MBRContains(GeomFromText('LINESTRING(" . $bounds . ")'), photos.location)
     ORDER BY LOG10(ABS(vote_up - vote_down) + 1) * SIGN(vote_up - vote_down) + (upload_time / 300000) DESC
     LIMIT " . 20*$page . ", 20") or die(mysql_error());
@@ -90,13 +97,15 @@ if(isset($_GET["search"]) && $_GET["search"] == "2D") {
         $res = searchPhotos($_GET["interests"], $_GET["boxloc"], $_GET["page"]);    //Do the search
         foreach($res as &$row) {
             //For each search result, pack it nicely into its HTML representation. Currently a simple img inside div
-            echo '<div class="contentBox" data-content-id="' . $row["photo_id"] . '">
+            echo '<div class="contentBox">
                     <div class="contentWrapper">
                         <div class="bg"></div>
 
-                        <div class="contentTitle">' . $row["photo_title"] . '</div>
-                        <div class="contentContent center"><img src="http://org.ntnu.no/cdpgroup4/images/thumb/' . $row["photo_id"] . '.jpg" /></div>
-                        <div class="contentStats">'. getVoter("photos", $row["photo_id"]) . '</div>
+                        <div class="contentClickArea" data-content-id="' . $row["photo_id"] . '">
+                            <div class="contentTitle">' . $row["photo_title"] . '</div>
+                            <div class="contentContent center"><img src="http://org.ntnu.no/cdpgroup4/images/thumb/' . $row["photo_id"] . '.jpg" /></div>
+                        </div>
+                        <div class="contentStats">'. getVoter("photos", $row["photo_id"], $row["vote_up"], $row["vote_down"]) . '</div>
                     </div>
                 </div>';
         }

@@ -42,7 +42,6 @@ function initializeGMaps() {
     });
 
 
-
     google.maps.event.addListener(map, "dragend", function() {      //Listener for when the map is dragged, fires at the end of drag.
        doSearch();
     });
@@ -95,22 +94,12 @@ $(document).ready(function() {
 });
 
 
-$(document).on('click', '.contentBox', function(e){
+$(document).on('click', '.contentClickArea', function(e){
     var id = $(this).attr("data-content-id");
     window.history.pushState({"html": document.documentElement.innerHTML, "pageTitle": "Viewer"},"", 'index.php?type=' + database + '&id='+id);
     openOverlay(id);
 });
 
-$(".token-input-token").hover(
-    function() {
-        $(this).find("p").toggleClass("hidden");
-        console.log("on");
-    },
-
-    function() {
-        $(this).find("p").toggleClass("hidden");
-    }
-);
 
 $(document).on('mouseenter', '.token-input-token', function(e){
     $(this).find("p").toggleClass("hidden");
@@ -161,7 +150,7 @@ function vote(way, cid, db) {
         dataType: "JSON",
         success: function (data) {
             if (data["success"]) {
-                $("#response").html('<ul class="error">' + out + "</ul>");
+                $("div[data-voter-id='" + cid + "']").replaceWith(data["response"]);
             } else {
                 alert("Something went wrong :(");
             }
