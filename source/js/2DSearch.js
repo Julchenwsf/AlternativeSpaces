@@ -72,6 +72,8 @@ $(document).ready(function() {
         tokenValue: "interest_id",
         resultsFormatter: function(item){   //Custom formatting for the auto-complete results
             return "<li><p class='interest_name'><img src='img/interests/" + item.interest_icon + "' /> " + item.interest_name + "</p><div style='clear:both'></div></li>" },
+        tokenFormatter: function(item){   //Custom formatting for the auto-complete results
+            return "<li><img src='img/interests/" + item.interest_icon + "' /><p> " + item.interest_name + "</p></li>" },
 
         onAdd: function (item) {        //Is executed when user selects an option
             doSearch();

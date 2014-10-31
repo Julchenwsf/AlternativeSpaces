@@ -16,7 +16,7 @@ if(isset($_GET["id"])) {
     $interestTitles = "";
     foreach($interests as &$interest){
         $data = getInterest($interest);
-        $interestTitles .= '<li class="token-input-token"><p>' .$data["interest_name"] . '</p></li>';
+        $interestTitles .= '<li class="token-input-token"><img src="img/interests/' .$data["interest_icon"] .'"/><p>' .$data["interest_name"] . '</p></li>';
 
     }
     echo '<div class="largeContentBox"><div id="enlargedPhoto"><img src="http://org.ntnu.no/cdpgroup4/images/large/' . $_GET["id"] . '.jpg" /></div>';

@@ -40,20 +40,28 @@ li.token-input-token {
     margin: 3px;
     padding: 3px 6px;
     color: #FFFFFF;
-    background-color: #303f9f;
+    background-color: #ff9100;
     font-size: 11px;
     font-weight: bold;
     cursor: default;
     border-radius: 5px;
+    border:1px solid #ff6d00;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
-    width:182px;
+    width:180px;
     float:left;
     white-space: nowrap;
 }
 
 
 li.token-input-token p {
+    float: left;
+    padding: 0;
+    margin: 2px 2px;
+}
+
+
+li.token-input-token img {
     float: left;
     padding: 0;
     margin: 0;
