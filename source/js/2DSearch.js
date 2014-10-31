@@ -101,6 +101,25 @@ $(document).on('click', '.contentBox', function(e){
     openOverlay(id);
 });
 
+$(".token-input-token").hover(
+    function() {
+        $(this).find("p").toggleClass("hidden");
+        console.log("on");
+    },
+
+    function() {
+        $(this).find("p").toggleClass("hidden");
+    }
+);
+
+$(document).on('mouseenter', '.token-input-token', function(e){
+    $(this).find("p").toggleClass("hidden");
+});
+
+$(document).on('mouseleave', '.token-input-token', function(e){
+    $(this).find("p").toggleClass("hidden");
+});
+
 
 
 //This fires every time the user scrolls
@@ -132,6 +151,21 @@ function doSearch(append) {
     var formattedBounds = toStringCoordinate(bounds.getSouthWest()) + "," + toStringCoordinate(bounds.getNorthEast());
     $.get("backend/db/DB" + capitalize(database) + ".php?search=2D&boxloc=" + formattedBounds + "&interests=" + tags + "&page=" + pageNum, function(data) {
         $("#searchResults").append(data);
+    });
+}
+
+function vote(way, cid, db) {
+    $.ajax({
+        type: "GET",
+        url: "backend/forms/voteform.php?vote=" + way + "&cid=" + cid + "&db=" + db,
+        dataType: "JSON",
+        success: function (data) {
+            if (data["success"]) {
+                $("#response").html('<ul class="error">' + out + "</ul>");
+            } else {
+                alert("Something went wrong :(");
+            }
+        }
     });
 }
 
