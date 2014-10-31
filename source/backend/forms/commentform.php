@@ -1,6 +1,5 @@
 <?
-$path = substr(realpath("."), 0, strpos(realpath("."), "/source")+7) . "/";
-include_once($path . "backend/db/DBComments.php");
+include_once($_SERVER['DOCUMENT_ROOT'] .  "/backend/db/DBComments.php");
 
 function getCommentsForm($id) {
     $temp = '<div id="commentArea" data-thread-id="' . $id . '">';

@@ -1,11 +1,10 @@
 <?
-$path = substr(realpath("."), 0, strpos(realpath("."), "/source")+7) . "/";
 
 if (isset($_GET["id"])) {
-    include_once($path . "backend/PageBuilder.php");
-    include_once($path . "backend/forms/commentform.php");
-    include_once($path . "backend/db/DBEvents.php");
-    include_once($path . "backend/functions/sharing.php");
+    include_once($_SERVER['DOCUMENT_ROOT'] .  "/backend/PageBuilder.php");
+    include_once($_SERVER['DOCUMENT_ROOT'] .  "/backend/forms/commentform.php");
+    include_once($_SERVER['DOCUMENT_ROOT'] .  "/backend/db/DBEvents.php");
+    include_once($_SERVER['DOCUMENT_ROOT'] .  "/backend/functions/sharing.php");
 
     $eventData = fetchEvent($_GET["id"]);
     $comments = getCommentsForm("e" . $_GET["id"]);

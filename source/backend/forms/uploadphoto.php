@@ -1,8 +1,7 @@
 <?
-$path = substr(realpath("."), 0, strpos(realpath("."), "/source")+7) . "/";
-include_once($path . "backend/db/DBPhotos.php");
-include_once($path . "backend/functions/image.php");
-include_once($path . "backend/functions/log.php");
+include_once($_SERVER['DOCUMENT_ROOT'] .  "/backend/db/DBPhotos.php");
+include_once($_SERVER['DOCUMENT_ROOT'] .  "/backend/functions/image.php");
+include_once($_SERVER['DOCUMENT_ROOT'] .  "/backend/functions/log.php");
 
 
 if(isset($_FILES['image'])) {

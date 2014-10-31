@@ -1,6 +1,5 @@
 <?
-$path = substr(realpath("."), 0, strpos(realpath("."), "/source")+7) . "/";
-include_once($path . "backend/functions/log.php");
+include_once($_SERVER['DOCUMENT_ROOT'] .  "/backend/functions/log.php");
 
 $DBhost = "mysql.stud.ntnu.no";
 $DBuser = "cdpgroup4_db";

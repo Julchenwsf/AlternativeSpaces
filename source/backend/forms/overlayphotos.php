@@ -1,9 +1,8 @@
 <?
-$path = substr(realpath("."), 0, strpos(realpath("."), "/source")+7) . "/";
-include_once($path . "backend/forms/commentform.php");
-include_once($path . "backend/db/DBPhotos.php");
-include_once($path . "backend/functions/sharing.php");
-include_once($path . "backend/db/DBInterests.php");
+include_once($_SERVER['DOCUMENT_ROOT'] .  "/backend/forms/commentform.php");
+include_once($_SERVER['DOCUMENT_ROOT'] .  "/backend/db/DBPhotos.php");
+include_once($_SERVER['DOCUMENT_ROOT'] .  "/backend/functions/sharing.php");
+include_once($_SERVER['DOCUMENT_ROOT'] .  "/backend/db/DBInterests.php");
 
 function photoTimeFormat($t){
     if(date('d')==date('d', $t)) return "Today at " . date('H:i', $t);

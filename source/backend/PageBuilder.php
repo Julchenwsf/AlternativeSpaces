@@ -3,8 +3,7 @@ ini_set('display_errors',1);
 ini_set('display_startup_errors',1);
 error_reporting(-1);
 
-$path = substr(realpath("."), 0, strpos(realpath("."), "/source")+7) . "/";
-include_once($path . "backend/functions/log.php");
+include_once($_SERVER['DOCUMENT_ROOT'] . "/backend/functions/log.php");
 
 
 class PageBuilder {

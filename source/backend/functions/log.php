@@ -1,6 +1,5 @@
 <?
-$path = substr(realpath("."), 0, strpos(realpath("."), "/source")+7) . "/";
-include_once($path . "backend/db/DBUsers.php");
+include_once($_SERVER['DOCUMENT_ROOT'] .  "/backend/db/DBUsers.php");
 session_start();
 
 

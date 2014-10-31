@@ -1,6 +1,5 @@
 <?php
-$path = substr(realpath("."), 0, strpos(realpath("."), "/source")+7) . "/";
-include_once($path . "backend/db/DBVotes.php");
+include_once($_SERVER['DOCUMENT_ROOT'] .  "/backend/db/DBVotes.php");
 
 
 function getVoter($database, $id, $up, $down) {
