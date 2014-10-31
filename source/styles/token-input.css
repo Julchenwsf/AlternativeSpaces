@@ -44,11 +44,15 @@ ul.token-input-list li {
     width:154px;
 }
 
+#newEventForm li.token-input-token{
+    width:190px;
+}
+
 li.token-input-token {
     overflow: hidden;
     height: auto !important;
     margin: 3px;
-    padding: 3px 6px;
+    padding: 2px 6px;
     color: #FFFFFF;
     background-color: #ff9100;
     font-size: 11px;

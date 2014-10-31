@@ -115,7 +115,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             propertyToSearch: "interest_name",  //Property to search in the JS dict structure
             tokenValue: "interest_id",
             resultsFormatter: function(item){   //Custom formatting for the auto-complete results
-                return "<li><p class='interest_name'><img src='/img/interests/" + item.interest_icon + "' /> " + item.interest_name + "</p><div style='clear:both'></div></li>" }
+                return "<li><p class='interest_name'><img src='/img/interests/" + item.interest_icon + "' /> " + item.interest_name + "</p><div style='clear:both'></div></li>" },
+            tokenFormatter: function(item){   //Custom formatting for the auto-complete results
+                return "<li><img src='/img/interests/" + item.interest_icon + "' title='" + item.interest_name + "' /><p> " + item.interest_name + "</p></li>" }
+
         });
     });
     </script>
