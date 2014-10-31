@@ -2,6 +2,10 @@ div.input-search-area {
     width: 100%;
 }
 
+.contentContent ul.token-input-list{
+    border:0;
+}
+
 ul.token-input-list {
     overflow: hidden;
     height: auto !important;
@@ -33,6 +37,9 @@ ul.token-input-list li {
     list-style-type: none;
 }
 
+.contentContent li.token-input-token{
+    width:auto;
+}
 
 li.token-input-token {
     overflow: hidden;

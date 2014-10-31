@@ -385,6 +385,12 @@ input {
 .contentBox .contentContent {
     display: block;
     position: relative;
+    }
+.contentBox .eventContent{
+    width:95%;
+    margin: 0 auto;
+    border-radius:6px;
+    border:1px solid #9fa8da;
 }
 
 .contentBox:hover .contentStats {
@@ -413,7 +419,7 @@ input {
     font-size: 14px;
     padding:5px;
     background:white;
-    height:60px;
+    height:100px;
 }
 
 .contentBoxInfo{
@@ -428,6 +434,14 @@ input {
     padding:5px;
 }
 
+.eventTime {
+    margin:0 auto;
+    font-size:12px;
+    font-weight:normal;
+    font-style:normal;
+    text-align:center;
+    color:#a8aca6;
+}
 
 /* PHOTO INFO BOX */
 .photoInfoBoxMain{

@@ -1,5 +1,6 @@
 <?php
 include('DBConnection.php');
+include('DBInterests.php');
 
 
 function addEvent($creator, $event_name, $description, $interests, $lat, $lng, $numPeople, $time) {
@@ -74,7 +75,7 @@ function searchEvents($tags, $bounds, $page) {
 
     $bounds = mysql_real_escape_string($bounds);    //Should probably be replaced with some fancy regex
     $page = intval($page);
-    $result = mysql_query("SELECT event_id, event_name, description, event_time, X(location) AS latitude, Y(location) AS longitude FROM events
+    $result = mysql_query("SELECT event_id, event_name, description, event_time,interests, X(location) AS latitude, Y(location) AS longitude FROM events
     WHERE " . $tagsFilter ." MBRContains(GeomFromText('LINESTRING(" . $bounds . ")'), events.location) AND event_time+86400 > UNIX_TIMESTAMP()
     ORDER BY LOG10(ABS(vote_up - vote_down) + 1) * SIGN(vote_up - vote_down) DESC
     LIMIT " . 20*$page . ", 20") or die(mysql_error());
@@ -97,14 +98,22 @@ if(isset($_GET["search"]) && $_GET["search"] == "2D") {
         $res = searchEvents($_GET["interests"], $_GET["boxloc"], $_GET["page"]);    //Do the search
         foreach($res as &$row) {
             //For each search result, pack it nicely into its HTML representation. Currently a simple img inside div
+             $interests = explode(" ", $row["interests"]);
+             $interestIcons="";
+             foreach($interests as &$interest){
+                    $data = getInterest($interest);
+                    $interestIcons .= '<li class="token-input-token"><img src="img/interests/' .$data["interest_icon"] .'"/></li>';
+
+             }
             echo '<div class="contentBox" data-content-id="' . $row["event_id"] . '">
                      <div class="contentWrapper">
                          <div class="bg"></div>
 
                          <div class="contentTitle">' . (strlen($row["event_name"])>26 ? substr($row["event_name"],0,23) . '...' : $row["event_name"]) . '</div>
-                         <div class="contentContent">
-                             <div class= "contentBoxInfo">Description</div><div class="contentBoxDescription">' . (strlen($row["description"])>70 ? substr($row["description"],0,70) . '...' : $row["description"]) . '</div>
-                             <div class="contentBoxInfo">When</div><div class="contentBoxDescription">' . eventTimeFormat($row["event_time"]) .'</div>
+                         <div class="contentContent eventContent">
+                             <div class= "contentBoxInfo">Description</div><div class="contentBoxDescription">' . (strlen($row["description"])>70 ? substr($row["description"],0,70) . '...' : $row["description"]) . '<hr>
+                             <ul class="token-input-list">'. $interestIcons . '</ul></div><div class ="eventTime">' . eventTimeFormat($row["event_time"]) .' </div>
+
                          </div>
 
                          <div class="contentStats">Up Down</div>
