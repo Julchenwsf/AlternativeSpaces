@@ -1,10 +1,10 @@
 <?
 include_once($_SERVER['DOCUMENT_ROOT'] .  "/backend/functions/log.php");
 
-$DBhost = "mysql.stud.ntnu.no";
-$DBuser = "cdpgroup4_db";
+$DBhost = "localhost";
+$DBuser = "mysplotc_web";
 $DBpass = "Kund3styrtProsj3kt";
-$DBdatabase = "cdpgroup4_altspace";
+$DBdatabase = "mysplotc_altspace";
 
 $conn = mysql_connect($DBhost, $DBuser, $DBpass) or die  ('Error connecting to mysql');
 mysql_select_db($DBdatabase);
