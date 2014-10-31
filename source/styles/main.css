@@ -261,9 +261,10 @@ input {
     margin-left:1px;
     display:inline-block;
     background:url(../img/design/thumbsUp.png);
+    border: 0;
 }
 
-.likeButton:hover{
+.likeButton:hover, .likeButton:disabled{
     background-color:#00ee00;
 }
 
@@ -275,9 +276,10 @@ input {
     margin-left:1px;
     display:inline-block;
     background:url(../img/design/thumbsDown.png);
+    border: 0;
 }
 
-.dislikeButton:hover{
+.dislikeButton:hover, .dislikeButton:disabled{
     background-color:#ee0000;
 }
 
