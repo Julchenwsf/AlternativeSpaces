@@ -2,7 +2,7 @@ div.input-search-area {
     width: 100%;
 }
 
-.contentContent ul.token-input-list{
+.contentContent ul.token-input-list, .eventDescription ul.token-input-list{
     border:0;
 }
 
@@ -39,6 +39,10 @@ ul.token-input-list li {
 
 .contentContent li.token-input-token{
     width:auto;
+}
+
+.eventDescription li.token-input-token{
+    width:154px;
 }
 
 li.token-input-token {

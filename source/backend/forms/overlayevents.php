@@ -19,6 +19,13 @@ if (isset($_GET["id"])) {
     $lng = $eventData["longitude"];
     $numPeople = $eventData["no_of_people"];
     $creator = $eventData["event_creator"];
+    $interests = explode(" ", $eventData["interests"]);
+    $interestIcons="";
+     foreach($interests as &$interest){
+            $data = getInterest($interest);
+            $interestIcons .= '<li class="token-input-token"><img src="img/interests/' .$data["interest_icon"] .'"/><p>' .$data["interest_name"] .'</p></li>';
+
+     }
 
     echo <<<EOT
     <div id="eventPage">
@@ -41,6 +48,7 @@ if (isset($_GET["id"])) {
                     <legend>Who</legend>
                     $creator
                 </fieldset>
+                <ul class="token-input-list"> $interestIcons</ul>
             </div>
 
             <div class="eventDescription center">
