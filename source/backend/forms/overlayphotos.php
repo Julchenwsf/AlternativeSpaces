@@ -1,4 +1,9 @@
 <?
+
+ini_set('display_errors',1);
+ini_set('display_startup_errors',1);
+error_reporting(-1);
+
 $path = substr(realpath("."), 0, strpos(realpath("."), "/source")+7) . "/";
 include_once($path . "backend/forms/commentform.php");
 include_once($path . "backend/db/DBPhotos.php");
@@ -13,24 +18,81 @@ function photoTimeFormat($t){
 if(isset($_GET["id"])) {
     $photoData = getPhotoDetails($_GET["id"]);
     $interests = explode(" ", $photoData["interests"]);
-    $interestTitles = "";
+    $interestIcons = "";
     foreach($interests as &$interest){
         $data = getInterest($interest);
-        $interestTitles .= '<li class="token-input-token"><img src="img/interests/' .$data["interest_icon"] .'"/><p>' .$data["interest_name"] . '</p></li>';
+        $interestIcons .= '<li class="token-input-token"><img src="img/interests/' .$data["interest_icon"] .'"/><p>' .$data["interest_name"] . '</p></li>';
 
     }
-    echo '<div class="largeContentBox"><div id="enlargedPhoto"><img src="http://org.ntnu.no/cdpgroup4/images/large/' . $_GET["id"] . '.jpg" /></div>';
-    echo '<div class="photoInfoBoxMain">
-            <div class="photoInfoBox">
-                <div class="photoInfoBoxTitle">' . $photoData["photo_title"] . '</div>
-                <div class="photoInfoBoxDescription">
-                ' . photoTimeFormat($photoData["upload_time"]) . '<hr/>' . $photoData["description"]. '<hr/>
-                <ul class="token-input-list">'. $interestTitles . '</ul></div>
-                ' . getShareButtons("http://folk.ntnu.no/valerijf/div/AlternativeSpaces/source/index.php?type=photos&id=" . $_GET["id"], $photoData["photo_title"], $photoData["description"]) . '</div>
-            <div class="photoInfoBox">
-                <div class="photoInfoBoxTitle">Comments</div>
-                <div class="photoInfoBoxDescription">' . getCommentsForm("p" . $_GET["id"]) . '</div></div></div>';
-    echo '</div>';
+    $photoTime = eventTimeFormat($photoData['photo_time']);
+    $photoTitle = $photoData["photo_name"];
+    $photoDesc = $photoData['description'];
+    $creator = $photoData["uploader"];
+    $sharing = getShareButtons("", $photoTitle, $photoDesc);
+    $comments = getComments("p" . $_GET["id"]);
+   echo <<<EOT
+    <div id="eventPage">
+        <div class="eventLeft">
+            <div class="eventImage">
+                <img src="http://maps.googleapis.com/maps/api/staticmap?center=$lat,$lng&zoom=13&size=175x175&maptype=roadmap&markers=color:red%7Clabel:A%7C$lat,$lng" />
+            </div>
+            <div class="eventDescription">
+                <div class="eventDescriptionHeader">
+                    <span class="titleText">Description</span>
+                </div>
+                <fieldset>
+                    <legend>When</legend>
+                    $photoTime
+                </fieldset>
+                <fieldset id="addressLocation">
+                    <legend>Where</legend>
+                </fieldset>
+                <fieldset>
+                    <legend>Who</legend>
+                    $creator
+                </fieldset>
+                <ul class="token-input-list"> $interestIcons</ul>
+            </div>
+
+            <div class="eventDescription center">
+                <div class="eventDescriptionHeader">
+                    <span class="titleText">Join the event</span>
+                </div>
+            </div>
+        </div>
+
+       <div class="eventMiddle">
+            <div class="eventContent">
+                <h2>$photoTitle</h2>
+                <hr/>
+                $photoDesc
+                $sharing
+            </div>
+        </div>
+
+       <div class="eventMiddle">
+            <div class="largeContentBox"><div id="enlargedPhoto"><img src="http://org.ntnu.no/cdpgroup4/images/large/' . $_GET["id"] . '.jpg" /></div>
+            <div class="eventContent">
+                <h2>Comments</h2>
+                <hr/>
+                $comments
+            </div>
+       </div>
+    </div>
+    <div style="clear: both;"></div>
+    <script type="text/javascript">
+        var geocoder = new google.maps.Geocoder();
+        var latlng = new google.maps.LatLng($lat, $lng);
+        geocoder.geocode({'latLng': latlng}, function(results, status) {
+            if (status == google.maps.GeocoderStatus.OK && results[0]) {
+                $("#addressLocation").append(results[0].formatted_address);
+            } else {
+                $("#addressLocation").append("Unknown");
+            }
+        });
+    </script>
+EOT;
+
 }
 
 ?>
