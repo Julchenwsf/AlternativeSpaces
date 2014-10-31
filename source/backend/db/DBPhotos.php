@@ -66,7 +66,10 @@ function searchPhotos($tags, $bounds, $page) {
 
     $bounds = mysql_real_escape_string($bounds);    //Should probably be replaced with some fancy regex
     $page = intval($page);
-    $result = mysql_query("SELECT photo_id, photo_title FROM photos WHERE " . $tagsFilter ." MBRContains(GeomFromText('LINESTRING(" . $bounds . ")'), photos.location) ORDER BY rating DESC LIMIT " . 20*$page . ", 20") or die(mysql_error());
+    $result = mysql_query("SELECT photo_id, photo_title FROM photos
+    WHERE " . $tagsFilter ." MBRContains(GeomFromText('LINESTRING(" . $bounds . ")'), photos.location)
+    ORDER BY LOG10(ABS(vote_up - vote_down) + 1) * SIGN(vote_up - vote_down) + (upload_time / 300000) DESC
+    LIMIT " . 20*$page . ", 20") or die(mysql_error());
     $return_arr = array();
 
     //Format the result to be an array of dictionaries for each row/result.
