@@ -15,7 +15,7 @@ if(isset($_GET["id"])) {
     $interestIcons = "";
     foreach($interests as &$interest){
         $data = getInterest($interest);
-        $interestIcons .= '<li class="token-input-token"><img src="img/interests/' .$data["interest_icon"] .'"/><p>' .$data["interest_name"] . '</p></li>';
+        $interestIcons .= '<li class="token-input-token"><img src="/img/interests/' .$data["interest_icon"] .'"/><p>' .$data["interest_name"] . '</p></li>';
     }
 
     $photoTime = photoTimeFormat($photoData['upload_time']);
@@ -24,7 +24,7 @@ if(isset($_GET["id"])) {
     $creator = $photoData["photo_uploader"];
     $lat = $photoData["latitude"];
     $lng = $photoData["longitude"];
-    $sharing = getShareButtons("", $photoTitle, $photoDesc); //TODO: Update URL
+    $sharing = getShareButtons("http://mysplot.com/map/photos/".$_GET["id"], $photoTitle, $photoDesc);
     $comments = getCommentsForm("p" . $_GET["id"]);
 
     echo <<<EOT

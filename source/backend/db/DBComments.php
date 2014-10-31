@@ -44,7 +44,7 @@ function showComment($arr) {
         <div class="comment">
         <div class="commentTime">'. commentTimeFormat($arr["time"]) .'</div>
         <div class="commentAvatar">
-        <img src="img/design/defaultProfileIcon.png" width="30" height="30" alt="'.$arr['username'].'" />
+        <img src="/img/design/defaultProfileIcon.png" width="30" height="30" alt="'.$arr['username'].'" />
         </div>
 
         <div class="commentText">

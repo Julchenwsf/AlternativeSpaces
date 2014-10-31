@@ -52,12 +52,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $('#newEventForm').submit(function (ev) {
         $.ajax({
             type: "POST",
-            url: "backend/forms/eventform.php",
+            url: "/backend/forms/eventform.php",
             data: $("#newEventForm").serialize(),
             dataType: "JSON",
             success: function(data) {
                 if(data["success"]) {
-                   window.location.replace("index.php?type=events&id=" + data["response"]);
+                   window.location.replace("/map/events/" + data["response"]);
                 } else {
                    var out = "";
                    for(var error in data["response"]) {
@@ -88,7 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
     function openMapPicker() {
-        window.open("backend/forms/maplookup.php",
+        window.open("/backend/forms/maplookup.php",
             "Select location", "width=620,height=460,location=no,menubar=no,resizable=no,status=no,toolbar=no");
     }
 
@@ -107,7 +107,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $(document).ready(function() {
         interestsInput = $("#eventInterests");
 
-        interestsInput.tokenInput("backend/db/DBInterests.php", {
+        interestsInput.tokenInput("/backend/db/DBInterests.php", {
             tokenLimit: 4,                  //Number of maximum simultaneous tags/interests
             resultsLimit: 10,               //Number of maximum auto-complete "suggestions"
             preventDuplicates: true,        //Ignore duplicate tags
@@ -115,7 +115,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             propertyToSearch: "interest_name",  //Property to search in the JS dict structure
             tokenValue: "interest_id",
             resultsFormatter: function(item){   //Custom formatting for the auto-complete results
-                return "<li><p class='interest_name'><img src='img/interests/" + item.interest_icon + "' /> " + item.interest_name + "</p><div style='clear:both'></div></li>" }
+                return "<li><p class='interest_name'><img src='/img/interests/" + item.interest_icon + "' /> " + item.interest_name + "</p><div style='clear:both'></div></li>" }
         });
     });
     </script>

@@ -108,7 +108,7 @@ if(isset($_GET["search"]) && $_GET["search"] == "2D") {
             $interestIcons="";
             foreach($interests as &$interest){
                 $data = getInterest($interest);
-                $interestIcons .= '<li class="token-input-token"><img src="img/interests/' .$data["interest_icon"] .'"/><p class="hidden">'.$data["interest_name"].'</p></li>';
+                $interestIcons .= '<li class="token-input-token"><img src="/img/interests/' .$data["interest_icon"] .'"/><p class="hidden">'.$data["interest_name"].'</p></li>';
             }
 
             echo '<div class="contentBox">

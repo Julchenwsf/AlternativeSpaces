@@ -11,7 +11,7 @@ function addComment(where, parent) {
     \
     <div class="comment">\
     <div class="commentAvatar">\
-    <img src="img/design/defaultProfileIcon.png" width="30" height="30" />\
+    <img src="/img/design/defaultProfileIcon.png" width="30" height="30" />\
     </div>\
     \
     <div class="commentText">\
@@ -41,7 +41,7 @@ function addSubmit(el, parent) {
 
     $.ajax({
         type: "POST",
-        url: "backend/forms/commentform.php",
+        url: "/backend/forms/commentform.php",
         data: "comment=" + encodeURIComponent(text) + "&parent=" + parent + "&thread=" + $("#commentArea").attr("data-thread-id"),
         /* Sending both the text and the parent of the comment */
         success: function(msg){

@@ -8,7 +8,7 @@ if (isset($_GET["id"])) {
 
     $eventData = fetchEvent($_GET["id"]);
     $comments = getCommentsForm("e" . $_GET["id"]);
-    $sharing = getShareButtons("http://folk.ntnu.no/valerijf/div/AlternativeSpaces/source/index.php?type=events&id=" . $_GET["id"], $eventData["event_name"], $eventData["description"]); //TODO: Update URL
+    $sharing = getShareButtons("http://mysplot.com/map/events/" . $_GET["id"], $eventData["event_name"], $eventData["description"]);
 
     $eventTime = eventTimeFormat($eventData['event_time']);
     $eventTitle = $eventData["event_name"];
@@ -22,7 +22,7 @@ if (isset($_GET["id"])) {
     $interestIcons="";
     foreach($interests as &$interest){
         $data = getInterest($interest);
-        $interestIcons .= '<li class="token-input-token"><img src="img/interests/' .$data["interest_icon"] .'"/><p>' .$data["interest_name"] .'</p></li>';
+        $interestIcons .= '<li class="token-input-token"><img src="/img/interests/' .$data["interest_icon"] .'"/><p>' .$data["interest_name"] .'</p></li>';
     }
 
     echo <<<EOT

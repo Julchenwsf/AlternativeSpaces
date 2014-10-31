@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     echo <<<EOT
     <div class="submitTable">
         <div id="response"></div>
-        <form id="loginForm" action="backend/forms/logform.php" method="post">
+        <form id="loginForm" action="/backend/forms/logform.php" method="post">
             <table>
                 <tr>
                     <th colspan="2" id="center">Sign in</th>
@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $('#loginForm').submit(function (ev) {
         $.ajax({
             type: "POST",
-            url: "backend/forms/logform.php",
+            url: "/backend/forms/logform.php",
             data: $("#loginForm").serialize(),
             dataType: "JSON",
             success: function(data) {

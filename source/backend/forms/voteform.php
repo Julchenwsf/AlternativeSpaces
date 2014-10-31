@@ -36,10 +36,10 @@ if(isset($_GET["cid"]) && isset($_GET["db"]) && isset($_GET["vote"])) {
         }
 
         if ($database == "photos") {
-            include_once($path . "backend/db/DBPhotos.php");
+            include_once($_SERVER['DOCUMENT_ROOT'] . "/backend/db/DBPhotos.php");
             list($up, $down) = votePhoto($id, $up, $down);
         } else if ($database == "events") {
-            include_once($path . "backend/db/DBEvents.php");
+            include_once($_SERVER['DOCUMENT_ROOT'] . "/backend/db/DBEvents.php");
             list($up, $down) = voteEvent($id, $up, $down);
         }
     }

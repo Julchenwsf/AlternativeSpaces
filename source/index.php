@@ -2,7 +2,7 @@
 include_once("backend/PageBuilder.php");
 
 $type = $_GET["type"];
-if(!in_array($type, array('photos', 'events'))) header("Location: index.php?type=photos");
+if(!in_array($type, array('photos', 'events'))) header("Location: /map/photos");
 $sidebar = '    <div id="sidebarSearchFlex">
                     <aside id="sidebarSearch">
                         <b>Search</b>
@@ -28,12 +28,12 @@ if(isset($_GET["id"])) {
 }
 
 
-$pb = new PageBuilder("Photos");
-$pb->addCSSImport("styles/comments.css");
-$pb->addCSSImport("styles/event.css");
+$pb = new PageBuilder(ucfirst($type));
+$pb->addCSSImport("/styles/comments.css");
+$pb->addCSSImport("/styles/event.css");
 
-$pb->addJSImport("js/2DSearch.js");
-$pb->addJSImport("js/comment.js");
+$pb->addJSImport("/js/2DSearch.js");
+$pb->addJSImport("/js/comment.js");
 
 $pb->appendContent('<div id="searchResults"></div>');
 $pb->addContentSibling($sidebar);

@@ -62,7 +62,7 @@ $(document).ready(function() {
     interestsInput = $("#input-interest-search");
     initializeGMaps();                  //Initialize the map
 
-    interestsInput.tokenInput("backend/db/DBInterests.php", {
+    interestsInput.tokenInput("/backend/db/DBInterests.php", {
         tokenLimit: 4,                  //Number of maximum simultaneous tags/interests
         resultsLimit: 10,               //Number of maximum auto-complete "suggestions"
         preventDuplicates: true,        //Ignore duplicate tags
@@ -70,9 +70,9 @@ $(document).ready(function() {
         propertyToSearch: "interest_name",  //Property to search in the JS dict structure
         tokenValue: "interest_id",
         resultsFormatter: function(item){   //Custom formatting for the auto-complete results
-            return "<li><p class='interest_name'><img src='img/interests/" + item.interest_icon + "' /> " + item.interest_name + "</p><div style='clear:both'></div></li>" },
+            return "<li><p class='interest_name'><img src='/img/interests/" + item.interest_icon + "' /> " + item.interest_name + "</p><div style='clear:both'></div></li>" },
         tokenFormatter: function(item){   //Custom formatting for the auto-complete results
-            return "<li><img src='img/interests/" + item.interest_icon + "' title=" + item.interest_name +" /><p> " + item.interest_name + "</p></li>" },
+            return "<li><img src='/img/interests/" + item.interest_icon + "' title=" + item.interest_name +" /><p> " + item.interest_name + "</p></li>" },
 
         onAdd: function (item) {        //Is executed when user selects an option
             doSearch();
@@ -96,7 +96,7 @@ $(document).ready(function() {
 
 $(document).on('click', '.contentClickArea', function(e){
     var id = $(this).attr("data-content-id");
-    window.history.pushState({"html": document.documentElement.innerHTML, "pageTitle": "Viewer"},"", 'index.php?type=' + database + '&id='+id);
+    window.history.pushState({"html": document.documentElement.innerHTML, "pageTitle": "Viewer"},"", '/map/' + database + '/'+id);
     openOverlay(id);
 });
 
@@ -120,11 +120,11 @@ $(window).scroll(function() {
 });
 
 function openOverlay(id) {
-    $.get("backend/forms/overlay" + database + ".php", {id: id}, function(data){modal.open({content: data, closeCallback:closeOverlay});});
+    $.get("/backend/forms/overlay" + database + ".php", {id: id}, function(data){modal.open({content: data, closeCallback:closeOverlay});});
 }
 
 function closeOverlay() {
-    window.history.pushState({"html": document.documentElement.innerHTML, "pageTitle": ""},"", 'index.php?type=' + database);
+    window.history.pushState({"html": document.documentElement.innerHTML, "pageTitle": ""},"", '/map/' + database);
 }
 
 //Function to deal with AJAX search
@@ -138,7 +138,7 @@ function doSearch(append) {
     //Format the bounding box to be on format:
     //SW_lat SW_lng,NE_lat NE_lng
     var formattedBounds = toStringCoordinate(bounds.getSouthWest()) + "," + toStringCoordinate(bounds.getNorthEast());
-    $.get("backend/db/DB" + capitalize(database) + ".php?search=2D&boxloc=" + formattedBounds + "&interests=" + tags + "&page=" + pageNum, function(data) {
+    $.get("/backend/db/DB" + capitalize(database) + ".php?search=2D&boxloc=" + formattedBounds + "&interests=" + tags + "&page=" + pageNum, function(data) {
         $("#searchResults").append(data);
     });
 }
@@ -146,7 +146,7 @@ function doSearch(append) {
 function vote(way, cid, db) {
     $.ajax({
         type: "GET",
-        url: "backend/forms/voteform.php?vote=" + way + "&cid=" + cid + "&db=" + db,
+        url: "/backend/forms/voteform.php?vote=" + way + "&cid=" + cid + "&db=" + db,
         dataType: "JSON",
         success: function (data) {
             if (data["success"]) {

@@ -17,32 +17,32 @@ class PageBuilder {
         $this->title = '<title>ASpaces &raquo; '. $title .'</title><meta charset="UTF-8">';
         $this->addJSImport("https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js");
         $this->addJSImport("https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places");
-        $this->addJSImport("js/jquery.datetimepicker.js");
-        $this->addJSImport("js/jquery.tokeninput.js");
-        $this->addJSImport("js/overlay.js");
+        $this->addJSImport("/js/jquery.datetimepicker.js");
+        $this->addJSImport("/js/jquery.tokeninput.js");
+        $this->addJSImport("/js/overlay.js");
 
-        $this->addCSSImport("styles/main.css");
-        $this->addCSSImport("styles/jquery.datetimepicker.css");
-        $this->addCSSImport("styles/token-input.css");
+        $this->addCSSImport("/styles/main.css");
+        $this->addCSSImport("/styles/jquery.datetimepicker.css");
+        $this->addCSSImport("/styles/token-input.css");
 
         if (isLoggedIn()) {
-            $logged = '<a href="backend/functions/log.php?out" class="submitButton right">Sign out</a><button type="button" id="eventButton" class="submitButton right">New Event</button>';
+            $logged = '<a href="/backend/functions/log.php?out" class="submitButton right">Sign out</a><button type="button" id="eventButton" class="submitButton right">New Event</button>';
             $navbarButtonsJS = '<script type="text/javascript">$(document).ready(function(){
-            $("#eventButton").click(function(e){$.get("backend/forms/eventform.php", function(data){modal.open({content: data});});});
+            $("#eventButton").click(function(e){$.get("/backend/forms/eventform.php", function(data){modal.open({content: data});});});
             });</script>';
         } else {
             $logged = '<button type="button" id="loginButton" class="submitButton right">Sign in</button><button type="button" id="signupButton" class="submitButton right">Sign up</button>';
 
             $navbarButtonsJS = '<script type="text/javascript">$(document).ready(function(){
-            $("#signupButton").click(function(e){$.get("backend/forms/regform.php", function(data){modal.open({content: data});});});
-            $("#loginButton").click(function(e){$.get("backend/forms/logform.php", function(data){modal.open({content: data});});});
+            $("#signupButton").click(function(e){$.get("/backend/forms/regform.php", function(data){modal.open({content: data});});});
+            $("#loginButton").click(function(e){$.get("/backend/forms/logform.php", function(data){modal.open({content: data});});});
             });</script>';
         }
 
 
         $navbar = '<div id="navbar">
                        <div id="navbarContent">
-                           <div id="navbarLogo"><a href="index.php"><img src="img/design/logo.png" /></a></div>
+                           <div id="navbarLogo"><a href="index.php"><img src="/img/design/logo.png" /></a></div>
                            <div id="navbarTitle">Spaces</div>'
                            . $logged.
                        '</div>
