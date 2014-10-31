@@ -242,17 +242,25 @@ input {
 }
 
 .likeButton {
-    width:25px;
-    height:25px;
+    width:22px;
+    height:19px;
     display:inline-block;
     background:url(../img/design/thumbsUp.png);
 }
 
+.likeButton:hover{
+    background-color:#00ee00;
+}
+
 .dislikeButton {
-    width:25px;
-    height:25px;
+    width:22px;
+    height:19px;
     display:inline-block;
     background:url(../img/design/thumbsDown.png);
+}
+
+.dislikeButton:hover{
+    background-color:#ee0000;
 }
 
 .share-buttons{
