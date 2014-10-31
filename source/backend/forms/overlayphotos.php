@@ -22,15 +22,18 @@ if(isset($_GET["id"])) {
     foreach($interests as &$interest){
         $data = getInterest($interest);
         $interestIcons .= '<li class="token-input-token"><img src="img/interests/' .$data["interest_icon"] .'"/><p>' .$data["interest_name"] . '</p></li>';
-
     }
-    $photoTime = eventTimeFormat($photoData['photo_time']);
-    $photoTitle = $photoData["photo_name"];
+
+    $photoTime = photoTimeFormat($photoData['upload_time']);
+    $photoTitle = $photoData["photo_title"];
     $photoDesc = $photoData['description'];
-    $creator = $photoData["uploader"];
+    $creator = $photoData["photo_uploader"];
+    $lat = $photoData["latitude"];
+    $lng = $photoData["longitude"];
     $sharing = getShareButtons("", $photoTitle, $photoDesc);
-    $comments = getComments("p" . $_GET["id"]);
-   echo <<<EOT
+    $comments = getCommentsForm("p" . $_GET["id"]);
+
+    echo <<<EOT
     <div id="eventPage">
         <div class="eventLeft">
             <div class="eventImage">
@@ -51,17 +54,12 @@ if(isset($_GET["id"])) {
                     <legend>Who</legend>
                     $creator
                 </fieldset>
-                <ul class="token-input-list"> $interestIcons</ul>
-            </div>
-
-            <div class="eventDescription center">
-                <div class="eventDescriptionHeader">
-                    <span class="titleText">Join the event</span>
-                </div>
+                <ul class="token-input-list">$interestIcons</ul>
             </div>
         </div>
 
        <div class="eventMiddle">
+       <div class="largeContentBox"><div id="enlargedPhoto"><img src="http://org.ntnu.no/cdpgroup4/images/large/$_GET[id].jpg" /></div></div>
             <div class="eventContent">
                 <h2>$photoTitle</h2>
                 <hr/>
@@ -71,7 +69,6 @@ if(isset($_GET["id"])) {
         </div>
 
        <div class="eventMiddle">
-            <div class="largeContentBox"><div id="enlargedPhoto"><img src="http://org.ntnu.no/cdpgroup4/images/large/' . $_GET["id"] . '.jpg" /></div>
             <div class="eventContent">
                 <h2>Comments</h2>
                 <hr/>

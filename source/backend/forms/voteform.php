@@ -18,7 +18,7 @@ function getVoter($database, $id, $up, $down) {
 
 if(isset($_GET["cid"]) && isset($_GET["db"]) && isset($_GET["vote"])) {
     if(isLoggedIn()) {
-        $database = mysql_real_escape_string($_GET["db"]);
+        $database = $_GET["db"];
         if (!is_numeric($_GET["cid"])) return;
         else $id = $_GET["cid"];
         if (!in_array($_GET["vote"], array("0", "1"))) return;

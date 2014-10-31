@@ -1,5 +1,5 @@
 #eventPage {
-    width: 900px;
+    width: 1260px;
 }
 
 #eventPage .eventLeft {
@@ -12,7 +12,7 @@
 }
 
 #eventPage .eventMiddle {
-    width:680px;
+    width:1054px;
     margin:0 0 10px;
     float:right;
     border-radius: 5px;
@@ -82,3 +82,16 @@
     border: 0; border-top: 1px solid #303f9f;
 }
 
+.largeContentBox {
+    min-width: 1030px;
+}
+
+.largeContentBox img {
+    margin-top:15px;
+    border-radius: 5px;
+    border:1px solid #303f9f;
+}
+
+#enlargedPhoto {
+    text-align:center;
+}

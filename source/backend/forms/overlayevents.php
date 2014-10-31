@@ -11,7 +11,6 @@ if (isset($_GET["id"])) {
     $comments = getCommentsForm("e" . $_GET["id"]);
     $sharing = getShareButtons("http://folk.ntnu.no/valerijf/div/AlternativeSpaces/source/index.php?type=events&id=" . $_GET["id"], $eventData["event_name"], $eventData["description"]);
 
-
     $eventTime = eventTimeFormat($eventData['event_time']);
     $eventTitle = $eventData["event_name"];
     $eventDesc = $eventData['description'];
@@ -21,11 +20,10 @@ if (isset($_GET["id"])) {
     $creator = $eventData["event_creator"];
     $interests = explode(" ", $eventData["interests"]);
     $interestIcons="";
-     foreach($interests as &$interest){
-            $data = getInterest($interest);
-            $interestIcons .= '<li class="token-input-token"><img src="img/interests/' .$data["interest_icon"] .'"/><p>' .$data["interest_name"] .'</p></li>';
-
-     }
+    foreach($interests as &$interest){
+        $data = getInterest($interest);
+        $interestIcons .= '<li class="token-input-token"><img src="img/interests/' .$data["interest_icon"] .'"/><p>' .$data["interest_name"] .'</p></li>';
+    }
 
     echo <<<EOT
     <div id="eventPage">
@@ -48,7 +46,7 @@ if (isset($_GET["id"])) {
                     <legend>Who</legend>
                     $creator
                 </fieldset>
-                <ul class="token-input-list"> $interestIcons</ul>
+                <ul class="token-input-list">$interestIcons</ul>
             </div>
 
             <div class="eventDescription center">

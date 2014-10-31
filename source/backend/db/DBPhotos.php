@@ -52,7 +52,7 @@ function removePhoto($id) {
 
 function getPhotoDetails($id) {
     if(!is_numeric($id)) return false;
-    $result = mysql_query("SELECT * FROM photos WHERE photo_id='$id'") or die(mysql_error());
+    $result = mysql_query("SELECT *, X(location) AS latitude, Y(location) AS longitude FROM photos WHERE photo_id='$id'") or die(mysql_error());
     return mysql_fetch_assoc($result);
 }
 

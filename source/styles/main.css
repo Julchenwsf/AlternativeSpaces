@@ -121,16 +121,6 @@ a {
     width:auto;
 }
 
-
-.largeContentBox {
-    min-width: 1050px;
-    min-height: 800px;
-}
-
-#enlargedPhoto {
-    text-align:center;
-}
-
 /* General */
 .hidden {
     display: none;
