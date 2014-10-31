@@ -256,6 +256,9 @@ input {
 .likeButton {
     width:22px;
     height:19px;
+    margin-top:2px;
+    margin-right:1px;
+    margin-left:1px;
     display:inline-block;
     background:url(../img/design/thumbsUp.png);
 }
@@ -267,6 +270,9 @@ input {
 .dislikeButton {
     width:22px;
     height:19px;
+    margin-top:2px;
+    margin-right:1px;
+    margin-left:1px;
     display:inline-block;
     background:url(../img/design/thumbsDown.png);
 }
