@@ -3,7 +3,6 @@
     <title>Select location</title>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 
-
     <link rel="stylesheet" type="text/css" href="../../styles/main.css">
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
     <script type="text/javascript">

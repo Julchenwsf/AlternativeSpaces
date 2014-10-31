@@ -54,7 +54,6 @@ function addEvent($creator, $event_name, $description, $interests, $lat, $lng, $
 
 function fetchEvent($event_id) {
     $event_id = mysql_real_escape_string($event_id);
-
     $result = mysql_query("SELECT *, X(location) AS latitude, Y(location) AS longitude FROM events WHERE event_id='$event_id'") or die(mysql_error());
     return mysql_fetch_assoc($result);
 }
@@ -66,7 +65,6 @@ function voteEvent($id, $up, $down) {
     $row = mysql_fetch_assoc($result);
     return array($row["vote_up"], $row["vote_down"]);
 }
-
 
 
 function eventTimeFormat($t){
@@ -106,34 +104,31 @@ if(isset($_GET["search"]) && $_GET["search"] == "2D") {
         $res = searchEvents($_GET["interests"], $_GET["boxloc"], $_GET["page"]);    //Do the search
         foreach($res as &$row) {
             //For each search result, pack it nicely into its HTML representation. Currently a simple img inside div
-             $interests = explode(" ", $row["interests"]);
-             $interestIcons="";
-             foreach($interests as &$interest){
-                    $data = getInterest($interest);
-                    $interestIcons .= '<li class="token-input-token"><img src="img/interests/' .$data["interest_icon"] .'"/><p class="hidden">'.$data["interest_name"].'</p></li>';
-             }
+            $interests = explode(" ", $row["interests"]);
+            $interestIcons="";
+            foreach($interests as &$interest){
+                $data = getInterest($interest);
+                $interestIcons .= '<li class="token-input-token"><img src="img/interests/' .$data["interest_icon"] .'"/><p class="hidden">'.$data["interest_name"].'</p></li>';
+            }
 
-             echo '<div class="contentBox">
-                     <div class="contentWrapper">
-                         <div class="bg"></div>
+            echo '<div class="contentBox">
+                 <div class="contentWrapper">
+                     <div class="bg"></div>
 
-                         <div class="contentClickArea" data-content-id="' . $row["event_id"] . '">
-                             <div class="contentTitle">' . (strlen($row["event_name"])>26 ? substr($row["event_name"],0,23) . '...' : $row["event_name"]) . '</div>
-                             <div class="contentContent eventContent">
-                                 <div class= "contentBoxInfo">Description</div><div class="contentBoxDescription">' . (strlen($row["description"])>70 ? substr($row["description"],0,70) . '...' : $row["description"]) . '<hr>
-                                 <ul class="token-input-list">'. $interestIcons . '</ul></div>
-                                 <div class="eventTime">' . eventTimeFormat($row["event_time"]) .' </div>
-                             </div>
+                     <div class="contentClickArea" data-content-id="' . $row["event_id"] . '">
+                         <div class="contentTitle">' . (strlen($row["event_name"])>26 ? substr($row["event_name"],0,23) . '...' : $row["event_name"]) . '</div>
+                         <div class="contentContent eventContent">
+                             <div class= "contentBoxInfo">Description</div><div class="contentBoxDescription">' . (strlen($row["description"])>70 ? substr($row["description"],0,70) . '...' : $row["description"]) . '<hr>
+                             <ul class="token-input-list">'. $interestIcons . '</ul></div>
+                             <div class="eventTime">' . eventTimeFormat($row["event_time"]) .' </div>
                          </div>
-
-                         <div class="contentStats">'. getVoter("events", $row["event_id"], $row["vote_up"], $row["vote_down"]) . '</div>
                      </div>
-                 </div>';
+
+                     <div class="contentStats">'. getVoter("events", $row["event_id"], $row["vote_up"], $row["vote_down"]) . '</div>
+                 </div>
+             </div>';
         }
     }
 }
-
-
-
 
 ?>

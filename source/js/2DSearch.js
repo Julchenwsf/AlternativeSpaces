@@ -101,11 +101,11 @@ $(document).on('click', '.contentClickArea', function(e){
 });
 
 
-$(document).on('mouseenter', '.token-input-token', function(e){
+$(document).on('mouseenter', '.contentBoxDescription .token-input-token', function(e){
     $(this).find("p").toggleClass("hidden");
 });
 
-$(document).on('mouseleave', '.token-input-token', function(e){
+$(document).on('mouseleave', '.contentBoxDescription .token-input-token', function(e){
     $(this).find("p").toggleClass("hidden");
 });
 

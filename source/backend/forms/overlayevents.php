@@ -18,6 +18,7 @@ if (isset($_GET["id"])) {
     $lng = $eventData["longitude"];
     $numPeople = $eventData["no_of_people"];
     $creator = $eventData["event_creator"];
+
     $interests = explode(" ", $eventData["interests"]);
     $interestIcons="";
     foreach($interests as &$interest){

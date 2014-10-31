@@ -1,5 +1,5 @@
 #eventPage {
-    width: 1260px;
+    width: 1270px;
 }
 
 #eventPage .eventLeft {
@@ -27,7 +27,6 @@
     padding:10px;
     word-wrap:break-word;
 }
-
 
 .titleText{
     float:left;
@@ -79,11 +78,13 @@
 }
 
 #eventPage hr {
-    border: 0; border-top: 1px solid #303f9f;
+    border: 0;
+    border-top: 1px solid #303f9f;
 }
 
 .largeContentBox {
     min-width: 1030px;
+    min-height: 700px;
 }
 
 .largeContentBox img {

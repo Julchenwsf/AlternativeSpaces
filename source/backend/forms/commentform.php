@@ -25,5 +25,4 @@ if(isset($_POST["comment"])) {
     echo showComment($arr);
 }
 
-
 ?>

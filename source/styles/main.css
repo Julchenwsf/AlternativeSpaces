@@ -378,7 +378,8 @@ input {
 .contentBox .contentContent {
     display: block;
     position: relative;
-    }
+}
+
 .contentBox .eventContent{
     width:95%;
     margin: 0 auto;
@@ -434,47 +435,4 @@ input {
     font-style:normal;
     text-align:center;
     color:#a8aca6;
-}
-
-/* PHOTO INFO BOX */
-.photoInfoBoxMain{
-    border-radius:5px;
-    border:1px solid #9fa8da;
-    margin:10px;
-}
-
-.photoInfoBox{
-    border-radius:5px;
-    border:1px solid #9fa8da;
-    margin:10px;
-}
-
-.photoInfoBoxTitle{
-    background:#303f9f;
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
-    color:white;
-    text-align:center;
-    font-family:Verdana,serif;
-    font-size:15px;
-    font-weight:bold;
-    font-style:normal;
-    padding: 5px;
-}
-
-.photoInfoBoxDescription {
-    padding:5px;
-    font-family:Verdana,serif;
-    font-size:12px;
-    font-style:normal;
-    color:black;
-
-}
-
-.photoInfoBoxDescription hr{
-    border-top:1px solid #9fa8da;
-}
-
-.photoInfoBoxDescription ul.token-input-list{
-    border:0;
 }

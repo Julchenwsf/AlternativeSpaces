@@ -98,16 +98,16 @@ if(isset($_GET["search"]) && $_GET["search"] == "2D") {
         foreach($res as &$row) {
             //For each search result, pack it nicely into its HTML representation. Currently a simple img inside div
             echo '<div class="contentBox">
-                    <div class="contentWrapper">
-                        <div class="bg"></div>
+                <div class="contentWrapper">
+                    <div class="bg"></div>
 
-                        <div class="contentClickArea" data-content-id="' . $row["photo_id"] . '">
-                            <div class="contentTitle">' . $row["photo_title"] . '</div>
-                            <div class="contentContent center"><img src="http://org.ntnu.no/cdpgroup4/images/thumb/' . $row["photo_id"] . '.jpg" /></div>
-                        </div>
-                        <div class="contentStats">'. getVoter("photos", $row["photo_id"], $row["vote_up"], $row["vote_down"]) . '</div>
+                    <div class="contentClickArea" data-content-id="' . $row["photo_id"] . '">
+                        <div class="contentTitle">' . $row["photo_title"] . '</div>
+                        <div class="contentContent center"><img src="http://org.ntnu.no/cdpgroup4/images/thumb/' . $row["photo_id"] . '.jpg" /></div>
                     </div>
-                </div>';
+                    <div class="contentStats">'. getVoter("photos", $row["photo_id"], $row["vote_up"], $row["vote_down"]) . '</div>
+                </div>
+            </div>';
         }
     }
 }

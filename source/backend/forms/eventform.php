@@ -15,7 +15,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
 } else if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-
     echo <<<EOT
     <div class="submitTable">
         <div id="response"></div>
