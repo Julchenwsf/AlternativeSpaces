@@ -27,7 +27,7 @@ class PageBuilder {
         $this->addCSSImport("styles/token-input.css");
 
         if (isLoggedIn()) {
-            $logged = "Welcome back " . $_SESSION["first_name"] . " " . $_SESSION["last_name"] . '<a href="backend/functions/log.php?out" class="submitButton right">Sign out</a><button type="button" id="eventButton" class="submitButton right">New Event</button>';
+            $logged = '<a href="backend/functions/log.php?out" class="submitButton right">Sign out</a><button type="button" id="eventButton" class="submitButton right">New Event</button>';
             $navbarButtonsJS = '<script type="text/javascript">$(document).ready(function(){
             $("#eventButton").click(function(e){$.get("backend/forms/eventform.php", function(data){modal.open({content: data});});});
             });</script>';
