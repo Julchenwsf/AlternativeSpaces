@@ -113,15 +113,17 @@ if(isset($_GET["search"]) && $_GET["search"] == "2D") {
                     $interestIcons .= '<li class="token-input-token"><img src="img/interests/' .$data["interest_icon"] .'"/><p class="hidden">'.$data["interest_name"].'</p></li>';
              }
 
-             echo '<div class="contentBox" data-content-id="' . $row["event_id"] . '">
+             echo '<div class="contentBox">
                      <div class="contentWrapper">
                          <div class="bg"></div>
 
-                         <div class="contentTitle">' . (strlen($row["event_name"])>26 ? substr($row["event_name"],0,23) . '...' : $row["event_name"]) . '</div>
-                         <div class="contentContent eventContent">
-                             <div class= "contentBoxInfo">Description</div><div class="contentBoxDescription">' . (strlen($row["description"])>70 ? substr($row["description"],0,70) . '...' : $row["description"]) . '<hr>
-                             <ul class="token-input-list">'. $interestIcons . '</ul></div>
-                             <div class="eventTime">' . eventTimeFormat($row["event_time"]) .' </div>
+                         <div class="contentClickArea" data-content-id="' . $row["event_id"] . '">
+                             <div class="contentTitle">' . (strlen($row["event_name"])>26 ? substr($row["event_name"],0,23) . '...' : $row["event_name"]) . '</div>
+                             <div class="contentContent eventContent">
+                                 <div class= "contentBoxInfo">Description</div><div class="contentBoxDescription">' . (strlen($row["description"])>70 ? substr($row["description"],0,70) . '...' : $row["description"]) . '<hr>
+                                 <ul class="token-input-list">'. $interestIcons . '</ul></div>
+                                 <div class="eventTime">' . eventTimeFormat($row["event_time"]) .' </div>
+                             </div>
                          </div>
 
                          <div class="contentStats">'. getVoter("events", $row["event_id"], $row["vote_up"], $row["vote_down"]) . '</div>
