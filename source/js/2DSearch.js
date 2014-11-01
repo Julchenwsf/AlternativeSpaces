@@ -1,5 +1,4 @@
-var map, interestsInput, database, markerCluster, markers, pageNum = 0;
-var ltags, lbounds;
+var map, interestsInput, database, markerCluster, markers, lsearch, pageNum = 0;
 
 //==== GMaps ====
 function initializeGMaps() {
@@ -88,7 +87,6 @@ $(document).ready(function() {
 
 $(document).on('click', '.contentClickArea', function(e){
     var id = $(this).attr("data-content-id");
-    window.history.pushState({"html": document.documentElement.innerHTML, "pageTitle": "Viewer"},"", 'index.php?type=' + database + '&id='+id);
     openOverlay(id);
 });
 
@@ -112,7 +110,7 @@ $(window).scroll(function() {
 });
 
 function openOverlay(id) {
-    window.history.pushState({"html": document.documentElement.innerHTML, "pageTitle": "Viewer"},"", 'index.php?type=' + database + '&id='+id);
+    window.history.pushState({"html": document.documentElement.innerHTML, "pageTitle": "Viewer"},"", '/map/' + database + '/'+id);
     $.get("/backend/forms/overlay" + database + ".php", {id: id}, function(data){modal.open({content: data, closeCallback:closeOverlay});});
 }
 
@@ -122,11 +120,12 @@ function closeOverlay() {
 
 //Function to deal with AJAX search
 function doSearch(append) {
-    console.log(map.getBounds() + interestsInput.val());
-    if(lbounds == map.getBounds() && ltags == interestsInput.val() && ! append) return;
-    ltags = interestsInput.val();
-    lbounds = map.getBounds();
+    var tags = interestsInput.val(), bounds = map.getBounds();
+    var formattedBounds = toStringCoordinate(bounds.getSouthWest()) + "," + toStringCoordinate(bounds.getNorthEast());
+    var search = "/backend/db/DB" + capitalize(database) + ".php?search=2D&boxloc=" + formattedBounds + "&interests=" + tags + "&page=" + pageNum;
+    if(lsearch == search) return;
 
+    lsearch = search;
     if(!append) {   //Set append to true in order to append the result to already existing results. If false, the previous results are cleared
         pageNum = 0;
         markers = [];
@@ -134,12 +133,9 @@ function doSearch(append) {
         $("#searchResults").html('');
     } else pageNum += 1;
 
-    //Format the bounding box to be on format:
-    //SW_lat SW_lng,NE_lat NE_lng
-    var formattedBounds = toStringCoordinate(lbounds.getSouthWest()) + "," + toStringCoordinate(lbounds.getNorthEast());
     $.ajax({
         type: "GET",
-        url: "backend/db/DB" + capitalize(database) + ".php?search=2D&boxloc=" + formattedBounds + "&interests=" + ltags + "&page=" + pageNum,
+        url: lsearch,
         dataType: "JSON",
         success: function (data) {
             $("#searchResults").append(data["response"]);

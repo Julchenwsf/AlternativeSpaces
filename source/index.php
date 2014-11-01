@@ -1,8 +1,11 @@
 <?
 include_once("backend/PageBuilder.php");
 
-$type = $_GET["type"];
-if(!in_array($type, array('photos', 'events'))) header("Location: /map/photos");
+if(!array_key_exists("type", $_GET) || !in_array($_GET["type"], array('photos', 'events'))) {
+    header("Location: /map/photos");
+    $type = "photos";
+} else $type = $_GET["type"];
+
 $sidebar = '    <div id="sidebarSearchFlex">
                     <aside id="sidebarSearch">
                         <b>Search</b>
@@ -26,7 +29,6 @@ $sidebar = '    <div id="sidebarSearchFlex">
 if(isset($_GET["id"])) {
     $sidebar .= '<script type="text/javascript">$(document).ready(function() {openOverlay('. $_GET["id"] .');});</script>';
 }
-
 
 $pb = new PageBuilder(ucfirst($type));
 $pb->addCSSImport("/styles/comments.css");

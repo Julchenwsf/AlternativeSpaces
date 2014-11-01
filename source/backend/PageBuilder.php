@@ -19,6 +19,7 @@ class PageBuilder {
         $this->addJSImport("https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places");
         $this->addJSImport("/js/jquery.datetimepicker.js");
         $this->addJSImport("/js/jquery.tokeninput.js");
+        $this->addJSImport("/js/markerclusterer.js");
         $this->addJSImport("/js/overlay.js");
 
         $this->addCSSImport("/styles/main.css");

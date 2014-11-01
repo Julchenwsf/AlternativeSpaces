@@ -38,7 +38,6 @@ function insertComment($threadID, $parent, $username, $comment) {
 }
 
 
-
 function showComment($arr) {
     $temp = '<div class="commentBox com-'.$arr['comment_id'].'">
         <div class="comment">
@@ -58,7 +57,7 @@ function showComment($arr) {
     </div>';
 
     // Output the comment, and its replies, if any
-    if($arr['children']) {
+    if(array_key_exists("children", $arr)) {
         foreach($arr['children'] as $r)
             $temp .= showComment($r);
     }
