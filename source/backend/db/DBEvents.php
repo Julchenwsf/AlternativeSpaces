@@ -97,38 +97,45 @@ function searchEvents($tags, $bounds, $page) {
 
 //If the search argument is set to "2D"...
 if(isset($_GET["search"]) && $_GET["search"] == "2D") {
-    if(! isset($_GET["boxloc"])) echo "Missing bounding box coordinates!";  //Make sure that the bounding box coordinates are specified
-    else if(! isset($_GET["interests"])) echo "Missing interests!";         //Also the interests are specified
-    else if(! isset($_GET["page"])) echo "Missing page!";                   //And finally the page number is specified
+    if(! isset($_GET["boxloc"])) $out = array("success" => true, "response" => "Missing bounding box coordinates!");  //Make sure that the bounding box coordinates are specified
+    else if(! isset($_GET["interests"])) $out = array("success" => true, "response" => "Missing interests!");         //Also the interests are specified
+    else if(! isset($_GET["page"])) $out = array("success" => true, "response" => "Missing page!");                   //And finally the page number is specified
     else {
         $res = searchEvents($_GET["interests"], $_GET["boxloc"], $_GET["page"]);    //Do the search
+        $html = "";
+        $dataPoints = array();
+
         foreach($res as &$row) {
             //For each search result, pack it nicely into its HTML representation. Currently a simple img inside div
             $interests = explode(" ", $row["interests"]);
-            $interestIcons="";
-            foreach($interests as &$interest){
+            $interestIcons = "";
+            foreach ($interests as &$interest) {
                 $data = getInterest($interest);
-                $interestIcons .= '<li class="token-input-token"><img src="img/interests/' .$data["interest_icon"] .'"/><p class="hidden">'.$data["interest_name"].'</p></li>';
+                $interestIcons .= '<li class="token-input-token"><img src="img/interests/' . $data["interest_icon"] . '"/><p class="hidden">' . $data["interest_name"] . '</p></li>';
             }
 
-            echo '<div class="contentBox">
+            $dataPoints[] = array($row["event_id"], $row["latitude"], $row["longitude"]);
+            $html .= '<div class="contentBox">
                  <div class="contentWrapper">
                      <div class="bg"></div>
 
                      <div class="contentClickArea" data-content-id="' . $row["event_id"] . '">
-                         <div class="contentTitle">' . (strlen($row["event_name"])>26 ? substr($row["event_name"],0,23) . '...' : $row["event_name"]) . '</div>
+                         <div class="contentTitle">' . (strlen($row["event_name"]) > 26 ? substr($row["event_name"], 0, 23) . '...' : $row["event_name"]) . '</div>
                          <div class="contentContent eventContent">
-                             <div class= "contentBoxInfo">Description</div><div class="contentBoxDescription">' . (strlen($row["description"])>70 ? substr($row["description"],0,70) . '...' : $row["description"]) . '<hr>
-                             <ul class="token-input-list">'. $interestIcons . '</ul></div>
-                             <div class="eventTime">' . eventTimeFormat($row["event_time"]) .' </div>
+                             <div class= "contentBoxInfo">Description</div><div class="contentBoxDescription">' . (strlen($row["description"]) > 70 ? substr($row["description"], 0, 70) . '...' : $row["description"]) . '<hr>
+                             <ul class="token-input-list">' . $interestIcons . '</ul></div>
+                             <div class="eventTime">' . eventTimeFormat($row["event_time"]) . ' </div>
                          </div>
                      </div>
 
-                     <div class="contentStats">'. getVoter("events", $row["event_id"], $row["vote_up"], $row["vote_down"]) . '</div>
+                     <div class="contentStats">' . getVoter("events", $row["event_id"], $row["vote_up"], $row["vote_down"]) . '</div>
                  </div>
              </div>';
         }
+        $out = array("success" => true, "response" => $html, "locations" => $dataPoints);
+
     }
+    echo json_encode($out);
 }
 
 ?>
