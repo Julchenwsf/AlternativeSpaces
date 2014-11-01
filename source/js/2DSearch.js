@@ -1,5 +1,5 @@
-var map, interestsInput, database, pageNum = 0;
-
+var map, interestsInput, database, markerCluster, markers, pageNum = 0;
+var ltags, lbounds;
 
 //==== GMaps ====
 function initializeGMaps() {
@@ -23,6 +23,7 @@ function initializeGMaps() {
         rotateControl:false,
         styles: styles };
     map = new google.maps.Map(document.getElementById("sidebarSearchMap"), mapOptions);
+    markerCluster = new MarkerClusterer(map, []);
 
     var autocomplete = new google.maps.places.Autocomplete(document.getElementById('input-address-search'));
     autocomplete.bindTo('bounds', map);
@@ -41,16 +42,7 @@ function initializeGMaps() {
         doSearch();
     });
 
-
-    google.maps.event.addListener(map, "dragend", function() {      //Listener for when the map is dragged, fires at the end of drag.
-       doSearch();
-    });
-
-    google.maps.event.addListener(map, "zoom_changed", function() { //Listener for when the map changes zoom level.
-       doSearch();
-    });
-
-    google.maps.event.addListenerOnce(map, 'idle', function(){      //Listener that fires when the map is first initialized.
+    google.maps.event.addListener(map, 'idle', function(){      //Listener that fires when the map is first initialized.
         doSearch();
     });
 }
@@ -96,7 +88,7 @@ $(document).ready(function() {
 
 $(document).on('click', '.contentClickArea', function(e){
     var id = $(this).attr("data-content-id");
-    window.history.pushState({"html": document.documentElement.innerHTML, "pageTitle": "Viewer"},"", '/map/' + database + '/'+id);
+    window.history.pushState({"html": document.documentElement.innerHTML, "pageTitle": "Viewer"},"", 'index.php?type=' + database + '&id='+id);
     openOverlay(id);
 });
 
@@ -120,6 +112,7 @@ $(window).scroll(function() {
 });
 
 function openOverlay(id) {
+    window.history.pushState({"html": document.documentElement.innerHTML, "pageTitle": "Viewer"},"", 'index.php?type=' + database + '&id='+id);
     $.get("/backend/forms/overlay" + database + ".php", {id: id}, function(data){modal.open({content: data, closeCallback:closeOverlay});});
 }
 
@@ -129,17 +122,38 @@ function closeOverlay() {
 
 //Function to deal with AJAX search
 function doSearch(append) {
-    var tags = interestsInput.val(), bounds = map.getBounds();
+    console.log(map.getBounds() + interestsInput.val());
+    if(lbounds == map.getBounds() && ltags == interestsInput.val() && ! append) return;
+    ltags = interestsInput.val();
+    lbounds = map.getBounds();
+
     if(!append) {   //Set append to true in order to append the result to already existing results. If false, the previous results are cleared
         pageNum = 0;
+        markers = [];
+        markerCluster.clearMarkers();
         $("#searchResults").html('');
     } else pageNum += 1;
 
     //Format the bounding box to be on format:
     //SW_lat SW_lng,NE_lat NE_lng
-    var formattedBounds = toStringCoordinate(bounds.getSouthWest()) + "," + toStringCoordinate(bounds.getNorthEast());
-    $.get("/backend/db/DB" + capitalize(database) + ".php?search=2D&boxloc=" + formattedBounds + "&interests=" + tags + "&page=" + pageNum, function(data) {
-        $("#searchResults").append(data);
+    var formattedBounds = toStringCoordinate(lbounds.getSouthWest()) + "," + toStringCoordinate(lbounds.getNorthEast());
+    $.ajax({
+        type: "GET",
+        url: "backend/db/DB" + capitalize(database) + ".php?search=2D&boxloc=" + formattedBounds + "&interests=" + ltags + "&page=" + pageNum,
+        dataType: "JSON",
+        success: function (data) {
+            $("#searchResults").append(data["response"]);
+
+            for(key in data["locations"]) {
+                var marker = new google.maps.Marker({position: new google.maps.LatLng(data["locations"][key][1], data["locations"][key][2])});
+                google.maps.event.addListener(marker, 'click', function() {
+                    openOverlay(data["locations"][key][0]);
+                });
+
+                markers.push(marker);
+            }
+            markerCluster = new MarkerClusterer(map, markers);
+        }
     });
 }
 

@@ -74,7 +74,7 @@ function searchPhotos($tags, $bounds, $page) {
 
     $bounds = mysql_real_escape_string($bounds);    //Should probably be replaced with some fancy regex
     $page = intval($page);
-    $result = mysql_query("SELECT photo_id, photo_title, vote_up, vote_down FROM photos
+    $result = mysql_query("SELECT photo_id, photo_title, vote_up, vote_down, X(location) AS latitude, Y(location) AS longitude FROM photos
     WHERE " . $tagsFilter ." MBRContains(GeomFromText('LINESTRING(" . $bounds . ")'), photos.location)
     ORDER BY LOG10(ABS(vote_up - vote_down) + 1) * SIGN(vote_up - vote_down) + (upload_time / 300000) DESC
     LIMIT " . 20*$page . ", 20") or die(mysql_error());
@@ -90,14 +90,16 @@ function searchPhotos($tags, $bounds, $page) {
 
 //If the search argument is set to "2D"...
 if(isset($_GET["search"]) && $_GET["search"] == "2D") {
-    if(! isset($_GET["boxloc"])) echo "Missing bounding box coordinates!";  //Make sure that the bounding box coordinates are specified
-    else if(! isset($_GET["interests"])) echo "Missing interests!";         //Also the interests are specified
-    else if(! isset($_GET["page"])) echo "Missing page!";                   //And finally the page number is specified
+    if(! isset($_GET["boxloc"])) $out = array("success" => true, "response" => "Missing bounding box coordinates!");  //Make sure that the bounding box coordinates are specified
+    else if(! isset($_GET["interests"])) $out = array("success" => true, "response" => "Missing interests!");         //Also the interests are specified
+    else if(! isset($_GET["page"])) $out = array("success" => true, "response" => "Missing page!");                   //And finally the page number is specified
     else {
         $res = searchPhotos($_GET["interests"], $_GET["boxloc"], $_GET["page"]);    //Do the search
+        $html = "";
+        $dataPoints = array();
         foreach($res as &$row) {
-            //For each search result, pack it nicely into its HTML representation. Currently a simple img inside div
-            echo '<div class="contentBox">
+            $dataPoints[] = array($row["photo_id"], $row["latitude"], $row["longitude"]);
+            $html .= '<div class="contentBox">
                 <div class="contentWrapper">
                     <div class="bg"></div>
 
@@ -109,6 +111,9 @@ if(isset($_GET["search"]) && $_GET["search"] == "2D") {
                 </div>
             </div>';
         }
+        $out = array("success" => true, "response" => $html, "locations" => $dataPoints);
+
     }
+    echo json_encode($out);
 }
 ?>
