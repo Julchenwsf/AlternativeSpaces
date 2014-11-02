@@ -6,7 +6,7 @@ include_once("../forms/voteform.php");
 function addPhoto($uploader, $title, $lat, $lng, $interests, $description) {
     $errors = array();
     $title = mysql_real_escape_string($title);                  //Run mysql_real_escape_string on all user input to avoid SQL injections
-    $description = mysql_real_escape_string($description);
+    $description = filter_var(mysql_real_escape_string($description), FILTER_SANITIZE_SPECIAL_CHARS);
 
     if(!is_numeric($lat) || !is_numeric($lng)) {
         $errors[] = "Illegal latitude or longitude";           //Lat and lng should be plain numbers
@@ -28,8 +28,6 @@ function addPhoto($uploader, $title, $lat, $lng, $interests, $description) {
         $errors[] = "Description too short (min 10 characters)";
     } else if(strlen($description) > 1000) {
         $errors[] = "Description too long (max 1000 characters)";
-    } else if (!preg_match("/^[a-zA-Z0-9 ,.!?()@\/]*$/", $description)) {
-        array_push($errors, "Illegal characters in description");
     }
 
     $numInterests = sizeof(explode(" ", $interests));

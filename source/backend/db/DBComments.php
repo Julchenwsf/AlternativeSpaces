@@ -31,7 +31,7 @@ function getComments($threadID) {
 
 function insertComment($threadID, $parent, $username, $comment) {
     $threadID = mysql_real_escape_string($threadID);
-    $comment = mysql_real_escape_string($comment);
+    $comment = filter_var(mysql_real_escape_string($comment), FILTER_SANITIZE_SPECIAL_CHARS);
     if(!is_numeric($parent)) return false;
     mysql_query("INSERT INTO comments (thread_id, comment_parent, username, comment, time) VALUES ('$threadID', '$parent', '$username', '$comment', '" . time() ."')") or die(mysql_error());
     return mysql_insert_id();

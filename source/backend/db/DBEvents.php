@@ -8,7 +8,7 @@ function addEvent($creator, $event_name, $description, $interests, $lat, $lng, $
     $errors = array();
     $event_name = mysql_real_escape_string(trim($event_name));
     $numPeople = mysql_real_escape_string($numPeople);
-    $description = mysql_real_escape_string(trim($description));
+    $description = filter_var(mysql_real_escape_string(trim($description)), FILTER_SANITIZE_SPECIAL_CHARS);
     $interests = str_replace(",", " ", $interests);
 
     if(empty($event_name)) {
@@ -21,10 +21,10 @@ function addEvent($creator, $event_name, $description, $interests, $lat, $lng, $
         }
     }
 
-    if(empty($description)) {
-        array_push($errors, "Description cannot be left blank");
-    } else if (!preg_match("/^[a-zA-Z0-9 ,.!?()@\\/]*$/", $description)) {
-        array_push($errors, "Illegal characters in description");
+    if(strlen($description) < 10) {
+        array_push($errors, "Description too short (min 10 characters)");
+    } else if(strlen($description) > 1000) {
+        array_push($errors, "Description too long (max 1000 characters)");
     }
 
     if(!is_numeric($lat) || !is_numeric($lng)) {
