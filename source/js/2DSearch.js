@@ -141,9 +141,9 @@ function doSearch(append) {
             $("#searchResults").append(data["response"]);
 
             for(key in data["locations"]) {
-                var marker = new google.maps.Marker({position: new google.maps.LatLng(data["locations"][key][1], data["locations"][key][2])});
+                var marker = new google.maps.Marker({position: new google.maps.LatLng(data["locations"][key][1], data["locations"][key][2]), contentID: data["locations"][key][0]});
                 google.maps.event.addListener(marker, 'click', function() {
-                    openOverlay(data["locations"][key][0]);
+                    openOverlay(this.contentID);
                 });
 
                 markers.push(marker);
