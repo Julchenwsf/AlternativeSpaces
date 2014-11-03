@@ -380,6 +380,10 @@ input {
     position: relative;
 }
 
+.contentContent.center {
+    height: 180px;
+}
+
 .contentBox .eventContent{
     width:95%;
     margin: 0 auto;
