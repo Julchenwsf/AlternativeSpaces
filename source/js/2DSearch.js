@@ -122,16 +122,17 @@ function closeOverlay() {
 function doSearch(append) {
     var tags = interestsInput.val(), bounds = map.getBounds();
     var formattedBounds = toStringCoordinate(bounds.getSouthWest()) + "," + toStringCoordinate(bounds.getNorthEast());
-    var search = "/backend/db/DB" + capitalize(database) + ".php?search=2D&boxloc=" + formattedBounds + "&interests=" + tags + "&page=" + pageNum;
-    if(lsearch == search) return;
 
-    lsearch = search;
     if(!append) {   //Set append to true in order to append the result to already existing results. If false, the previous results are cleared
         pageNum = 0;
         markers = [];
         markerCluster.clearMarkers();
         $("#searchResults").html('');
     } else pageNum += 1;
+
+    var search = "/backend/db/DB" + capitalize(database) + ".php?search=2D&boxloc=" + formattedBounds + "&interests=" + tags + "&page=" + pageNum;
+    if(lsearch == search) return;
+    lsearch = search;
 
     $.ajax({
         type: "GET",
