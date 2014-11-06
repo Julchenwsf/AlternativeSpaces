@@ -33,6 +33,8 @@ function addEvent($creator, $event_name, $description, $interests, $lat, $lng, $
 
     if(empty($time) || !is_numeric($time)) {
         array_push($errors, "Illegal date/time");
+    } else if(intval($time) < time() || intval($time) > time() + 31536000) { //60*60*24*365
+        array_push($errors, "Event time must be between now and 1 year ahead.");
     }
 
     if(!is_numeric($numPeople)) {
