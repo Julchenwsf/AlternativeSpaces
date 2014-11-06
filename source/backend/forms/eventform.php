@@ -36,11 +36,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </tr>
                 <tr>
                     <td><input type="text" id="datetimepicker" name="datetime" placeholder="Date & time" /></td>
-                    <td><input type="text" name="numPeople" placeholder="No of people invited" /></td>
+                    <td><input type="text" name="numPeople" placeholder="Number of people invited" /></td>
                 </tr>
                 <tr>
                     <td colspan="2" id="center"><textarea rows="4" cols="55" name="description" placeholder="Description"></textarea></td>
-
                 </tr>
                 <tr>
                   <td colspan="2" id="center"><button class="submitButton" name="submit" type="submit">Create Event</button></td>

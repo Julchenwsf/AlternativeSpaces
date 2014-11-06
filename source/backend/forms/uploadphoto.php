@@ -8,7 +8,7 @@ if(isset($_FILES['image'])) {
     if(!isLoggedIn() && isset($_POST["username"]) && isset($_POST["password"])) login($_POST["username"], $_POST["password"]);
 
     $status = uploadImage($_POST["title"], $_POST["interests"], $_POST["description"], $_FILES["image"]);
-    $response = array("success" => empty($status) == "OK", "response" => $status);
+    $response = array("success" => is_numeric($status), "response" => $status);
     echo json_encode($response);
 }
 
@@ -37,17 +37,81 @@ function uploadImage($title, $interests, $description, $image) {
         removePhoto($photoID);
         $errors[] = "Something went wrong! :(";
     }
-    return $errors;
+    return (empty($errors)) ? $photoID : $errors;
 }
 
-if(isset($_GET["upload"])) {
-    echo '<form action="uploadphoto.php" method="post" enctype="multipart/form-data">
-    <input name="title" type="text" placeholder="Title" /><br/>
-	<textarea name="description" rows="4" cols="45" placeholder="Description">Example description</textarea><br />
-    <input name="interests" type="text" value="1000" /><br/>
-    <input name="image" type="file" /><br/>
-	<input type="submit" value="Upload!" name="submit" />
-    </form>';
+
+if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+    echo <<<EOT
+    <div class="submitTable">
+        <div id="response"></div>
+        <form id="newPhotoForm" enctype="multipart/form-data" action="javascript:;" method="post" onkeypress="return event.keyCode != 13;">
+            <table>
+                <tr>
+                    <th colspan="2" id="center">Upload photo</th>
+                </tr>
+                <tr>
+                    <td colspan="2"><input name="title" type="text" placeholder="Title" /></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="text" id="photoInterests" name="interests" /></td>
+                </tr>
+                <tr>
+                    <td colspan="2" id="center"><textarea rows="4" cols="55" name="description" placeholder="Description"></textarea></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input name="image" type="file" /></td>
+                </tr>
+                <tr>
+                  <td colspan="2" id="center"><button class="submitButton" name="submit" type="submit">Upload Photo</button></td>
+               </tr>
+           </table>
+        </form>
+    </div>
+
+    <script type="text/javascript">
+    $('#newPhotoForm').submit(function (ev) {
+        $.ajax({
+            type: "POST",
+            url: "/backend/forms/uploadphoto.php",
+            data: new FormData( this ),
+            processData: false,
+            contentType: false,
+            dataType: "JSON",
+            success: function(data) {
+                if(data["success"]) {
+                   window.location.replace("/map/photo/" + data["response"]);
+                } else {
+                   var out = "";
+                   for(var error in data["response"]) {
+                       out += "<li>" + data["response"][error] + "</li>";
+                   }
+                   $("#response").html('<ul class="error">' + out + "</ul>");
+                }
+            }
+        });
+        ev.preventDefault();
+    });
+
+    $(document).ready(function() {
+        interestsInput = $("#photoInterests");
+
+        interestsInput.tokenInput("/backend/db/DBInterests.php", {
+            tokenLimit: 4,                  //Number of maximum simultaneous tags/interests
+            resultsLimit: 10,               //Number of maximum auto-complete "suggestions"
+            preventDuplicates: true,        //Ignore duplicate tags
+            searchingHint: "Interests",
+            propertyToSearch: "interest_name",  //Property to search in the JS dict structure
+            tokenValue: "interest_id",
+            resultsFormatter: function(item){   //Custom formatting for the auto-complete results
+                return "<li><p class='interest_name'><img src='/img/interests/" + item.interest_icon + "' /> " + item.interest_name + "</p><div style='clear:both'></div></li>" },
+            tokenFormatter: function(item){   //Custom formatting for the auto-complete results
+                return "<li><img src='/img/interests/" + item.interest_icon + "' title='" + item.interest_name + "' /><p> " + item.interest_name + "</p></li>" }
+
+        });
+    });
+    </script>
+EOT;
 }
 
 ?>

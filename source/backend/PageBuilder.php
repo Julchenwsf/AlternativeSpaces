@@ -27,12 +27,17 @@ class PageBuilder {
         $this->addCSSImport("/styles/token-input.css");
 
         if (isLoggedIn()) {
-            $logged = '<a href="/backend/functions/log.php?out" class="submitButton right">Sign out</a><button type="button" id="eventButton" class="submitButton right">New Event</button>';
+            $logged = '<a href="/backend/functions/log.php?out" class="submitButton right">Sign out</a>
+            <button type="button" id="eventButton" class="submitButton right">New Event</button>
+            <button type="button" id="uploadButton" class="submitButton right">Upload Photo</button>';
+
             $navbarButtonsJS = '<script type="text/javascript">$(document).ready(function(){
             $("#eventButton").click(function(e){$.get("/backend/forms/eventform.php", function(data){modal.open({content: data});});});
+            $("#uploadButton").click(function(e){$.get("/backend/forms/uploadphoto.php", function(data){modal.open({content: data});});});
             });</script>';
         } else {
-            $logged = '<button type="button" id="loginButton" class="submitButton right">Sign in</button><button type="button" id="signupButton" class="submitButton right">Sign up</button>';
+            $logged = '<button type="button" id="loginButton" class="submitButton right">Sign in</button>
+            <button type="button" id="signupButton" class="submitButton right">Sign up</button>';
 
             $navbarButtonsJS = '<script type="text/javascript">$(document).ready(function(){
             $("#signupButton").click(function(e){$.get("/backend/forms/regform.php", function(data){modal.open({content: data});});});
