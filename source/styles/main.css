@@ -231,6 +231,10 @@ input {
 	top:1px;
 }
 
+.submitButton:disabled {
+    background-color: #BBBBBB;
+}
+
 .likeBar {
     height:2px;
     margin:0 10px;
