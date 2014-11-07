@@ -37,32 +37,4 @@ function insertComment($threadID, $parent, $username, $comment) {
     return mysql_insert_id();
 }
 
-
-function showComment($arr) {
-    $temp = '<div class="commentBox com-'.$arr['comment_id'].'">
-        <div class="comment">
-        <div class="commentTime">'. unixTimeToStringDate($arr["time"]) .'</div>
-        <div class="commentAvatar">
-        <img src="/img/design/defaultProfileIcon.png" width="30" height="30" alt="'.$arr['username'].'" />
-        </div>
-
-        <div class="commentText">
-        <span class="commentName">'.$arr['username'].':</span> '.$arr['comment'].'
-        </div>';
-
-        if(isLoggedIn())
-            $temp .= '<div class="commentReply"><a href="" onclick="addComment(this,'.$arr['comment_id'].');return false;">Reply &raquo;</a></div>';
-
-        $temp .= '<div class="clear"></div>
-    </div>';
-
-    // Output the comment, and its replies, if any
-    if(array_key_exists("children", $arr)) {
-        foreach($arr['children'] as $r)
-            $temp .= showComment($r);
-    }
-    $temp .= '</div>';
-    return $temp;
-}
-
 ?>
