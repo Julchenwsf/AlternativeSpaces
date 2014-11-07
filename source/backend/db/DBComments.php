@@ -41,7 +41,7 @@ function insertComment($threadID, $parent, $username, $comment) {
 function showComment($arr) {
     $temp = '<div class="commentBox com-'.$arr['comment_id'].'">
         <div class="comment">
-        <div class="commentTime">'. commentTimeFormat($arr["time"]) .'</div>
+        <div class="commentTime">'. unixTimeToStringDate($arr["time"]) .'</div>
         <div class="commentAvatar">
         <img src="/img/design/defaultProfileIcon.png" width="30" height="30" alt="'.$arr['username'].'" />
         </div>
@@ -63,12 +63,6 @@ function showComment($arr) {
     }
     $temp .= '</div>';
     return $temp;
-}
-
-
-function commentTimeFormat($t){
-    if(date('d')==date('d', $t)) return date('H:i', $t);
-    return date('j. M Y \a\t H:i', $t);
 }
 
 ?>
