@@ -10,7 +10,7 @@ if (isset($_GET["id"])) {
     $comments = getCommentsForm("e" . $_GET["id"]);
     $sharing = getShareButtons("http://mysplot.com/map/events/" . $_GET["id"], $eventData["event_name"], $eventData["description"]);
 
-    $eventTime = eventTimeFormat($eventData['event_time']);
+    $eventTime = unixTimeToStringDate($eventData['event_time']);
     $eventTitle = $eventData["event_name"];
     $eventDesc = $eventData['description'];
     $lat = $eventData["latitude"];

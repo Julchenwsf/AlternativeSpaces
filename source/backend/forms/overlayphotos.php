@@ -1,13 +1,9 @@
 <?
-include_once($_SERVER['DOCUMENT_ROOT'] .  "/backend/forms/commentform.php");
 include_once($_SERVER['DOCUMENT_ROOT'] .  "/backend/db/DBPhotos.php");
-include_once($_SERVER['DOCUMENT_ROOT'] .  "/backend/functions/sharing.php");
 include_once($_SERVER['DOCUMENT_ROOT'] .  "/backend/db/DBInterests.php");
+include_once($_SERVER['DOCUMENT_ROOT'] .  "/backend/forms/commentform.php");
+include_once($_SERVER['DOCUMENT_ROOT'] .  "/backend/functions/sharing.php");
 
-function photoTimeFormat($t){
-    if(date('d')==date('d', $t)) return "Today at " . date('H:i', $t);
-    return date('j. M y \a\t H:i', $t);
-}
 
 if(isset($_GET["id"])) {
     $photoData = getPhotoDetails($_GET["id"]);
@@ -18,7 +14,7 @@ if(isset($_GET["id"])) {
         $interestIcons .= '<li class="token-input-token"><img src="/img/interests/' .$data["interest_icon"] .'"/><p>' .$data["interest_name"] . '</p></li>';
     }
 
-    $photoTime = photoTimeFormat($photoData['upload_time']);
+    $photoTime = unixTimeToStringDate($photoData['upload_time']);
     $photoTitle = $photoData["photo_title"];
     $photoDesc = $photoData['description'];
     $creator = $photoData["photo_uploader"];
