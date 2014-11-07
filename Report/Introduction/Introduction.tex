@@ -216,14 +216,14 @@ The Sprints of the project comprise the next eight weeks of the project. There w
 
 \section{Risk Management}
 \label{sec:IntroRiskMan}
-In the following section the main focus will be on the risk management of the project. The whole project will be analysed and every risk will be grouped by the following criteria:
-\begin{enumerate}
-\item Group communication
-\item Issues with the customer
-\item Risk in relation to planning
-\end{enumerate}
-%TODO REPHRASE
-The ID of risks displays which criteria belong to the risk. By using the probability of the risks and their consequence level an evaluation of risks to the project can be made. The following table shows the meaning of consequence levels.
+We will now focus on the risk management of the project. The whole project will be analysed and risks are grouped by the following criteria:
+\begin{itemize}
+\item \textbf{A} Group communication
+\item \textbf{B} Issues with the customer
+\item \textbf{C} Risks in relation to planning
+\end{itemize}
+%TODO CHECK PHRASING
+Once each risk has been placed into a category, the first letter of its ID has been determined. All risks in a category are then numbered to give them their final ID. Once risks have been decided, we moved on to deciding their probabilities and consequences in order to evaluate how problematic they would be for the project. The following table shows the meaning of each of the consequence levels.
 
 \begin{minipage}{\linewidth}
 \setlength{\tabcolsep}{10pt}
@@ -242,14 +242,14 @@ The ID of risks displays which criteria belong to the risk. By using the probabi
 \captionof{table}{Description of consequence levels. \label{tab:IntroRiskManRiskLvl}} 
 \end{minipage}
 
-In order to evaluate the probability of a risk happening, the group members' experience is important. Each member of the group ranks the risks according to what they think the chance of a risk happening is (high or low). A clear majority determines the result, and an unclear majority or tie results in a medium probability.
+In order to evaluate the probability of a risk happening, the group members' experience was important. Each member of the group ranked the risks according to what they thought the chance of a risk happening was (high or low). A clear majority determined the result, and an unclear majority or tie resulted in a medium probability.
 
 
-When we have determined both these values for the risks, we can calculate their risk levels. The risk level is found using the followin formula.
-$$
-\text{Risk level} = \text{Consequence level} \cdot \text{probability}
-$$
-At this the level high is counted as “1”, medium as “0.5” and low as “0”. With this formula the results will be four different values (1, 0.5, 0.25, 0). To decide for which risk level a further elaboration is necessary and useful the following matrix was established.\\
+When we had determined both these values for the risks, we could calculate their risk levels. The risk level is found using the following formula.
+\begin{equation}
+R_L = C_L \cdot p
+\end{equation}
+Where \( R_L \) is risk level, \( C_L \) is consequence level, and \( p \) is probability. For \( C_L \) and \( p \) high is counted as \( 1 \), medium as \( 0.5 \), and low as \( 0 \). With this formula \( R_L \) will have one of four values \( (1, 0.5, 0.25, 0) \). The matrix in table \ref{tab:IntroRiskManRiskMatrix} shows the different risk levels resulting from this formula.
 
 \begin{minipage}{\linewidth}
 \centering
@@ -257,10 +257,18 @@ At this the level high is counted as “1”, medium as “0.5” and low as “
   \cline{3-5}
   & & \multicolumn{3}{|c|}{Consequence Levels} \\ \cline{3-5}
   & & High & Medium & Low \\ \hline
-  \multicolumn{1}{|c}{\multirow{3}{*}{Prob.}} & \multicolumn{1}{|c|}{High} & \cellcolor{red!30} High & \cellcolor{red!30} High-Medium & \cellcolor{green!15} Low \\ \cline{2-5}
-  \multicolumn{1}{|c}{} & \multicolumn{1}{|c|}{Medium} & \cellcolor{red!30} High-Medium & \cellcolor{yellow!30} Medium-High & \cellcolor{green!15} Low \\ \cline{2-5}
+  \multicolumn{1}{|c}{\multirow{3}{*}{Prob.}} & \multicolumn{1}{|c|}{High} & \cellcolor{red!30} High & \cellcolor{red!30} Medium & \cellcolor{green!15} Low \\ \cline{2-5}
+  \multicolumn{1}{|c}{} & \multicolumn{1}{|c|}{Medium} & \cellcolor{red!30} Medium & \cellcolor{green!15} Medium-Low & \cellcolor{green!15} Low \\ \cline{2-5}
   \multicolumn{1}{|c}{} & \multicolumn{1}{|c|}{Low} & \cellcolor{green!15} Low & \cellcolor{green!15} Low & \cellcolor{green!15} Low \\ \cline{2-5}
   \hline
 \end{tabular}
-\captionof{table}{Different risk levels.} 
+\captionof{table}{Different risk levels. \label{tab:IntroRiskManRiskMatrix}} 
 \end{minipage}
+
+The matrix displays if there is demand for action (red) to develop a proactive and reactive strategy. If the colour is green the probability or consequence level is low, or both are medium, and we decded that there was no need to develop a strategy against it. Figure \ref{fig:IntroRiskManRisks} displays the risks we considered and their consequence and probability levels. In addition there is a short explanation for why these levels were chosen.
+
+\begin{sidewaysfigure}[ht]
+	\includegraphics[width=\linewidth]{./Introduction/img/Risk.pdf}
+    \caption{Risks for the Alternative Spaces project.}
+    \label{fig:IntroRiskManRisks}
+\end{sidewaysfigure}
