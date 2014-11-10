@@ -36,11 +36,17 @@
 %Template for sideways figures %
 %%%%%%%%%%%%%
 
-\begin{sidewaysfigure}[ht]
-	\includegraphics[width=\linewidth]{./Introduction/img/Risk.pdf}
-    \caption{Risks for the Alternative Spaces project.}
-    \label{fig:IntroRiskManRisks}
-\end{sidewaysfigure}
+\afterpage{
+\clearpage
+\begin{landscape}
+    \centering
+    \begin{figure}
+        \includegraphics[width=\linewidth]{./Introduction/img/Risk.pdf}
+        \caption{Risks for the Alternative Spaces project.}
+        \label{fig:IntroRiskManRisks}
+    \end{figure}
+\end{landscape}
+}
 
 
 %%%%%%%%%%%%%%%%
@@ -109,6 +115,35 @@ D2.4.1 & \it{Find and apply a theme color for the webpage. } & 1 week & 15 hours
 \hline
 \end{tabular}
 \captionof{table}{Backlog for sprint 1.} 
+\end{minipage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Use case table template %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{minipage}{\linewidth}
+\rowcolors{1}{blue!20}{blue!10}
+\begin{tabular}{|l|p{7cm}|}
+  \hline
+  \multicolumn{2}{|c|}{\cellcolor{gray!25} \textbf{Use case name}} \\
+  \hline
+  Brief Description & \\
+  Preconditions & \\
+  Flow &
+    \begin{enumerate}
+      \item ........
+    \end{enumerate} \\
+  Basic flow & \\
+  Alternative Flows & 
+    \begin{itemize}
+      \item .........
+    \end{itemize} \\
+  Special Requirements & \\
+  Postconditions & \\
+  Extension Points & \\
+  \hline
+\end{tabular}
+\captionof{table}{Use case for X. \label{tab:label}}
 \end{minipage}
 
 
