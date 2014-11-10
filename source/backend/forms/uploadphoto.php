@@ -34,7 +34,7 @@ function uploadImage($title, $interests, $description, $image, $coordinates) {
     $photoID = addPhoto($_SESSION["username"], $title, $lat, $lng, $interests, $description);
     if(!is_numeric($photoID)) return $photoID;
 
-    if(!(scaleImage($image, 1024, 1024, $uploaddir . "large/" . $photoID . "." . $ext) and scaleImage($image, 240, 180, $uploaddir . "thumb/" . $photoID . "." . $ext))) {
+    if(!(scaleImage($image, 1024, 1024, $uploaddir . "large/" . $photoID . ".jpg") and scaleImage($image, 240, 180, $uploaddir . "thumb/" . $photoID . ".jpg"))) {
         removePhoto($photoID);
         $errors[] = "Something went wrong! :(";
     }
