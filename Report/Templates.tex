@@ -146,6 +146,24 @@ D2.4.1 & \it{Find and apply a theme color for the webpage. } & 1 week & 15 hours
 \captionof{table}{Use case for X. \label{tab:label}}
 \end{minipage}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Template for code documentation %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{DBComments}
+\begin{minipage}{\linewidth}
+  \centering
+  \setlength{\tabcolsep}{12pt}
+  \rowcolors{1}{blue!20}{blue!10}
+  \begin{tabular}{|p{0.35\linewidth}|p{0.55\linewidth}|}
+  \hline
+  \cellcolor{gray!25} Function & \cellcolor{gray!25} Description \\
+  \hline
+  getComments(threadID) & Fetching all comments related to a threadID from the database. \\
+  insertComment(threadID, parent, username, comment) & Inserts a new comment into the database. All comments have a creator (username), a threadID and the comment itself. If the comment is a reply, it also has a parent comment. \\
+  \hline  
+  \end{tabular}
+\end{minipage}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 % Templates for labeling %
