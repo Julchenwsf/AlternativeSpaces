@@ -74,7 +74,8 @@ class PageBuilder {
     }
 
     public function toHTML() {
-        $head = "<head>" . $this->title . join("\n\t", $this->CSSImports) . join("\n\t", $this->JSImports) . "</head>";
+        $head = "<head>" . $this->title . join("\n\t", $this->CSSImports) . join("\n\t", $this->JSImports) . '
+        <link rel="shortcut icon" href="/favicon.ico?v=1" /></head>';
         $body = '<body><div id="everything">' . join("\n", $this->contentSiblings) . '<div id="contentFlex"><div id="content">' . $this->content . '</div></div></div>';
         $footer = '<div id="footer">TDT4290 Customer driven project - Group 4</div></body>';
         return "<html>" . $head . $body . $footer . "</html>";
