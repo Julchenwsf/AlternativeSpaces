@@ -115,7 +115,8 @@ $(document).ready(function() {
 
 function openOverlay(id) {
     window.history.pushState({"html": document.documentElement.innerHTML, "pageTitle": "Viewer"},"", '/map/' + database + '/'+id);
-    $.get("/backend/forms/overlay" + database + ".php", {id: id}, function(data){modal.open({content: data, closeCallback:closeOverlay});});
+    if(isNaN(id)) $.get("/backend/forms/textforms.php", {id: id}, function(data){modal.open({content: data, closeCallback:closeOverlay});});
+    else $.get("/backend/forms/overlay" + database + ".php", {id: id}, function(data){modal.open({content: data, closeCallback:closeOverlay});});
 }
 
 function closeOverlay() {

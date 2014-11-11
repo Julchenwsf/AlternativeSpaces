@@ -23,11 +23,15 @@ $sidebar = '    <div id="sidebarSearchFlex">
                             <input type="radio" name="database" value="events" id="eventsRadio" ' . ($type == "events" ? " checked" : "") . '>
                             <label for="eventsRadio">Events</label>
                         </div>
+
+                        <div id="sidebarFooter">
+                            <a onclick="openOverlay(\'about\')">About</a>
+                        </div>
                     </aside>
                 </div>';
 
 if(isset($_GET["id"])) {
-    $sidebar .= '<script type="text/javascript">$(document).ready(function() {openOverlay('. $_GET["id"] .');});</script>';
+    $sidebar .= '<script type="text/javascript">$(document).ready(function() {openOverlay(\''. $_GET["id"] .'\');});</script>';
 }
 
 $pb = new PageBuilder(ucfirst($type));
