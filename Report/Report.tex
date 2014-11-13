@@ -5,6 +5,11 @@
 \usepackage{titlesec}
 \usepackage{caption}
 \usepackage[table]{xcolor}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{pdflscape}
+\usepackage{afterpage}
+\usepackage{listings}
 %%%%%%%%%%
 
 % Other commands
@@ -41,24 +46,16 @@
 \maketitle
 \end{titlepage}
 
-%\input{./Abstract/Abstract}
+\input{./Abstract/Abstract}
 \tableofcontents
 
-%\input{./Introduction/Introduction}
-%\input{./Chapter3}
-%\input{./Sprint1/Sprint1}
-%\input{./Sprint2/Sprint2}
-%\input{./Chapter5}
-%\input{./Chapter6}
-%\input{./Chapter7}
-%\input{./Chapter8}
-%\input{./Chapter9}
-%\input{./Chapter10}
-%\input{./Chapter11}
-%\input{./Chapter12}
+\input{./PlanningAndRequirements}
+\input{./Sprints}
+
+\part{Appendices}
+
 \appendix
+\input{./Appendix/CodeDocumentation/CodeDocumentation}
 
-
-%\input{./ProjectPlan}
 \end{document}
 

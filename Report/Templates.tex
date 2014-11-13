@@ -27,10 +27,26 @@
 
 \begin{figure}[ht!]
 \centering
-\includegraphics[width=90mm]{img/Sprint2-GitnGithub.png}
+\includegraphics[width=90mm]{./Sprint2/img/Sprint2-GitnGithub.png}
 \caption{Git and GitHub \label{overflow}}
 \end{figure}
 
+
+%%%%%%%%%%%%%
+%Template for sideways figures %
+%%%%%%%%%%%%%
+
+\afterpage{
+\clearpage
+\begin{landscape}
+    \centering
+    \begin{figure}
+        \includegraphics[width=\linewidth]{./Introduction/img/Risk.pdf}
+        \caption{Risks for the Alternative Spaces project.}
+        \label{fig:IntroRiskManRisks}
+    \end{figure}
+\end{landscape}
+}
 
 
 %%%%%%%%%%%%%%%%
@@ -101,5 +117,74 @@ D2.4.1 & \it{Find and apply a theme color for the webpage. } & 1 week & 15 hours
 \captionof{table}{Backlog for sprint 1.} 
 \end{minipage}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Use case table template %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{minipage}{\linewidth}
+\rowcolors{1}{blue!20}{blue!10}
+\begin{tabular}{|l|p{7cm}|}
+  \hline
+  \multicolumn{2}{|c|}{\cellcolor{gray!25} \textbf{Use case name}} \\
+  \hline
+  Brief Description & \\
+  Preconditions & \\
+  Flow &
+    \begin{enumerate}
+      \item ........
+    \end{enumerate} \\
+  Basic flow & \\
+  Alternative Flows & 
+    \begin{itemize}
+      \item .........
+    \end{itemize} \\
+  Special Requirements & \\
+  Postconditions & \\
+  Extension Points & \\
+  \hline
+\end{tabular}
+\captionof{table}{Use case for X. \label{tab:label}}
+\end{minipage}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Template for code documentation %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{DBComments}
+\begin{minipage}{\linewidth}
+  \centering
+  \setlength{\tabcolsep}{12pt}
+  \rowcolors{1}{blue!20}{blue!10}
+  \begin{tabular}{|p{0.35\linewidth}|p{0.55\linewidth}|}
+  \hline
+  \cellcolor{gray!25} Function & \cellcolor{gray!25} Description \\
+  \hline
+  getComments(threadID) & Fetching all comments related to a threadID from the database. \\
+  insertComment(threadID, parent, username, comment) & Inserts a new comment into the database. All comments have a creator (username), a threadID and the comment itself. If the comment is a reply, it also has a parent comment. \\
+  \hline  
+  \end{tabular}
+\end{minipage}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Templates for labeling %
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Introduction}
+\label{chap:Intro}
+
+\section{Description}
+\label{sec:IntroDescr}
+
+\subsection{Name}
+\label{subsec:IntroDescrName}
+
+%Figure:
+\label{fig:FigName}
+
+%Table:
+\label{tab:TabName}
+
+%To reference:
+See chapter \ref{chap:Intro}
 
 \end{document}

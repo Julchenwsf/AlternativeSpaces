@@ -1,7 +1,7 @@
 
 \chapter{Sprint 2}
 
-\paragraph{} In the second sprint, and our fourth week, of the project the first draft of a product backlog has been created. The main focus of the sprint will be on dividing work efforts both into working with the system development as well as on writing the report. As every other sprint, the group has the goal to be able to display a demo for the customers at the end of the sprint. 
+\paragraph{} In the second sprint, and our fourth week, of the project the first draft of a product backlog has been created. The main focus of the sprint will be on dividing work efforts both into working with the system development as well as on writing the report. As every other sprint, the group has the goal to be able to display a demo for the customers at the end of the sprint. In addition, toward the end of the sprint there will be a presentation in Oslo, where the group has the possibility to show a working product to end users and recieve feedback.
 
 \section{Sprint Plan} \paragraph{} As the first draft of a product backlog’s now created, the group is able to pull a number of items off the product backlog and into the sprint backlog (figure below). As most members are inexperienced in the field of web application development, and had used the previous sprint getting to know the technology better, this was the first Sprint where inexperienced started contributing to the implementation. 
 
@@ -33,9 +33,9 @@
 \rowcolors{1}{blue!20}{blue!10}
 \begin{tabular}{ |l l| }
 	\hline
-	\it{Duration} & 1 week \\
+	\it{Duration} & 2 weeks \\
 	\it{Start} & September 22nd. \\
-	\it{End} & September 28th. \\
+	\it{End} & October 5th. \\
 	\it{Workload} & Hours spent by the entire group on Sprint 2. \\
 	\it{Goal} & 20-25 hours per person \\
 	\hline
@@ -55,11 +55,13 @@
 	\hline
 	\multicolumn{2}{|c|}{\cellcolor{gray!25} Workload} \\
 	\hline
-	\it{Planning} & 20 hrs\\
-	\it{Development} & 46 hrs \\
-	\it{Design} & 4 hrs \\
-	\it{Documentation} & 8 hrs \\
-	\it{Testing} & 6.5 hrs \\
+	\it{Planning} & 53 hrs\\
+	\it{Development} & 80 hrs \\
+	\it{Design} & 17 hrs \\
+	\it{Documentation} & 15 hrs \\
+	\it{Testing} & 11.5 hrs \\
+	\hline
+	\it{Total workload} & 256.5 hrs \\
 	\hline
 \end{tabular}
 %Caption here
@@ -72,7 +74,7 @@
 
 \section{Product Backlog}
 
-\paragraph{} Below is the first version of the product backlog. As we were aware of the major functions required for the project, and had come quite far on developing the system requirement document, the first version of our product backlog was of some use to assign items to the Sprint 2 backlog. Unfortunately, it didn’t take long before we realized that this first version didn’t scale very well with the fast-increasing size of the backlog. 
+\paragraph{} Below is the first version of the product backlog. As we were aware of the major functions required for the project, and had come quite far on developing the system requirement document, the first version of our product backlog was of some use to assign items to the Sprint 2 backlog. Unfortunately, it did not take long before we realized that this first version did not scale very well with the fast-increasing size of the backlog. 
 
 %%%%%%%%Figure%%%%%%%%%
 \begin{figure}[ht!]
@@ -127,12 +129,76 @@ F2.7.1 & \it{Back-end functionality of login and logout.} & 1 hour & 1 hour \\
 F2.7.2 & \it{Back-end functionality for sign up and user creation.} & 1 hour & 1 hour \\
 F2.7.3 & \it{Back-end functionality for validation check of forms.} & 1 hour & 1 hour \\
 D2.8.1 & \it{Center photo posts, taking the map-sidebar-search into account.} & 1 hour & 1 hour \\
+D2.8.3 & \it{Commenting on photos} & 4 hours & 4 hours \\
 D2.8.2 & \it{Mouse-hover on photos enlarge.} & 1 hour & 1 hour \\
 R2.9.1 & \it{Update and finish the Requirements Specification Document.} & 1 hour & 1 hour \\
 \hline
 \end{tabular}
 \captionof{table}{Backlog for Sprint 2, p2.} 
 \end{minipage}
+
+\section{Presentation in Oslo}
+\label{sec:S2Presentation}
+
+As mentioned in chapter \ref{chap:Planning}, the customer had informed us early on in the project that there would be a workshop in oslo to present the ideas and possibly show off a demo of the final product. At a customer meeting this sprint, the date for this workshop was confirmed to the 2nd of October. The workshop had been replaced with a presentation, but this would still give us the opportunity to gather some feedback from the target audience. The customer expected us to bring what we had and hold a presentation regarding our plans for the product, both regarding design and functionality. Because of this, the second week of this sprint focused on preparing the product for showcasing in Oslo.
+
+\paragraph{} The group decided that only two people would go to Oslo, the rest of the team had other assignments and work, and did not have the time to travel. Work on the report was postponed to the next sprint to make sure our implementation was as good as possible. The group decided to have these functionalities ready for the workshop:
+
+\begin{itemize}
+  \item When clicking on an image it should show up as an overlay, with the possibility for commends under it.
+  \item Creating an event.
+  \item Create event button.
+  \item Create event page.
+\end{itemize} 
+
+The back-end for these were not all completed. The create event part, was sparse, and only some of the front end for it was complete before the presentation.
+
+\paragraph{} We were also very interested in the current usability of our site, and beyond any open feedback, we also had some questions for the youth.
+
+\begin{itemize}
+  \item Do you have any comments regarding the design of the site to facilitate finding other people with the same interests as you.
+  \item What do you think about the color scheme and design in general.
+  \item Map
+  \begin{itemize}
+    \item Can you find areas on the map?
+    \item Can you find your home on the map?
+    \item Other comments regarding the map
+  \end{itemize}
+  \item Registration form
+  \begin{itemize}
+    \item Personal details.
+    \item User anonymity: User name, full name, or first name?
+  \end{itemize}
+\end{itemize}
+
+\subsection{Feedback}
+\label{subsec:S2PresentationFeedback}
+
+We got lots of feedback from end users, some very good and some of it less so.  In chapter \ref{chap:S4}, we will discuss the features that made it into the scope of our project, while \ref{chap:Further} will discuss features we consider important, but beyond the scope of this project. The complete feedback is listed here in a rough order of importance:
+
+\begin{enumerate}
+  \item Should have a mobile app that integrates the phone’s camera to enable one-click upload.
+  \item The search map is too small. Events should be displayed in the map as well as in the feed when selected.
+  \item You should be able to search for places and addresses in the map, as well as filter by interests.
+  \item Pictures (and other media) should display some information when selected, like interests, location and maybe the uploader.
+  \item Consider following as a possibility (the kids really wanted this feature) 
+\end{enumerate}
+
+Some more feedback that is more difficult to place in order of importance.
+
+\begin{itemize}
+  \item When someone comments on content you uploaded you should be notified in some way.
+  \item Consider some way of connecting this to Facebook (sharing photos).
+  \item Enable support for some kind of direct user to user messaging.
+  \item Some form of reward for use, like meeting new friends and getting feedback when people interact with your content (Like button/user rating).
+  \item Connect an email to your account, and display this in place of username.
+  \item Returning to the idea of a digital scene - positive responses.
+  \item When registering as a new user you should be automatically logged in.
+  \item Anonymity: depends on context, event organizers should have some contact information available, especially for larger arrangements
+  \item Tips on how to create exposure. This will be discussed in chapter \ref{chap:Further}.
+  \item Some way to invite some other users or notify them of an activity in order to not be completely alone if no one comes.
+  \item Enable simultaneous upload of content to AS and FB instagram and Youtube etc.
+\end{itemize}
 
 
 \section{Design and Implementation} 
@@ -190,7 +256,6 @@ Next was the design of the sign in-form and the sign up-form. These are simple f
 \includegraphics[width={\linewidth}]{Sprint2/img/Sprint2-PhotoPage.png}
 \caption{The photo and location search page, with correctly centered media with the first post enlarged on hover. At the top is the full navigation bar, and on the left side is the map sidebar. \label{overflow}}
 \end{figure}
-
 
 
 \paragraph{Implementation}

@@ -20,28 +20,34 @@ function scaleImage($inputImage, $maxWidth, $maxHeight, $path){
 
 
 function getEXIFGPS($imageName) {
-    $exif = exif_read_data($imageName, 0, true);
-    if(!$exif || $exif['GPS']['GPSLatitude'] == '') return false;
-    else {
-        $lat = $exif['GPS']['GPSLatitude'];
-        list($num, $dec) = explode('/', $lat[0]);
-        $lat_s = $num / $dec;
-        list($num, $dec) = explode('/', $lat[1]);
-        $lat_m = $num / $dec;
-        list($num, $dec) = explode('/', $lat[2]);
-        $lat_v = $num / $dec;
+    $info = exif_read_data($imageName);
+    if (isset($info['GPSLatitude']) && isset($info['GPSLongitude']) &&
+        isset($info['GPSLatitudeRef']) && isset($info['GPSLongitudeRef']) &&
+        in_array($info['GPSLatitudeRef'], array('E','W','N','S')) && in_array($info['GPSLongitudeRef'], array('E','W','N','S'))) {
 
-        $lon = $exif['GPS']['GPSLongitude'];
-        list($num, $dec) = explode('/', $lon[0]);
-        $lon_s = $num / $dec;
-        list($num, $dec) = explode('/', $lon[1]);
-        $lon_m = $num / $dec;
-        list($num, $dec) = explode('/', $lon[2]);
-        $lon_v = $num / $dec;
+        $GPSLatitudeRef  = strtolower(trim($info['GPSLatitudeRef']));
+        $GPSLongitudeRef = strtolower(trim($info['GPSLongitudeRef']));
 
-        $gps_int = array($lat_s + $lat_m / 60.0 + $lat_v / 3600.0, $lon_s + $lon_m / 60.0 + $lon_v / 3600.0);
-        return $gps_int;
-    }
+        $lat_degrees_a = explode('/',$info['GPSLatitude'][0]);
+        $lat_minutes_a = explode('/',$info['GPSLatitude'][1]);
+        $lat_seconds_a = explode('/',$info['GPSLatitude'][2]);
+        $lng_degrees_a = explode('/',$info['GPSLongitude'][0]);
+        $lng_minutes_a = explode('/',$info['GPSLongitude'][1]);
+        $lng_seconds_a = explode('/',$info['GPSLongitude'][2]);
+
+        $lat_degrees = $lat_degrees_a[0] / $lat_degrees_a[1];
+        $lat_minutes = $lat_minutes_a[0] / $lat_minutes_a[1];
+        $lat_seconds = $lat_seconds_a[0] / $lat_seconds_a[1];
+        $lng_degrees = $lng_degrees_a[0] / $lng_degrees_a[1];
+        $lng_minutes = $lng_minutes_a[0] / $lng_minutes_a[1];
+        $lng_seconds = $lng_seconds_a[0] / $lng_seconds_a[1];
+
+        $lat = ($GPSLatitudeRef  == 's' ? -1.0 : 1.0) * ($lat_degrees+((($lat_minutes*60)+($lat_seconds))/3600));
+        $lng = ($GPSLongitudeRef  == 'w' ? -1.0 : 1.0) * ($lng_degrees+((($lng_minutes*60)+($lng_seconds))/3600));
+
+        return array($lat, $lng);
+    } else return false;
 }
+
 
 ?>

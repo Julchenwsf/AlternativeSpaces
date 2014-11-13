@@ -27,12 +27,17 @@ class PageBuilder {
         $this->addCSSImport("/styles/token-input.css");
 
         if (isLoggedIn()) {
-            $logged = '<a href="/backend/functions/log.php?out" class="submitButton right">Sign out</a><button type="button" id="eventButton" class="submitButton right">New Event</button>';
+            $logged = '<a href="/backend/functions/log.php?out" class="submitButton right">Sign out</a>
+            <button type="button" id="eventButton" class="submitButton right">New Event</button>
+            <button type="button" id="uploadButton" class="submitButton right">Upload Photo</button>';
+
             $navbarButtonsJS = '<script type="text/javascript">$(document).ready(function(){
             $("#eventButton").click(function(e){$.get("/backend/forms/eventform.php", function(data){modal.open({content: data});});});
+            $("#uploadButton").click(function(e){$.get("/backend/forms/uploadphoto.php", function(data){modal.open({content: data});});});
             });</script>';
         } else {
-            $logged = '<button type="button" id="loginButton" class="submitButton right">Sign in</button><button type="button" id="signupButton" class="submitButton right">Sign up</button>';
+            $logged = '<button type="button" id="loginButton" class="submitButton right">Sign in</button>
+            <button type="button" id="signupButton" class="submitButton right">Sign up</button>';
 
             $navbarButtonsJS = '<script type="text/javascript">$(document).ready(function(){
             $("#signupButton").click(function(e){$.get("/backend/forms/regform.php", function(data){modal.open({content: data});});});
@@ -44,7 +49,7 @@ class PageBuilder {
         $navbar = '<div id="navbar">
                        <div id="navbarContent">
                            <div id="navbarLogo"><a href="/."><img src="/img/design/logo.png" /></a></div>
-                           <div id="navbarTitle">MySplot</div>'
+                           <div id="navbarTitle">mysplot</div>'
                            . $logged.
                        '</div>
                    </div>';
@@ -69,7 +74,8 @@ class PageBuilder {
     }
 
     public function toHTML() {
-        $head = "<head>" . $this->title . join("\n\t", $this->CSSImports) . join("\n\t", $this->JSImports) . "</head>";
+        $head = "<head>" . $this->title . join("\n\t", $this->CSSImports) . join("\n\t", $this->JSImports) . '
+        <link rel="shortcut icon" href="/favicon.ico?v=1" /></head>';
         $body = '<body><div id="everything">' . join("\n", $this->contentSiblings) . '<div id="contentFlex"><div id="content">' . $this->content . '</div></div></div>';
         $footer = '<div id="footer">TDT4290 Customer driven project - Group 4</div></body>';
         return "<html>" . $head . $body . $footer . "</html>";

@@ -47,12 +47,7 @@ function initializeGMaps() {
 }
 
 
-//==== Search bar ====
-$(document).ready(function() {
-    database = $('input[name="database"]:checked').val();
-    interestsInput = $("#input-interest-search");
-    initializeGMaps();                  //Initialize the map
-
+function initializeTokenAutocomplete() {
     interestsInput.tokenInput("/backend/db/DBInterests.php", {
         tokenLimit: 4,                  //Number of maximum simultaneous tags/interests
         resultsLimit: 10,               //Number of maximum auto-complete "suggestions"
@@ -72,46 +67,56 @@ $(document).ready(function() {
         onDelete: function (item) {     //Is executed when user removes a tag/token
             doSearch();
         }
-        //prePopulate: interests.slice(0, 3)                          //Pre-populate the search-bar with the 3 first interest-tags
     });
+}
 
 
+function initializePageListeners() {
     $("input[name=database]:radio").change(function () {
         database = $('input[name="database"]:checked').val();
         closeOverlay();
         doSearch();
     });
 
+
+    $(document).on('click', '.contentClickArea', function(e){
+        var id = $(this).attr("data-content-id");
+        openOverlay(id);
+    });
+
+
+    $(document).on('mouseenter', '.contentBoxDescription .token-input-token', function(e){
+        $(this).find("p").toggleClass("hidden");
+    });
+
+    $(document).on('mouseleave', '.contentBoxDescription .token-input-token', function(e){
+        $(this).find("p").toggleClass("hidden");
+    });
+
+
+    $(window).scroll(function() {
+        //When users position at the page is within 100px from the end, get more pictures
+        if($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
+            doSearch(true);
+        }
+    });
+}
+
+
+$(document).ready(function() {
+    database = $('input[name="database"]:checked').val();
+    interestsInput = $("#input-interest-search");
+
+    initializeGMaps();
+    initializeTokenAutocomplete();
+    initializePageListeners();
 });
 
-
-$(document).on('click', '.contentClickArea', function(e){
-    var id = $(this).attr("data-content-id");
-    openOverlay(id);
-});
-
-
-$(document).on('mouseenter', '.contentBoxDescription .token-input-token', function(e){
-    $(this).find("p").toggleClass("hidden");
-});
-
-$(document).on('mouseleave', '.contentBoxDescription .token-input-token', function(e){
-    $(this).find("p").toggleClass("hidden");
-});
-
-
-
-//This fires every time the user scrolls
-$(window).scroll(function() {
-    //When users position at the page is within 100px from the end, get more pictures
-    if($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
-        doSearch(true);
-    }
-});
 
 function openOverlay(id) {
     window.history.pushState({"html": document.documentElement.innerHTML, "pageTitle": "Viewer"},"", '/map/' + database + '/'+id);
-    $.get("/backend/forms/overlay" + database + ".php", {id: id}, function(data){modal.open({content: data, closeCallback:closeOverlay});});
+    if(isNaN(id)) $.get("/backend/forms/textforms.php", {id: id}, function(data){modal.open({content: data, closeCallback:closeOverlay});});
+    else $.get("/backend/forms/overlay" + database + ".php", {id: id}, function(data){modal.open({content: data, closeCallback:closeOverlay});});
 }
 
 function closeOverlay() {
@@ -122,16 +127,17 @@ function closeOverlay() {
 function doSearch(append) {
     var tags = interestsInput.val(), bounds = map.getBounds();
     var formattedBounds = toStringCoordinate(bounds.getSouthWest()) + "," + toStringCoordinate(bounds.getNorthEast());
-    var search = "/backend/db/DB" + capitalize(database) + ".php?search=2D&boxloc=" + formattedBounds + "&interests=" + tags + "&page=" + pageNum;
-    if(lsearch == search) return;
 
-    lsearch = search;
     if(!append) {   //Set append to true in order to append the result to already existing results. If false, the previous results are cleared
         pageNum = 0;
         markers = [];
         markerCluster.clearMarkers();
         $("#searchResults").html('');
     } else pageNum += 1;
+
+    var search = "/backend/db/DB" + capitalize(database) + ".php?search=2D&boxloc=" + formattedBounds + "&interests=" + tags + "&page=" + pageNum;
+    if(lsearch == search) return;
+    lsearch = search;
 
     $.ajax({
         type: "GET",

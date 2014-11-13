@@ -1,17 +1,5 @@
-\documentclass[11pt]{report}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%Import Packages
-\usepackage{graphicx}
-\usepackage{titlesec}
-\usepackage{caption}
-\usepackage[table]{xcolor}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Other commands
-\titleformat{\chapter}{\normalfont\huge}{}{20pt}{\huge\bf}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{document}
-
 \chapter{Architecture}
+\label{chap:Arch}
 
 \paragraph{} This chapter explains the architecture of the Alternative Spaces project. The following definition of software architecture is used for this project, originally used in the book ``Software Architecture in Practice'' by Clements et al and also used by the course TDT4240 Software Architecture at NTNU. 
 
@@ -136,6 +124,3 @@ Closely tied to the Client-Server architecture is the Service-Oriented Architect
 \paragraph{} The mysplot product being a website, the team chose to implement a Client-Server Architectural Pattern as it is the most widely used pattern for creating web applications to date. As the vast amount of data and information the website is going to hold, the introduction of a server communicating the content to the clients devices significantly reduces the stress each of the clients devices would have to deal with if having to store all the websites contents individually. 
 
 \paragraph{} The architecture is furtherly service oriented and was chosen been divided into three tiers, the presentation, business logic and data tiers, for organization and structure to the product. These choices make it easier for the developers to have a complete overview of a system constantly expanding in size during implementation as well as making the process of modifying the system a much simpler task. The introduction of the model, view, controller design pattern to the three-tier architecture also supports organization and structure of the system, by clearly defining which parts are logic and which parts are views. Implementing the architectural patterns to the system has been a immense help on the development side. Developers can in a simple and structured way be assigned to tasks that regard different aspects of the system, with the corresponding tasks being easily being created or located, and developed or modified, because of the architectural patterns. 
-
-
-\end{document}

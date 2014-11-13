@@ -1,6 +1,7 @@
 <?
 date_default_timezone_set("Europe/Oslo");
 include_once($_SERVER['DOCUMENT_ROOT'] .  "/backend/functions/log.php");
+include_once($_SERVER['DOCUMENT_ROOT'] .  "/backend/functions/time.php");
 
 $DBhost = "localhost";
 $DBuser = "mysplotc_web";

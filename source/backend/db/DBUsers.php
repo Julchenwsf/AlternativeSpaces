@@ -7,7 +7,6 @@ function addUser($username, $password, $firstName, $lastName, $gender) {
     $firstName = mysql_real_escape_string(trim($firstName));
     $lastName = mysql_real_escape_string(trim($lastName));
     $username = mysql_real_escape_string(trim($username));
-    $password = sha1($password);
     $gender = mysql_real_escape_string($gender);
 
     if(empty($username)) {
@@ -32,22 +31,23 @@ function addUser($username, $password, $firstName, $lastName, $gender) {
         array_push($errors, "First name cannot be left blank");
     } else if(strlen($firstName) > 20) {
         array_push($errors, "First name is too long (max 20 characters)");
-    } else if (!preg_match("/^[a-zA-Z0-9 ]*$/", $firstName)) {
-        array_push($errors, "Illegal characters in first name (only letters, numbers and spaces)");
+    } else if (!preg_match("/^[a-zA-Z -]*$/", $firstName)) {
+        array_push($errors, "Invalid first name (only letters, dash and spaces)");
     }
 
     if(empty($lastName)) {
         array_push($errors, "Last name cannot be left blank");
     } else if(strlen($lastName) > 30) {
         array_push($errors, "Last name is too long (max 30 characters)");
-    } else if (!preg_match("/^[a-zA-Z0-9 ]*$/", $lastName)) {
-        array_push($errors, "Illegal characters in last name (only letters, numbers and spaces)");
+    } else if (!preg_match("/^[a-zA-Z -]*$/", $lastName)) {
+        array_push($errors, "Invalid last name (only letters, dash and spaces)");
     }
 
     if($gender != "male" and $gender != "female") { //Sigh...
         array_push($errors, "Gender must be either male or female");
     }
 
+    $password = sha1($password);
     if(empty($errors)) mysql_query("INSERT INTO users (first_name, last_name, gender, username, password) VALUES ('$firstName', '$lastName', '$gender', '$username', '$password')") or array_push($errors, mysql_error());
     return $errors;
 }

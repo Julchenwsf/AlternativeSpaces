@@ -33,6 +33,8 @@ function addEvent($creator, $event_name, $description, $interests, $lat, $lng, $
 
     if(empty($time) || !is_numeric($time)) {
         array_push($errors, "Illegal date/time");
+    } else if(intval($time) < time() || intval($time) > time() + 31536000) { //60*60*24*365
+        array_push($errors, "Event time must be between now and 1 year ahead.");
     }
 
     if(!is_numeric($numPeople)) {
@@ -66,11 +68,6 @@ function voteEvent($id, $up, $down) {
     return array($row["vote_up"], $row["vote_down"]);
 }
 
-
-function eventTimeFormat($t){
-    if(date('d')==date('d', $t)) return "Today at " . date('H:i', $t);
-    return date('j. M y \a\t H:i', $t);
-}
 
 //Parameters format:
 //  Tags: +[interest_id] +[interest_id2]
@@ -124,7 +121,7 @@ if(isset($_GET["search"]) && $_GET["search"] == "2D") {
                          <div class="contentContent eventContent">
                              <div class= "contentBoxInfo">Description</div><div class="contentBoxDescription">' . (strlen($row["description"]) > 70 ? substr($row["description"], 0, 70) . '...' : $row["description"]) . '<hr>
                              <ul class="token-input-list">' . $interestIcons . '</ul></div>
-                             <div class="eventTime">' . eventTimeFormat($row["event_time"]) . ' </div>
+                             <div class="eventTime">' . unixTimeToStringDate($row["event_time"]) . ' </div>
                          </div>
                      </div>
 
