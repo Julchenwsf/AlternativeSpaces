@@ -11,7 +11,7 @@ The plan was fairly clear this sprint. Tasks were given a priority and a time es
 \paragraph{} As part of the plan for a new design, we would start looking into the Google design guidelines for web pages, especially looking for tips on color changes. Other plans included implementing sharing to other social media, designing logos for each interest. We also spent some time discussing the domain name for the site, and would advise the customers in setting up the site.
 
 \section{Duration and workload}
-\label{sec:S4Duration}
+\label{sec:S5Duration}
 
 \begin{minipage}{\linewidth}
 \centering
@@ -51,10 +51,10 @@ The plan was fairly clear this sprint. Tasks were given a priority and a time es
 \captionof{table}{Workload of Sprint 4. \label{tab:S4Workload}} 
 \end{minipage}
 
-The group's amount of work went down compared to the previous sprint. Some people were away, and ill. It is further discussed in section \ref{sec:S5GroupDynamics}.
+The group's amount of work went down compared to the previous sprint. Some people were away, and ill. It is further discussed in \ref{sec:S5RetrospectiveDynamics}.
 
 \section{Sprint backlog}
-\label{sec:S4Backlog}
+\label{sec:S5Backlog}
 
 \begin{minipage}{\linewidth}
 \setlength{\tabcolsep}{12pt}
@@ -99,7 +99,7 @@ CDP-32 & \it{Search by address on the map.} & 6h & 6h \\
 
 
 \section{Design and implementation}
-\label{sec:S4DesignImpl}
+\label{sec:S5DesignImpl}
 
 \paragraph{} This sprint we did a redesign of the photos page, which would become the new start page. We also implemented many of the features that had been asked for by the end users at the Oslo presentation. Features include the need for a larger map when searching for photos, address search, an overlay for viewing events, and changes needed before deploying the prototype to the costomer's domain.
 
@@ -107,14 +107,124 @@ CDP-32 & \it{Search by address on the map.} & 6h & 6h \\
   \centering
   \includegraphics[width=\linewidth]{./img/webpage/27Oct/Frontpage27Oct}
   \caption{The first iteration of the new design for the front page.}
-  \label{fig:S4DesignImplFront27Oct}
+  \label{fig:S5DesignImplFront27Oct}
 \end{figure}
 
-\paragraph{} As mentioned in \ref{subsec:S2PresentationFeedback}, the most important problem with our site, after the lack of a mobile app, was the small size of the search map when in the photos view. As shown in figure \ref{fig:S4DesignImplFront27Oct}, we quadrupled the size of the map, which greatly increased the usability, and improved the use of space, especially on screens with high resolution.
+\paragraph{} As mentioned in \ref{subsec:S2PresentationFeedback}, the most important problem with our site, after the lack of a mobile app, was the small size of the search map when in the photos view. As shown in figure \ref{fig:S5DesignImplFront27Oct}, we quadrupled the size of the map, which greatly increased the usability, and improved the use of space, especially on screens with high resolution.
 
-\paragraph{} The next feature the youth had asked for was the ability to search for locations by address. This was added 
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=70mm]{./img/webpage/27Oct/AddressAutocomplete.png}
+  \caption{Address search with autocomplete feature.}
+  \label{fig:S5DesignImplAddressAuto}
+\end{figure}
+
+\paragraph{} The next feature the youth had asked for was the ability to search for locations by address. We added this using the google maps API, including autocomplete for the address search, as shown in figure \ref{fig:S5DesignImplAddressAuto}.
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=\linewidth]{./img/webpage/27Oct/SinglePhoto27Oct}
+  \caption{The photo overlay after the first week. The buttons for sharing the picture can be seen just below it.}
+  \label{fig:S5DesignImplSinglePhoto27Oct}
+\end{figure}
+
+\paragraph{} Early on, we also added the ability to share pictures, and later on events, on other social media. This had been requested at the presentation, and it was fairly simple, and might add to the appeal of using the site. We considered it a good idea to have, as it might help expand the user base early on.
+
+\paragraph{} Another thing to note is the new color scheme that was part of the new design. To find colors that worked well together, we looked through Google's design guidelines and tried several color combinations before landing on shades of indigo with an orange accent color.
+
+\paragraph{} During the second part of the sprint, the design had been finalized, and we focused on geting the last few features we had decided to add into the prototype. The main part of the site was reduced to a single page with a choice of whether to view pictures or events. Voting on pictures and events was implemented to have a way of sorting them. The pictures were given a rating of 
+\begin{equation}
+\frac{U-D}{|U-D|} Log_{10}(|U-D|) + \frac{t}{300000}
+\end{equation}
+where $U$ and $D$ are votes up and down, respectively, and $t$ is the UNIX timestamp at the time the picture is posted.
+\subparagraph{} Events were simply given a rating based directly on the votes, since they are currently not shown on the page at all one day after the event is scheduled to happen.
+
+\begin{figure}
+\begin{minipage}{0.45\linewidth}
+  \centering
+  \includegraphics[width=\linewidth]{./img/webpage/3Nov/EventCreateBlank}
+  \caption{The new event creation overlay.}
+  \label{fig:S5DesignImplEventCreateBlank}
+\end{minipage}%
+\hspace{0.1\linewidth}
+\begin{minipage}{0.45\linewidth}
+  \centering
+  \includegraphics[width=\linewidth]{./img/webpage/3Nov/EventCreateCalendar}
+  \caption{Choosing a date for an event using the calendar.}
+  \label{fig:S5DesignImplEventCreateCalendar}
+\end{minipage}
+\end{figure}
+
+\paragraph{} The event creation form was made. An empty form is shown in figure \ref{fig:S5DesignImplEventCreateBlank}, and a more filled in one in figure \ref{fig:S5DesignImplEventCreateCalendar}. It gives the ability to choose a location on a map, or writing the address, and choosing the time from a calendar. It also lets you specify the amount of people there is room for, but in the prototype this isn't used for anything beyond showing off the idea, since joining events has been pushed over to further work.
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=\linewidth]{./img/webpage/3Nov/EventsOverlay}
+  \caption{Overlay showing an event.}
+  \label{fig:S5DesignImplEventsOverlay}
+\end{figure}
+
+\subparagraph{} The event page has been changed to an event overlay, to have a more consistent design by making events in the events page work the same way as photos on the photos page, as seen in figure \ref{fig:S5DesignImplEventsOverlay}. In the bottom left of the overlay, you can see the idea for events being limited by number of people, rather than having specific invites. The idea is discussed in \ref{chap:Further}
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=\linewidth]{./img/webpage/3Nov/FrontpagePhotos}
+  \caption{The design of the front page at the end of the sprint.}
+  \label{fig:S5DesignImplFrontPhotos3Nov}
+\end{figure}
+
+\paragraph{} As mentioned earlier in this sections, voting was implemented for both photos and events. There were also other improvements to the photos page, both for the whole page and the single photo overlay. As seen in \ref{fig:S5DesignImplFrontPhotos3Nov}, the vote buttons got their final design, and just below the map you can choose whether you want to see photos or events. This design for the choice of view was made with expandability in mind. It should be simple to use this design to add other views, such as a video page or a free comment page.
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=\linewidth]{./img/webpage/3Nov/PhotoOverlay}
+  \caption{The single photo overlay at the end of sprint 4.}
+  \label{fig:S5DesignImplPhotoOverlay3Nov}
+\end{figure}
+
+\paragraph{} The end users had requested that the pictures should have more information displayed, as seen in figure \ref{fig:S5DesignImplPhotoOverlay3Nov}, we implemented the overlay to now show location, user, and upload time, as well as the interests a picture has been tagged with. If you look close at the interest tag, you'll also note that the interests now have a small logo added to them. This is for quick identification in the events page, where only the icon is shown unless the mouse pointer hovers over the it.
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=\linewidth]{./img/webpage/3Nov/FrontpageEvents}
+  \caption{The event page at the end of sprint 4.}
+  \label{fig:S5DesignImplFrontEvents3Nov}
+\end{figure}
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=80mm]{./Sprint5/img/InterestIcons}
+  \caption{Interests with icons.}
+  \label{fig:S5DesignImplInterestIcons}
+\end{figure}
+
+\paragraph{} As mentioned in section \ref{sec:S5Plan}, the Technical Lead spent some time helpping the customers get a domain for the website, and the site up on that domain. At the beginning of the sprint, we spent some time trying to come up with good domain names, and we sent some suggestions to the customer. In the end, they chose on their own, and landed on the name mysplot.com, with splot being a conflation of spot and lot. The customer then told us they'd get a hold of some art for icons etc, which we would use in the final part to finish the look of the site.
 
 
-%TODO PARTS NOT PLACED
-%We agreed upon some guidelines to follow while writing report, such as using figures, tables and pictures, to use the suggestion mode in the google docs, so that they would enhance the quality of the report and planned to document the report chapters into Latex.
-%There has been a discussion about the domain name for the Website and later the customer gave the domain name as MY SPLOT, which is a combination of spot and lot, ideally suitable name for youth to hangout.
+\section{Testing and results}
+\label{sec:S5Testing}
+
+
+\section{Sprint retrospective}
+\label{sec:S5Retrospective}
+
+\subsection{Start doing}
+\label{subsec:S5RetrospectiveStart}
+
+\begin{itemize}
+  \item Test the web application thoroughly
+  \item The report work should be uploaded in Google docs immediately after completion so they can be proof read by other group members
+\end{itemize}
+
+\subsection{Stop doing}
+\label{subsec:S5RetrospectiveStop}
+
+\subsection{Continue doing}
+\label{subsec:S5RetrospectiveContinue}
+
+\begin{itemize}
+  \item Work in group for discussing report sections
+\end{itemize}
+
+\subsection{Group dynamics}
+\label{subsec:S5RetrospectiveDynamics}
