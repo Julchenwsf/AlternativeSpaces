@@ -133,7 +133,7 @@ CDP-32 & \it{Search by address on the map.} & 6h & 6h \\
 \paragraph{} Another thing to note is the new color scheme that was part of the new design. To find colors that worked well together, we looked through Google's design guidelines and tried several color combinations before landing on shades of indigo with an orange accent color.
 
 \paragraph{} During the second part of the sprint, the design had been finalized, and we focused on geting the last few features we had decided to add into the prototype. The main part of the site was reduced to a single page with a choice of whether to view pictures or events. Voting on pictures and events was implemented to have a way of sorting them. The pictures were given a rating of 
-\begin{equation}
+\begin{equation} \label{eq:S5DesignImplSorting}
 \frac{U-D}{|U-D|} Log_{10}(|U-D|) + \frac{t}{300000}
 \end{equation}
 where $U$ and $D$ are votes up and down, respectively, and $t$ is the UNIX timestamp at the time the picture is posted.
