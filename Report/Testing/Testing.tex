@@ -6,7 +6,7 @@
 
 \paragraph{} Testing is an integral part of software development for any system. Testing is done to ensure that the product delivered at the end of the development process actually functions as intended. However, the number of errors in any software can be quite large and even with extensive testing, faults and bugs can still be undetected. To address this issue it is important to conduct tests that examine the core functionalities as decided upon in collaboration with the customer, and specified by both the system requirements as well as the use cases.
 
-\paragraph{} Additionally the quality requirements must be tested, since these requirements are not simply a matter of correct response to stimulus but rather a degree of acceptability. Quantifying them can be a difficult process, especially as tolerance levels for specific factors are subjective and vary between persons. \cite{website:software-testing-Jiantao-Pao} In section ? we give a brief introduction of the different testing methods used during development, while we in section ? describe how the actual testing were performed.
+\paragraph{} Additionally the quality requirements must be tested, since these requirements are not simply a matter of correct response to stimulus but rather a degree of acceptability. Quantifying them can be a difficult process, especially as tolerance levels for specific factors are subjective and vary between persons (\cite{website:software-testing-Jiantao-Pao}). In section \ref{sec:TestingMethods} we give a brief introduction of the different testing methods used during development, while we in section \ref{sec:TestingApproach} describe how the actual testing were performed.
 
 \newpage
 \section{Test Methods}
@@ -20,17 +20,17 @@
 \caption{The Black Box process. \label{TestBB}}
 \end{figure}
 
-\paragraph{White Box} White box testing refers to tests that are made on a source code level. A white box test is made with knowledge of what part of the source code is responsible for which functionalities, and the relevant code is then tested to see if it provides correct feedback. White box testing is a good method for testing existing code for faults, but because the tests only operate on implemented code this method is unable to detect missing functionalities. By knowing what parts of the code is involved in testing, a white box text is able to pinpoint the defect code with much more accuracy than a black box test. [CITATION 3 4]
+\paragraph{White Box} White box testing refers to tests that are made on a source code level. A white box test is made with knowledge of what part of the source code is responsible for which functionalities, and the relevant code is then tested to see if it provides correct feedback. White box testing is a good method for testing existing code for faults, but because the tests only operate on implemented code this method is unable to detect missing functionalities. By knowing what parts of the code is involved in testing, a white box text is able to pinpoint the defect code with much more accuracy than a black box test. \cite{article:forms-of-software-testing,website:white-box-testing}
 
 \paragraph{Grey Box}
-The grey box test method combines the black and white box methods by utilizing source code knowledge while designing test that are intended to be executed on the user level like a black box test. The grey box method is aimed at finding defects resulting from improper use of applications, or from improper structure. As the grey box approach utilizes some background knowledge it is suitable for functional testing. [CITATION 5 6]
+The grey box test method combines the black and white box methods by utilizing source code knowledge while designing test that are intended to be executed on the user level like a black box test. The grey box method is aimed at finding defects resulting from improper use of applications, or from improper structure. As the grey box approach utilizes some background knowledge it is suitable for functional testing. \cite{inproc:grey-box}
 
 \section{Testing Approach}
 \label{sec:TestingApproach}
 
 \paragraph{} In this project, testing was done continually during development. In the most basic form this testing consisted of attempting to execute the code and trying to trace faults and then correct the code. This process was made easier by the use of built in proofreading functions in the code editor. All of these test are performed for every newly added feature. This kind of testing could have been automated by writing unit tests executed with unit testing software, but since we were only developing a prototype, we chose to not spend time doing so.
 
-\paragraph{} In addition to the ongoing code correction and checking, new components and features that had been completed and cleared, were integration tested both to ensure correct behaviour of the new functionalities, and to check for unintentional faults caused in the rest of the system. The code checks and corrections, as well as the integration tests were all white box tests performed by the developers to ensure that the code was working properly. The aforementioned tests were all intended to ensure that the program behaved correctly. In order to verify that the actual functionality of the program matched the intended functionality as agreed upon with the customer, functional tests were designed based on the requirements of the system. The test cases for the functional tests are detailed in [APPENDIX]. 
+\paragraph{} In addition to the ongoing code correction and checking, new components and features that had been completed and cleared, were integration tested both to ensure correct behaviour of the new functionalities, and to check for unintentional faults caused in the rest of the system. The code checks and corrections, as well as the integration tests were all white box tests performed by the developers to ensure that the code was working properly. The aforementioned tests were all intended to ensure that the program behaved correctly. In order to verify that the actual functionality of the program matched the intended functionality as agreed upon with the customer, functional tests were designed based on the requirements of the system. The test cases for the functional tests are detailed in [APPENDIX]. %\ref{chap:TestPlan} 
 
 \section{System Test}
 \label{sec:TestingSystem}
@@ -90,11 +90,3 @@ As mentioned earlier the usability of both the website and mobile app were conti
 
 \paragraph{User testing}
 In order to get user feedback on our system, two group members traveled to Tøyen in Oslo. Here they met up with possible end-users, at a house for youth called “Riverside”. Some of the youth currently at the house, were asked to try out our website, while one group member chiefed the test and the other monitored and took notes. The tests were conducted following the test execution described above. The member chiefing the tests gave instructions of what the test person should do, and then letting the test person perform the given tasks without assistance. During all of the tests, the test persons were asked to explain their thought process. That way it was easier to understand what functionality of the website that could be confusing, hard to understand or tedious, and also what functionality that worked well. At the end of the tests, the test persons were asked to give their overall opinion of the website. Even though no timing or counting of the performed tasks were done, we got a clear understanding of the effectiveness, efficiency and satisfaction of our website at the current stage of development. The results from these tests could be found in [APPENDIX? ] [Should this be linked to the Sprint containing the presentation?]
-
-
-\section{sources for testing-chapter} 
-CITATION2: Ron Patton; Software testing Sams publishing 2000 ISBN:9788176355070 \\
-CITATION3: http://www.chaudhary.org/WhiteBox.pdf \\
-CITATION4: http://ijcsi.org/papers/7-3-1-11-16.pdf \\
-CITATION5: http://research.microsoft.com/pubs/81199/p1-kicillof.pdf \\
-CITATION6: http://eastwest.inf.brad.ac.uk/document/publication/Doungsa-ard-IWS06\%20.pdf \\

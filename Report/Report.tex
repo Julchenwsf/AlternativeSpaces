@@ -10,10 +10,17 @@
 \usepackage{pdflscape}
 \usepackage{afterpage}
 \usepackage{listings}
+\usepackage[authoryear]{natbib}
+\usepackage[hidelinks]{hyperref}
 %%%%%%%%%%
 
 % Other commands
 \titleformat{\chapter}{\normalfont\huge}{}{20pt}{\huge\bf}
+
+\hypersetup{
+    colorlinks=true,
+    allcolors=black
+    }
 %%%%%%%%%%
 
 
@@ -57,9 +64,10 @@
 
 \appendix
 \input{./Appendix/CodeDocumentation/CodeDocumentation}
+%\input{./Testing/Test\ Plan}
 
 
-\bibliographystyle{plain}
+\bibliographystyle{plainnat}
 \bibliography{sources}
 \end{document}
 
