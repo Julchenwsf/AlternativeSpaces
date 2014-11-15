@@ -1,0 +1,438 @@
+\documentclass[11pt]{report}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Import Packages
+\usepackage{graphicx}
+\usepackage{titlesec}
+\usepackage{caption}
+\usepackage[table]{xcolor}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Other commands
+\titleformat{\chapter}{\normalfont\huge}{}{20pt}{\huge\bf}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+\section{Test Plan}
+\label{sec:TestingTPlan}
+
+Below are the different tests carried out by the group. \\ \\
+%
+\begin{minipage}{\linewidth}
+\setlength{\tabcolsep}{15pt}
+\centering
+\rowcolors{1}{blue!20}{blue!10}
+\begin{tabular}{ |l|p{70mm}| }
+	\hline
+	\multicolumn{2}{|c|}{\cellcolor{gray!25} \textbf{Test Case 1}} \\
+	\hline
+	\it{\cellcolor{gray!25}Item} & {\cellcolor{gray!25} Description } \\
+	\hline
+	\it{\cellcolor{gray!25}Test Name } & Create User on the Web Page \\ \hline
+	\it{\cellcolor{gray!25}Test ID} & TC1 \\ \hline
+	\it{\cellcolor{gray!25}Feature to be tested} & Creating a new unique user profile \\ \hline
+	\it{\cellcolor{gray!25}Requirements} & F1  \\ \hline
+	\it{\cellcolor{gray!25}Pre-conditions} & User must have a supported web browser  \\ \hline
+	\it{\cellcolor{gray!25}Steps of Execution} & Open a browser. Enter www.mysplot.com. Click the ``Sign up'' button in the upper right hand corner. Fill in first name, last name, a desired username and password in their respective fields, choose gender and finally click Sign Up. \\ \hline
+	\it{\cellcolor{gray!25}Expected results} & An error message will be displayed if fields are incorrect or taken. If all information input is valid, a user will be created on the website and saved in the database.  \\
+	\hline
+\end{tabular}
+\captionof{table}{Test case 1 \label{TC1}}
+\medskip
+\end{minipage}
+%
+\begin{minipage}{\linewidth}
+\setlength{\tabcolsep}{15pt}
+\centering
+\rowcolors{1}{blue!20}{blue!10}
+\begin{tabular}{ |l|p{70mm}| }
+	\hline
+	\multicolumn{2}{|c|}{\cellcolor{gray!25} \textbf{Test Case 2}} \\
+	\hline
+	\it{\cellcolor{gray!25}Item} & {\cellcolor{gray!25} Description } \\
+	\hline
+	\it{\cellcolor{gray!25}Test Name } & Sign in to mysplot.com \\ \hline
+	\it{\cellcolor{gray!25}Test ID} & TC2 \\ \hline
+	\it{\cellcolor{gray!25}Feature to be tested} & Signing in to user profile \\ \hline
+	\it{\cellcolor{gray!25}Requirements} & F1, F2   \\ \hline
+	\it{\cellcolor{gray!25}Pre-conditions} & TC1  \\ \hline
+	\it{\cellcolor{gray!25}Steps of Execution} & Click the ``Sign in'' button in the upper right hand corner. Fill in username and password in their respective fields, and finally click Sign In. \\ \hline
+	\it{\cellcolor{gray!25}Expected results} & Overlay window with login fields will pop up. An error message will be displayed if fields are incorrect or invalid. If all information input is valid, the user will be signed in.  \\
+	\hline
+\end{tabular}
+\captionof{table}{Test Case 2 \label{TC2}}
+\medskip
+\end{minipage}
+%
+\begin{minipage}{\linewidth}
+\setlength{\tabcolsep}{15pt}
+\centering
+\rowcolors{1}{blue!20}{blue!10}
+\begin{tabular}{ |l|p{70mm}| }
+	\hline
+	\multicolumn{2}{|c|}{\cellcolor{gray!25} \textbf{Test Case 3}} \\
+	\hline
+	\it{\cellcolor{gray!25}Item} & {\cellcolor{gray!25} Description } \\
+	\hline
+	\it{\cellcolor{gray!25}Test Name } & Sign In: mysplot android app \\ \hline
+	\it{\cellcolor{gray!25}Test ID} & TC3 \\ \hline
+	\it{\cellcolor{gray!25}Feature to be tested} & Signing in to user profile \\ \hline
+	\it{\cellcolor{gray!25}Requirements} & F1, F2, F25   \\ \hline
+	\it{\cellcolor{gray!25}Pre-conditions} & TC1  \\ \hline
+	\it{\cellcolor{gray!25}Steps of Execution} & Click the ``Sign in'' button in the middle of the screen. Fill in username and password in their respective fields, and finally click Sign In. \\ \hline
+	\it{\cellcolor{gray!25}Expected results} & An error message will be displayed if fields are incorrect or invalid. If all information input is valid, the user will be signed in.  \\
+	\hline
+\end{tabular}
+\captionof{table}{Test Case 3 \label{TC3}}
+\medskip
+\end{minipage}
+%
+\begin{minipage}{\linewidth}
+\setlength{\tabcolsep}{15pt}
+\centering
+\rowcolors{1}{blue!20}{blue!10}
+\begin{tabular}{ |l|p{70mm}| }
+	\hline
+	\multicolumn{2}{|c|}{\cellcolor{gray!25} \textbf{Test Case 4}} \\
+	\hline
+	\it{\cellcolor{gray!25}Item} & {\cellcolor{gray!25} Description } \\
+	\hline
+	\it{\cellcolor{gray!25}Test Name } & Log out \\ \hline
+	\it{\cellcolor{gray!25}Test ID} & TC4 \\ \hline
+	\it{\cellcolor{gray!25}Feature to be tested} & User logging out after signing in \\ \hline
+	\it{\cellcolor{gray!25}Requirements} & F1, F2   \\ \hline
+	\it{\cellcolor{gray!25}Pre-conditions} & TC1, TC2 \\ \hline
+	\it{\cellcolor{gray!25}Steps of Execution} & A signed in user, clicks the Sign Out button in the upper right hand corner of the webpage.  \\ \hline
+	\it{\cellcolor{gray!25}Expected results} & The user is signed out and view of the webpage is updated. \\
+	\hline
+\end{tabular}
+\captionof{table}{Test Case 4 \label{TC4}}
+\medskip
+\end{minipage}
+%
+\begin{minipage}{\linewidth}
+\setlength{\tabcolsep}{15pt}
+\centering
+\rowcolors{1}{blue!20}{blue!10}
+\begin{tabular}{ |l|p{70mm}| }
+	\hline
+	\multicolumn{2}{|c|}{\cellcolor{gray!25} \textbf{Test Case 5}} \\
+	\hline
+	\it{\cellcolor{gray!25}Item} & {\cellcolor{gray!25} Description } \\
+	\hline
+	\it{\cellcolor{gray!25}Test Name } & Log Out: app \\ \hline
+	\it{\cellcolor{gray!25}Test ID} & TC5 \\ \hline
+	\it{\cellcolor{gray!25}Feature to be tested} & User logging out after signing in on the app \\ \hline
+	\it{\cellcolor{gray!25}Requirements} & F1, F2, F25  \\ \hline
+	\it{\cellcolor{gray!25}Pre-conditions} & TC1, TC3 \\ \hline
+	\it{\cellcolor{gray!25}Steps of Execution} & A signed in user, clicks the Sign Out button in the middle of the home screen of the app. \\ \hline
+	\it{\cellcolor{gray!25}Expected results} & The user is signed out and view of the app is updated. \\
+	\hline
+\end{tabular}
+\captionof{table}{Test Case 5 \label{TC5}}
+\medskip
+\end{minipage}
+%
+\begin{minipage}{\linewidth}
+\setlength{\tabcolsep}{15pt}
+\centering
+\rowcolors{1}{blue!20}{blue!10}
+\begin{tabular}{ |l|p{70mm}| }
+	\hline
+	\multicolumn{2}{|c|}{\cellcolor{gray!25} \textbf{Test Case 6}} \\
+	\hline
+	\it{\cellcolor{gray!25}Item} & {\cellcolor{gray!25} Description } \\
+	\hline
+	\it{\cellcolor{gray!25}Test Name } & Navigate Site \\ \hline
+	\it{\cellcolor{gray!25}Test ID} & TC6 \\ \hline
+	\it{\cellcolor{gray!25}Feature to be tested} & Click navigation buttons \\ \hline
+	\it{\cellcolor{gray!25}Requirements} & F8, F16 \\ \hline
+	\it{\cellcolor{gray!25}Pre-conditions} & User browsing the mysplot page\\ \hline
+	\it{\cellcolor{gray!25}Steps of Execution} & A signed in user, clicks the navigation buttons in the header and is navigated to the correct page. \\ \hline
+	\it{\cellcolor{gray!25}Expected results} & Clicking the websites icon will bring the user to the homepage. \\
+	\hline
+\end{tabular}
+\captionof{table}{Test Case 6 \label{TC6}}
+\medskip
+\end{minipage}
+%
+\begin{minipage}{\linewidth}
+\setlength{\tabcolsep}{15pt}
+\centering
+\rowcolors{1}{blue!20}{blue!10}
+\begin{tabular}{ |l|p{70mm}| }
+	\hline
+	\multicolumn{2}{|c|}{\cellcolor{gray!25} \textbf{Test Case 7}} \\
+	\hline
+	\it{\cellcolor{gray!25}Item} & {\cellcolor{gray!25} Description } \\
+	\hline
+	\it{\cellcolor{gray!25}Test Name } & Create event \\ \hline
+	\it{\cellcolor{gray!25}Test ID} & TC7 \\ \hline
+	\it{\cellcolor{gray!25}Feature to be tested} & Creating a new event \\ \hline
+	\it{\cellcolor{gray!25}Requirements} & F10, F11  \\ \hline
+	\it{\cellcolor{gray!25}Pre-conditions} & TC1, TC2 \\ \hline
+	\it{\cellcolor{gray!25}Steps of Execution} & A signed in user, clicks the ``New Event'' button in the header. An overlay window appears, and the user types in the required information to their respective fields. \\ \hline
+	\it{\cellcolor{gray!25}Expected results} & If all fields input by the user are valid, an event is created in the database. The entire webpage is later updated with the new event for all users to see and join. \\
+	\hline
+\end{tabular}
+\captionof{table}{Test Case 7 \label{TC7}}
+\medskip
+\end{minipage}
+%
+\begin{minipage}{\linewidth}
+\setlength{\tabcolsep}{15pt}
+\centering
+\rowcolors{1}{blue!20}{blue!10}
+\begin{tabular}{ |l|p{70mm}| }
+	\hline
+	\multicolumn{2}{|c|}{\cellcolor{gray!25} \textbf{Test Case 8}} \\
+	\hline
+	\it{\cellcolor{gray!25}Item} & {\cellcolor{gray!25} Description } \\
+	\hline
+	\it{\cellcolor{gray!25}Test Name } & Display event \\ \hline
+	\it{\cellcolor{gray!25}Test ID} & TC8 \\ \hline
+	\it{\cellcolor{gray!25}Feature to be tested} & Displaying an event\\ \hline
+	\it{\cellcolor{gray!25}Requirements} &  F7, F8, F9, F10. \\ \hline
+	\it{\cellcolor{gray!25}Pre-conditions} & TC7 \\ \hline
+	\it{\cellcolor{gray!25}Steps of Execution} & Any browsing user can click any event to display more information of the event. \\ \hline
+	\it{\cellcolor{gray!25}Expected results} & A new overlay window with the specific event details, comment field and attendees are displayed. \\
+	\hline
+\end{tabular}
+\captionof{table}{Test Case 8 \label{TC8}}
+\medskip
+\end{minipage}
+%
+\begin{minipage}{\linewidth}
+\setlength{\tabcolsep}{15pt}
+\centering
+\rowcolors{1}{blue!20}{blue!10}
+\begin{tabular}{ |l|p{70mm}| }
+	\hline
+	\multicolumn{2}{|c|}{\cellcolor{gray!25} \textbf{Test Case 9}} \\
+	\hline
+	\it{\cellcolor{gray!25}Item} & {\cellcolor{gray!25} Description } \\
+	\hline
+	\it{\cellcolor{gray!25}Test Name } & Join Event \\ \hline
+	\it{\cellcolor{gray!25}Test ID} & TC9 \\ \hline
+	\it{\cellcolor{gray!25}Feature to be tested} & User joining an event. \\ \hline
+	\it{\cellcolor{gray!25}Requirements} &  F7, F8, F9, F10. \\ \hline
+	\it{\cellcolor{gray!25}Pre-conditions} & TC1, TC2, TC7 \\ \hline
+	\it{\cellcolor{gray!25}Steps of Execution} & Any signed in user will be able to display event, click the ``Attend'' button and join the event, in the case that the event is not already full. \\ \hline
+	\it{\cellcolor{gray!25}Expected results} & The user is connected to the event, increasing the number of people joining the event. \\
+	\hline
+\end{tabular}
+\captionof{table}{Test Case 9 \label{TC9}}
+\medskip
+\end{minipage}
+%
+\begin{minipage}{\linewidth}
+\setlength{\tabcolsep}{15pt}
+\centering
+\rowcolors{1}{blue!20}{blue!10}
+\begin{tabular}{ |l|p{70mm}| }
+	\hline
+	\multicolumn{2}{|c|}{\cellcolor{gray!25} \textbf{Test Case 10}} \\
+	\hline
+	\it{\cellcolor{gray!25}Item} & {\cellcolor{gray!25} Description } \\
+	\hline
+	\it{\cellcolor{gray!25}Test Name } & Upload picture \\ \hline
+	\it{\cellcolor{gray!25}Test ID} & TC10 \\ \hline
+	\it{\cellcolor{gray!25}Feature to be tested} & User uploading a picture.\\ \hline
+	\it{\cellcolor{gray!25}Requirements} & F14, F15  \\ \hline
+	\it{\cellcolor{gray!25}Pre-conditions} & TC1, TC2 \\ \hline
+	\it{\cellcolor{gray!25}Steps of Execution} & Signed in user clicks the ``Upload Photo'' button in the header, a new overlay window is displayed and user inputs the required information to their respective fields. \\ \hline
+	\it{\cellcolor{gray!25}Expected results} & A picture is saved in the database and user receives a confirmation of process completed. Picture now displaying on the website. \\
+	\hline
+\end{tabular}
+\captionof{table}{Test Case 10 \label{TC10}}
+\medskip
+\end{minipage}
+%
+\begin{minipage}{\linewidth}
+\setlength{\tabcolsep}{15pt}
+\centering
+\rowcolors{1}{blue!20}{blue!10}
+\begin{tabular}{ |l|p{70mm}| }
+	\hline
+	\multicolumn{2}{|c|}{\cellcolor{gray!25} \textbf{Test Case 11}} \\
+	\hline
+	\it{\cellcolor{gray!25}Item} & {\cellcolor{gray!25} Description } \\
+	\hline
+	\it{\cellcolor{gray!25}Test Name } & App: Upload picture \\ \hline
+	\it{\cellcolor{gray!25}Test ID} & TC11 \\ \hline
+	\it{\cellcolor{gray!25}Feature to be tested} & User uploading a picture with the app.\\ \hline
+	\it{\cellcolor{gray!25}Requirements} & F25, F26, F27, F28, F29\\ \hline
+	\it{\cellcolor{gray!25}Pre-conditions} & TC1, TC3 \\ \hline
+	\it{\cellcolor{gray!25}Steps of Execution} & Signed in user clicks the ``Upload Photo'' button in the app, user inputs the required information to their respective fields or takes a photo with the app and uses this. \\ \hline
+	\it{\cellcolor{gray!25}Expected results} & The picture is saved in the database and user receives a confirmation of process completed. Picture now displaying on the website. \\
+	\hline
+\end{tabular}
+\captionof{table}{Test Case 11 \label{TC11}}
+\medskip
+\end{minipage}
+%
+\begin{minipage}{\linewidth}
+\setlength{\tabcolsep}{15pt}
+\centering
+\rowcolors{1}{blue!20}{blue!10}
+\begin{tabular}{ |l|p{70mm}| }
+	\hline
+	\multicolumn{2}{|c|}{\cellcolor{gray!25} \textbf{Test Case 12}} \\
+	\hline
+	\it{\cellcolor{gray!25}Item} & {\cellcolor{gray!25} Description } \\
+	\hline
+	\it{\cellcolor{gray!25}Test Name } & Display picture \\ \hline
+	\it{\cellcolor{gray!25}Test ID} & TC12 \\ \hline
+	\it{\cellcolor{gray!25}Feature to be tested} & Displaying a picture on the website. \\ \hline
+	\it{\cellcolor{gray!25}Requirements} & F16 \\ \hline
+	\it{\cellcolor{gray!25}Pre-conditions} & TC10, TC11 \\ \hline
+	\it{\cellcolor{gray!25}Steps of Execution} & Any user browsing mysplot can click the picture content on the webpage and seeing the details and an enlarged version of the picture. \\ \hline
+	\it{\cellcolor{gray!25}Expected results} & An overlay with specific information of the picture, as well as an enlarged version of the picture is displayed upon user click on picture post. \\
+	\hline
+\end{tabular}
+\captionof{table}{Test Case 12 \label{TC12}}
+\medskip
+\end{minipage}
+%
+\begin{minipage}{\linewidth}
+\setlength{\tabcolsep}{15pt}
+\centering
+\rowcolors{1}{blue!20}{blue!10}
+\begin{tabular}{ |l|p{70mm}| }
+	\hline
+	\multicolumn{2}{|c|}{\cellcolor{gray!25} \textbf{Test Case 13}} \\
+	\hline
+	\it{\cellcolor{gray!25}Item} & {\cellcolor{gray!25} Description } \\
+	\hline
+	\it{\cellcolor{gray!25}Test Name } & Search Content \\ \hline
+	\it{\cellcolor{gray!25}Test ID} & TC13 \\ \hline
+	\it{\cellcolor{gray!25}Feature to be tested} & User searching for events, pictures, etc with map and search bar. \\ \hline
+	\it{\cellcolor{gray!25}Requirements} & F3, F4, F5, F6 \\ \hline
+	\it{\cellcolor{gray!25}Pre-conditions} & TC7, TC10, TC11 \\ \hline
+	\it{\cellcolor{gray!25}Steps of Execution} & Feature found in left sidebar of the webpage. Any user browsing mysplot can search for content by searching for interest tags in a search bar, as well as selecting the location by using a map, or entering the location as a text.  \\ \hline
+	\it{\cellcolor{gray!25}Expected results} & Content is automatically updated according to relevance to the user as user changes the criterions of the search. \\
+	\hline
+\end{tabular}
+\captionof{table}{Test Case 13 \label{TC13}}
+\medskip
+\end{minipage}
+%
+\begin{minipage}{\linewidth}
+\setlength{\tabcolsep}{15pt}
+\centering
+\rowcolors{1}{blue!20}{blue!10}
+\begin{tabular}{ |l|p{70mm}| }
+	\hline
+	\multicolumn{2}{|c|}{\cellcolor{gray!25} \textbf{Test Case 14}} \\
+	\hline
+	\it{\cellcolor{gray!25}Item} & {\cellcolor{gray!25} Description } \\
+	\hline
+	\it{\cellcolor{gray!25}Test Name } & Search Content \\ \hline
+	\it{\cellcolor{gray!25}Test ID} & TC14 \\ \hline
+	\it{\cellcolor{gray!25}Feature to be tested} & Search address \\ \hline
+	\it{\cellcolor{gray!25}Requirements} & F3 \\ \hline
+	\it{\cellcolor{gray!25}Pre-conditions} & TC7, TC10, TC11 \\ \hline
+	\it{\cellcolor{gray!25}Steps of Execution} & Feature found in left sidebar of the webpage. Any user browsing mysplot can search by specifically entering the desired location as a text input in the top search bar.  \\ \hline
+	\it{\cellcolor{gray!25}Expected results} & Content is automatically updated according to relevance to the user as user changes the criterions of the search. \\
+	\hline
+\end{tabular}
+\captionof{table}{Test Case 14 \label{TC14}}
+\medskip
+\end{minipage}
+%
+\begin{minipage}{\linewidth}
+\setlength{\tabcolsep}{15pt}
+\centering
+\rowcolors{1}{blue!20}{blue!10}
+\begin{tabular}{ |l|p{70mm}| }
+	\hline
+	\multicolumn{2}{|c|}{\cellcolor{gray!25} \textbf{Test Case 15}} \\
+	\hline
+	\it{\cellcolor{gray!25}Item} & {\cellcolor{gray!25} Description } \\
+	\hline
+	\it{\cellcolor{gray!25}Test Name } & Comment on event \\ \hline
+	\it{\cellcolor{gray!25}Test ID} & TC15 \\ \hline
+	\it{\cellcolor{gray!25}Feature to be tested} & Commenting function on event page \\ \hline
+	\it{\cellcolor{gray!25}Requirements} & F17 \\ \hline
+	\it{\cellcolor{gray!25}Pre-conditions} & TC1, TC2, TC7, TC8 \\ \hline
+	\it{\cellcolor{gray!25}Steps of Execution} & After displaying an event, a signed in user can choose to either clicking ``Reply'' to an existing comment, or ``Add comment'' to start a new thread. Finally, user inputs text to the comment field. \\ \hline
+	\it{\cellcolor{gray!25}Expected results} & Replies are displayed within existing threads, and new comments start new threads, with the respective text the user input. Comments are saved in database and displayed on webpage. \\
+	\hline
+\end{tabular}
+\captionof{table}{Test Case 15 \label{TC15}}
+\medskip
+\end{minipage}
+%
+\begin{minipage}{\linewidth}
+\setlength{\tabcolsep}{15pt}
+\centering
+\rowcolors{1}{blue!20}{blue!10}
+\begin{tabular}{ |l|p{70mm}| }
+	\hline
+	\multicolumn{2}{|c|}{\cellcolor{gray!25} \textbf{Test Case 16}} \\
+	\hline
+	\it{\cellcolor{gray!25}Item} & {\cellcolor{gray!25} Description } \\
+	\hline
+	\it{\cellcolor{gray!25}Test Name } & Comment on picture \\ \hline
+	\it{\cellcolor{gray!25}Test ID} & TC16 \\ \hline
+	\it{\cellcolor{gray!25}Feature to be tested} & Commenting function on photo page \\ \hline
+	\it{\cellcolor{gray!25}Requirements} & F17 \\ \hline
+	\it{\cellcolor{gray!25}Pre-conditions} & TC1, TC2, TC10, TC12 \\ \hline
+	\it{\cellcolor{gray!25}Steps of Execution} & After displaying a photo, a signed in user can choose to either clicking ``Reply'' to an existing comment, or ``Add comment'' to start a new thread. Finally, user inputs text to the comment field. \\ \hline
+	\it{\cellcolor{gray!25}Expected results} & Replies are displayed within existing threads, and new comments start new threads, with the respective text the user input. Comments are saved in database and displayed on webpage. \\
+	\hline
+\end{tabular}
+\captionof{table}{Test Case 16 \label{TC16}}
+\medskip
+\end{minipage}
+%
+\begin{minipage}{\linewidth}
+\setlength{\tabcolsep}{15pt}
+\centering
+\rowcolors{1}{blue!20}{blue!10}
+\begin{tabular}{ |l|p{70mm}| }
+	\hline
+	\multicolumn{2}{|c|}{\cellcolor{gray!25} \textbf{Test Case 17}} \\
+	\hline
+	\it{\cellcolor{gray!25}Item} & {\cellcolor{gray!25} Description } \\
+	\hline
+	\it{\cellcolor{gray!25}Test Name } & Display comment \\ \hline
+	\it{\cellcolor{gray!25}Test ID} & TC17 \\ \hline
+	\it{\cellcolor{gray!25}Feature to be tested} & Displaying information of comment \\ \hline
+	\it{\cellcolor{gray!25}Requirements} & F17, F18 \\ \hline
+	\it{\cellcolor{gray!25}Pre-conditions} & TC1, TC2, TC10, TC12, TC15, TC16 \\ \hline
+	\it{\cellcolor{gray!25}Steps of Execution} & Any browsing user can view comments on both photo and event pages. \\ \hline
+	\it{\cellcolor{gray!25}Expected results} & Comment is displayed correctly. \\
+	\hline
+\end{tabular}
+\captionof{table}{Test Case 17 \label{TC17}}
+\medskip
+\end{minipage}
+%
+\begin{minipage}{\linewidth}
+\setlength{\tabcolsep}{15pt}
+\centering
+\rowcolors{1}{blue!20}{blue!10}
+\begin{tabular}{ |l|p{70mm}| }
+	\hline
+	\multicolumn{2}{|c|}{\cellcolor{gray!25} \textbf{Test Case 18}} \\
+	\hline
+	\it{\cellcolor{gray!25}Item} & {\cellcolor{gray!25} Description } \\
+	\hline
+	\it{\cellcolor{gray!25}Test Name } & Comment on comment \\ \hline
+	\it{\cellcolor{gray!25}Test ID} & TC18 \\ \hline
+	\it{\cellcolor{gray!25}Feature to be tested} & Replying to already existing comments \\ \hline
+	\it{\cellcolor{gray!25}Requirements} & F17 \\ \hline
+	\it{\cellcolor{gray!25}Pre-conditions} & TC1, TC2, TC10, TC12, TC15, TC16 \\ \hline
+	\it{\cellcolor{gray!25}Steps of Execution} & Any signed in user can click the ``Reply'' button, to comment on other users comments.  \\ \hline
+	\it{\cellcolor{gray!25}Expected results} & A new comment appears indented below the other user's comment.  \\
+	\hline
+\end{tabular}
+\captionof{table}{Test Case 18 \label{TC18}}
+\medskip
+\end{minipage}
+
+
+
+
+\end{document}
