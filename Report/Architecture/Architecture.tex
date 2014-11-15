@@ -37,13 +37,11 @@ This section describes the system from the viewpoint of different stakeholders. 
 \subsection{Logical View}
 Our logical view shows our three-tier client-server architecture tiers: the presentation tier, logic tier and the data tier. The logic tiers of both the website and the Android application are pretty much the same, except that the mobile application supports less functionality than the website. The logic view presented below represents the three tiers with examples from the sign-up process. The mobile application is limited only to login and logout function and the uploading of pictures and specifying locations to these pictures. 
 
-%begin{minipage}{\linewidth}
 \begin{figure}
 \centering
 \includegraphics[width=\linewidth]{./Architecture/img/LogicView.png}
 \caption{Logic View, with tiers briefly explained. \label{overflow}}
 \end{figure}
-%\end{minipage}
 
 \paragraph{Presentation Tier}
 The top-level tier is the information the user is presented with and interacts with on the website. The users view the content, received as HTML or JSON responses from the server, on a web browser or a mobile application, respectfully.  In other words the presentation tier is the views of the webpage or mobile application which the user interacts with. As the user interacts with the content of the webpage or application, HTTPS/HTML calls are made to the server, which are processed and the results of the other tiers' processes are displayed to the browser/mobile application. 
@@ -54,7 +52,7 @@ The logical tier is the layer that deals with the communication between the tier
 \paragraph{Data Tier}
 The data tier includes the server, with the database and the stored objects and files. The data tier receives SQL queries from the logic tier which are then processed. The data tier also stores all images and videos submitted and shared amongst users, as well as other objects used as graphics on the website. 
 
-\newpage
+%\newpage
 \subsection{Physical View}
 The physical view explains the mappings of the components that comprise the system, including server, web browsers, mobile platform, the database and the models. The physical components of the system are the server, and the clients web (e.g. computers) and mobile devices (android cell phone). All application logic is found on the server, which the clients devices communicate with. 
 
@@ -64,7 +62,7 @@ The physical view explains the mappings of the components that comprise the syst
 \caption{The Physical View of the web application. \label{overflow}}
 \end{figure}
 
-\newpage
+%\newpage
 \subsection{Development View} 
 The development view shows the structure of the web application system from the developers view point. The system is divided into four different folders. Backend includes all php-code that has to deal with the database and webpages. The image and css folders contain graphics including all styling and images. The js folder contains all javascript files dealing with the interactivity between components and objects of the website. The development view for the android application has not been included as the functions are limited, and all functions are already found on the web application. 
 
@@ -85,7 +83,7 @@ The process view is an activity diagram which shows the flow between different a
 
 
 %%%%%%%%%%%%
-\newpage
+%\newpage
 \section{Patterns}
 
 
@@ -108,7 +106,7 @@ Closely tied to the Client-Server architecture is the Service-Oriented Architect
 \caption{Visual example of the Client-Server Architecture. \label{overflow}}
 \end{figure}
 
-\newpage
+%\newpage
 \paragraph{Three-Tier Architecture and Model, View, Controller Pattern} Three-Tier Architecture is simplest case of the Multi-Tier Architectural Pattern, including a Presentation Tier, Business Logic Tier and a Data Tier. This architectural style was introduced earlier and shown in practice in the Architectural Views section. The Three-Tier architecture deployed in mysplot has adopted the Model, View, Controller Design Pattern, whereas the controllers and views are in the presentation tier, and the model in the business tier. See the Architectural View section ``Logical View'' for a further description. 
 
 \begin{figure}
@@ -119,7 +117,7 @@ Closely tied to the Client-Server architecture is the Service-Oriented Architect
 
 
 %%%%%%%%%%%%
-\newpage
+%\newpage
 \section{Architectural Rationale}
 \paragraph{} The mysplot product being a website, the team chose to implement a Client-Server Architectural Pattern as it is the most widely used pattern for creating web applications to date. As the vast amount of data and information the website is going to hold, the introduction of a server communicating the content to the clients devices significantly reduces the stress each of the clients devices would have to deal with if having to store all the websites contents individually. 
 

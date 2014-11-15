@@ -4,6 +4,26 @@
 \section{Project Plan}
 \label{sec:PlanningProjPlan}
 
+\paragraph{} The Project plan gives an overview of our plans for the project. It includes time estimates, group organization, risk management, and quality assurance.
+
+\paragraph{} Figure \ref{fig:PlanningProjPlanGantt} shows the project plan that was made during the planning phase, and gives an overview of the main phases of the project. Each phase also has its own assignments, that are mentioned in each phase's chapter in the report.
+
+\paragraph{} When the group started implementation, some changes were made to the project plan to make room for changes in the design. Work on the report began at the same time as system development, and, more or less, continued throughout the project.
+
+\paragraph{} The plan is divided into days and weeks of work, and each phase is given a slice of this time. The active time of the project is a total of 12 weeks, since time at the beginning was spent on the kick-off of the project. At the end, there is a delivery and presentation of the project.
+
+\afterpage{
+\clearpage
+\begin{landscape}
+    \centering
+    \begin{figure}
+        \includegraphics[width=\linewidth]{./Planning/img/GANT}
+        \caption{Gantt diagram for the project.}
+        \label{fig:PlanningProjPlanGantt}
+    \end{figure}
+\end{landscape}
+}
+
 \section{Methodology}
 \label{sec:PlanningMethod}
 During the preliminary studies, two development processes were considered, the waterfall model and the scrum model. As a result of the preliminary studies the scrum model was chosen. This section deals with a short justification of why scrum was the best choice, and how we adjusted the process to fit this project.
@@ -94,11 +114,12 @@ The preliminary studies took place during the first two weeks of the project. At
 
 \subsection{Sprints}
 \label{subsec:PlanningProjPhasesSprints}
-The Sprints of the project comprise the next eight weeks of the project. There were six separate sprints, of which a couple were two week long sprints. The main focus of the sprints was the system development and creating first drafts of the relevant sections of the report. Each sprint has it’s own corresponding chapter in the report,ref{chap:Sprint1} through ref{chap:Sprint5}, where the efforts of each sprint are described in depth.
+The Sprints of the project comprised the next eight weeks of the project. There were four separate sprints, most of which were two week long sprints. The main focus of the sprints was system development and creating first drafts of the relevant sections of the report. Each sprint has it’s own corresponding chapter, \ref{chap:S1} through \ref{chap:S5}, where the efforts of each sprint are described in depth.
 
 \subsection{Documentation and Delivery}
 \label{subsec:PlanningProjPhasesDocDel}
-%TODO
+
+This phase consisted of the last two weeks of the project. This is the phase when all the work done during the semester will be given their final shape. No new features were implemented, but bugs were fixed after testing, and the system was given the final layer of polish before delivery. Much of the group also worked on making the report as good as possible, and writing necessary chapters, especially concerning further work to be done. Towards the end, everyone was working on proofreading or preparing for the presentation.
 
 \section{Risk Management}
 \label{sec:PlanningRiskMan}
@@ -270,3 +291,94 @@ If the customer was unable to answer the questions during the meetings, the answ
 \subsection{Communication with the advisor}
 \label{subsec:PlanningQualityAdvisor}
 Each thursday during the project we had a meeting with our advisor. At these meetings we presented the project status in order for the advisor to get some insight into our progress and work process. The advisor would point out problems we had not found ourselves, and also gave us input on what we needed to consider. To prepare for the advisor meeting the group usually met on wednesday or thursday morning. In these meetings the team decided on what to present to the advisor and updated all documents, worksheets and youtrack. Links to all relevant documents on Google Drive were sent to the advisor in advance, so that he could prepare for the meeting. During the meetings one member wrote notes, while the project manager chaired the meeting. The advisor had access to all documents on google drive at all times. This made it possible for the advisor to follow the progress of the project, read the documentation and give hints or improvement suggestions.
+
+\section{Software development}
+\label{sec:PlanningSoftwareDev}
+
+\paragraph{} In this section we will give an overview of the tools required for develoment and environment setup.
+
+\subsection{} Git and GitHub
+\label{subsec:PlanningSoftwareDevGit}
+
+\paragraph{} When working together in a group on shared code, having an efficient workflow requires having the ability to work on the common codebase simultaneously. This means having using some form of revision control software that can merge code automatically, or at least point to where manual merging is required. Some of the most popular of these today are Git, Subversion, and Mercurial. All of these could fulfill the needs of the project, but because we were most familiar with Git, and the Technical lead payed for private repositories on the GitHub servers, we chose to use Git and GitHub for our revision control.
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=\linewidth]{./Planning/img/ASpacesRepo}
+  \caption{The Alternative Spaces repository on GitHub}
+  \label{fig:PlanningSoftwareDevGitRepo}
+\end{figure}
+
+\subsection{Google Drive}
+\label{subsec:PlanningSoftwareDevDrive}
+
+\paragraph{} Over the course of a project lasting 12 weeks, there are a lot of documents to write, both as part of the final report, and to keep track of activities within the group. Cooperative text editing software helps a lot in keeping communal documents available for everyone to view and work on. Google Drive, with its Docs feature, was ideal for our needs, since it was simple to use, and let everyone work at the same time. All members were also familiar with it, which made this choice very easy to make. The only significant drawback for our use of Google Drive is its sluggishness when working in large documents. This was alleviated by creating a larger amount of smaller documents, and keeping the Drive folders well organized.
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=\linewidth]{./Planning/img/Drive}
+  \caption{The shared Google Drive folder}
+  \label{fig:PlanningSoftwareDevDriveFolder}
+\end{figure}
+
+
+\subsection{IntelliJ IDEA}
+\label{subsec:PlanningSoftwareDevIntelliJ}
+
+\paragraph{} In this group, few people other than the Technical Lead had a lot of experience with web development, and we decided that to help everyone more quickly set up their development environment we should all use the same integrated development environment (IDE). To make it even simpler, we decided to use the IDE the Technical Lead was most familiar with for this kind of work. He decided on IntelliJ IDEA, since it had integrated support for Git and GitHub, and would let people interface with the repo with a single click within the IDE. When we later decided on developing an android application, we were also lucky in finding that Google had developed Android Studio, an IDE made for Android development, based on IntelliJ IDEA.
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=\linewidth]{./Planning/img/IntelliJ}
+  \caption{Standard project structure and view in IntelliJ IDEA.}
+  \label{fig:PlanningSoftwareDevIntelliJView}
+\end{figure}
+
+\subsection{Android}
+\label{subsec:PlanningSoftwareDevAndroid}
+
+\paragraph{} Android is a Linux-based operating system for mobiles and other small devices, mainly with touchscreens. As of 2013, it is the highest selling mobile operating system in the world overall, selling more than the rest combined. When we eventually decided to develop a small mobile app, the choice of which mobile was rather easy, since most of us owned Android devices, and those in the group who had experience developing mobile applications had done so on Android.
+
+\paragraph{} Development is done in Java, which everyone in the group knows, and development can be done on any computer. However, the high number of different devices running Android, makes testing the application challenging, and since we only had our phones available, there is no guarantee that the app will work on all devices.
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=40mm]{./Planning/img/AndroidLogo}
+  \caption{Android.}
+  \label{fig:PlanningSoftwareDevAndroid}
+\end{figure}
+
+
+\subsection{Languages}
+\label{subsec:PlanningSoftwareDevLanguages}
+
+\subsubsection{PHP} PHP is a widely used server-side scripting language for web development. Its syntax is similar to C and Perl, and is a dynamic, weakly typed, interpreted language. In our program, it us used for the back-end, including communication with the database, and getting the required forms for input.
+
+\subsubsection{HTML} HTML is a markup language for creating web pages, which can be displayed by any common web browser. It is used to structure information. In ASpaces it has been used for front-end development along with CSS (Cascading style sheets) for describing the look and formatting of the site.
+
+\subsubsection{JavaScript} JavaScript is a dynamic web-development language with a syntax similar to Java. It is used by browsers to allow client-side scripts to interface with the user, control the browser, communicate, and alter the content that is displayed. In our program it is used to make the website design more polished, by handling the front-end for comments and the 2D search.
+
+\subsubsection{LaTeX} LaTeX is a document preparation and typesetting language based on the older TeX. It is widely used in academia, because it has large amounts of support for domain specific symbols and expressions found in many different disciplines. LaTeX was used for writing this document.
+
+\subsection{PuTTY} 
+\label{subsec:PlanningSoftwareDevPutty}
+
+\paragraph{} PuTTY is a terminal emulator, serial console and network file transfer program. It supports several network protocols, and can also connect to serial ports. We used the program to create and maintain the database for the site.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\linewidth]{./Planning/img/puttydb}
+  \caption{Database created and maintained in PuTTY.}
+  \label{fig:PlanningSoftwareDevPutty}
+\end{figure}
+
+\subsection{YouTrack}
+\label{subsec:PlanningSoftwareDevYouTrack}
+YouTrack is a browser-based issue tracking system and project management software made by the same group that made IntelliJ IDEA, JetBrains. We used it mainly for its issue tracking, in order to assign tasks to team members and comment on issues easily.
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=\linewidth]{./Planning/img/YouTrackPage}
+  \caption{Browser page for issues in ASpaces from YouTrack.}
+  \label{fig:PlanningSoftwareDevYouTrack}
+\end{figure}
