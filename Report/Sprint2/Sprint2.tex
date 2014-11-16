@@ -1,9 +1,10 @@
-
 \chapter{Sprint 2}
+\label{chap:S2}
+In the second sprint, and our fourth week, of the project the first draft of a product backlog has been created. The main focus of the sprint will be on dividing work efforts both into working with the system development as well as on writing the report. As every other sprint, the group has the goal to be able to display a demo for the customers at the end of the sprint. In addition, toward the end of the sprint there will be a presentation in Oslo, where the group has the possibility to show a working product to end users and recieve feedback.
 
-\paragraph{} In the second sprint, and our fourth week, of the project the first draft of a product backlog has been created. The main focus of the sprint will be on dividing work efforts both into working with the system development as well as on writing the report. As every other sprint, the group has the goal to be able to display a demo for the customers at the end of the sprint. In addition, toward the end of the sprint there will be a presentation in Oslo, where the group has the possibility to show a working product to end users and recieve feedback.
-
-\section{Sprint Plan} \paragraph{} As the first draft of a product backlog’s now created, the group is able to pull a number of items off the product backlog and into the sprint backlog (figure below). As most members are inexperienced in the field of web application development, and had used the previous sprint getting to know the technology better, this was the first Sprint where inexperienced started contributing to the implementation. 
+\section{Sprint Plan}
+\label{sec:S2Plan}
+As the first draft of a product backlog’s now created, the group is able to pull a number of items off the product backlog and into the sprint backlog (figure below). As most members are inexperienced in the field of web application development, and had used the previous sprint getting to know the technology better, this was the first Sprint where inexperienced started contributing to the implementation. 
 
 \paragraph{}For cooperative programming simultaneously without causing inconsistency in the project files, the group was introduced to Git and Github by the members with previous experience with the technology. 
 
@@ -21,7 +22,7 @@
 \paragraph{} At this stage, coding is seperated into branches and the code is tested by unit testing. Everyone working on the implementation tests their own code, with the help of others when necessary. Merging branches into the master branch on Github requires that the branches code is fully functional. When merged into the master branch integration testing will be done to make sure that the merge went smoothly and that the code of the master branch runs without errors. 
 
 \section{Duration and Workload:}
-
+\label{sec:S2Duration}
 %%%%%%%%%%%%%%%%
 %Template for Sprint Duration %
 %%%%%%%%%%%%%%%%
@@ -41,9 +42,9 @@
 	\hline
 \end{tabular}
 \end{minipage}
-
+%
 \bigskip
-
+%
 %%%%%%%%%%%%%%%%
 %Template for Sprint Workload %
 %%%%%%%%%%%%%%%%
@@ -55,13 +56,14 @@
 	\hline
 	\multicolumn{2}{|c|}{\cellcolor{gray!25} Workload} \\
 	\hline
-	\it{Planning} & 53 hrs\\
-	\it{Development} & 80 hrs \\
+	\it{Planning} & 85 hrs\\
+	\it{Development} & 97 hrs \\
 	\it{Design} & 17 hrs \\
-	\it{Documentation} & 15 hrs \\
-	\it{Testing} & 11.5 hrs \\
+	\it{Documentation} & 22 hrs \\
+	\it{Testing} & 15 hrs \\
+	\it{Learning} & 21 hrs \\
 	\hline
-	\it{Total workload} & 256.5 hrs \\
+	\it{Total workload} & 257 hrs \\
 	\hline
 \end{tabular}
 %Caption here
@@ -70,11 +72,11 @@
 
 \bigskip 
 
-\paragraph{} The group’s goal regarding hours of work per week is 20-25 hours per person. During Sprint 2 the team did not reach their goal when it comes to working. This is further discussed in the group dynamics section a bit below. 
+\paragraph{} This sprint the group managed to work 18.4 hours per person per week. This is only a very slight improvement from the previous sprint. This is a good sign, as we are moving in the right direction, but there is still room for improvement. This is discussed further in section \ref{sec:S2Retrospective}.
 
 \section{Product Backlog}
-
-\paragraph{} Below is the first version of the product backlog. As we were aware of the major functions required for the project, and had come quite far on developing the system requirement document, the first version of our product backlog was of some use to assign items to the Sprint 2 backlog. Unfortunately, it did not take long before we realized that this first version did not scale very well with the fast-increasing size of the backlog. 
+\label{sec:S2Backlog}
+Below is the first version of the product backlog. As we were aware of the major functions required for the project, and had come quite far on developing the system requirement document, the first version of our product backlog was of some use to assign items to the Sprint 2 backlog. Unfortunately, it did not take long before we realized that this first version did not scale very well with the fast-increasing size of the backlog. 
 
 %%%%%%%%Figure%%%%%%%%%
 \begin{figure}[ht!]
@@ -202,9 +204,11 @@ Some more feedback that is more difficult to place in order of importance.
 
 
 \section{Design and Implementation} 
+\label{sec:S2DesignImpl}
 The design and implementation phase of the second sprint includes several changes in design and implementation focusing on the features regarding signing up, logging in and logging out. 
 
-\paragraph{Design}
+\subsection{Design}
+\label{subsec:S2DesignImplDesign}
 %\textbf{Design} \\ 
 The design of the sprint includes updates in color, creation of different forms, the header, and on the photo-search page. The theme color of the website was set to a hard orange. Buttons, logo, borders, forms, etc. all inherit the theme color. The backgorund color was set to gray, with a hint of orange. Further designs update the creation of a navigation bar, as a part of the header. The navigation bar includes the logo and icon, also designed in this phase. \\
 
@@ -258,10 +262,12 @@ Next was the design of the sign in-form and the sign up-form. These are simple f
 \end{figure}
 
 
-\paragraph{Implementation}
+\subsection{Implementation}
+\label{subsec:S2DesignImplImpl}
 For the implementation phase of the second sprint, on the back-end, most work complements what was discussed in the design section. We created a signup- and login-form that receives input from users. All information is thereafter validated before sent to the database for user creation or login confirmation. If the input information is not valid, there will be error messages displayed. Also, all buttons and icons refer to the correct forms or pages. 
 
 \section{Testing and Results}
+\label{sec:S2Testing}
 Testing is done during the design and implementation stage. The code is actively functional tested and debugged while code is implemented. The implementation tasks from the sprint backlog are divided into different branches on Github. When each unit is completed, the code is tested before integrated into the git master branch. On merge, integration testing is done to make sure that system, as far as currently developed, is fully functional. Some of the tests include sending valid and invalid inputs to the registration- and sign in-forms, confirming that the information is processed correctly. Lastly, the outputs are checked. \\
 On the design implementation side, tests are irrelevant as the implementation is visually confirmed regularly. 
 
@@ -274,8 +280,14 @@ On the design implementation side, tests are irrelevant as the implementation is
 \end{figure}
 
 \section{Sprint Retrospective} 
+\label{sec:S2Retrospective}
+
+%TODO !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+%TODO !!!!!!!!!!TOTAL REWRITE ALERT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+%TODO !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 \subsection{Start doing}
+\label{subsec:S2RetrospectiveStart}
 \begin{itemize}
 \item Work more. 
 \item Using the now set up Git, Github, IntelliJ technlogy for development of system and report. 
@@ -292,11 +304,13 @@ On the design implementation side, tests are irrelevant as the implementation is
 \end{itemize}
 
 \subsection{Stop doing}
+\label{subsec:S2RetrospectiveStop}
 \begin{itemize}
 \item Average work amount per person too weak.  \\
 \end{itemize}
 
 \subsection{Continue doing}
+\label{subsec:S2RetrospectiveContinue}
 \begin{itemize}
 \item Continue learning skills for the project.
 \item Structurize the folders that have come out of structure. 
@@ -304,8 +318,8 @@ On the design implementation side, tests are irrelevant as the implementation is
 \end{itemize}
 
 \subsection{Group Dynamics}
-
-\paragraph{} The groups biggest issue for the second sprint was that people did not have the time to contribute to the project. This resulted in reduction of the total amount of work hours for the group. On the up side the total amount of work hours for Sprint 2 was 14\% greater than the total work amount for the sprint before, though about 70\% of the amount of time set as our group’s goal (20 hrs per person). 
+\label{subsec:S2RetrospectiveDynamics}
+The groups biggest issue for the second sprint was that people did not have the time to contribute to the project. This resulted in reduction of the total amount of work hours for the group. On the up side the total amount of work hours for Sprint 2 was 14\% greater than the total work amount for the sprint before, though about 70\% of the amount of time set as our group’s goal (20 hrs per person). 
 
 \paragraph{} The members of the group are quite different and also work differently. When it comes to sprint work assignments, some members have felt that the the tasks assigned aren’t well specified and have trouble starting their tasks. As a consequence, developing a more concrete sprint backlog with better estimations and task specifications are set as a goal for the next sprint. 
 
@@ -323,5 +337,5 @@ On the design implementation side, tests are irrelevant as the implementation is
 
 
 \subsection{Customer Feedback}
-
-\paragraph{} Upon seeing the latest changes to the product the customer was pleased with our work, and yet again impressed. As the customers don't have much experience with the technology being used and web development, the group's judgement and choices are usually sought and approved for the questions the team asks. Questions for this session was about general color changes and how to process the case of user anonymity on the page. Both parts came to a temporary agreement that custom usernames would be used for general display of usernames, and that the team would choose color preferences as they wished. 
+\label{subsec:S2RetrospectiveFeedback}
+Upon seeing the latest changes to the product the customer was pleased with our work, and yet again impressed. As the customers don't have much experience with the technology being used and web development, the group's judgement and choices are usually sought and approved for the questions the team asks. Questions for this session was about general color changes and how to process the case of user anonymity on the page. Both parts came to a temporary agreement that custom usernames would be used for general display of usernames, and that the team would choose color preferences as they wished. 
