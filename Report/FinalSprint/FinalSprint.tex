@@ -103,6 +103,81 @@ To keep track of which chapters for the report are incomplete the team uses a cu
 \section{Testing}
 \label{sec:FinalTesting}
 
+During the final phase of the project, the product has been thoroughly tested by the whole group. Both through a complete system test using the test cases detailed in appendix \ref{sec:}, and through general usage of the website and app in over a week. That way a few remaining bugs were discovered before being fixed by the group’s lead developer. The system test was a functional test, executed to ensure the group that all functionality was working as expected. Below is a short list of the bugs that were fixed. 
+\medskip
+Website: 
+\begin{description}
+  \item[Bug 1] \hfill \\
+  Favicon wasn't correctly updated.
+  \item[Bug 2] \hfill \\
+  Save all images with JPG extension instead of JPG \& JPEG.
+  \item[Bug 3] \hfill \\
+  Disallow numbers in first/last names. Allow dashes. Force password to be at least 6 chars long.
+  \item[Bug 4] \hfill \\
+  Disallow events to be hosted in the past or more than 1 year into the future.
+  \item[Bug 5] \hfill \\
+  Infinite scroll stopped working due to changes with autocomplete address search.
+  \item[Bug 6] \hfill \\
+  All locations were mapped into north-eastern hemisphere
+  \item[Bug 7] \hfill \\
+  Search content boxes were of different sizes.
+\end{description}
+\medskip
+App: 
+\begin{description}
+  \item[Bug 8] \hfill \\
+  Some devices were unable to "OK" the taken picture.
+\end{description}
+%
+\begin{minipage}{\linewidth}
+\setlength{\tabcolsep}{15pt}
+\centering
+\rowcolors{1}{blue!20}{blue!10}
+\begin{tabular}{ |l|p{70mm}| }
+	\hline
+	\multicolumn{2}{|c|}{\cellcolor{gray!25} \textbf{Preview of Test Case 1}} \\
+	\hline
+	\it{\cellcolor{gray!25}Item} & {\cellcolor{gray!25} Description } \\
+	\hline
+	\it{\cellcolor{gray!25}Test Name } & Create User on the Web Page \\ \hline
+	\it{\cellcolor{gray!25}Test ID} & TC1 \\ \hline
+	\it{\cellcolor{gray!25}Feature to be tested} & Creating a new unique user profile \\ \hline
+	\it{\cellcolor{gray!25}Requirements} & F1  \\ \hline
+	\it{\cellcolor{gray!25}Pre-conditions} & User must have a supported web browser  \\ \hline
+	\it{\cellcolor{gray!25}Steps of Execution} & Open a browser. Enter www.mysplot.com. Click the ``Sign up'' button in the upper right hand corner. Fill in first name, last name, a desired username and password in their respective fields, choose gender and finally click Sign Up. \\ \hline
+	\it{\cellcolor{gray!25}Expected results} & An error message will be displayed if fields are incorrect or taken. If all information input is valid, a user will be created on the website and saved in the database.  \\
+	\hline
+\end{tabular}
+\captionof{table}{Preview of Test case 1}
+\medskip
+\end{minipage}
+%
+\begin{minipage}{\linewidth}
+\setlength{\tabcolsep}{15pt}
+\centering
+\rowcolors{1}{blue!20}{blue!10}
+\begin{tabular}{ |l|p{70mm}| }
+	\hline
+	\multicolumn{2}{|c|}{\cellcolor{gray!25} \textbf{Preview of Test Results, Yngve}} \\
+	\hline
+	\it{\cellcolor{gray!25}Test Case ID} & {\cellcolor{gray!25} Results } \\
+	\hline
+	\it{\cellcolor{gray!25}TC1} & Result a) As expected, error message
+\\b) as expected \\ \hline
+	\it{\cellcolor{gray!25}TC2} & a) As expected
+\\b) as expected \\ \hline
+	\it{\cellcolor{gray!25}TC3} & Was signed out \\ \hline
+	\it{\cellcolor{gray!25}TC4} & As expected \\ \hline
+	\it{\cellcolor{gray!25}TC5} & As expected \\ \hline
+	\it{\cellcolor{gray!25}TC6} & As expected, got photo \\ \hline
+	\it{\cellcolor{gray!25}TC7} & a) Got expected error
+\\b) Event created \\ \hline
+	\hline
+\end{tabular}
+\captionof{table}{Preview of Test Results by Yngve}
+\medskip
+\end{minipage}
+
 \section{Results}
 \label{sec:FinalResults}
 
