@@ -21,17 +21,18 @@ A tag is in this case a word that helps describe a comment, picture, video or ev
 An administrator is a person who is able to control and configure a part of a system or the entirety  of a system. In this system we envision two types of administrators, group administrators and system administrators. A group administrator is typically an end-user controlling a group page. A system administrator can control and make changes to the entire system.
 
 \subsubsection*{Overview}
-The system is a social platform urban youth to express themselves on. The users of the system will have the ability to upload pictures and videos to specific locations, host events and post comments. The system will be realized as a web page.
+The system is a social platform urban youth to express themselves on. The users of the system will have the ability to upload pictures and videos to specific locations, host events and post comments. The system will be realized as a web page. After feedback from end users, we later decided to add a small Android application for uploading pictures to the system. This is discussed further elsewhere, most notably sections \ref{sec:S2Presentation} and \ref{sec:S4DesignImpl}. Requirements for both the website and the app are found in section \ref{sec:SysReqReqs}.
 
 \subsection{Overall Description}
 \label{subsec:SysReqIntroDescr}
 
 At T\o yen in Oslo, a number of new outdoor places for youth are in the process of being built. As a part of that process, the researchers at AFI and the local politicians in the area wants input from the youth themselves. They want to see how the youth in the area express themselves both through picture and video uploads and through written comments. With this information they hope to get a better understanding of what can be done in order to improve the everyday life of the youth in the area. As well as being a source of information, the media uploads and comments will also create a social platform on its own where the youth can connect.
-\subparagraph{} The system has three interfaces/parts:
+\subparagraph{} The system has four interfaces/parts:
 \begin{itemize}
     \item Web Client (End users)
     \item Web Client (Administrators)
     \item Backend (Developers/Administrators)
+    \item Android application (End users)
 \end{itemize}
 
 \subsection{User characteristics}
@@ -75,16 +76,32 @@ F13: The creator of a group, will also be the administrator of the group, with t
 
 \subsubsection{Media Sharing}
 F14: A registered user should be able to upload pictures and videos to specific locations on the interactive map and on group and event pages.\\
-F15: The user should be able to attach interest- or group -tags to pictures the user wants to upload.
+F15: The user should be able to attach interest- or group -tags to pictures the user wants to upload.\\
+F16: The user should be able to click on an uploaded picture or video and get an enlarged version of the picture/video along with relevant information, such as title, description and location.
 
 \subsubsection{Comments}
-F16: A registered user should be able to comment on specific locations on the interactive map and on group and event pages. \\
-F17: The user should be able to attach interest- or group -tags to a comment the user wants to post.
+F17: A registered user should be able to comment on specific locations on the interactive map and on group and event pages. \\
+F18: The user should be able to attach interest- or group -tags to a comment the user wants to post.
 
 \subsubsection{Tags}
-F18: The user should be able to suggest new interest-tags to be created.\\
-F19: It should be possible to vote on suggested interest tags.\\
-F20: When the number of votes for a specific interest tag has reached some set limit, the interest tag will be added if approved by the web page administrator.
+F19: The user should be able to suggest new interest-tags to be created.\\
+F20: It should be possible to vote on suggested interest tags.\\
+F21: When the number of votes for a specific interest tag has reached some set limit, the interest tag will be added if approved by the web page administrator.
+
+\subsubsection{Rating}
+F22: It should be possible to like or dislike a photo or an event.\\
+F23: The user should be able to change a like to a dislike or the opposite.\\
+F24: The user should be able to see whether or not he/she has voted on a photo earlier by highlighting the appropriate like or the dislike button.
+
+\subsubsection{Android app login}
+F25: It should be possible to log in and log out.
+
+\subsubsection{Android app image uploading}
+F26: The user should be able to take a new photo. \\
+F27: The user should be able to browse images on the phone. \\
+F28: The user should be able to upload a photo taken with the app, or uploaded from the phones gallery. \\
+F29: All photos a user attempts to upload must be given a title, a description and interest tags. The photo also needs to be geotagged.
+
 
 \subsection{Non-functional Requirements}
 \label{subsec:SysReqReqsNonFunc}
@@ -120,6 +137,8 @@ F20: When the number of votes for a specific interest tag has reached some set l
 \subsection{Technical System Requirements}
 \label{subsec:SysReqReqsTechnical}
 The web page is compatible with all modern web browsers. These include Google Chrome, Firefox, Safari and Opera. For the front end of the page we use HTML version 5 and CSS version 3.
+
+\subparagraph{} As mentioned, the application was made for Android. It was tested on phones with Android 4.4
 
 \section{Use Cases}
 \label{sec:SysReqUseCases}
