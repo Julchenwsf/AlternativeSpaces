@@ -106,9 +106,9 @@ TE2.3 & \it{Use NTNU's MySQL server over SSH for testing database of user sign u
 D2.4.1 & \it{Find and apply a theme color for the webpage. } & 3h & 4h \\
 D2.4.2 & \it{Find and apply a background color for the webpage.} & 3h & 4h \\
 D2.5.1 & \it{Registration form: Layout.} & 1h & 3h \\
-F2.5.1 & \it{Registration form: Sign up backend.} & 1w & 20h \\
-D2.6.1 & \it{Log in form: Layout.} & 1h & 1h \\
-F2.6.1 & \it{Create the login form.} & 2h & 2h \\
+F2.5.1 & \it{Registration form: Sign up back end.} & 1w & 20h \\
+D2.6.1 & \it{Sign in form: Layout.} & 1h & 1h \\
+F2.6.1 & \it{Create the sign in form.} & 2h & 2h \\
 F2.6.2 & \it{Validation used to make sure that all input fields are valid before saving to the database. } & 2h & 2h\\
 \hline
 \end{tabular}
@@ -124,10 +124,10 @@ F2.6.2 & \it{Validation used to make sure that all input fields are valid before
 \cellcolor{gray!25} ID & \cellcolor{gray!25} Description & \cellcolor{gray!25} Estimated Time & \cellcolor{gray!25} Actual Time \\
 \hline
 D2.7.1 & \it{Logo icon and logo text.} & 1h & 1h \\
-D2.7.2 & \it{Login button and Log out button.} & 1h & 1h \\
+D2.7.2 & \it{Sign in button and Sign out button.} & 1h & 1h \\
 D2.7.3 & \it{Sign up button.} & 1h & 1h \\
 D2.7.4 & \it{Validation of forms: Error message with styles when invalid information is input.} & 1h & 1h \\
-F2.7.1 & \it{Back-end functionality of login and logout.} & 2h & 3h \\
+F2.7.1 & \it{Back-end functionality of sign in and sign out.} & 2h & 3h \\
 F2.7.2 & \it{Back-end functionality for sign up and user creation.} & 2h & 3h \\
 F2.7.3 & \it{Back-end functionality for validation check of forms.} & 2h & 3h \\
 D2.8.1 & \it{Center photo posts, taking the map-sidebar-search into account.} & 1h & 1h \\
@@ -266,7 +266,7 @@ Next was the design of the sign in form and the sign up form. These are simple f
 
 \subsection{Implementation}
 \label{subsec:S2DesignImplImpl}
-For the implementation phase of the second sprint, on the back-end, most work complements what was discussed in the design section. We created a sign up and sign in form that receives input from users. All information is thereafter validated before sent to the database for user creation or login confirmation. If the input information is not valid, there will be error messages displayed. Also, all buttons and icons refer to the correct forms or pages. 
+For the implementation phase of the second sprint, on the back-end, most work complements what was discussed in the design section. We created a sign up and sign in form that receives input from users. All information is thereafter validated before sent to the database for user creation or sign in confirmation. If the input information is not valid, there will be error messages displayed. Also, all buttons and icons refer to the correct forms or pages.
 
 \section{Testing and Results}
 \label{sec:S2Testing}
@@ -295,7 +295,7 @@ On the design implementation side, tests are irrelevant as the implementation is
 \item Look into the use of YouTrack by Jetbrains for our agile development, to track progress of the project and sprint. 
 \item Use the same naming conventions for development items to avoid ambiguity and inconsistency. All names in lowercase. 
 \begin{itemize}
-\item Backend PHP files: \\ db - PHP folder code that queries SQL. 
+\item Back end PHP files: \\ db - PHP folder code that queries SQL.
 \item img - Images resource folder. 
 \item js - JavaScript files
 \item styles - CSS folder for styling the page items. 
