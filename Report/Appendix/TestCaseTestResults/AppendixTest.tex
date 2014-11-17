@@ -1,16 +1,17 @@
-
-
-
 %%%%%%%%%%%%%%%%%%%%%
 %%%%          TEST CASES            %%%%%
 %%%%%%%%%%%%%%%%%%%%%
 
 
 
-\chapter{Test Plan}
+\chapter{Appendix B: Test Plan}
 \label{chap:TestingTPlan}
 
-Below are the different tests carried out by the group. \\ \\
+
+\section{Test Cases}
+\label{sec:TestCases}
+
+Below are the different tests carried out in the system test. \\ \\
 %
 \begin{minipage}{\linewidth}
 \setlength{\tabcolsep}{15pt}
@@ -93,7 +94,7 @@ Below are the different tests carried out by the group. \\ \\
 	\hline
 	\it{\cellcolor{gray!25}Test Name } & Sign out \\ \hline
 	\it{\cellcolor{gray!25}Test ID} & TC4 \\ \hline
-	\it{\cellcolor{gray!25}Feature to be tested} & User logging out after signing in \\ \hline
+	\it{\cellcolor{gray!25}Feature to be tested} & User signing out after signing in \\ \hline
 	\it{\cellcolor{gray!25}Requirements} & F1, F2   \\ \hline
 	\it{\cellcolor{gray!25}Pre-conditions} & TC1, TC2 \\ \hline
 	\it{\cellcolor{gray!25}Steps of Execution} & A signed in user, clicks the Sign Out button in the upper right hand corner of the webpage.  \\ \hline
@@ -116,7 +117,7 @@ Below are the different tests carried out by the group. \\ \\
 	\hline
 	\it{\cellcolor{gray!25}Test Name } & Sign Out: app \\ \hline
 	\it{\cellcolor{gray!25}Test ID} & TC5 \\ \hline
-	\it{\cellcolor{gray!25}Feature to be tested} & User logging out after signing in on the app \\ \hline
+	\it{\cellcolor{gray!25}Feature to be tested} & User signing out after signing in on the app \\ \hline
 	\it{\cellcolor{gray!25}Requirements} & F1, F2, F25  \\ \hline
 	\it{\cellcolor{gray!25}Pre-conditions} & TC1, TC3 \\ \hline
 	\it{\cellcolor{gray!25}Steps of Execution} & A signed in user, clicks the Sign Out button in the middle of the home screen of the app. \\ \hline
@@ -142,7 +143,7 @@ Below are the different tests carried out by the group. \\ \\
 	\it{\cellcolor{gray!25}Feature to be tested} & Click navigation buttons \\ \hline
 	\it{\cellcolor{gray!25}Requirements} & F8, F16 \\ \hline
 	\it{\cellcolor{gray!25}Pre-conditions} & User browsing the mysplot page\\ \hline
-	\it{\cellcolor{gray!25}Steps of Execution} & A signed in user, clicks the navigation buttons in the header and is navigated to the correct page. \\ \hline
+	\it{\cellcolor{gray!25}Steps of Execution} & A signed in user clicks the navigation buttons in the header and is navigated to the correct page. \\ \hline
 	\it{\cellcolor{gray!25}Expected results} & Clicking the websites icon will bring the user to the homepage. \\
 	\hline
 \end{tabular}
@@ -165,7 +166,7 @@ Below are the different tests carried out by the group. \\ \\
 	\it{\cellcolor{gray!25}Feature to be tested} & Creating a new event \\ \hline
 	\it{\cellcolor{gray!25}Requirements} & F10, F11  \\ \hline
 	\it{\cellcolor{gray!25}Pre-conditions} & TC1, TC2 \\ \hline
-	\it{\cellcolor{gray!25}Steps of Execution} & A signed in user, clicks the ``New Event'' button in the header. An overlay window appears, and the user types in the required information to their respective fields. \\ \hline
+	\it{\cellcolor{gray!25}Steps of Execution} & A signed in user clicks the ``New Event'' button in the header. An overlay window appears, and the user types in the required information to their respective fields. \\ \hline
 	\it{\cellcolor{gray!25}Expected results} & If all fields input by the user are valid, an event is created in the database. The entire webpage is later updated with the new event for all users to see and join. \\
 	\hline
 \end{tabular}
@@ -321,7 +322,7 @@ Below are the different tests carried out by the group. \\ \\
 	\hline
 	\it{\cellcolor{gray!25}Item} & {\cellcolor{gray!25} Description } \\
 	\hline
-	\it{\cellcolor{gray!25}Test Name } & Search Content \\ \hline
+	\it{\cellcolor{gray!25}Test Name } & Search Address \\ \hline
 	\it{\cellcolor{gray!25}Test ID} & TC14 \\ \hline
 	\it{\cellcolor{gray!25}Feature to be tested} & Search address \\ \hline
 	\it{\cellcolor{gray!25}Requirements} & F3 \\ \hline
@@ -346,11 +347,11 @@ Below are the different tests carried out by the group. \\ \\
 	\hline
 	\it{\cellcolor{gray!25}Test Name } & Comment on event \\ \hline
 	\it{\cellcolor{gray!25}Test ID} & TC15 \\ \hline
-	\it{\cellcolor{gray!25}Feature to be tested} & Commenting function on event page \\ \hline
+	\it{\cellcolor{gray!25}Feature to be tested} & Commenting on event page \\ \hline
 	\it{\cellcolor{gray!25}Requirements} & F17 \\ \hline
 	\it{\cellcolor{gray!25}Pre-conditions} & TC1, TC2, TC7, TC8 \\ \hline
 	\it{\cellcolor{gray!25}Steps of Execution} & After displaying an event, a signed in user can choose to either clicking ``Reply'' to an existing comment, or ``Add comment'' to start a new thread. Finally, user inputs text to the comment field. \\ \hline
-	\it{\cellcolor{gray!25}Expected results} & Replies are displayed within existing threads, and new comments start new threads, with the respective text the user input. Comments are saved in database and displayed on webpage. \\
+	\it{\cellcolor{gray!25}Expected results} & Replies are displayed within existing threads and new comments start new threads, with the text the user entered as input. Comments are saved in database and displayed on webpage. \\
 	\hline
 \end{tabular}
 \captionof{table}{Test Case 15 \label{TC15}}
@@ -369,11 +370,11 @@ Below are the different tests carried out by the group. \\ \\
 	\hline
 	\it{\cellcolor{gray!25}Test Name } & Comment on picture \\ \hline
 	\it{\cellcolor{gray!25}Test ID} & TC16 \\ \hline
-	\it{\cellcolor{gray!25}Feature to be tested} & Commenting function on photo page \\ \hline
+	\it{\cellcolor{gray!25}Feature to be tested} & Commenting on photo page \\ \hline
 	\it{\cellcolor{gray!25}Requirements} & F17 \\ \hline
 	\it{\cellcolor{gray!25}Pre-conditions} & TC1, TC2, TC10, TC12 \\ \hline
 	\it{\cellcolor{gray!25}Steps of Execution} & After displaying a photo, a signed in user can choose to either clicking ``Reply'' to an existing comment, or ``Add comment'' to start a new thread. Finally, user inputs text to the comment field. \\ \hline
-	\it{\cellcolor{gray!25}Expected results} & Replies are displayed within existing threads, and new comments start new threads, with the respective text the user input. Comments are saved in database and displayed on webpage. \\
+	\it{\cellcolor{gray!25}Expected results} & Replies are displayed within existing threads and new comments start new threads, with the text the user entered as input. Comments are saved in database and displayed on webpage. \\
 	\hline
 \end{tabular}
 \captionof{table}{Test Case 16 \label{TC16}}
@@ -419,7 +420,7 @@ Below are the different tests carried out by the group. \\ \\
 	\it{\cellcolor{gray!25}Requirements} & F17 \\ \hline
 	\it{\cellcolor{gray!25}Pre-conditions} & TC1, TC2, TC10, TC12, TC15, TC16 \\ \hline
 	\it{\cellcolor{gray!25}Steps of Execution} & Any signed in user can click the ``Reply'' button, to comment on other users comments.  \\ \hline
-	\it{\cellcolor{gray!25}Expected results} & A new comment appears indented below the other user's comment.  \\
+	\it{\cellcolor{gray!25}Expected results} & A new comment appears indented below original comment.  \\
 	\hline
 \end{tabular}
 \captionof{table}{Test Case 18 \label{TC18}}
@@ -455,10 +456,7 @@ Below are tables depicting the test results of different members.
 	                                       \item As expected, error message
 	                                       \item As expected
 	                                     \end{enumerate}\\ \hline
-	\it{\cellcolor{gray!25}TC2} & \begin{enumerate}[label=\alph*)]
-	                                \item As expected
-	                                \item As expected
-	                              \end{enumerate}\\ \hline
+	\it{\cellcolor{gray!25}TC2}  & a \& b) As expected \\ \hline
 	\it{\cellcolor{gray!25}TC3} & Was signed out \\ \hline
 	\it{\cellcolor{gray!25}TC4} & As expected \\ \hline
 	\it{\cellcolor{gray!25}TC5} & As expected \\ \hline
