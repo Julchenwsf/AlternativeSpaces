@@ -19,7 +19,7 @@ At the point of completion there were some functionalities that originally were 
 \end{figure}
 
 \begin{description}
-  \item[Add embedded browser to browse the rest of the site] \hfill \\ This refers to the mobile app and developing the app as an embedded browser, which is an easy way to reuse the existing web application. This solution will use the underlying features of the web application, but the browser in the app must handle displaying the site in an user friendly fashion for a mobile application. This would include resizing of some elements and possibly a solution for displaying the map only when required in order to effectively utilize screen space on small devices.
+  \item[Add embedded browser to browse the rest of the site] \hfill \\ This refers to the mobile app and developing the app as an embedded browser, which is an easy way to reuse the existing web application. This solution will use the underlying features of the web application, but the browser in the app must handle displaying the site in a user friendly fashion for a mobile application. This would include resizing of some elements and possibly a solution for displaying the map only when required in order to effectively utilize screen space on small devices.
   \item[Graphics] \hfill \\ This point concerns the creation of several versions of the logo to be displayed in different circumstances. This includes icons for the site, icon for displaying in browser tabs, and a feature graphic for use on Google Play.
   \item[Saving of email address] \hfill \\ This point is about the linking of a user account to an email account. This will make providing user services easier and will provide a means of user verification. A field for email address should be included in the user registration form, and the activation of a user account might require a verification link sent to the registered email address.
   \item[More interests] \hfill \\ At the time of delivery the system only includes a few interests used for illustration purposes. Before the product is launched it is important to add more interests to the system to cover more activities. However it may not be feasible to add all relevant interests to the system before launch as a complete charting would be almost impossible to conduct, and different areas may have location specific interests. As time goes by completely new activities may arise as well and adding these before they exist is impossible. Solutions to this is discussed later in this chapter.
@@ -34,13 +34,19 @@ At the point of completion there were some functionalities that originally were 
 \label{subsec:FurtherRequiredLegal}
 
 A system collecting and storing personal information on its users is required to document what information will be collected, how it will be used, and how long it will be stored. This documentation must be made available to potential users before they sign up, and they must be able to decline and withdraw their consent at any point in time with immediate effect. If an existing user declines, all personal information on this user must be deleted. For users under the age of 15 it is required that parents are informed and consent to the retrieval and storage of information about their child.
-\subparagraph{} In addition norwegian rules for consent from minors mandates that the document detailing the retrieval and use of personal information be written so that it is easily understandable for all users, including those without knowledge of english. Both minors themselves or their parents should be able to withdraw their consent, and the minors should be able to withdraw their consent even if the parents have previously given theirs.
+\subparagraph{} In addition Norwegian rules for consent from minors mandates that the document detailing the retrieval and use of personal information be written so that it is easily understandable for all users, including those without knowledge of english. Both minors themselves or their parents should be able to withdraw their consent, and the minors should be able to withdraw their consent even if the parents have previously given theirs.
 \subparagraph{} We would recommend seeking help from a lawyer or similar, and possibly contacting Datatilsynet directly in order to ensure no serious legal problems arise.
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=\linewidth]{./FurtherWork/img/Datatilsynet}
+  \caption{Datatilsynet}
+  \label{fig:FurtherDatatilsynetLogo}
+\end{figure}
 
 \subsection{Text Post}
 \label{subsec:FurtherRequiredTextPost}
-
-\paragraph{} In the early stages of the project a feature enabling users to comment directly on a spot on the map was discussed. This feature will provide the opportunity to inform about places when no relevant picture is readily available. Since this will broaden the appeal of the system we believe it should be included. This feature will function in much the same way as the pictures and videos with users being able to rate and comment on the original text comment.
+In the early stages of the project a feature enabling users to comment directly on a spot on the map was discussed. This feature will provide the opportunity to inform about places when no relevant picture is readily available. Since this will broaden the appeal of the system we believe it should be included. This feature will function in much the same way as the pictures and videos with users being able to rate and comment on the original text comment.
 
 \subsection{Video}
 \label{subsec:FurtherRequiredVideo}
@@ -76,6 +82,13 @@ Before launching the system, further development of the user profile is required
 While the main focus of the project has been to develop a web platform, it was understood from the beginning of the project that a mobile application was needed if the product was to be a serious alternative to existing solutions. Based on the feedback reviewed in \ref{subsec:S2PresentationFeedback}, we decided to make a simple application to upload pictures to the system, but because of limited time the development of a full mobile application was not the top priority. However, before launch,  the project should offer a complete solution for at least the two most popular mobile platforms, Apple's iOS and Android. Because applications for these platforms are written in different programming languages it is necessary to make one for both, or find a framework, such as backbone.js, to develop for both platforms at the same time. If not using a framework, only the general design can be kept for both platforms, since the underlying design is different for each. Other, less popular platforms could also be considered in future.
 \paragraph{} The feedback from potential end users in the Tøyen area in Oslo revealed that a significant portion of these users might not have access to a personal computer to access the functionalities of the web application. Therefore it is imperative that further development takes this aspect into consideration and delivers mobile applications that can function on their own without requiring users to interact with the web page, or develops the web page to work well on mobile platforms, possibly including an in-app browser as part of the early versions of the app.
 
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=\linewidth]{./FurtherWork/img/iOSAndroid}
+  \caption{iOS and Android are the largest operating systems for mobile devices.}
+  \label{fig:FurtherIOSAndroidLogo}
+\end{figure}
+
 \subsection{Security}
 \label{subsec:FurtherRequiredSecurity}
 
@@ -90,6 +103,13 @@ It is important that the system can support a large amount of users simultaneous
 \paragraph{} The current system features a very limited amount of interests. Adding more before deployment is needed but even so it is probable that not all interests will be covered. Therefore the previously mentioned adding of popular suggested interests will be important to deliver a service that corresponds to the needs of the users. Adding additional interests should be easy and, while we believe the suggested interest should be manually approved, the method of submitting and adding new interests could be highly automated.
 \paragraph{} A different consideration when it comes to this is the use of the Google Maps API. According to the licence agreement Google reserves the right to demand payment if the site “generates more than 25 000 map loads or more each day for more than 90 consecutive days”. The map loads relevant for this project occurs when a map is displayed using the Maps JavaScript API and when a single request is made for a map image from the Static Maps API. As these limits might be reached on a daily basis with a few thousand users the system should monitor how many are generated each day, and consider the options available for solving this problem. One way to do it might be to create a unique map solution for the system, however this would be very costly to develop and we do not recommend this way of solving the problem.
 \paragraph{} For sites exceeding the limit Google offers two different payment solutions. One is to pay 0.50 USD for every 1000 excess map loads, while the other is to purchase a Google Maps API for Work. The Google Maps API for Work option also delivers many other services besides unlimited map loads. The use of user growth projections as well as statistics regarding how many map loads are generated per user each day on average should be used when deciding which option to use. While this may become a consideration even with a small amount of users, it is impractical to give further advice on the matter without statistics from a system in use with a considerable amount of users over a substantial time frame. \cite{website:maps-api-docs-usage,website:maps-api-faq}
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=\linewidth]{./FurtherWork/img/GoogleDevelopersLogo}
+  \caption{Google provides the API for the map used in the product.}
+  \label{fig:FurtherGoogleDevelopersLogo}
+\end{figure}
 
 \subsection{Implementation Time Estimates}
 \label{subsec:FurtherRequiredEstimate}
