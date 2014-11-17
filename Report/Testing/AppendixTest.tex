@@ -1,18 +1,12 @@
-\documentclass[11pt]{report}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%Import Packages
-\usepackage{graphicx}
-\usepackage{titlesec}
-\usepackage{caption}
-\usepackage[table]{xcolor}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Other commands
-\titleformat{\chapter}{\normalfont\huge}{}{20pt}{\huge\bf}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%
+%%%%          TEST CASES            %%%%%
+%%%%%%%%%%%%%%%%%%%%%
+
+
+
 \section{Test Plan}
 \label{sec:TestingTPlan}
 
@@ -435,4 +429,159 @@ Below are the different tests carried out by the group. \\ \\
 
 
 
-\end{document}
+%%%%%%%%%%%%%%%%%%%%%
+%%%%        TEST RESULTS          %%%%%
+%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+\section{Test Results}
+\label{sec:TestingResults}
+
+Below are tables depicting the test results of different members. 
+%
+\begin{minipage}{\linewidth}
+\setlength{\tabcolsep}{15pt}
+\centering
+\rowcolors{1}{blue!20}{blue!10}
+\begin{tabular}{ |l|p{70mm}| }
+	\hline
+	\multicolumn{2}{|c|}{\cellcolor{gray!25} \textbf{Test Results, Yngve}} \\
+	\hline
+	\it{\cellcolor{gray!25}Test Case ID} & {\cellcolor{gray!25} Results } \\
+	\hline
+	\it{\cellcolor{gray!25}TC1} & result a) as expected, error message
+\\b) as expected \\ \hline
+	\it{\cellcolor{gray!25}TC2} & a) as expected
+\\b) as expected \\ \hline
+	\it{\cellcolor{gray!25}TC3} & was signed out \\ \hline
+	\it{\cellcolor{gray!25}TC4} & as expected \\ \hline
+	\it{\cellcolor{gray!25}TC5} & as expected \\ \hline
+	\it{\cellcolor{gray!25}TC6} & as expected, got photo \\ \hline
+	\it{\cellcolor{gray!25}TC7} & a) got expected error
+\\b) event created \\ \hline
+	\it{\cellcolor{gray!25}TC8} & as expected, still upvoted when page refreshed \\ \hline
+	\it{\cellcolor{gray!25}TC9} & as expected \\ \hline
+	\it{\cellcolor{gray!25}TC10} & as expected \\ \hline
+	\it{\cellcolor{gray!25}TC12} & as expected \\ \hline
+	\it{\cellcolor{gray!25}TC13} & as expected \\ \hline
+	\it{\cellcolor{gray!25}TC14} & a) as expectederino
+\\b) worked as expected, internet was slow \\ \hline
+	\it{\cellcolor{gray!25}TC15} & as expected \\ \hline
+	\it{\cellcolor{gray!25}TC16} & as expected \\ \hline
+	\it{\cellcolor{gray!25}TC17} & App stopped working, problems! \\ \hline
+	\it{\cellcolor{gray!25}TC18} & got GPS error message, even though GPS was enabled \\ \hline
+	\hline
+\end{tabular}
+\captionof{table}{Test Results Yngve \label{TRYngve}}
+\medskip
+\end{minipage}
+%
+\begin{minipage}{\linewidth}
+\setlength{\tabcolsep}{15pt}
+\centering
+\rowcolors{1}{blue!20}{blue!10}
+\begin{tabular}{ |l|p{70mm}| }
+	\hline
+	\multicolumn{2}{|c|}{\cellcolor{gray!25} \textbf{Test Results, Hans Olav}} \\
+	\hline
+	\it{\cellcolor{gray!25}Test Case ID} & {\cellcolor{gray!25} Results } \\
+	\hline
+	\it{\cellcolor{gray!25}TC1} & result a)As expected, Error message when username taken. 
+\\b) Managed to sign up. \\ \hline
+	\it{\cellcolor{gray!25}TC2} & a) Error message correctly displayed on wrong user name or wrong password
+\\b) Managed to sign in. \\ \hline
+	\it{\cellcolor{gray!25}TC3} & Error message correctly displayed
+\\ Managed to sign in \\ \hline
+	\it{\cellcolor{gray!25}TC4} & Managed to sign out \\ \hline
+	\it{\cellcolor{gray!25}TC5} & Managed to sign out \\ \hline
+	\it{\cellcolor{gray!25}TC6} & Worked correctly \\ \hline
+	\it{\cellcolor{gray!25}TC7} & a) Error message displayed because of wrong input. Exclamation point not valid?
+\\b) Worked correctly after removing exclamation point. \\ \hline
+	\it{\cellcolor{gray!25}TC8} & An overlay is viewed with correct info. On FireFox, the overlay moves if you scroll. \\ \hline
+	\it{\cellcolor{gray!25}TC9} & Does not work. \\ \hline
+	\it{\cellcolor{gray!25}TC10} & Works. Long title is inelegantly hidden behind the picture, if it takes up more than one line. \\ \hline
+	\it{\cellcolor{gray!25}TC12} & Works correctly \\ \hline
+	\it{\cellcolor{gray!25}TC13} & Works correctly \\ \hline
+	\it{\cellcolor{gray!25}TC14} & Works correctly \\ \hline
+	\it{\cellcolor{gray!25}TC15} & Works correctly \\ \hline
+	\it{\cellcolor{gray!25}TC16} & Works correctly \\ \hline
+	\it{\cellcolor{gray!25}TC17} & Works correctly \\ \hline
+	\it{\cellcolor{gray!25}TC18} & Works correctly \\ \hline
+	\hline
+\end{tabular}
+\captionof{table}{Test Results, Hans Olav \label{TRHans}}
+\medskip
+\end{minipage}
+%
+\begin{minipage}{\linewidth}
+\setlength{\tabcolsep}{15pt}
+\centering
+\rowcolors{1}{blue!20}{blue!10}
+\begin{tabular}{ |l|p{70mm}| }
+	\hline
+	\multicolumn{2}{|c|}{\cellcolor{gray!25} \textbf{Test Results, Julia}} \\
+	\hline
+	\it{\cellcolor{gray!25}Test Case ID} & {\cellcolor{gray!25} Results } \\
+	\hline
+	\it{\cellcolor{gray!25}TC1} & Success, 
+Error message is displayed when username taken or password is blank.; Also avoid special characters like “_” in username \\ \hline
+	\it{\cellcolor{gray!25}TC2} & Success, error message didn´t tell user if username or password is wrong \\ \hline
+	\it{\cellcolor{gray!25}TC3} & Success \\ \hline
+	\it{\cellcolor{gray!25}TC4} & Success \\ \hline
+	\it{\cellcolor{gray!25}TC5} & Success \\ \hline
+	\it{\cellcolor{gray!25}TC6} & Success, can access upload photo or create event by clicking on the button \\ \hline
+	\it{\cellcolor{gray!25}TC7} & Success, no events in the past creatable, number of envited people can´t be empty or letters, shows error message \\ \hline
+	\it{\cellcolor{gray!25}TC8} & Success \\ \hline
+	\it{\cellcolor{gray!25}TC9} & ‘- Failed, attend button is not working ( but we know this before) \\ \hline
+	\it{\cellcolor{gray!25}TC10} & Not complete success, if you click more then want to upload because it is too slow, you get the picture uploaded more than once ( in my case 6 times) \\ \hline
+	\it{\cellcolor{gray!25}TC12} & ‘- missing \\ \hline
+	\it{\cellcolor{gray!25}TC13} & Success \\ \hline
+	\it{\cellcolor{gray!25}TC14} & Success \\ \hline
+	\it{\cellcolor{gray!25}TC15} & Success \\ \hline
+	\it{\cellcolor{gray!25}TC16} & Success \\ \hline
+	\it{\cellcolor{gray!25}TC17} & Success \\ \hline
+	\it{\cellcolor{gray!25}TC18} & Success \\ \hline
+	\hline
+\end{tabular}
+\captionof{table}{Test Results Julia \label{TRJulia}}
+\medskip
+\end{minipage}
+%
+\begin{minipage}{\linewidth}
+\setlength{\tabcolsep}{15pt}
+\centering
+\rowcolors{1}{blue!20}{blue!10}
+\begin{tabular}{ |l|p{70mm}| }
+	\hline
+	\multicolumn{2}{|c|}{\cellcolor{gray!25} \textbf{Test Results, Manasa}} \\
+	\hline
+	\it{\cellcolor{gray!25}Test Case ID} & {\cellcolor{gray!25} Results } \\
+	\hline
+	\it{\cellcolor{gray!25}TC1} & a) as expected, error message is displayed when lastname is empty and password length is not 6 \\
+b) Success, -The user got saved in DB \\ \hline
+	\it{\cellcolor{gray!25}TC2} & a) Success\\
+b) Success \\ \hline
+	\it{\cellcolor{gray!25}TC3} & Was signed out \\ \hline
+	\it{\cellcolor{gray!25}TC4} & Success \\ \hline
+	\it{\cellcolor{gray!25}TC5} & Success \\ \hline
+	\it{\cellcolor{gray!25}TC6} & Success, Can access and upload photo  \\ \hline
+	\it{\cellcolor{gray!25}TC7} & a) got expected error \\
+b) able to  create event \\ \hline
+	\it{\cellcolor{gray!25}TC8} & Success \\ \hline
+	\it{\cellcolor{gray!25}TC9} & Failed, We know attend is not working as this is a prototype, functionality not developed \\ \hline
+	\it{\cellcolor{gray!25}TC10} & Success \\ \hline
+	\it{\cellcolor{gray!25}TC12} & Success \\ \hline
+	\it{\cellcolor{gray!25}TC13} & Success \\ \hline
+	\it{\cellcolor{gray!25}TC14} & Success \\ \hline
+	\it{\cellcolor{gray!25}TC15} & Success \\ \hline
+	\it{\cellcolor{gray!25}TC16} & Success \\ \hline
+	\it{\cellcolor{gray!25}TC17} & Success \\ \hline
+	\it{\cellcolor{gray!25}TC18} & Success \\ \hline
+	\hline
+\end{tabular}
+\captionof{table}{Test Results, Manasa \label{TRManasa}}
+\medskip
+\end{minipage}
+
