@@ -1,11 +1,11 @@
-\chapter{CodeDocumentation}
+\chapter{Appendix A:\newline Code Documentation}
 \label{apx:Code}
 
 The code documentation aims to describe the overall structure of our implementation as well as the main functions of our PHP and JavaScript code. We first provide a general overview of the code structure, before going into more code specific details. 
 
 \section{Structure}
 \label{sec:CodeStructure}
-When creating such a comprehensive web site it is very important to create a code and document structure that clearly separates the different modules. These modules were in our case; backend code, JavaScript code, style code, markup code and image files. The backend code written in PHP is divided into three categories; documents performing database queries, documents creating forms or pages that will be fetched using AJAX and lastly documents with general functions for images, sharing and login. The JavaScript code consists mostly of functions performed when a page is loaded or when the user interacts with a page. This can be through mouse events or text typed. The style code is a collection of CSS documents used to style the different HTML elements, such as divs, buttons and text fields. Lastly all image files are separated from the code documents and placed in its own folder. In figure \ref{fig:CodeStructureStruc} the overall structure can be viewed.
+When creating a comprehensive website it is important to create a code and document structure that clearly separates the different modules. These modules were in our case: backend code, JavaScript code, style code, markup code and image files. The backend code written in PHP is divided into three categories: documents performing database queries, documents creating forms or pages that are fetched using AJAX and lastly documents with general functions for images, sharing and login. The JavaScript code consists mostly of functions performed when a page is loaded or when the user interacts with a page. This can be through mouse events or typing text. The style code is a collection of CSS documents used to style the different HTML elements, such as divs, buttons and text fields. All image files are separated from the code documents and placed in their own folder. In figure \ref{fig:CodeStructureStruc} the overall structure can be seen.
 
 \begin{figure}[ht!]
   \centering
@@ -29,8 +29,8 @@ When creating such a comprehensive web site it is very important to create a cod
   \hline
   \cellcolor{gray!25} Function & \cellcolor{gray!25} Description \\
   \hline
-  getComments(threadID) & Fetching all comments related to a threadID from the database. \\
-  insertComment(threadID, parent, username, comment) & Inserts a new comment into the database. All comments have a creator (username), a threadID and the comment itself. If the comment is a reply, it also has a parent comment. \\
+  getComments(threadID) & Fetches all comments related to a \textit{threadID} from the database. \\
+  insertComment(threadID, parent, username, comment) & Inserts a new comment into the database. All comments have a creator (\textit{username}), a \textit{threadID} and the \textit{comment} itself. If the comment is a reply, it also has a \textit{parent} comment. \\
   \hline  
   \end{tabular}
 \end{minipage}
@@ -44,10 +44,10 @@ When creating such a comprehensive web site it is very important to create a cod
   \hline
   \cellcolor{gray!25} Function & \cellcolor{gray!25} Description \\
   \hline
-  addEvent(creator, title, description, interests, coordinates, numPeople, time) & Validates and inserts a new event into the database. All events have a creator(username), a string title and description, max number of people and time (unix timestamp). Additionally they are tagged with interests and geographical coordinates. \\
-  fetchEvent(eventID) & Fetches an event based on the event ID. \\
-  voteEvent(eventID, up, down) & Adds up number of positive votes and down number of negative votes to an event. \\
-  searchEvents(interests, bounds, page) & Fetches a page of events matching tagged under interests within a geographical bound. \\
+  addEvent(username, title, description, interests, coordinates, numPeople, time) & Validates and inserts a new event into the database. All events have a creator(\textit{username}), a string \textit{title} and \textit{description}, max number of people and \textit{time} (unix timestamp). Additionally they are tagged with \textit{interests} and geographical \textit{coordinates}. \\
+  fetchEvent(eventID) & Fetches an event based on the \textit{eventID}. \\
+  voteEvent(eventID, up, down) & Adds \textit{up} number of positive votes and \textit{down} number of negative votes to an \textit{eventID}. \\
+  searchEvents(interests, bounds, page) & Fetches a \textit{page} of events matching tagged under \textit{interests} within a geographical \textit{bound}. \\
   \hline  
   \end{tabular}
 \end{minipage}
@@ -61,8 +61,8 @@ When creating such a comprehensive web site it is very important to create a cod
   \hline
   \cellcolor{gray!25} Function & \cellcolor{gray!25} Description \\
   \hline
-  getInterest(id) & Fetches the interest with the given id. \\
-  HTTP GET interest & Returns a JSON array of interests that begin with interest. \\
+  getInterest(id) & Fetches the interest with the given \textit{id}. \\
+  HTTP GET interest & Returns a JSON array of interests that begin with \textit{interest}. \\
   \hline  
   \end{tabular}
 \end{minipage}
@@ -76,11 +76,11 @@ When creating such a comprehensive web site it is very important to create a cod
   \hline
   \cellcolor{gray!25} Function & \cellcolor{gray!25} Description \\
   \hline
-  addPhoto(uploader, title, coordinates, interests, description) & Validates and inserts a new photo into the database. All photos have an uploader, a string title and description. Additionally they are tagged with interests and geographical coordinates. \\
-  removePhoto(id) & Removes a photo from the database based on the photo id. \\
-  getPhotoDetails(id) & Fetches all data of a photo based on the photo id. \\
-  votePhoto(id, up, down) & Adds up number of positive votes and down number of negative votes to an event. \\
-  searchPhotos(interests, bounds, page) & Fetches a page of photos matching tagged interests within a geographical bound. \\
+  addPhoto(uploader, title, coordinates, interests, description) & Validates and inserts a new photo into the database. All photos have an \textit{uploader}, a string \textit{title} and \textit{description}. Additionally they are tagged with \textit{interests} and geographical \textit{coordinates}. \\
+  removePhoto(id) & Removes a photo from the database based on the photo \textit{id}. \\
+  getPhotoDetails(id) & Fetches all data of a photo based on the photo \textit{id}. \\
+  votePhoto(photoID, up, down) & Adds \textit{up} number of positive votes and \textit{down} number of negative votes to a \textit{photoID}. \\
+  searchPhotos(interests, bounds, page) & Fetches a \textit{page} of photos matching tagged \textit{interests} within a geographical \textit{bound}. \\
   \hline  
   \end{tabular}
 \end{minipage}
@@ -94,9 +94,9 @@ When creating such a comprehensive web site it is very important to create a cod
   \hline
   \cellcolor{gray!25} Function & \cellcolor{gray!25} Description \\
   \hline
-  addUser(username, password, firstName, lastName, gender) & Validates and inserts a new user into the database. All users have a username and a password, as well as a first name, a last name and a gender. \\
-  checkLogin(username, password) & Checks if the password matches the given username. \\
-  usernameExists(username) & Returns true if a username is already taken. \\
+  addUser(username, password, first name, last name, gender) & Validates and inserts a new user into the database. All users have a \textit{username} and a \textit{password}, as well as a \textit{first name}, a \textit{last name} and a \textit{gender}. \\
+  checkLogin(username, password) & Checks if the \textit{password} matches the given \textit{username}. \\
+  usernameExists(username) & Returns true if a \textit{username} is already taken. \\
   \hline  
   \end{tabular}
 \end{minipage}
@@ -110,8 +110,8 @@ When creating such a comprehensive web site it is very important to create a cod
   \hline
   \cellcolor{gray!25} Function & \cellcolor{gray!25} Description \\
   \hline
-  registerVote(contentID, vote) & Registers that the logged in user has voted vote on contentID. \\
-  didVote(contentID) & Returns whether the logged in user has voted on contentID. \\
+  registerVote(contentID, vote) & Registers that the logged in user has voted \textit{vote} on \textit{contentID}. \\
+  didVote(contentID) & Returns whether the logged in user has voted on \textit{contentID}. \\
   \hline  
   \end{tabular}
 \end{minipage}
@@ -128,8 +128,8 @@ When creating such a comprehensive web site it is very important to create a cod
   \hline
   \cellcolor{gray!25} Function & \cellcolor{gray!25} Description \\
   \hline
-  getCommentsForm(id) & Returns the full markup for the comment section for thread id. \\
-  showComment(comments) & Creates the comment thread layout for current and all nested comments inside comments array. \\
+  getCommentsForm(id) & Returns the full markup for the comment section for thread \textit{id}. \\
+  showComment(comments) & Creates the comment thread layout for current and all nested comments inside \textit{comments} array. \\
   \hline
   \end{tabular}
 \end{minipage}
@@ -143,7 +143,7 @@ When creating such a comprehensive web site it is very important to create a cod
   \hline
   \cellcolor{gray!25} Function & \cellcolor{gray!25} Description \\
   \hline
-  HTTP POST & Passes on HTTP POST variables to DBEvent.addEvent(), returns JSON a formatted response. \\
+  HTTP POST & Passes on HTTP POST variables to \textit{DBEvent.addEvent()}, returns JSON a formatted response. \\
   HTTP GET & Returns HTML for event creation form. \\
   \hline
   \end{tabular}
@@ -158,7 +158,7 @@ When creating such a comprehensive web site it is very important to create a cod
   \hline
   \cellcolor{gray!25} Function & \cellcolor{gray!25} Description \\
   \hline
-  HTTP POST image & Checks if image has EXIF GPS coordinates attached to it. \\
+  HTTP POST image & Checks if \textit{image} has EXIF GPS coordinates attached to it. \\
   \hline
   \end{tabular}
 \end{minipage}
@@ -172,7 +172,7 @@ When creating such a comprehensive web site it is very important to create a cod
   \hline
   \cellcolor{gray!25} Function & \cellcolor{gray!25} Description \\
   \hline
-  HTTP POST & Passes on HTTP POST variables to DBUsers.checkLogin(), returns JSON a formatted response. \\
+  HTTP POST & Passes on HTTP POST variables to \textit{DBUsers.checkLogin()}, returns JSON a formatted response. \\
   HTTP GET & Returns HTML for login form. \\
   \hline
   \end{tabular}
@@ -201,7 +201,7 @@ When creating such a comprehensive web site it is very important to create a cod
   \hline
   \cellcolor{gray!25} Function & \cellcolor{gray!25} Description \\
   \hline
-  HTTP GET id & Returns HTML for the overlay with event details, comments and sharing for event id. \\
+  HTTP GET id & Returns HTML for the overlay with event details, comments and sharing for event \textit{id}. \\
   \hline
   \end{tabular}
 \end{minipage}
@@ -215,7 +215,7 @@ When creating such a comprehensive web site it is very important to create a cod
   \hline
   \cellcolor{gray!25} Function & \cellcolor{gray!25} Description \\
   \hline
-  HTTP GET id & Returns HTML for the overlay with photo details, comments and sharing for photo id. \\
+  HTTP GET id & Returns HTML for the overlay with photo details, comments and sharing for photo \textit{id}. \\
   \hline
   \end{tabular}
 \end{minipage}
@@ -229,7 +229,7 @@ When creating such a comprehensive web site it is very important to create a cod
   \hline
   \cellcolor{gray!25} Function & \cellcolor{gray!25} Description \\
   \hline
-  HTTP POST & Passes on HTTP POST variables to DBUsers.addUser(), returns JSON a formatted response. \\
+  HTTP POST & Passes on HTTP POST variables to \textit{DBUsers.addUser()}, returns JSON a formatted response. \\
   HTTP GET & Returns HTML for register form. \\
   \hline
   \end{tabular}
@@ -244,9 +244,9 @@ When creating such a comprehensive web site it is very important to create a cod
   \hline
   \cellcolor{gray!25} Function & \cellcolor{gray!25} Description \\
   \hline
-  uploadImage(title, interests, description, image, coordinates) & Validates and scales an image before inserting it into the database via DBPhotos.addPhoto(). \\
+  uploadImage(title, interests, description, image, coordinates) & Validates and scales an image before inserting it into the database via \textit{DBPhotos.addPhoto()}. \\
   HTTP GET & Returns HTML for upload image form. \\
-  HTTP POST & Passes on HTTP POST variables to uploadImage(), returns JSON a formatted response. \\
+  HTTP POST & Passes on HTTP POST variables to \textit{uploadImage()}, returns JSON a formatted response. \\
   \hline
   \end{tabular}
 \end{minipage}
@@ -260,8 +260,8 @@ When creating such a comprehensive web site it is very important to create a cod
   \hline
   \cellcolor{gray!25} Function & \cellcolor{gray!25} Description \\
   \hline
-  getVoter(database, id, up, down) & Returns HTML for voting from for an item id in database with up number of positive and down number of negative votes. \\
-  HTTP GET & Passes on HTTP GET variables to DBVotes.registerVote(), returns getVoter() form. \\
+  getVoter(database, id, up, down) & Returns HTML for voting from for an item \textit{id} in \textit{database} with \textit{up} number of positive and \textit{down} number of negative votes. \\
+  HTTP GET & Passes on HTTP GET variables to \textit{DBVotes.registerVote()}, returns \textit{getVoter()} form. \\
   \hline
   \end{tabular}
 \end{minipage}
@@ -278,8 +278,8 @@ When creating such a comprehensive web site it is very important to create a cod
   \hline
   \cellcolor{gray!25} Function & \cellcolor{gray!25} Description \\
   \hline
-  scaleImage(image, maxWidth, maxHeight, path) & Scales image to fit inside maxWidth x maxHeight. Saves the result in path. \\
-  getEXIFGPS(image) & Returns coordinates stored in under EXIF GPS tag inside image. \\
+  scaleImage(image, maxWidth, maxHeight, path) & Scales \textit{image} to fit inside \textit{maxWidth} x \textit{maxHeight}. Saves the result in \textit{path}. \\
+  getEXIFGPS(image) & Returns coordinates stored in under EXIF GPS tag inside \textit{image}. \\
   \hline
   \end{tabular}
 \end{minipage}
@@ -293,11 +293,11 @@ When creating such a comprehensive web site it is very important to create a cod
   \hline
   \cellcolor{gray!25} Function & \cellcolor{gray!25} Description \\
   \hline
-  login(username, password) & Checks if password matches the given username. If matching, the user is signed in. \\
-  loginPlainText(username, password) & Hashes the plaintext password and calls login(). \\
-  logout() & The user is signed out. \\
+  login(username, password) & Checks if \textit{password} matches the given \textit{username}. If matching, the user is signed in. \\
+  loginPlainText(username, password) & Hashes the plaintext \textit{password} and calls \textit{login()}. \\
+  logout() & The current user is signed out. \\
   isLoggedIn() & Checks if user is signed in. \\
-  HTTP GET out & Calls logout() \\
+  HTTP GET out & Calls \textit{logout()}. \\
   \hline
   \end{tabular}
 \end{minipage}
@@ -311,7 +311,7 @@ When creating such a comprehensive web site it is very important to create a cod
   \hline
   \cellcolor{gray!25} Function & \cellcolor{gray!25} Description \\
   \hline
-  getShareButtons(url, title, description) & Returns HTML sharing buttons for url, with title and a description. \\
+  getShareButtons(url, title, description) & Returns HTML sharing buttons for \textit{url}, with \textit{title} and a \textit{description}. \\
   \hline
   \end{tabular}
 \end{minipage}
@@ -325,7 +325,7 @@ When creating such a comprehensive web site it is very important to create a cod
   \hline
   \cellcolor{gray!25} Function & \cellcolor{gray!25} Description \\
   \hline
-  unixTimeToStringDate(timestamp) & Converts Unix timestamp to the format (DD MM YYYY) \\
+  unixTimeToStringDate(time) & Converts Unix \textit{time} to the format (DD MM YYYY). \\
   \hline
   \end{tabular}
 \end{minipage}
@@ -342,11 +342,11 @@ When creating such a comprehensive web site it is very important to create a cod
   \hline
   \cellcolor{gray!25} Function & \cellcolor{gray!25} Description \\
   \hline
-  initializeGMaps() & Creates a Google Maps map, Google Maps places autocomplete and creates events listeners to call doSearch(). \\
-  initializeTokenAutoComplete() & Initializes jQuery Tokeninput with event listeners to call doSearch(). \\
+  initializeGMaps() & Creates a Google Maps map, Google Maps places autocomplete and creates events listeners to call \textit{doSearch()}. \\
+  initializeTokenAutoComplete() & Initializes jQuery Tokeninput with event listeners to call \textit{doSearch()}. \\
   initializePageListeners() & Initializes other page listeners, such as mouse scroll listeners to load more elements and click listeners to display the overlay with expanded view. \\
-  doSearch(append) & Performs a search with the currently selected interests, bounds and database. If append is set, the result will be appended to the bottom, otherwise all previous results will be replaced with new result. \\
-  vote(vote, contentID, database) & Sends AJAX request to register vote on contentID in database. \\
+  doSearch(append) & Performs a search with the currently selected interests, bounds and database. If \textit{append} is set, the result will be appended to the bottom, otherwise all previous results will be replaced with new result. \\
+  vote(vote, contentID, database) & Sends AJAX request to register \textit{vote} on \textit{contentID} in \textit{database}. \\
   \hline
   \end{tabular}
 \end{minipage}
@@ -360,8 +360,8 @@ When creating such a comprehensive web site it is very important to create a cod
   \hline
   \cellcolor{gray!25} Function & \cellcolor{gray!25} Description \\
   \hline
-  addComment(where, parent) & Adds a HTML form to where with parent id. \\
-  addSubmit(from, parent) & Sends AJAX request to post a comment with parent id that is closest to from. \\
+  addComment(where, parent) & Adds a HTML form to \textit{where} with \textit{parent} id. \\
+  addSubmit(from, parent) & Sends AJAX request to post a comment with \textit{parent} id that is closest to \textit{from}. \\
   \hline
   \end{tabular}
 \end{minipage}
