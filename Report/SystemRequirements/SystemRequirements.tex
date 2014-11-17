@@ -3,13 +3,13 @@
 
 \section{Introduction}
 \label{sec:SysReqIntro}
-In this chapter we will present the system requirements, discovered both through conversation with the customer about their vision and through brainstorming sessions within the group. Since we were only given a brief vision of what the customer wanted, most requirements comes from the brainstorming sessions. The system requirements are divided into functional and nonfunctional requirements and will be described in more detail through a series of use-cases at the end of this section.
+In this chapter we will present the system requirements, discovered both through conversation with the customer about their vision and through brainstorming sessions within the group. Since we were only given a limited vision of what the customer wanted, most requirements come from the brainstorming sessions. The system requirements are divided into functional and nonfunctional requirements and will be described in more detail through a series of use-cases at the end of this section.
 
-\subsection{Definitions, acronyms and abbreviations}
+\subsection{Definitions, Acronyms and Abbreviations}
 \label{subsec:SysIntroReqDefs}
 
 \subsubsection*{User}
-A user is in this case the end-user of the web page. Since the web page are directed towards youth the typical end-user will be a teenager. 
+A user is in this case the end-user of the web page. Since the web page is directed towards youth the typical end-user will be a teenager. 
 
 \subsubsection*{Interactive Map}
 The interactive map is google maps. In addition to navigate to different locations the map will in some cases show event information.
@@ -18,15 +18,15 @@ The interactive map is google maps. In addition to navigate to different locatio
 A tag is in this case a word that helps describe a comment, picture, video or event. In this system all tags will be interests. 
 
 \subsubsection*{Administrator}
-An administrator is a person that can control and configure a part of a system or the entirety  of a system. In this system there are two types of administrators,  group administrators and system administrators. A group administrator is typically an end-user controlling a group page. A system administrator can control and make changes to the entire system.
+An administrator is a person who is able to control and configure a part of a system or the entirety  of a system. In this system we envision two types of administrators, group administrators and system administrators. A group administrator is typically an end-user controlling a group page. A system administrator can control and make changes to the entire system.
 
-\paragraph{Overview:}
-The system is a social platform for urban youth to express themselves. The users of the system will have the ability to upload pictures and videos to specific locations, host events and post comments. The system will be realized as a web page.
+\subsubsection*{Overview}
+The system is a social platform urban youth to express themselves on. The users of the system will have the ability to upload pictures and videos to specific locations, host events and post comments. The system will be realized as a web page.
 
-\subsection{Overall description}
+\subsection{Overall Description}
 \label{subsec:SysReqIntroDescr}
 
-\paragraph{Product Perspective:} At T\o yen in Oslo, a number of new outdoor places for the youth are in the process of being built. As a part of that process, the researchers at AFI and the local politicians in the area wants input from the youth themselves. They want to see how the youth in the area express themselves both through picture and video uploads and through written comments. With this information they hope to get a better understanding of what can be done in order to improve the everyday life of the youth in the area. As well as being a source of information, the media uploads and comments will also create a social platform on its own where the youth can connect.
+At T\o yen in Oslo, a number of new outdoor places for youth are in the process of being built. As a part of that process, the researchers at AFI and the local politicians in the area wants input from the youth themselves. They want to see how the youth in the area express themselves both through picture and video uploads and through written comments. With this information they hope to get a better understanding of what can be done in order to improve the everyday life of the youth in the area. As well as being a source of information, the media uploads and comments will also create a social platform on its own where the youth can connect.
 \subparagraph{} The system has three interfaces/parts:
 \begin{itemize}
     \item Web Client (End users)
@@ -37,17 +37,16 @@ The system is a social platform for urban youth to express themselves. The users
 \subsection{User characteristics}
 \label{subsec:SysReqIntroUserChar}
 
-\subsubsection*{Youth:}
-As this system are aimed towards the youth, most of the users will be in the age of 12 to 20 years old. This is mostly users with prior experience of media sharing web pages and a user group that expects a certain level of intuitive design and functionality.
+As this system is aimed towards youth, most of the users will be in the age of 12 to 20 years old. These are mostly users with prior experience of media sharing web pages and a user group that expects a certain level of intuitive design and functionality.
 
 \subsection{Constraints}
 \label{subsec:SysReqIntroConstr}
 
-\subsubsection*{Time Constraints:} 
+\subsubsection*{Time Constraints} 
 This system will be developed over a short period of time. The resulting prototype will therefore be limited in functionality and design, but will contain the most important functionality. Some functionality will therefore have to be implemented at a later stage to have a fully functional system.
-\subsubsection*{Assumptions and dependencies:} As the system we are developing is a web page with a database for storing user information and uploaded media, the system will always depend on an internet connection and an operational database. Because of moderation issues the system is also dependent on an administrator to remove potential inappropriate  media. The projects as a whole assume that the potential users will share the “correct” types of pictures and videos. “Correct” in this context can be pictures of interesting locations and videos of someone skating at a newly created skate ramp, while  “Incorrect” could be a lot of selfies.
+\subsubsection*{Assumptions and Dependencies} As the system we are developing is a web page with a database for storing user information and uploaded media, the system will always depend on an internet connection and an operational database. Because of moderation issues the system is also dependent on an administrator to remove potential inappropriate  media. The projects as a whole assume that the potential users will share the “correct” types of pictures and videos. “Correct” in this context can be pictures of interesting locations and videos of someone skating at a newly created skate ramp, while  “Incorrect” could be a lot of selfies.
 
-\section{Nonfunctional and functional requirements}
+\section{Non-functional and Functional Requirements}
 \label{sec:SysReqReqs}
 
 \subsection{Functional Requirements}
@@ -87,7 +86,7 @@ F18: The user should be able to suggest new interest-tags to be created.\\
 F19: It should be possible to vote on suggested interest tags.\\
 F20: When the number of votes for a specific interest tag has reached some set limit, the interest tag will be added if approved by the web page administrator.
 
-\subsection{Non-functional requirements}
+\subsection{Non-functional Requirements}
 \label{subsec:SysReqReqsNonFunc}
 
 \subsubsection{Usability}
@@ -120,14 +119,14 @@ F20: When the number of votes for a specific interest tag has reached some set l
 
 \subsection{Technical System Requirements}
 \label{subsec:SysReqReqsTechnical}
-The web page will be compatible with all modern web browsers. These include Google Chrome, Firefox, Safari and Opera. For the front end of the page we use HTML version 5 and CSS version 3.
+The web page is compatible with all modern web browsers. These include Google Chrome, Firefox, Safari and Opera. For the front end of the page we use HTML version 5 and CSS version 3.
 
 \section{Use Cases}
 \label{sec:SysReqUseCases}
 
 A use case is a description or list of steps of what to do, in order to achieve a goal. It should define the interactions between an actor and the system itself. Here we present use cases with both textual descriptions and diagrams. The purpose of this is to get a better understanding of the system requirements and functions.
 
-\subsection{Use Cases related to the end users}
+\subsection{Use Cases Related to the End Users}
 
 \begin{minipage}{\linewidth}
 \rowcolors{1}{blue!20}{blue!10}
