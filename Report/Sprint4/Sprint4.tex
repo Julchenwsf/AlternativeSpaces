@@ -8,9 +8,9 @@ In the third sprint of the project the user feedback had been collected from the
 
 Since feedback had been collected from end users at the workshop in Oslo, the group started working on suggestions given by users. The most important decision was whether to start the creation of a mobile app, as this had been the feature that had been most in demand by the end users. Regardless of whether a mobile app would be created, the back-end for picture uploads had to be completed. Meetings would keep focusing on discussing user feedback, and which parts we could and could include in the scope of this project, and what would be considered further work to be done by others at a later time. In the end we decided the added usability of having a mobile app meant we needed one and we decided to make an application with functionality limited to uploading pictures. This, along with other decisions made based on the feedback, will be discussed further in section \ref{sec:S4DesignImpl} and \ref{subsec:S4RetrospectiveGroupDynamics}.
 
-\paragraph{} Much of the group would need to focus on having everything ready for the pre-delivery, and this would become more and more important as the sprint went on. As we phased more and more people over from implementation to working on the report and pre-delivery, we left the two most experienced developers on doing work on the intended mobile application.
+\paragraph{} Much of the group had to focus on getting everything ready for the pre-delivery, and this would become more important as the sprint went on. As we phased more people over from implementation to working on the report and pre-delivery, we left the two most experienced developers doing work on the intended mobile application.
 
-\paragraph{} We'd also have a session in the right use of YouTrack, which included everyone taking the time to insert time they had spent on tasks in the backlog, in order to get a burndown chart of the work we had already done.
+\paragraph{} We would also have a session in the right use of YouTrack, which included everyone taking the time to insert time they had spent on tasks in the backlog, in order to get a burndown chart of the work we had already done.
 
 \begin{figure}[ht!]
   \centering
@@ -34,7 +34,7 @@ Since feedback had been collected from end users at the workshop in Oslo, the gr
 	\it{Start} & October 6th \\
 	\it{End} & October 19th. \\
 	\it{Workload} & Hours spent by the entire group on Sprint 3. \\
-	\it{Goal} & 40-50 hours per person \\
+	\it{Goal} & 40 - 50 hours per person \\
 	\hline
 \end{tabular}
 \end{minipage}\\%
@@ -74,7 +74,7 @@ The group managed its target at 20.7 hours per person per week this sprint, and 
 \hline
 CDP-26 & Create basic Android app to browse Alternative Spaces. Initial focus on upload of pictures with possibility to extend to browse entire site by embedding a browser in the app. & 2w & 1w1d2h30m \\
 CDP-23 & Create the database table for the event. This is a design task, so think of all the fields that we need to describe an event, f.ex. time, location, title, description, interests, etc. & 2h & 2h \\ 
-RPT-3  & Report pre-delivery, to be delivered to the supervisor. By no means are these the completed finished versions, and they will not be graded  & 1d4h45m & 2d7h15m \\
+RPT-3  & Report pre-delivery, to be delivered to the supervisor. By no means are these the completed finished versions, and they will not be graded  & 1d6h & 2d9h30m \\
 \hline
 \end{tabular}
 \captionof{table}{Backlog for Sprint 3.} 
@@ -102,7 +102,7 @@ CDP-40 & \it{Add checks to deal with when location and/or Internet service is un
 \rowcolors{1}{blue!20}{blue!10}
 \begin{tabular}{|p{1cm}|p{4cm}|p{2cm}|p{2cm}|}
 \hline
-\multicolumn{4}{|c|}{RPT-3} \\
+\multicolumn{4}{|c|}{\cellcolor{gray!25}RPT-3} \\
 \hline
 RPT-4 & \it{Write the abstract, consult the technical writing presentation if in doubt, 0.5 page~ish} & 1h & 45m \\
 RPT-5 & \it{Write introduction} & 2h & 5h \\
@@ -117,8 +117,8 @@ RPT-7 & \it{Justification of choice of lifecycle model} & 4h & 7h \\
 
 As mentioned in section \ref{sec:S4Plan}, the early parts of this sprint focused a lot on how the feedback from end users would change our design.
 
-\paragraph{} The most important feedback from the workshop on was the necessity of a mobile application. Since many young people in the T\o yen area do not have a personal computer, only a phone, it would be difficult to get youth interested in the webpage if they didn't have a good way to upload pictures to the site themselves.
-\subparagraph{} The group had originally decided on only a webpage as the platform of choice for this project, with a mobile app considered something that could be discussed as an important future development. With this new feedback, especially the fact computers might not be an option for many kids in the area the prototype would be tested in, however, we needed a serious discussion of the possibility for a mobile app. The group realized that the picture uploading had to be developed anyway, and as far as the backend was concerned, mobile or web didn't matter much. Brage had experience developing apps for Android, and he was of the opinion that developing a limited app, for example focusing on picture uploads only, was definitely possible within our time-frame.
+\paragraph{} The most important feedback from the workshop was the necessity of a mobile application. Since many young people in the T\o yen area do not have a personal computer, only a phone, it would be difficult to get youth interested in the webpage if they did not have a good way to upload pictures to the site themselves.
+\subparagraph{} The group had originally decided on only a webpage as the platform of choice for this project, with a mobile app considered something that could be discussed as an important future development. With this new feedback, especially the fact computers might not be an option for many kids in the area the prototype would be tested in, however, we needed a serious discussion of the possibility for a mobile app. The group realized that the picture uploading had to be developed anyway, and as far as the backend was concerned, mobile or web did not matter much. Brage had experience developing apps for Android, and he was of the opinion that developing a limited app, for example focusing on picture uploads only, was definitely possible within our time-frame.
 \subparagraph{} In the end, since getting people to upload pictures was such a core feature in the project, a mobile app seemed like the only good choice. We decided that development this sprint would focus on designing a limited app for uploading photos to the page. The results are seen in figure \ref{fig:S4DesignImplAppStart} and \ref{fig:S4DesignImplAppUpload}.
 
 \begin{figure}
@@ -145,7 +145,7 @@ As mentioned in section \ref{sec:S4Plan}, the early parts of this sprint focused
 \section{Testing and results}
 \label{sec:S4Testing}
 
-Since no branches were merged into the master branch this sprint, no integration testing was needed. The testing focused on the Android application. Testing was usually done straight after a change to the app, by testing every required operation after the new code had been added, and bugfixing proceeded immediately after finding one, with focus shifting from feature introduction to fixing the problem at hand. On the back-end, there was done testing on the tables to make sure they were correct.
+Since no branches were merged into the master branch this sprint, no integration testing was needed. The testing focused on the Android application. Testing was usually done straight after a change to the app, by testing every required operation after the new code had been added, and bug fixing proceeded immediately after finding a bug, with focus shifting from feature introduction to fixing the problem at hand. On the back-end, testing was done on the tables to make sure they were correct.
 
 \begin{figure}
     \centering
@@ -196,11 +196,11 @@ Since no branches were merged into the master branch this sprint, no integration
 \subsection{Group Dynamics}
 \label{subsec:S4RetrospectiveGroupDynamics}
 
-The amount of work done went up since previous sprints, and we should be able to reach the group's goal in the next sprint if we keep this up. We've managed to implement the scrum methodology better, with retrospectives at the meetings, and a good overview of what's being worked on through YouTrack.
+The amount of work done went up even further this sprint, and we finally reached the group’s goal of over 20 hours per week for each member. We managed to implement the scrum methodology better, with retrospectives at the meetings, and a good overview of what was being done using YouTrack.
 
 \paragraph{} The biggest challenge this sprint was the change in design for the project. With the new scope including an Android application. Because of the feedback, we had to find a way to fit this new plan into our time-frame, and we decided to make the app very hight priority, and rather push less important features out of the scope of the project, rather than deliver a prototype with a core feature that would not be easily used by the target audience.
 
-\paragraph{} As mentioned in chapter \ref{chap:S2}, there were many other changes also suggested at the presentation in Oslo. We spent a lot of time discussing which of these changes we'd implement and which were either put off to future work, or scrapped entirely. Suggestions that were put off will be discussed further in chapter \ref{chap:Further} along with our own thoughts regarding important features we did not have time to add.
+\paragraph{} As mentioned in chapter \ref{chap:S2}, there were many other changes also suggested at the presentation in Oslo. We spent a lot of time discussing which of these changes we would implement and which were either put off to future work, or scrapped entirely. Suggestions that were put off will be discussed further in chapter \ref{chap:Further} along with our own thoughts regarding important features we did not have time to add.
 
 \paragraph{} Other than the lack of a mobile application, the second most important feedback was regarding the size of the map in the photos screen on the web page. The end users found it too small, which made it difficult to navigate, and the lack of an ability to search for locations by address was also a drawback. We decided that both of these were important changes to make. Neither would take too much time, and it was an important layer of polish for the prototype. Sharing to other social media was also considered a simple thing to add to the page to make those functionalities we had more polished. Much of the early part of the next sprint was spent discussing different ways of responding to some of the other feedback from users.
 
