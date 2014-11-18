@@ -4,7 +4,7 @@
 This chapter explains the architecture of the Alternative Spaces project. The following definition of software architecture is used for this project, originally used in the book ``Software Architecture in Practice'' by \cite{bass2012software} and also used by the course TDT4240 Software Architecture at NTNU. 
 \bigskip
 \hfill\begin{minipage}{\dimexpr\textwidth-1cm}
-\emph{``The software architecture of a program or computing system is the structure or structures of the system, which comprise software elements, the externally visible properties of those elements, and the relationships among them.''}
+\emph{"The software architecture of a program or computing system is the structure or structures of the system, which comprise software elements, the externally visible properties of those elements, and the relationships among them."}
 \end{minipage}
 
 \paragraph{} This chapter discusses the different architectural drivers, architectural views, architectural patterns, and architectural rationale of the system. The purpose of the architecture document is to supply the stakeholders with an organized description of the system architecture, to be used as a means to understand the system and as a basis for further development of the system. 
@@ -17,7 +17,7 @@ The architectural drivers of this project are the functional requirements, quali
 
 \subsection{Functional Requirements}
 \label{subsec:ArchDriversFunctional}
-The functional requirements defines the functions of the system and its components, and the functional requirements related to this project are defined in the Requirements-document found in Part 1 of the report. Because this project is a prototype, which aims at giving the customer a look into how a future system like this would work, the functional requirements are the main drivers of the architecture and have the greatest influence on the architecture of the system.
+The functional requirements defines the functions of the system and its components, and the functional requirements related to this project are defined in the Requirements-document found in \ref{part:PlanReq} of the report. Because this project is a prototype, which aims at giving the customer a look into how a future system like this would work, the functional requirements are the main drivers of the architecture and have the greatest influence on the architecture of the system.
 
 \subsection{Non-functional Requirements}
 \label{subsec:ArchDriversNonfunctional}
@@ -50,7 +50,7 @@ Our logical view shows our three-tier client-server architecture tiers: the pres
 \end{figure}
 
 \subsubsection{Presentation Tier}
-The top-level tier is the information the user is presented with and interacts with on the website. The users view the content, received as HTML or JSON responses from the server, on a web browser or a mobile application, respectfully.  In other words the presentation tier is the views of the web page or mobile application which the user interacts with. As the user interacts with the content of the web page or application, HTTPS/HTML calls are made to the server, which are processed and the results of the other tiers' processes are displayed to the browser/mobile application.
+The top-level tier is the information the user is presented with and interacts with on the website. The users view the content, received as HTML or JSON responses from the server, on a web browser or a mobile application, respectively.  In other words the presentation tier is the views of the web page or mobile application which the user interacts with. As the user interacts with the content of the web page or application, HTTPS/HTML calls are made to the server, which are processed and the results of the other tiers' processes are displayed to the browser/mobile application.
 
 \subsubsection{Business Logic \& Communication Tier}
 The logical tier is the layer that deals with the communication between the tiers, and the application functionality by processing the input and output information communicated between the presentation and data tier. Each client communicates directly to the server, which processes the data. The slight difference in communication on the web and mobile front it that the web clients make HTTPS/HTML (HyperText Transfer Protocol Secure) calls and responses, while the mobile clients make HTTPS calls but receive JSON (JavaScript Object Notation) responses. The logic tier is stored on the server. 
