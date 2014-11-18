@@ -25,7 +25,7 @@ The non-functional requirements defined for this system are usability, performan
 
 \subsection{Business Requirements}
 \label{subsec:ArchDriversBusiness}
-The project spans over a time of 12 weeks. This is a very short period of time compared to the complexity of the product, and therefore the main business requirement of the product is to create a partial, but fully functional prototype of the desired product for the customer within the time frame. The main influence of the business requirements in regards to the system architecture is the level of complexity and optimalization of the architecture. Using complex and advanced patterns that may be more benefitial to implement than going for a head on implementation will, because of lack of experience, require too much time for research and implementation. For this reason, implementing architectural and design patterns have not been prioritized. Though the customer is the most relevant stakeholder relative to the project team in regards to the development of the system, they have little influence on the architecture of the product. The customer has expressed that technical decisions are mainly to be decided by the development team, but have still been included in every step of the process to ensure customer satisfaction.
+The project spans over a time of 12 weeks. This is a very short period of time compared to the complexity of the product, and therefore the main business requirement of the product is to create a partial, but fully functional prototype of the desired product for the customer within the time frame. The main influence of the business requirements in regards to the system architecture is the level of complexity and optimization of the architecture. Using complex and advanced patterns that may be more beneficial to implement than going for a head on implementation will, because of lack of experience, require too much time for research and implementation. For this reason, implementing architectural and design patterns have not been prioritized. Though the customer is the most relevant stakeholder relative to the project team in regards to the development of the system, they have little influence on the architecture of the product. The customer has expressed that technical decisions are mainly to be decided by the development team, but have still been included in every step of the process to ensure customer satisfaction.
 
 \subsection{Technical Requirements}
 \label{subsec:ArchDriversTechnical}
@@ -50,7 +50,7 @@ Our logical view shows our three-tier client-server architecture tiers: the pres
 \end{figure}
 
 \subsubsection{Presentation Tier}
-The top-level tier is the information the user is presented with and interacts with on the website. The users view the content, received as HTML or JSON responses from the server, on a web browser or a mobile application, respectfully.  In other words the presentation tier is the views of the webpage or mobile application which the user interacts with. As the user interacts with the content of the webpage or application, HTTPS/HTML calls are made to the server, which are processed and the results of the other tiers' processes are displayed to the browser/mobile application. 
+The top-level tier is the information the user is presented with and interacts with on the website. The users view the content, received as HTML or JSON responses from the server, on a web browser or a mobile application, respectfully.  In other words the presentation tier is the views of the web page or mobile application which the user interacts with. As the user interacts with the content of the web page or application, HTTPS/HTML calls are made to the server, which are processed and the results of the other tiers' processes are displayed to the browser/mobile application.
 
 \subsubsection{Business Logic \& Communication Tier}
 The logical tier is the layer that deals with the communication between the tiers, and the application functionality by processing the input and output information communicated between the presentation and data tier. Each client communicates directly to the server, which processes the data. The slight difference in communication on the web and mobile front it that the web clients make HTTPS/HTML (HyperText Transfer Protocol Secure) calls and responses, while the mobile clients make HTTPS calls but receive JSON (JavaScript Object Notation) responses. The logic tier is stored on the server. 
@@ -61,7 +61,7 @@ The data tier includes the server, with the database and the stored objects and 
 %\newpage
 \subsection{Physical View}
 \label{subsec:ArchViewsPhysical}
-The physical view explains the mappings of the components that comprise the system, including server, web browsers, mobile platform, the database and the models. The physical components of the system are the server, and the clients web (e.g. computers) and mobile devices (android cell phone). All application logic is found on the server, which the clients devices communicate with. 
+The physical view explains the mappings of the components that comprise the system, including server, web browsers, mobile platform, the database and the models. The physical components of the system are the server, and the clients web (e.g. computers) and mobile devices (running Android OS). All application logic is found on the server, which the clients devices communicate with.
 
 \begin{figure}
 \centering
@@ -72,7 +72,7 @@ The physical view explains the mappings of the components that comprise the syst
 %\newpage
 \subsection{Development View}
 \label{subsec:ArchViewsDevelopment}
-The development view shows the structure of the web application system from the developers view point. The system is divided into four different folders. Back end includes all php-code that has to deal with the database and webpages. The image and css folders contain graphics including all styling and images. The js folder contains all javascript files dealing with the interactivity between components and objects of the website. The development view for the android application has not been included as the functions are limited, and all functions are already found on the web application.
+The development view shows the structure of the web application system from the developers view point. The system is divided into four different folders. Back end includes all PHP-code that has to deal with the database and web pages. The image and css folders contain graphics including all styling and images. The js folder contains all javascript files dealing with the interactivity between components and objects of the website. The development view for the Android application has not been included as the functions are limited, and all functions are already found on the web application.
 
 \begin{figure}
 \centering
@@ -97,15 +97,15 @@ The process view is an activity diagram which shows the flow between different a
 \label{sec:ArchPatterns}
 The following definition of architectural patterns is used for this project, and developed by \cite{taylor2009software}.
 \bigskip
-\emph{"An architectural pattern is a named collection of architectural design decisions that are applicable to a recurring design problem, parameterized to account for different software development contexts in which that problem appears."}
+\emph{"An architectural pattern is a named collection of architectural design decisions that are applicable to a recurring design problem, parametrized to account for different software development contexts in which that problem appears."}
 
 \paragraph{} For the development of the web application four different architectural principles were merged together in during the implementation of the product. Service-oriented Architecture, Client-Server Architecture, Multi-Tier Architecture and Model-View-Controller Design Pattern were used for the web application. For the mobile application with limited functionality, simplicity was in focus. Architectures implemented on the mobile front was Client-Server, and the Model-View-Controller and Three Tier architectures as they walk hand in hand and are necessary for the mobile application to work. 
 
 \subsection{Client-Server Architecture} 
-The most obvious architecture implemented for mysplot is the Client-Server architecture. The client-server architecture is based on the principle of having one or more application servers providing a service to the clients, the end users of mysplot. As the mysplot server is connected to the internet, the service is provided for any person (client) using a web browser connected to the internet. 
+The most obvious architecture implemented for MySplot is the Client-Server architecture. The client-server architecture is based on the principle of having one or more application servers providing a service to the clients, the end users of MySplot. As the MySplot server is connected to the internet, the service is provided for any person (client) using a web browser connected to the internet.
 
 \subsection{Service-oriented Architecture}
-Closely tied to the Client-Server architecture is the Service-Oriented Architecture (SOA). The SOA architecture of mysplot on the web application front provides application functionality as a service to the end users' web browsers via a protocol. The service provided by mysplot is the application functionality found on the server. The development of the entire product has been implemented by actively communicating with and focusing on how the target users of the service want the final product to be. To fullfil the Client-Server and Service-Oriented architectures the Model-View-Controller and the Multi-Tier architectures have also been merged into the architecture. 
+Closely tied to the Client-Server architecture is the Service-Oriented Architecture (SOA). The SOA architecture of MySplot on the web application front provides application functionality as a service to the end users' web browsers via a protocol. The service provided by MySplot is the application functionality found on the server. The development of the entire product has been implemented by actively communicating with and focusing on how the target users of the service want the final product to be. To fulfill the Client-Server and Service-Oriented architectures the Model-View-Controller and the Multi-Tier architectures have also been merged into the architecture.
 
 \begin{figure}
 \centering
@@ -114,7 +114,7 @@ Closely tied to the Client-Server architecture is the Service-Oriented Architect
 \end{figure}
 
 %\newpage
-\subsection{Three-Tier Architecture and Model-View-Controller Pattern} Three-Tier Architecture is simplest case of the Multi-Tier Architectural Pattern, including a Presentation Tier, Business Logic Tier and a Data Tier. This architectural style was introduced earlier and shown in practice in the Architectural Views section. The Three-Tier architecture deployed in mysplot has adopted the Model-View-Controller Design Pattern, whereas the controllers and views are in the presentation tier, and the model in the business tier. See the Architectural View section ``Logical View'' for a further description. 
+\subsection{Three-Tier Architecture and Model-View-Controller Pattern} Three-Tier Architecture is simplest case of the Multi-Tier Architectural Pattern, including a Presentation Tier, Business Logic Tier and a Data Tier. This architectural style was introduced earlier and shown in practice in the Architectural Views section. The Three-Tier architecture deployed in MySplot has adopted the Model-View-Controller Design Pattern, whereas the controllers and views are in the presentation tier, and the model in the business tier. See the Architectural View section ``Logical View'' for a further description.
 
 \begin{figure}
 \centering
