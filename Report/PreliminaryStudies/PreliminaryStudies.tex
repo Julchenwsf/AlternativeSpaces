@@ -3,9 +3,26 @@
 
 This chapter describes the two week long initial phase of this project, from 28.08.2014 to 15.09.2014, which was used to create frameworks for both social and technical procedures. During this phase the project goal was defined and solutions were discussed. After deciding on a solution it was further conceptualized by creating use cases and functional requirements, as well as investigating the current market situation. The chapter includes an overview of what we did in this phase and also details the life cycle model used in this project.
 
-\section{Work Done this Phase}
+\section{Duration}
+
+\begin{minipage}{\linewidth}
+\centering
+\setlength{\tabcolsep}{22pt}
+\textbf{Preliminary Studies:} \\ 
+\smallskip
+\rowcolors{1}{blue!20}{blue!10}
+\begin{tabular}{ |l l| }
+	\hline
+	\it{Duration} & 18 days \\
+	\it{Start} & August 28th \\
+	\it{End} & September 14th \\
+	\hline
+\end{tabular}
+\end{minipage}
+
+\section{Preliminary Tasks}
 \label{sec:PrelimWork}
-The preliminary studies phase started on 28.08.14 with the first meeting between the group and the customer. At this meeting the customer presented their idea of a service which would serve as a virtual city space and enable youth to share mediated expressions. At the time of the meeting the customer only had an abstract idea of the service, with few a concrete features they wanted and no preferred approach to deliver these features, the tasks of creating a design through which the services would be provided was left to the group. The tasks to be completed in the project specified in this meeting are[customer - 28.08.14]:
+The preliminary studies phase started on 28.08.14 with the first meeting between the group and the customer. At this meeting the customer presented their idea of a service which would serve as a virtual city space and enable youth to share mediated expressions. At the time of the meeting the customer only had an abstract idea of the service, with few a concrete features they wanted and no preferred approach to deliver these features, the tasks of creating a design through which the services would be provided was left to the group. The tasks to be completed in the project specified in this meeting are:
 \begin{itemize}
   \item To design a new platform experience that can facilitate digital sharing of mediated expressions across urban communities globally.
   \item A commercial-free digital hub where youth can upload, share and create content.
@@ -19,10 +36,16 @@ The preliminary studies phase started on 28.08.14 with the first meeting between
   \label{fig:PrelimWorkSketch}
 \end{figure}
 
-Following this meeting the group had several meetings where different ideas were considered and discussed. During the two weeks in this initial phase the group had group meetings or other compulsory team activities five days a week. The frequent meetings were crucial in ensuring that the group thoroughly discussed all ideas and arrived at a concept without large disagreements or misunderstandings.
+Following the first customer meeting the group had several meetings where different ideas were considered and discussed. During the two weeks in this initial phase the group had group meetings or other compulsory team activities five days a week. The frequent meetings were crucial in ensuring that the group thoroughly discussed all ideas and arrived at a concept without large disagreements or misunderstandings.
 \paragraph{} By the end of the first week a core concept was conceived detailing the necessary functions for a web application. An initial demo was made combining some of these functions with the basic design idea the customer had presented on the initial meeting. During the second week of this phase the group decided how to solve some of the technical issues relating to the basic design of the service, and preliminary studies of the target market were begun. The results of the initial market investigations are included at the end of the chapter, even though the finishing touches were done at the start of the first sprint.
 
-\subsection{Concretizing and Narrowing Down the Project}
+\begin{figure}[bthp]
+  \includegraphics[width=\linewidth]{./PreliminaryStudies/img/FirstDemo.jpg}
+  \caption{Initial demonstration of the website.}
+  \label{fig:PrelimWorkInitDemo}
+\end{figure}
+
+\subsection{Project Concretization}
 \label{subsec:PrelimWorkConcret}
 
 In order to make a concrete set of requirements detailing the core functionalities of the system, an initial set of use cases were made, representing the initial actions the group would want to be able to make with a service like the one described by the customer. After making this set of use cases the customer was asked to prioritize them to further enable proper work distribution on the project. These initial use cases were:
@@ -37,7 +60,7 @@ In order to make a concrete set of requirements detailing the core functionaliti
 \end{enumerate}
 
 The use cases were also used to specify the first draft of the system requirements. By applying the use case based project estimation process to these use cases we end up with an estimate of about 800 person hours of coding to complete all the functions.
-\paragraph{} By the end of the first week a demo was developed to illustrate the basic functions, this demo used a map on which arrangements were displayed as small icons which could be clicked to expand a sidebar with further information about the event. The events were classified as belonging to an interest and could be filtered these interests by using of a search bar.
+\paragraph{} By the end of the first week a demo was developed to illustrate the basic functions, this demo used a map on which events were displayed as small icons which could be clicked to expand a sidebar with further information about the event, as shown in figure \ref{fig:PrelimWorkInitDemo}. The events were classified as belonging to an interest and could be filtered these interests by using of a search bar.
 \paragraph{} Other features were also considered but were decided against for different reasons, see the further work sections for a comprehensive list of features that we think should be included in future versions. The customer suggested a streaming feature for sharing live shows and other arrangements, however due to the limited time frame of the project the livestream feature was postponed to a future version as it would require too much time and thus degrade the quality of the core features of the system.
 
 \subsection{Project Choices}
@@ -46,15 +69,17 @@ The use cases were also used to specify the first draft of the system requiremen
 During this first phase many decisions had to be made regarding the overall design of the project. Among other things the platform to be focused on had to be decided and cleared with the group. The initial presentation stated participation as a goal and the illustration of the idea was as a web page. As a web page is available through all modern browsers and can be accessed from all computers with an internet connection, while a mobile application is limited to a specific operating system and can not be accessed from a computer the group decided to focus on a web page interface in the limited time frame of the project.
 
 
-\subsubsection{Location management}
-A more technical choice of solution occurred in regards to how places were managed in the system, two different models were considered as solutions to this problem. One model uses pre-generated locations, like club houses, cafes, or parks as a basis for where content can be located, this model was dubbed the Location model. For instance a football match would be located at a defined football field, while a concert might be located at a bar.
+\subsubsection{Location Management}
+A more technical choice of solution occurred in regards to how places were managed in the system. Two different models were considered as solutions to this problem. One model uses pre-generated locations, like club houses, cafes, or parks as a basis for where content can be located, this model was dubbed the Location model. For instance a football match would be located at a defined football field, while a concert might be located at a bar.
 
-\subsubsection{Location model}
+\subsubsection{Location Model}
 This offers the advantage of enabling a compact view of events organized at a specific location. Unfortunately this approach also creates problems, especially when content originates in locations that are not managed by one or more people. This model makes it hard to place content generated at some street corner, or in a person's home. Furthermore generating all these locations is a time consuming task that requires specialized knowledge of the area in question. A solution to this problem is to delegate this task to users of the system, but that creates other problems related to the creation of a duplicate location. If there are two separate locations in the system that both have information relating to the same real world location, a user can only view the information on one of the virtual locations at a time. This causes the display of faulty and incomplete information on the site. A way of combating this is to hire one or more people to manage and merge duplicated locations, this incurs the additional cost of paying these workers.
 
 
-\subsubsection{Proximity model}
-The alternative solution was dubbed the Proximity model. This model manages content based on coordinates instead of locations. Because all content is placed at an exact location it does require a certain level of ability to use maps in order to navigate the site and search for content. If the search area is too specific some results might be outside the search, for instance if looking for pictures from a football match and zooming in to cover only half the field some content might have been placed in the other half. This approach is well suited for combination with a mobile application with GPS functionality for automatic placement. After considering both solutions and counseling the customer[customer 12.09.14] the Proximity model was chosen for the project.
+\subsubsection{Proximity Model}
+The alternative solution was dubbed the Proximity Model. This model manages content based on coordinates instead of locations. This circumvents the need to administrate locations to stop duplication by making the location term more fluid, but because all content is placed at an exact location, navigating the site and searching for content would require a certain level of ability to use maps. Search areas could also be too specific and lose content outside it, for instance by zooming in on only one half of a football pitch. The approach is well suited for combination with a mobile application, since the application could use the phone's GPS functionality to automatically place content.
+
+\paragraph{} We found that the Proximity Model offered a very elegant solution to the problem, by removing the need for location moderation, and making the locations fluid and freely generated by user interaction. It gives the users free reign to find their own place to have discussions and events, while still keeping the ability for users to give feedback to the city space around them. We presented both solutions to the customer at a meeting on the 29th of September, and they agreed with our plan to use the Proximity Model in the system.
 
 \section{Market Investigation}
 \label{sec:PrelimMarket}
