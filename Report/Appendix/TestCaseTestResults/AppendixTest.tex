@@ -23,13 +23,21 @@ Below are the different tests carried out in the system test. \\ \\
 	\hline
 	\it{\cellcolor{gray!25}Item} & {\cellcolor{gray!25} Description } \\
 	\hline
-	\it{\cellcolor{gray!25}Test Name } & Create user on the website \\ \hline
+	\it{\cellcolor{gray!25}Test Name } & Sign up \\ \hline
 	\it{\cellcolor{gray!25}Test ID} & TC1 \\ \hline
-	\it{\cellcolor{gray!25}Feature to be tested} & Creating a new unique user profile \\ \hline
+	\it{\cellcolor{gray!25}Feature to be tested} & Signing up \\ \hline
 	\it{\cellcolor{gray!25}Requirements} & F1  \\ \hline
 	\it{\cellcolor{gray!25}Pre-conditions} & User must have a supported web browser  \\ \hline
-	\it{\cellcolor{gray!25}Steps of Execution} & Open a browser. Enter www.mysplot.com. Click the ``Sign up'' button in the upper right hand corner. Fill in first name, last name, a desired username and password in their respective fields, choose gender and finally click Sign Up. \\ \hline
-	\it{\cellcolor{gray!25}Expected results} & An error message will be displayed if fields are incorrect or taken. If all information input is valid, a user will be created on the website and saved in the database.  \\
+	\it{\cellcolor{gray!25}Steps of Execution} & \begin{enumerate}
+	                                       \item Click on “Sign up” button in navigation bar
+	                                       \item Fill in “First name”, “Last name, “Username”, “Password” and “Gender”.
+	                                       \item Click button labeled “Sign up”
+	                                     \end{enumerate} \\ \hline
+	\it{\cellcolor{gray!25}Expected results} & Alternatives: 
+	\begin{enumerate}[label=\alph*)]
+	                                       \item If some fields are left empty or contains incorrect input an error message should show up telling you to fill in all fields.
+	                                       \item All fields are verified and you are automatically signed in.
+	                                     \end{enumerate} \\
 	\hline
 \end{tabular}
 \captionof{table}{Test case 1 \label{TC1}}
@@ -46,16 +54,24 @@ Below are the different tests carried out in the system test. \\ \\
 	\hline
 	\it{\cellcolor{gray!25}Item} & {\cellcolor{gray!25} Description } \\
 	\hline
-	\it{\cellcolor{gray!25}Test Name } & Sign in to mysplot.com \\ \hline
+	\it{\cellcolor{gray!25}Test Name } & Sign in \\ \hline
 	\it{\cellcolor{gray!25}Test ID} & TC2 \\ \hline
-	\it{\cellcolor{gray!25}Feature to be tested} & Signing in to user profile \\ \hline
-	\it{\cellcolor{gray!25}Requirements} & F1, F2   \\ \hline
-	\it{\cellcolor{gray!25}Pre-conditions} & TC1  \\ \hline
-	\it{\cellcolor{gray!25}Steps of Execution} & Click the ``Sign in'' button in the upper right hand corner. Fill in username and password in their respective fields, and finally click Sign In. \\ \hline
-	\it{\cellcolor{gray!25}Expected results} & Overlay window with sign in fields will pop up. An error message will be displayed if fields are incorrect or invalid. If all information input is valid, the user will be signed in.  \\
+	\it{\cellcolor{gray!25}Feature to be tested} & Signing in \\ \hline
+	\it{\cellcolor{gray!25}Requirements} & F1, F2  \\ \hline
+	\it{\cellcolor{gray!25}Pre-conditions} & User must have a supported web browser  \\ \hline
+	\it{\cellcolor{gray!25}Steps of Execution} & \begin{enumerate}
+	                                       \item Click on “Sign in” button in navigation bar.
+	                                       \item Enter your “Username” and “Password”.
+	                                       \item Click button labeled “Sign in”.
+	                                     \end{enumerate} \\ \hline
+	\it{\cellcolor{gray!25}Expected results} & Alternatives: 
+	\begin{enumerate}[label=\alph*)]
+	                                       \item If the entered password does not match the given username, an error message should show up with relevant information.
+	                                       \item Password matches username, and you are successfully signed in.
+	                                     \end{enumerate} \\
 	\hline
 \end{tabular}
-\captionof{table}{Test Case 2 \label{TC2}}
+\captionof{table}{Test case 2 \label{TC2}}
 \medskip
 \end{minipage}
 %
@@ -69,16 +85,18 @@ Below are the different tests carried out in the system test. \\ \\
 	\hline
 	\it{\cellcolor{gray!25}Item} & {\cellcolor{gray!25} Description } \\
 	\hline
-	\it{\cellcolor{gray!25}Test Name } & App: Sign In \\ \hline
+	\it{\cellcolor{gray!25}Test Name } & Sign out \\ \hline
 	\it{\cellcolor{gray!25}Test ID} & TC3 \\ \hline
-	\it{\cellcolor{gray!25}Feature to be tested} & Signing in to user profile \\ \hline
-	\it{\cellcolor{gray!25}Requirements} & F1, F2, F25   \\ \hline
-	\it{\cellcolor{gray!25}Pre-conditions} & TC1  \\ \hline
-	\it{\cellcolor{gray!25}Steps of Execution} & Click the ``Sign in'' button in the middle of the screen. Fill in username and password in their respective fields, and finally click Sign In. \\ \hline
-	\it{\cellcolor{gray!25}Expected results} & An error message will be displayed if fields are incorrect or invalid. If all information input is valid, the user will be signed in.  \\
+	\it{\cellcolor{gray!25}Feature to be tested} & Signing out \\ \hline
+	\it{\cellcolor{gray!25}Requirements} & F1, F2  \\ \hline
+	\it{\cellcolor{gray!25}Pre-conditions} & TC1, TC2  \\ \hline
+	\it{\cellcolor{gray!25}Steps of Execution} & \begin{enumerate}
+	                                       \item Click on “Sign out” button in navigation bar.
+	                                     \end{enumerate} \\ \hline
+	\it{\cellcolor{gray!25}Expected results} & You should be signed out. \\
 	\hline
 \end{tabular}
-\captionof{table}{Test Case 3 \label{TC3}}
+\captionof{table}{Test case 3 \label{TC3}}
 \medskip
 \end{minipage}
 %
@@ -92,16 +110,24 @@ Below are the different tests carried out in the system test. \\ \\
 	\hline
 	\it{\cellcolor{gray!25}Item} & {\cellcolor{gray!25} Description } \\
 	\hline
-	\it{\cellcolor{gray!25}Test Name } & Sign out \\ \hline
+	\it{\cellcolor{gray!25}Test Name } & Photo search \\ \hline
 	\it{\cellcolor{gray!25}Test ID} & TC4 \\ \hline
-	\it{\cellcolor{gray!25}Feature to be tested} & User signing out after signing in \\ \hline
-	\it{\cellcolor{gray!25}Requirements} & F1, F2   \\ \hline
-	\it{\cellcolor{gray!25}Pre-conditions} & TC1, TC2 \\ \hline
-	\it{\cellcolor{gray!25}Steps of Execution} & A signed in user, clicks the Sign Out button in the upper right hand corner of the web page.  \\ \hline
-	\it{\cellcolor{gray!25}Expected results} & The user is signed out and view of the web page is updated. \\
+	\it{\cellcolor{gray!25}Feature to be tested} & Searching for photos within an area with specific interest tags. \\ \hline
+	\it{\cellcolor{gray!25}Requirements} & F3, F4, F5, F6  \\ \hline
+	\it{\cellcolor{gray!25}Pre-conditions} & Internet connection. \\ \hline
+	\it{\cellcolor{gray!25}Steps of Execution} & \begin{enumerate}
+	                                       \item Tic the “Photos” box on the left side.
+	                                       \item Type in desired search location in “Address” field or move map to desired location.
+	                                       \item Type in the first two letters of desired interest in the “Interest” field.
+	                                       \item Select desired interest from dropdown list by clicking on it.
+	                                       \item Type in another desired interest in the “Interest” field.
+	                                       \item Same as step 3.
+	                                       \item Delete the first tag by clicking on the cross on the interest box.
+	                                     \end{enumerate} \\ \hline
+	\it{\cellcolor{gray!25}Expected results} & When ticking the “Photos” box, all photos tagged within the frame of the map should show up. After typing in location in the “Address” field or moving the map to the desired location the photos should change. Which photos that are shown should also change when the user adds interest tags. When clicking on the cross on the interest box, the interest tag should be removed from the search and the resulting photos should once again change to match the search criteria. \\
 	\hline
 \end{tabular}
-\captionof{table}{Test Case 4 \label{TC4}}
+\captionof{table}{Test case 4 \label{TC4}}
 \medskip
 \end{minipage}
 %
@@ -115,16 +141,28 @@ Below are the different tests carried out in the system test. \\ \\
 	\hline
 	\it{\cellcolor{gray!25}Item} & {\cellcolor{gray!25} Description } \\
 	\hline
-	\it{\cellcolor{gray!25}Test Name } & App: Sign Out \\ \hline
+	\it{\cellcolor{gray!25}Test Name } & Comment on photos \\ \hline
 	\it{\cellcolor{gray!25}Test ID} & TC5 \\ \hline
-	\it{\cellcolor{gray!25}Feature to be tested} & User signing out after signing in on the app \\ \hline
-	\it{\cellcolor{gray!25}Requirements} & F1, F2, F25  \\ \hline
-	\it{\cellcolor{gray!25}Pre-conditions} & TC1, TC3 \\ \hline
-	\it{\cellcolor{gray!25}Steps of Execution} & A signed in user, clicks the Sign Out button in the middle of the home screen of the app. \\ \hline
-	\it{\cellcolor{gray!25}Expected results} & The user is signed out and view of the app is updated. \\
+	\it{\cellcolor{gray!25}Feature to be tested} & Add a comment to a selected photo \\ \hline
+	\it{\cellcolor{gray!25}Requirements} & F17  \\ \hline
+	\it{\cellcolor{gray!25}Pre-conditions} & Internet connection, TC1, TC2, TC4 \\ \hline
+	\it{\cellcolor{gray!25}Steps of Execution} & \begin{enumerate}
+	                                       \item Click on a photo.
+	                                       \item Scroll down to the bottom of the photo overlay page.
+	                                       \item Click on the button labeled “Add a comment”.
+	                                       \item Type in desired comment.
+	                                       \item Click on the button labeled “Send”.
+	                                       \item Close the overlay.
+	                                       \item Update the page.
+	                                       \item Click on the same photo again.
+	                                       \item Check if the comment is still there.
+	                                       \item Click “Reply” on the comment.
+	                                       \item Type in reply and press “Send”.
+	                                     \end{enumerate} \\ \hline
+	\it{\cellcolor{gray!25}Expected results} & When selecting a photo a photo overlay, with the photo and information about the photo should show up. After pressing send, the newly created comment should appear under comments. After typing in and sending the reply, the reply should show up below the other comment. \\
 	\hline
 \end{tabular}
-\captionof{table}{Test Case 5 \label{TC5}}
+\captionof{table}{Test case 5 \label{TC5}}
 \medskip
 \end{minipage}
 %
@@ -138,16 +176,20 @@ Below are the different tests carried out in the system test. \\ \\
 	\hline
 	\it{\cellcolor{gray!25}Item} & {\cellcolor{gray!25} Description } \\
 	\hline
-	\it{\cellcolor{gray!25}Test Name } & Navigate site \\ \hline
+	\it{\cellcolor{gray!25}Test Name } & Display photo with information and comments \\ \hline
 	\it{\cellcolor{gray!25}Test ID} & TC6 \\ \hline
-	\it{\cellcolor{gray!25}Feature to be tested} & Click navigation buttons \\ \hline
-	\it{\cellcolor{gray!25}Requirements} & F8, F16 \\ \hline
-	\it{\cellcolor{gray!25}Pre-conditions} & User browsing the MySplot page\\ \hline
-	\it{\cellcolor{gray!25}Steps of Execution} & A signed in user clicks the navigation buttons in the header and is navigated to the correct page. \\ \hline
-	\it{\cellcolor{gray!25}Expected results} & Clicking the websites icon will bring the user to the homepage. \\
+	\it{\cellcolor{gray!25}Feature to be tested} & Displaying a selected photo in an overlay with related information and comments. \\ \hline
+	\it{\cellcolor{gray!25}Requirements} & F16  \\ \hline
+	\it{\cellcolor{gray!25}Pre-conditions} & Internet connection, TC1, TC2, TC4  \\ \hline
+	\it{\cellcolor{gray!25}Steps of Execution} & \begin{enumerate}
+	                                       \item Click on a photo.
+	                                       \item Scroll down on the photo overlay.
+	                                       \item Click outside of overlay, or the cross in the top right corner.
+	                                     \end{enumerate} \\ \hline
+	\it{\cellcolor{gray!25}Expected results} & When clicking on a photo on the photo search page, an enlarged version of the photo along with relevant information and comments should appear. \\
 	\hline
 \end{tabular}
-\captionof{table}{Test Case 6 \label{TC6}}
+\captionof{table}{Test case 6 \label{TC6}}
 \medskip
 \end{minipage}
 %
@@ -161,16 +203,27 @@ Below are the different tests carried out in the system test. \\ \\
 	\hline
 	\it{\cellcolor{gray!25}Item} & {\cellcolor{gray!25} Description } \\
 	\hline
-	\it{\cellcolor{gray!25}Test Name } & Create event \\ \hline
+	\it{\cellcolor{gray!25}Test Name } & Create a new event \\ \hline
 	\it{\cellcolor{gray!25}Test ID} & TC7 \\ \hline
-	\it{\cellcolor{gray!25}Feature to be tested} & Creating a new event \\ \hline
+	\it{\cellcolor{gray!25}Feature to be tested} & Ability to create a new event. \\ \hline
 	\it{\cellcolor{gray!25}Requirements} & F10, F11  \\ \hline
-	\it{\cellcolor{gray!25}Pre-conditions} & TC1, TC2 \\ \hline
-	\it{\cellcolor{gray!25}Steps of Execution} & A signed in user clicks the ``New Event'' button in the header. An overlay window appears, and the user types in the required information to their respective fields. \\ \hline
-	\it{\cellcolor{gray!25}Expected results} & If all fields input by the user are valid, an event is created in the database. The entire web page is later updated with the new event for all users to see and join. \\
+	\it{\cellcolor{gray!25}Pre-conditions} & Internet connection TC1, TC2  \\ \hline
+	\it{\cellcolor{gray!25}Steps of Execution} & \begin{enumerate}
+	                                       \item Click on the button labeled “New event” on the navigation bar.
+	                                       \item Fill in the event creation form.
+	                                       \item Click on the button labeled “Create event”.
+	                                       \item Refresh the event search page.
+	                                       \item Search for the newly created event.
+	                                     \end{enumerate} \\ \hline
+	\it{\cellcolor{gray!25}Expected results} & When clicking on the ``New event'' button, an event registration form should appear. Here the different fields should be:, Title, Location, Interests, Date \& Time, Number of participants and description. When clicking the ``Create event'' button there are two different scenarios: 
+	\begin{enumerate}[label=\alph*)]
+	                                       \item Some fields has not been filled in or been filled in incorrectly, and an error message will explain what is missing.
+	                                       \item Every field were filled in correctly and the event is created.
+	                                     \end{enumerate} 
+	                                     When searching for the newly created event, the event should show up. \\
 	\hline
 \end{tabular}
-\captionof{table}{Test Case 7 \label{TC7}}
+\captionof{table}{Test case 7 \label{TC7}}
 \medskip
 \end{minipage}
 %
@@ -184,16 +237,22 @@ Below are the different tests carried out in the system test. \\ \\
 	\hline
 	\it{\cellcolor{gray!25}Item} & {\cellcolor{gray!25} Description } \\
 	\hline
-	\it{\cellcolor{gray!25}Test Name } & Display event \\ \hline
+	\it{\cellcolor{gray!25}Test Name } & Vote on a photo \\ \hline
 	\it{\cellcolor{gray!25}Test ID} & TC8 \\ \hline
-	\it{\cellcolor{gray!25}Feature to be tested} & Displaying an event\\ \hline
-	\it{\cellcolor{gray!25}Requirements} &  F7, F8, F9, F10. \\ \hline
-	\it{\cellcolor{gray!25}Pre-conditions} & TC7 \\ \hline
-	\it{\cellcolor{gray!25}Steps of Execution} & Any browsing user can click any event to display more information of the event. \\ \hline
-	\it{\cellcolor{gray!25}Expected results} & A new overlay window with the specific event details, comment field and attendees are displayed. \\
+	\it{\cellcolor{gray!25}Feature to be tested} & Voting on a photo \\ \hline
+	\it{\cellcolor{gray!25}Requirements} & F22, F23, F24  \\ \hline
+	\it{\cellcolor{gray!25}Pre-conditions} & Internet connection,TC1, TC2, TC4  \\ \hline
+	\it{\cellcolor{gray!25}Steps of Execution} & \begin{enumerate}
+	                                       \item Hover over the photo you want to vote for.
+	                                       \item Click the “Thumbs up” button.
+	                                       \item Hover over the same photo and click the “Thumbs down” button.
+	                                       \item Refresh the page.
+	                                       \item Hover over the same photo again, and check if your vote is still registered.
+	                                     \end{enumerate} \\ \hline
+	\it{\cellcolor{gray!25}Expected results} & When you hover over a photo, a “like bar”, a “thumbs up” button and a “thumbs down” button with related numbers should appear below the photo. When clicking the “thumbs up” button the number of likes next to it should increase by one and the “like bar” should update. When clicking the “thumbs down” at the same photo, the number of likes should decrease by one and the number of dislikes should increase by one. The “like bar” should also update accordingly. If your vote is still there after refreshing the page, the vote has been saved successfully. \\
 	\hline
 \end{tabular}
-\captionof{table}{Test Case 8 \label{TC8}}
+\captionof{table}{Test case 8 \label{TC8}}
 \medskip
 \end{minipage}
 %
@@ -207,16 +266,22 @@ Below are the different tests carried out in the system test. \\ \\
 	\hline
 	\it{\cellcolor{gray!25}Item} & {\cellcolor{gray!25} Description } \\
 	\hline
-	\it{\cellcolor{gray!25}Test Name } & Join event \\ \hline
+	\it{\cellcolor{gray!25}Test Name } & Vote on an event \\ \hline
 	\it{\cellcolor{gray!25}Test ID} & TC9 \\ \hline
-	\it{\cellcolor{gray!25}Feature to be tested} & User joining an event. \\ \hline
-	\it{\cellcolor{gray!25}Requirements} &  F7, F8, F9, F10. \\ \hline
-	\it{\cellcolor{gray!25}Pre-conditions} & TC1, TC2, TC7 \\ \hline
-	\it{\cellcolor{gray!25}Steps of Execution} & Any signed in user will be able to display event, click the ``Attend'' button and join the event, in the case that the event is not already full. \\ \hline
-	\it{\cellcolor{gray!25}Expected results} & The user is connected to the event, increasing the number of people joining the event. \\
+	\it{\cellcolor{gray!25}Feature to be tested} & Voting on an event \\ \hline
+	\it{\cellcolor{gray!25}Requirements} & F22, F23, F24  \\ \hline
+	\it{\cellcolor{gray!25}Pre-conditions} & Internet connection, TC1, TC2 and event box ticked.  \\ \hline
+	\it{\cellcolor{gray!25}Steps of Execution} & \begin{enumerate}
+	                                       \item Hover over the event you want to vote for.
+	                                       \item Click the “Thumbs up” button.
+	                                       \item Hover over the same event and click the “Thumbs down” button.
+	                                       \item Refresh the page.
+	                                       \item Hover over the same photo again, and check if your vote is still registered.
+	                                     \end{enumerate} \\ \hline
+	\it{\cellcolor{gray!25}Expected results} & When you hover over a photo, a “like bar”, a “thumbs up” button and a “thumbs down” button with related numbers should appear below the photo. When clicking the “thumbs up” button the number of likes next to it should increase by one and the “like bar” should update. When clicking the “thumbs down” at the same photo, the number of likes should decrease by one and the number of dislikes should increase by one. The “like bar” should also update accordingly. If your vote is still there after refreshing the page, the vote has been saved successfully. \\
 	\hline
 \end{tabular}
-\captionof{table}{Test Case 9 \label{TC9}}
+\captionof{table}{Test case 9 \label{TC9}}
 \medskip
 \end{minipage}
 %
@@ -230,16 +295,28 @@ Below are the different tests carried out in the system test. \\ \\
 	\hline
 	\it{\cellcolor{gray!25}Item} & {\cellcolor{gray!25} Description } \\
 	\hline
-	\it{\cellcolor{gray!25}Test Name } & Upload picture \\ \hline
+	\it{\cellcolor{gray!25}Test Name } & Comment on events \\ \hline
 	\it{\cellcolor{gray!25}Test ID} & TC10 \\ \hline
-	\it{\cellcolor{gray!25}Feature to be tested} & User uploading a picture.\\ \hline
-	\it{\cellcolor{gray!25}Requirements} & F14, F15  \\ \hline
-	\it{\cellcolor{gray!25}Pre-conditions} & TC1, TC2 \\ \hline
-	\it{\cellcolor{gray!25}Steps of Execution} & Signed in user clicks the ``Upload Photo'' button in the header, a new overlay window is displayed and user inputs the required information to their respective fields. \\ \hline
-	\it{\cellcolor{gray!25}Expected results} & A picture is saved in the database and user receives a confirmation of process completed. Picture now displaying on the website. \\
+	\it{\cellcolor{gray!25}Feature to be tested} & Add a comment to a selected event \\ \hline
+	\it{\cellcolor{gray!25}Requirements} & F17  \\ \hline
+	\it{\cellcolor{gray!25}Pre-conditions} & Internet connection, TC1, TC2 and event box ticked.  \\ \hline
+	\it{\cellcolor{gray!25}Steps of Execution} & \begin{enumerate}
+	                                       \item Click on an event.
+	                                       \item Scroll down to the bottom of the event overlay page.
+	                                       \item Click on the button labeled “Add a comment”.
+	                                       \item Type in desired comment.
+	                                       \item Click on the button labeled “Send”.
+	                                       \item Close the overlay.
+	                                       \item Update the page.
+	                                       \item Click on the same event again.
+	                                       \item Check if the comment is still there.
+	                                       \item Click “Reply” on the comment.
+	                                       \item Type in reply and press “Send”.
+	                                     \end{enumerate} \\ \hline
+	\it{\cellcolor{gray!25}Expected results} & When selecting an event, an event overlay with the event information should show up. After pressing send, the newly created comment should appear under comments. After typing in and sending the reply, the reply should show up below the other comment. \\
 	\hline
 \end{tabular}
-\captionof{table}{Test Case 10 \label{TC10}}
+\captionof{table}{Test case 10 \label{TC10}}
 \medskip
 \end{minipage}
 %
@@ -253,16 +330,24 @@ Below are the different tests carried out in the system test. \\ \\
 	\hline
 	\it{\cellcolor{gray!25}Item} & {\cellcolor{gray!25} Description } \\
 	\hline
-	\it{\cellcolor{gray!25}Test Name } & App: Upload picture \\ \hline
+	\it{\cellcolor{gray!25}Test Name } & Event search \\ \hline
 	\it{\cellcolor{gray!25}Test ID} & TC11 \\ \hline
-	\it{\cellcolor{gray!25}Feature to be tested} & User uploading a picture with the app.\\ \hline
-	\it{\cellcolor{gray!25}Requirements} & F25, F26, F27, F28, F29\\ \hline
-	\it{\cellcolor{gray!25}Pre-conditions} & TC1, TC3 \\ \hline
-	\it{\cellcolor{gray!25}Steps of Execution} & Signed in user clicks the ``Upload Photo'' button in the app, user inputs the required information to their respective fields or takes a photo with the app and uses this. \\ \hline
-	\it{\cellcolor{gray!25}Expected results} & The picture is saved in the database and user receives a confirmation of process completed. Picture now displaying on the website. \\
+	\it{\cellcolor{gray!25}Feature to be tested} & Searching for event within an area with specific interest tags. \\ \hline
+	\it{\cellcolor{gray!25}Requirements} & F3, F4, F5, F6  \\ \hline
+	\it{\cellcolor{gray!25}Pre-conditions} & Internet connection \\ \hline
+	\it{\cellcolor{gray!25}Steps of Execution} & \begin{enumerate}
+	                                       \item Tic the “Event” box on the left side.
+	                                       \item Type in desired search location in “Address” field or move map to desired location.
+	                                       \item Type in the first two letters of desired interest in the “Interest” field.
+	                                       \item Select desired interest from dropdown list by clicking on it.
+	                                       \item Type in another desired interest in the “Interest” field.
+	                                       \item Same as step 3.
+	                                       \item Delete the first tag by clicking on the cross on the interest box.
+	                                     \end{enumerate} \\ \hline
+	\it{\cellcolor{gray!25}Expected results} & When ticking the “Events” box, all events tagged within the frame of the map should show up. After typing in location in the “Address” field or moving the map to the desired location the events displayed should change. Which events that are shown should also change when the user adds interest tags. When clicking on the cross on the interest box, the interest tag should be removed from the search and the resulting events should once again change to match the search criteria.  \\
 	\hline
 \end{tabular}
-\captionof{table}{Test Case 11 \label{TC11}}
+\captionof{table}{Test case 11 \label{TC11}}
 \medskip
 \end{minipage}
 %
@@ -276,16 +361,20 @@ Below are the different tests carried out in the system test. \\ \\
 	\hline
 	\it{\cellcolor{gray!25}Item} & {\cellcolor{gray!25} Description } \\
 	\hline
-	\it{\cellcolor{gray!25}Test Name } & Display picture \\ \hline
+	\it{\cellcolor{gray!25}Test Name } & Display event with information and comments \\ \hline
 	\it{\cellcolor{gray!25}Test ID} & TC12 \\ \hline
-	\it{\cellcolor{gray!25}Feature to be tested} & Displaying a picture on the website. \\ \hline
-	\it{\cellcolor{gray!25}Requirements} & F16 \\ \hline
-	\it{\cellcolor{gray!25}Pre-conditions} & TC10, TC11 \\ \hline
-	\it{\cellcolor{gray!25}Steps of Execution} & Any user browsing MySplot can click the picture content on the web page and seeing the details and an enlarged version of the picture. \\ \hline
-	\it{\cellcolor{gray!25}Expected results} & An overlay with specific information of the picture, as well as an enlarged version of the picture is displayed upon user click on picture post. \\
+	\it{\cellcolor{gray!25}Feature to be tested} & Displaying a selected event in an overlay with related information and comments. \\ \hline
+	\it{\cellcolor{gray!25}Requirements} & F8  \\ \hline
+	\it{\cellcolor{gray!25}Pre-conditions} & Internet connection,TC1, TC2, TC11. \\ \hline
+	\it{\cellcolor{gray!25}Steps of Execution} & \begin{enumerate}
+	                                       \item Click on an event.
+	                                       \item Scroll down on the event overlay.
+	                                       \item Click outside of overlay, or the cross in the top right corner.
+	                                     \end{enumerate} \\ \hline
+	\it{\cellcolor{gray!25}Expected results} & When clicking on an event  on the event search page, an event overlay with more detailed information about the event, and comments should appear.  \\
 	\hline
 \end{tabular}
-\captionof{table}{Test Case 12 \label{TC12}}
+\captionof{table}{Test case 12 \label{TC12}}
 \medskip
 \end{minipage}
 %
@@ -299,16 +388,25 @@ Below are the different tests carried out in the system test. \\ \\
 	\hline
 	\it{\cellcolor{gray!25}Item} & {\cellcolor{gray!25} Description } \\
 	\hline
-	\it{\cellcolor{gray!25}Test Name } & Search content \\ \hline
+	\it{\cellcolor{gray!25}Test Name } & Upload photo \\ \hline
 	\it{\cellcolor{gray!25}Test ID} & TC13 \\ \hline
-	\it{\cellcolor{gray!25}Feature to be tested} & User searching for events, pictures, etc with map and search bar. \\ \hline
-	\it{\cellcolor{gray!25}Requirements} & F3, F4, F5, F6 \\ \hline
-	\it{\cellcolor{gray!25}Pre-conditions} & TC7, TC10, TC11 \\ \hline
-	\it{\cellcolor{gray!25}Steps of Execution} & Feature found in left sidebar of the web page. Any user browsing MySplot can search for content by searching for interest tags in a search bar, as well as selecting the location by using a map, or entering the location as a text.  \\ \hline
-	\it{\cellcolor{gray!25}Expected results} & Content is automatically updated according to relevance to the user as user changes the criteria of the search. \\
+	\it{\cellcolor{gray!25}Feature to be tested} & Uploading a photo \\ \hline
+	\it{\cellcolor{gray!25}Requirements} & F14, F15  \\ \hline
+	\it{\cellcolor{gray!25}Pre-conditions} & Internet connection,TC1, TC2. \\ \hline
+	\it{\cellcolor{gray!25}Steps of Execution} & \begin{enumerate}
+	                                       \item Click the button labeled “Upload photo” in the navigation bar.
+	                                       \item Fill in the required fields in the upload photo form.
+	                                       \item Upload desired image by clicking on “Velg fil”.
+	                                       \item Click the button labeled “Map” and maneuver to the location the photo was taken.
+	                                       \item Click the button labeled “Upload photo”.
+	                                     \end{enumerate} \\ \hline
+	\it{\cellcolor{gray!25}Expected results} & \begin{enumerate}[label=\alph*)]
+	                                       \item If some fields are left empty in the upload photo form when submitting the photo, an error message will show up saying what is missing.
+	                                       \item If all field are filled in correctly, the image will be saved to the database, and show up if searched for in the photo search.
+	                                     \end{enumerate} \\
 	\hline
 \end{tabular}
-\captionof{table}{Test Case 13 \label{TC13}}
+\captionof{table}{Test case 13 \label{TC13}}
 \medskip
 \end{minipage}
 %
@@ -322,16 +420,23 @@ Below are the different tests carried out in the system test. \\ \\
 	\hline
 	\it{\cellcolor{gray!25}Item} & {\cellcolor{gray!25} Description } \\
 	\hline
-	\it{\cellcolor{gray!25}Test Name } & Search address \\ \hline
+	\it{\cellcolor{gray!25}Test Name } & Sign in \\ \hline
 	\it{\cellcolor{gray!25}Test ID} & TC14 \\ \hline
-	\it{\cellcolor{gray!25}Feature to be tested} & Search address \\ \hline
-	\it{\cellcolor{gray!25}Requirements} & F3 \\ \hline
-	\it{\cellcolor{gray!25}Pre-conditions} & TC7, TC10, TC11 \\ \hline
-	\it{\cellcolor{gray!25}Steps of Execution} & Feature found in left sidebar of the web page. Any user browsing MySplot can search by specifically entering the desired location as a text input in the top search bar.  \\ \hline
-	\it{\cellcolor{gray!25}Expected results} & Content is automatically updated according to relevance to the user as user changes the criteria of the search. \\
+	\it{\cellcolor{gray!25}Feature to be tested} & Sign in to the app \\ \hline
+	\it{\cellcolor{gray!25}Requirements} & F25  \\ \hline
+	\it{\cellcolor{gray!25}Pre-conditions} & Internet connection,TC1. \\ \hline
+	\it{\cellcolor{gray!25}Steps of Execution} & \begin{enumerate}
+	                                       \item Open the app.
+	                                       \item Type in username and password
+	                                       \item Click on button labeled “Login”
+	                                     \end{enumerate} \\ \hline
+	\it{\cellcolor{gray!25}Expected results} & \begin{enumerate}[label=\alph*)]
+	                                       \item Password did not match the given username. An error message should show up saying “Incorrect username/password”.
+	                                       \item Password matched the username, and you are presented with the main menu.
+	                                     \end{enumerate} \\
 	\hline
 \end{tabular}
-\captionof{table}{Test Case 14 \label{TC14}}
+\captionof{table}{Test case 14 \label{TC14}}
 \medskip
 \end{minipage}
 %
@@ -345,16 +450,19 @@ Below are the different tests carried out in the system test. \\ \\
 	\hline
 	\it{\cellcolor{gray!25}Item} & {\cellcolor{gray!25} Description } \\
 	\hline
-	\it{\cellcolor{gray!25}Test Name } & Comment on event \\ \hline
+	\it{\cellcolor{gray!25}Test Name } & Sign out \\ \hline
 	\it{\cellcolor{gray!25}Test ID} & TC15 \\ \hline
-	\it{\cellcolor{gray!25}Feature to be tested} & Commenting on event page \\ \hline
-	\it{\cellcolor{gray!25}Requirements} & F17 \\ \hline
-	\it{\cellcolor{gray!25}Pre-conditions} & TC1, TC2, TC7, TC8 \\ \hline
-	\it{\cellcolor{gray!25}Steps of Execution} & After displaying an event, a signed in user can choose to either clicking ``Reply'' to an existing comment, or ``Add comment'' to start a new thread. Finally, user inputs text to the comment field. \\ \hline
-	\it{\cellcolor{gray!25}Expected results} & Replies are displayed within existing threads and new comments start new threads, with the text the user entered as input. Comments are saved in database and displayed on web page. \\
+	\it{\cellcolor{gray!25}Feature to be tested} & The ability to sign out in the app \\ \hline
+	\it{\cellcolor{gray!25}Requirements} & F25  \\ \hline
+	\it{\cellcolor{gray!25}Pre-conditions} & Internet connection, TC1, TC14. \\ \hline
+	\it{\cellcolor{gray!25}Steps of Execution} & \begin{enumerate}
+	                                       \item Click on menu button on the top action bar. 
+	                                       \item Select “Logout” from the drop down list.
+	                                     \end{enumerate} \\ \hline
+	\it{\cellcolor{gray!25}Expected results} & User brought back to login screen. \\
 	\hline
 \end{tabular}
-\captionof{table}{Test Case 15 \label{TC15}}
+\captionof{table}{Test case 15 \label{TC15}}
 \medskip
 \end{minipage}
 %
@@ -368,16 +476,24 @@ Below are the different tests carried out in the system test. \\ \\
 	\hline
 	\it{\cellcolor{gray!25}Item} & {\cellcolor{gray!25} Description } \\
 	\hline
-	\it{\cellcolor{gray!25}Test Name } & Comment on picture \\ \hline
+	\it{\cellcolor{gray!25}Test Name } & Sign in \\ \hline
 	\it{\cellcolor{gray!25}Test ID} & TC16 \\ \hline
-	\it{\cellcolor{gray!25}Feature to be tested} & Commenting on photo page \\ \hline
-	\it{\cellcolor{gray!25}Requirements} & F17 \\ \hline
-	\it{\cellcolor{gray!25}Pre-conditions} & TC1, TC2, TC10, TC12 \\ \hline
-	\it{\cellcolor{gray!25}Steps of Execution} & After displaying a photo, a signed in user can choose to either clicking ``Reply'' to an existing comment, or ``Add comment'' to start a new thread. Finally, user inputs text to the comment field. \\ \hline
-	\it{\cellcolor{gray!25}Expected results} & Replies are displayed within existing threads and new comments start new threads, with the text the user entered as input. Comments are saved in database and displayed on web page. \\
+	\it{\cellcolor{gray!25}Feature to be tested} & Sign in to the app \\ \hline
+	\it{\cellcolor{gray!25}Requirements} & F25  \\ \hline
+	\it{\cellcolor{gray!25}Pre-conditions} & Internet connection,TC1. \\ \hline
+	\it{\cellcolor{gray!25}Steps of Execution} & \begin{enumerate}
+	                                       \item Click on the button labeled “Take photo”.
+	                                       \item Take the photo.
+	                                       \item Fill in title, description and interests in the upload form.
+	                                       \item Press the button labeled “Upload”.
+	                                     \end{enumerate} \\ \hline
+	\it{\cellcolor{gray!25}Expected results} & When clicking the button labeled “Take photo” your phone’s camera application should open and let you take a photo. When the photo has been taken and accepted, an upload form should appear with the fields, title, interests and description. When clicking the button labeled “Upload” two things may happen: \begin{enumerate}[label=\alph*)]
+	                                       \item Some of the fields were left empty or the photo did not have a location tagged to it. An error message should show up and tell you to fill in all fields and turn on GPS before taking a new photo.
+	                                       \item The image is successfully uploaded and you are brought back to the main menu.
+	                                     \end{enumerate} \\
 	\hline
 \end{tabular}
-\captionof{table}{Test Case 16 \label{TC16}}
+\captionof{table}{Test case 16 \label{TC16}}
 \medskip
 \end{minipage}
 %
@@ -391,50 +507,33 @@ Below are the different tests carried out in the system test. \\ \\
 	\hline
 	\it{\cellcolor{gray!25}Item} & {\cellcolor{gray!25} Description } \\
 	\hline
-	\it{\cellcolor{gray!25}Test Name } & Display comment \\ \hline
+	\it{\cellcolor{gray!25}Test Name } & Browsing your phone's gallery for a photo and uploading it to the web page. \\ \hline
 	\it{\cellcolor{gray!25}Test ID} & TC17 \\ \hline
-	\it{\cellcolor{gray!25}Feature to be tested} & Displaying information of comment \\ \hline
-	\it{\cellcolor{gray!25}Requirements} & F17, F18 \\ \hline
-	\it{\cellcolor{gray!25}Pre-conditions} & TC1, TC2, TC10, TC12, TC15, TC16 \\ \hline
-	\it{\cellcolor{gray!25}Steps of Execution} & Any browsing user can view comments on both photo and event pages. \\ \hline
-	\it{\cellcolor{gray!25}Expected results} & Comment is displayed correctly. \\
+	\it{\cellcolor{gray!25}Feature to be tested} & Sign in to the app \\ \hline
+	\it{\cellcolor{gray!25}Requirements} & F27, F28, F29 \\ \hline
+	\it{\cellcolor{gray!25}Pre-conditions} & Internet connection, TC1, TC14 \\ \hline
+	\it{\cellcolor{gray!25}Steps of Execution} & \begin{enumerate}
+	                                       \item Click on the button labeled “Upload photo”.
+	                                       \item Find desired photo in photo gallery.
+	                                       \item Fill in title, description and interests in the upload form.
+	                                       \item Press the button labeled “Upload”.
+	                                     \end{enumerate} \\ \hline
+	\it{\cellcolor{gray!25}Expected results} & When clicking the button labeled “Upload photo” your phone's photo gallery should open and let you select  a photo. When the photo has been selected,  an upload form should appear with the fields, title, interests and description. When clicking the button labeled “Upload” two things may happen: \begin{enumerate}[label=\alph*)]
+	                                       \item Some of the fields were left empty or the photo did not have a location tagged to it. An error message should show up and tell you to fill in all fields and to browse for a photo that is geotagged.
+	                                       \item The image is successfully uploaded and you are brought back to the main menu.
+	                                     \end{enumerate} \\
 	\hline
 \end{tabular}
-\captionof{table}{Test Case 17 \label{TC17}}
+\captionof{table}{Test case 17 \label{TC17}}
 \medskip
 \end{minipage}
-%
-\begin{minipage}{\linewidth}
-\setlength{\tabcolsep}{15pt}
-\centering
-\rowcolors{1}{blue!20}{blue!10}
-\begin{tabular}{ |l|p{70mm}| }
-	\hline
-	\multicolumn{2}{|c|}{\cellcolor{gray!25} \textbf{Test Case 18}} \\
-	\hline
-	\it{\cellcolor{gray!25}Item} & {\cellcolor{gray!25} Description } \\
-	\hline
-	\it{\cellcolor{gray!25}Test Name } & Comment on comment \\ \hline
-	\it{\cellcolor{gray!25}Test ID} & TC18 \\ \hline
-	\it{\cellcolor{gray!25}Feature to be tested} & Replying to already existing comments \\ \hline
-	\it{\cellcolor{gray!25}Requirements} & F17 \\ \hline
-	\it{\cellcolor{gray!25}Pre-conditions} & TC1, TC2, TC10, TC12, TC15, TC16 \\ \hline
-	\it{\cellcolor{gray!25}Steps of Execution} & Any signed in user can click the ``Reply'' button, to comment on other users comments.  \\ \hline
-	\it{\cellcolor{gray!25}Expected results} & A new comment appears indented below original comment.  \\
-	\hline
-\end{tabular}
-\captionof{table}{Test Case 18 \label{TC18}}
-\medskip
-\end{minipage}
-
-
 %%%%%%%%%%%%%%%%%%%%%
 %%%%        TEST RESULTS          %%%%%
 %%%%%%%%%%%%%%%%%%%%%
 \section{Test Results}
 \label{sec:TestingResults}
-
-Below are tables depicting the test results of different members. 
+%
+Below are tables depicting the test results of different members. \\ \\
 %
 \begin{minipage}{\linewidth}
 \setlength{\tabcolsep}{15pt}
@@ -514,7 +613,6 @@ Below are tables depicting the test results of different members.
 	\it{\cellcolor{gray!25}TC16} & Works correctly \\ \hline
 	\it{\cellcolor{gray!25}TC17} & Works correctly \\ \hline
 	\it{\cellcolor{gray!25}TC18} & Works correctly \\ \hline
-	\hline
 \end{tabular}
 \captionof{table}{Test Results, Hans Olav \label{TRHans}}
 \medskip
@@ -548,7 +646,6 @@ Error message is displayed when username taken or password is blank. Also avoid 
 	\it{\cellcolor{gray!25}TC16} & Success \\ \hline
 	\it{\cellcolor{gray!25}TC17} & Success \\ \hline
 	\it{\cellcolor{gray!25}TC18} & Success \\ \hline
-	\hline
 \end{tabular}
 \captionof{table}{Test Results Julia \label{TRJulia}}
 \medskip
@@ -590,9 +687,7 @@ Error message is displayed when username taken or password is blank. Also avoid 
 	\it{\cellcolor{gray!25}TC16} & Success \\ \hline
 	\it{\cellcolor{gray!25}TC17} & Success \\ \hline
 	\it{\cellcolor{gray!25}TC18} & Success \\ \hline
-	\hline
 \end{tabular}
 \captionof{table}{Test Results, Manasa \label{TRManasa}}
 \medskip
 \end{minipage}
-
