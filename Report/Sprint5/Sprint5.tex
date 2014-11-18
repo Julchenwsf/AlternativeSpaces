@@ -101,7 +101,7 @@ CDP-32 & \it{Search by address on the map.} & 6h & 6h \\
 \section{Design and implementation}
 \label{sec:S5DesignImpl}
 
-This sprint we did a redesign of the photos page, which would become the new start page. We also implemented many of the features that had been asked for by the end users at the Oslo presentation. Features include the need for a larger map when searching for photos, address search, an overlay for viewing events, and changes needed before deploying the prototype to the customer's domain.
+This sprint we did a redesign of the photos page, which became the new start page. We also implemented many of the features that had been asked for by the end users at the Oslo presentation. Features include the need for a larger map when searching for photos, address search, an overlay for viewing events, and changes needed before deploying the prototype to the customer's domain.
 
 \begin{figure}[ht!]
   \centering
@@ -110,7 +110,7 @@ This sprint we did a redesign of the photos page, which would become the new sta
   \label{fig:S5DesignImplFront27Oct}
 \end{figure}
 
-\paragraph{} As mentioned in \ref{subsec:S2PresentationFeedback}, the most important problem with our site, after the lack of a mobile app, was the small size of the search map when in the photos view. As shown in figure \ref{fig:S5DesignImplFront27Oct}, we quadrupled the size of the map, which greatly increased the usability, and improved the use of space, especially on screens with high resolution.
+\paragraph{} As mentioned in \ref{subsec:S2PresentationFeedback}, the most important problem with our site, after the lack of a mobile app, was the small size of the search map when in the photos view. As shown in figure \ref{fig:S5DesignImplFront27Oct}, we quadrupled the size of the map, which greatly increased usability, and improved the use of space, especially on screens with high resolution.
 
 \begin{figure}[ht!]
   \centering
@@ -130,7 +130,7 @@ This sprint we did a redesign of the photos page, which would become the new sta
 
 \paragraph{} Early on, we also added the ability to share pictures, and later on events, on other social media. This had been requested at the presentation, and it was fairly simple, and might add to the appeal of using the site. We considered it a good idea to have, as it might help expand the user base early on.
 
-\paragraph{} Another thing to note is the new color scheme that was part of the new design. To find colors that worked well together, we looked through Google's design guidelines and tried several color combinations before landing on shades of indigo with an orange accent color.
+\paragraph{} Another thing to note is the new color scheme that was part of the new design. To find colors that worked well together, we consulted Google's design guidelines and tried several color combinations before landing on shades of indigo with an orange accent color.
 
 \paragraph{} During the second part of the sprint, the design had been finalized, and we focused on geting the last few features we had decided to add into the prototype. The main part of the site was reduced to a single page with a choice of whether to view pictures or events. Voting on pictures and events was implemented to have a way of sorting them. The pictures were given a rating of 
 \begin{equation} \label{eq:S5DesignImplSorting}
@@ -155,7 +155,7 @@ where $U$ and $D$ are votes up and down, respectively, and $t$ is the UNIX times
 \end{minipage}
 \end{figure}
 
-\paragraph{} The event creation form was made. An empty form is shown in figure \ref{fig:S5DesignImplEventCreateBlank}, and a more filled in one in figure \ref{fig:S5DesignImplEventCreateCalendar}. It gives the ability to choose a location on a map, or writing the address, and choosing the time from a calendar. It also lets you specify the amount of people there is room for, but in the prototype this is not used for anything beyond showing off the idea, since joining events has been pushed over to further work.
+\paragraph{} The event creation form was made. An empty form is shown in figure \ref{fig:S5DesignImplEventCreateBlank}, and a more filled in one in figure \ref{fig:S5DesignImplEventCreateCalendar}. It gives the ability to choose a location on a map, or writing the address, and choosing the time from a calendar. It also provides an option for specifying the amount of people there is room for, but in the prototype this is not used for anything beyond showing off the idea, since joining events has been pushed over to further work.
 
 \begin{figure}[ht!]
   \centering
@@ -164,7 +164,7 @@ where $U$ and $D$ are votes up and down, respectively, and $t$ is the UNIX times
   \label{fig:S5DesignImplEventsOverlay}
 \end{figure}
 
-\subparagraph{} The event page has been changed to an event overlay, to have a more consistent design by making events in the events page work the same way as photos on the photos page, as seen in figure \ref{fig:S5DesignImplEventsOverlay}. In the bottom left of the overlay, you can see the idea for events being limited by number of people, rather than having specific invites. The idea is discussed in \ref{chap:Further}
+\subparagraph{} The event page has been changed to an event overlay, to have a more consistent design by making events in the events page work the same way as photos on the photos page, as seen in figure \ref{fig:S5DesignImplEventsOverlay}. In the bottom left of the overlay, the feature allowing events to support a limited number of attendees, rather than using specific invites. The idea is discussed in \ref{chap:Further}
 
 \begin{figure}[ht!]
   \centering
@@ -173,7 +173,7 @@ where $U$ and $D$ are votes up and down, respectively, and $t$ is the UNIX times
   \label{fig:S5DesignImplFrontPhotos3Nov}
 \end{figure}
 
-\paragraph{} As mentioned earlier in this sections, voting was implemented for both photos and events. There were also other improvements to the photos page, both for the whole page and the single photo overlay. As seen in \ref{fig:S5DesignImplFrontPhotos3Nov}, the vote buttons got their final design, and just below the map you can choose whether you want to see photos or events. This design for the choice of view was made with expandability in mind. It should be simple to use this design to add other views, such as a video page or a free comment page.
+\paragraph{} As mentioned earlier in this sections, voting was implemented for both photos and events. There were also other improvements to the photos page, both for the whole page and the single photo overlay. As seen in \ref{fig:S5DesignImplFrontPhotos3Nov}, the vote buttons got their final design, and just below the map it is possible to choose whether you want to see photos or events. This design for the choice of view was made with expandability in mind. It should be simple to use this design to add other views, such as a video page or a free comment page.
 
 \begin{figure}[ht!]
   \centering
@@ -182,7 +182,7 @@ where $U$ and $D$ are votes up and down, respectively, and $t$ is the UNIX times
   \label{fig:S5DesignImplPhotoOverlay3Nov}
 \end{figure}
 
-\paragraph{} The end users had requested that the pictures should have more information displayed, as seen in figure \ref{fig:S5DesignImplPhotoOverlay3Nov}, we implemented the overlay to now show location, user, and upload time, as well as the interests a picture has been tagged with. If you look close at the interest tag, you will also note that the interests now have a small logo added to them. This is for quick identification in the events page, where only the icon is shown unless the mouse pointer hovers over the it.
+\paragraph{} The end users had requested that the pictures should have more information displayed, as seen in figure \ref{fig:S5DesignImplPhotoOverlay3Nov}, we implemented the overlay to now show location, user, and upload time, as well as the interests a picture has been tagged with. The interest field for the photo in Figure 10.8 also displays the small icon associated with its interest. These icons were introduced this sprint for quick identification, especially on the events page, where only the icon is shown unless the mouse pointer hovers over the it.
 
 \begin{figure}[ht!]
   \centering
@@ -198,14 +198,14 @@ where $U$ and $D$ are votes up and down, respectively, and $t$ is the UNIX times
   \label{fig:S5DesignImplInterestIcons}
 \end{figure}
 
-\paragraph{} As mentioned in section \ref{sec:S5Plan}, the Technical Lead spent some time helpping the customer get a domain for the website, and the site up on that domain. At the beginning of the sprint, we spent some time trying to come up with good domain names, and we sent some suggestions to the customer. In the end, they chose on their own, and landed on the name mysplot.com, with splot being a conflation of spot and lot. The customer then told us they would get a hold of some art for icons etc, which we would use in the final part to finish the look of the site.
+\paragraph{} As mentioned in section \ref{sec:S5Plan}, the Technical Lead spent some time helping the customer get a domain for the website, and getting the site up on that domain. At the beginning of the sprint, we spent some time trying to come up with good domain names, and we sent some suggestions to the customer. After reviewing the group's suggestions they chose the domain name www.mysplot.com where splot is a contraction of the words spot and lot. The customer then told us they would get a hold of some art for icons etc, which we would use in the final part to finish the look of the site.
 
 
 \section{Testing and Results}
 \label{sec:S5Testing}
-\paragraph{} During this sprint, testing was done during the Design and implementation phase, and the functionality of the code actively tested on the go. Before the new functionality was merged into the master branch, all new functionality had been tested and ensured working. 
+\paragraph{} During this sprint, testing was done during the Design and implementation phase, and the functionality of the code actively tested on the go. Before new features and functionalities were merged with the master branch, he features were tested to ensure that both they and the rest of the system worked properly. 
 
-\paragraph{} All the features of mysplot.com for this sprint were functionally tested, as explained in the first part of the report. For example the social media sharing posts have been tested by clicking the sharing icons available on the event overlay page, then sharing the media to the corresponding network cliked. See below. 
+\paragraph{} All the features of mysplot.com for this sprint were functionally tested, as explained in chapter \ref{chap:Testing}. For example the social media sharing posts were tested by clicking the sharing icons available on the event overlay page, and subsequently submitting a post to the selected social network. See figures \ref{fig:S5TestMediaIconClick}, \ref{fig:S5TestSharingFacebook}, and \ref{fig:S5TestFacebookView} for an illustration of this feature. 
 
 \paragraph{} The final results of the fourth sprint include completing all the sprint backlog items. Based on the feedback from the presentation. The design of the 2D search was updated, mainly increasing the size of the map and adding the possibility of searching adresses in the search bar. This makes the map more usable, with more precise navigation and greater view. The search bar giving the users a new possibility of limiting the map to an area of their choice by inputing a location in the search bar. Next, the media posts now have a rating function to calculate relevance, the event form reached its final version, and theme colors of the webpage were updated to indigo and orange. Finally, the design of the individual photo and event pages were completed, now as more detailed overlay windows. As the sprint was came close to and end, the entire product was installed on “www.mysplot.com”. 
 
@@ -260,17 +260,13 @@ where $U$ and $D$ are votes up and down, respectively, and $t$ is the UNIX times
 \section{Sprint retrospective}
 \label{sec:S5Retrospective}
 
-%TODO !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-%TODO !!!!!!!!!!!!!!!!!! TOTAL REWRITE ALERT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-%TODO !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
 \subsection{Start doing}
 \label{subsec:S5RetrospectiveStart}
 
 \begin{itemize}
   \item Test the web application thoroughly.
-  \item The report work should be uploaded in Google Docs immediately after completion so they can be proof read by other group members.
-  \item Update the work sheet after every work session. Each time people forget, the error of estimation increases. 
+  \item The report work should be uploaded in Google Docs immediately after completion so it can be proofread by other group members.
+  \item Update the work sheet after every work session. Each time people forget, the estimation error increases. 
   \item Explore ways of improving your writing skills. 
 \end{itemize}
 
@@ -291,9 +287,14 @@ where $U$ and $D$ are votes up and down, respectively, and $t$ is the UNIX times
 \subsection{Group dynamics}
 \label{subsec:S5RetrospectiveDynamics}
 
-%TODO
+Compared to the previous sprint, the number of working hours went down slightly this sprint. With the working hours going down, we did not meet our goal of over 20 hours per person each week. The reasoning behind this was that a few of the group members were away and not able to put in as many hours as usually.
 
-%Compared to the previous 
-%Still the number of hours per person has to be increased by 20\% to 30\% according to compendium. But for sprint 5, we have 70\% of the total hours (20 hrs per person).
-%In the sprint 5, few of the group members were away and could not contribute more work hours, the report assignments were bit slow, but the system is completely developed with all the agreed changes suggested by the user and customer. The domain has been set up and the whole group tested the various functionalities of the Application and bugs were raised accordingly. Part of the group was working for the Bug fixing, the rest of the group in writing the report and implementing all the report work into LaTeX.
+\paragraph{} Even if the working hours went down during this sprint, we were still able to implement the planned functionality as agreed upon with the customer. By doing so the complete system as agreed upon with the customer was finished.
+
+\paragraph{} With only a few functions left to implement on the development side, we started to focus even more on the report writing towards the end of the sprint. More sections were divided up between the group members, and work hours needed to complete each section were estimated.  
+
+
+\subsection{Customer feedback}
+\label{subsec:S5RetrospectiveFeedback}
+When presenting the complete system for the customer, they were very satisfied with our work and told us that the project had exceeded their expectations. For the customer to continue working on the website, they wanted us to describe all parts of the complete system that we did not have time to implement ourselves. This including important features, legal issues, security issues, scalability issues and other ideas we might have regarding the website.
 
