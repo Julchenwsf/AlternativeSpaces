@@ -31,7 +31,7 @@ At T\o yen in Oslo, a number of new outdoor places for youth are in the process 
 \begin{itemize}
     \item Web Client (End users)
     \item Web Client (Administrators)
-    \item Backend (Developers/Administrators)
+    \item Back end (Developers/Administrators)
     \item Android application (End users)
 \end{itemize}
 
@@ -53,9 +53,9 @@ This system will be developed over a short period of time. The resulting prototy
 \subsection{Functional Requirements}
 \label{subsec:SysReqReqsFunc}
 
-\subsubsection{Login}
+\subsubsection{Sign in}
 F1: A user should be able to register for a user profile. \\
-F2: It should be possible to log in and log out.
+F2: It should be possible to sign in and sign out.
 
 \subsubsection{Search}
 F3: It should be possible to search for events, pictures, comments and groups by using an interactive map and a search bar. \\
@@ -93,8 +93,8 @@ F22: It should be possible to like or dislike a photo or an event.\\
 F23: The user should be able to change a like to a dislike or the opposite.\\
 F24: The user should be able to see whether or not he/she has voted on a photo earlier by highlighting the appropriate like or the dislike button.
 
-\subsubsection{Android app login}
-F25: It should be possible to log in and log out.
+\subsubsection{Android app sign in}
+F25: It should be possible to sign in and sign out.
 
 \subsubsection{Android app image uploading}
 F26: The user should be able to take a new photo. \\
@@ -120,7 +120,7 @@ F29: All photos a user attempts to upload must be given a title, a description a
 
 \subsubsection{Security}
 \begin{itemize}
-    \item To upload pictures, create events, join events, post comments, suggest interest and vote for interests the user has to log in with username and password.
+    \item To upload pictures, create events, join events, post comments, suggest interest and vote for interests the user has to sign in with username and password.
     \item Usage of web page will be monitored by moderators.
 \end{itemize}
 
@@ -151,14 +151,14 @@ A use case is a description or list of steps of what to do, in order to achieve 
 \rowcolors{1}{blue!20}{blue!10}
 \begin{tabular}{|l|p{85mm}|}
   \hline
-  \multicolumn{2}{|c|}{\cellcolor{gray!25} \textbf{Login}} \\
+  \multicolumn{2}{|c|}{\cellcolor{gray!25} \textbf{Sign in}} \\
   \hline
-  Brief Description & The user should be able to log in to the web page.\\
+  Brief Description & The user should be able to sign in to the web page.\\
   Preconditions & The user must be a registered user with username and password. User also need an internet connection.\\
   Flow &
     \begin{enumerate}
-      \item User clicks on “Login” button.
-      \item User presented with a login page.
+      \item User clicks on “Sign in” button.
+      \item User presented with a sign in page.
       \item User enters username and password.
     \end{enumerate} \\
   Basic flow & User enters user credentials and are logged in.\\
@@ -168,13 +168,13 @@ A use case is a description or list of steps of what to do, in order to achieve 
   Extension Points & \\
   \hline
 \end{tabular}
-\captionof{table}{Use case for login. \label{tab:SysReqUseCasesLogin}}
+\captionof{table}{Use case for sign in. \label{tab:SysReqUseCasesLogin}}
 \end{minipage}
 
 \begin{figure}[ht!]
 \centering
 \includegraphics[width=105mm]{./SystemRequirements/img/loginUC.png}
-\caption{Login use case \label{fig:SysReqUseCasesLogin}}
+\caption{Sign in use case \label{fig:SysReqUseCasesLogin}}
 \end{figure}
 
 \begin{minipage}{\linewidth}
