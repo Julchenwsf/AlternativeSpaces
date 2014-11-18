@@ -12,13 +12,6 @@ Since feedback had been collected from end users at the workshop in Oslo, the gr
 
 \paragraph{} We would also have a session in the right use of YouTrack, which included everyone taking the time to insert time they had spent on tasks in the backlog, in order to get a burndown chart of the work we had already done.
 
-\begin{figure}[ht!]
-  \centering
-  \includegraphics[width=\linewidth]{./Sprint4/img/burndown}
-  \caption{Burndown chart for Sprint 3.}
-  \label{fig:S4PlanBurndown}
-\end{figure}
-
 \section{Duration and workload}
 \label{sec:S4Duration}
 
@@ -64,45 +57,33 @@ The group managed its target at 20.7 hours per person per week this sprint, and 
 
 \section{Sprint backlog}
 \label{sec:S4Backlog}
-\begin{minipage}{\linewidth}
+
+\begin{landscape}
 \setlength{\tabcolsep}{12pt}
+\begin{table}[htbp]
 \centering
 \rowcolors{1}{blue!20}{blue!10}
-\begin{tabular}{|p{1cm}|p{4cm}|p{2cm}|p{2cm}|}
-\hline
-\multicolumn{4}{|c|}{\cellcolor{gray!25} Backlog for Sprint 3 part 1} \\
+\begin{tabular}{|p{0.05\linewidth}|p{0.6\linewidth}|p{0.1\linewidth}|p{0.1\linewidth}|}
 \hline
 \cellcolor{gray!25} ID & \cellcolor{gray!25} Description & \cellcolor{gray!25} Estimated Time & \cellcolor{gray!25} Actual Time \\
 \hline
 CDP-26 & Create basic Android app to browse Alternative Spaces. Initial focus on upload of pictures with possibility to extend to browse entire site by embedding a browser in the app. & 2w & 1w1d2h30m \\
 CDP-23 & Create the database table for the event. This is a design task, so think of all the fields that we need to describe an event, f.ex. time, location, title, description, interests, etc. & 2h & 2h \\ 
 RPT-3  & Report pre-delivery, to be delivered to the supervisor. By no means are these the completed finished versions, and they will not be graded  & 1d6h & 2d9h30m \\
+CDP-27 & A "page" within the AS Android app that has a button to upload. Should be possible to: Take picture and upload it without going via gallery & 4d & 4d2h \\
+CDP-28 & Add a basic form that forwards the sign in credentials to back end. If credentials are valid, perhaps store them locally? & 1d & 4h30m \\
+CDP-38 & Make it possible to upload picture from the gallery. & 4h & 4h \\
+CDP-40 & Add checks to deal with when location and/or Internet service is unavailable (F.ex. display error message) & 4h & 2h \\
+RPT-4 & Write the abstract, consult the technical writing presentation if in doubt, 0.5 page~ish & 1h & 45m \\
+RPT-5 & Write introduction & 2h & 5h \\
+RPT-6 & Our pre-study. Should be obvious & 6h & 7h \\
+RPT-7 & Justification of choice of lifecycle model & 4h & 7h \\
 \hline
 \end{tabular}
-\captionof{table}{Backlog for Sprint 3.} 
-\end{minipage}\\%
-%
-\begin{minipage}{\linewidth}
-\setlength{\tabcolsep}{12pt}
-\centering
-\rowcolors{1}{blue!20}{blue!10}
-\begin{tabular}{|p{1cm}|p{4cm}|p{2cm}|p{2cm}|}
-\hline
-\multicolumn{4}{|c|}{\cellcolor{gray!25} Backlog for Sprint 3 part 2} \\
-\hline
-\cellcolor{gray!25} ID & \cellcolor{gray!25} Description & \cellcolor{gray!25} Estimated Time & \cellcolor{gray!25} Actual Time \\
-\hline
-CDP-27 & \it{A "page" within the AS Android app that has a button to upload. Should be possible to: Take picture and upload it without going via gallery} & 4d & 4d2h \\
-CDP-28 & \it{Add a basic form that forwards the sign in credentials to back end. If credentials are valid, perhaps store them locally?} & 1d & 4h30m \\
-CDP-38 & \it{Make it possible to upload picture from the gallery.} & 4h & 4h \\
-CDP-40 & \it{Add checks to deal with when location and/or Internet service is unavailable (F.ex. display error message)} & 4h & 2h \\
-RPT-4 & \it{Write the abstract, consult the technical writing presentation if in doubt, 0.5 page~ish} & 1h & 45m \\
-RPT-5 & \it{Write introduction} & 2h & 5h \\
-RPT-6 & \it{Our pre-study. Should be obvious} & 6h & 7h \\
-RPT-7 & \it{Justification of choice of lifecycle model} & 4h & 7h \\
-\hline
-\end{tabular}
-\end{minipage}
+\caption{Backlog for sprint 3.}
+\label{tab:S4Backlog}
+\end{table}
+\end{landscape}
 
 \section{Design and implementation}
 \label{sec:S4DesignImpl}

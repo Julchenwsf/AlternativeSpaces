@@ -43,11 +43,13 @@ This section describes the system from the viewpoint of different stakeholders. 
 \label{subsec:ArchViewsLogical}
 Our logical view shows our three-tier client-server architecture tiers: the presentation tier, logic tier and the data tier. The logic tiers of both the website and the Android application are pretty much the same, except that the mobile application supports less functionality than the website. The logic view presented below represents the three tiers with examples from the sign-up process. The mobile application is limited only to sign in and sign out function and the uploading of pictures and specifying locations to these pictures.
 
-\begin{figure}
+\begin{landscape}
+\begin{figure}[htbp]
 \centering
-\includegraphics[width=\linewidth]{./Architecture/img/LogicView.png}
-\caption{Logic View, with tiers briefly explained. \label{overflow}}
+\includegraphics[width=0.8\linewidth]{./Architecture/img/LogicView.png}
+\caption{Logic View, with tiers briefly explained. \label{fig:ArchViewsLogical}}
 \end{figure}
+\end{landscape}
 
 \subsubsection{Presentation Tier}
 The top-level tier is the information the user is presented with and interacts with on the website. The users view the content, received as HTML or JSON responses from the server, on a web browser or a mobile application, respectively.  In other words the presentation tier is the views of the web page or mobile application which the user interacts with. As the user interacts with the content of the web page or application, HTTPS/HTML calls are made to the server, which are processed and the results of the other tiers' processes are displayed to the browser/mobile application.
@@ -63,11 +65,13 @@ The data tier includes the server, with the database and the stored objects and 
 \label{subsec:ArchViewsPhysical}
 The physical view explains the mappings of the components that comprise the system, including server, web browsers, mobile platform, the database and the models. The physical components of the system are the server, and the clients web (e.g. computers) and mobile devices (running Android OS). All application logic is found on the server, which the clients devices communicate with.
 
-\begin{figure}
+\begin{landscape}
+\begin{figure}[htbp]
 \centering
-\includegraphics[width=\linewidth]{./Architecture/img/PhysicalView.png}
-\caption{The Physical View of the web application. \label{overflow}}
+\includegraphics[width=0.8\linewidth]{./Architecture/img/PhysicalView.png}
+\caption{The Physical View of the web application. \label{fig:ArhViewsPhysical}}
 \end{figure}
+\end{landscape}
 
 %\newpage
 \subsection{Development View}

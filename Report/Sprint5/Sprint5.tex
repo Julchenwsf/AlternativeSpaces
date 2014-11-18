@@ -56,46 +56,51 @@ The group worked slightly less than 20 hours per person per week this sprint. Th
 \section{Sprint backlog}
 \label{sec:S5Backlog}
 
-\begin{minipage}{\linewidth}
+\begin{landscape}
+%\begin{minipage}{\linewidth}
 \setlength{\tabcolsep}{12pt}
+\begin{table}[htbp]
 \centering
 \rowcolors{1}{blue!20}{blue!10}
-\begin{tabular}{|p{1cm}|p{4cm}|p{2cm}|p{2cm}|}
+\begin{tabular}{|p{0.08\linewidth}|p{0.6\linewidth}|p{0.1\linewidth}|p{0.1\linewidth}|}
 \hline
 \cellcolor{gray!25} ID & \cellcolor{gray!25} Description & \cellcolor{gray!25} Estimated Time & \cellcolor{gray!25} Actual Time \\
 \hline
-CDP-25 & \it{Design of home page} & 3d & 3d23h \\
-CDP-13 & \it{Navigation between pages} & 4h & 4h \\
-CDP-8 & \it{Event creation} & 3d & 3d4h30m \\
-CDP-21 & \it{Photos should display more details (when was the photo uploaded, by whom)} & 4h & 4h \\ 
-CDP-36 & \it{Photo rating} & 12h & 1d \\
-D4.1 & \it{Icons fo the different interests} & 5h & 7h \\
-RPT-41 & \it{Finish Sprint 1 for the report} & 3h & 4h \\
-RPT-42 & \it{Sprint 2} & 1d & 1d9h \\
-RPT-43 & \it{Sprint 3} & 18h & 15h \\
-RPT-47 & \it{Introduction} & 4h & 4h \\
-RPT-71 & \it{Risk management} & 1d & 1d8h \\
-RPT-72 & \it{Quality Assurance} & 5h & 5h \\
-RPT-29 & \it{Restructuring/finishing preliminary studies} & 6h & 6h \\
-R4.1 & \it{Proofreading} & 8h & 8h \\
-\hline
-\end{tabular}
-\captionof{table}{Backlog for sprint 4.} 
-\end{minipage}\\%
+CDP-25 & Design of home page & 3d & 3d23h \\
+CDP-13 & Navigation between pages & 4h & 4h \\
+CDP-8 & Event creation & 3d & 3d4h30m \\
+CDP-21 & Photos should display more details (when was the photo uploaded, by whom) & 4h & 4h \\ 
+CDP-36 & Photo rating & 12h & 1d \\
+D4.1 & Icons fo the different interests & 5h & 7h \\
+RPT-41 & Finish Sprint 1 for the report & 3h & 4h \\
+RPT-42 & Sprint 2 & 1d & 1d9h \\
+RPT-43 & Sprint 3 & 18h & 15h \\
+RPT-47 & Introduction & 4h & 4h \\
+RPT-71 & Risk management & 1d & 1d8h \\
+RPT-72 & Quality Assurance & 5h & 5h \\
+RPT-29 & Restructuring/finishing preliminary studies & 6h & 6h \\
+R4.1 & Proofreading & 8h & 8h \\
+%\end{tabular}
+%\captionof{table}{Backlog for sprint 4.} 
+%\end{minipage}\\%
 %
-\begin{minipage}{\linewidth}
-\setlength{\tabcolsep}{12pt}
-\centering
-\rowcolors{1}{blue!20}{blue!10}
-\begin{tabular}{|p{1cm}|p{4cm}|p{2cm}|p{2cm}|}
+%\begin{minipage}{\linewidth}
+%\setlength{\tabcolsep}{12pt}
+%\centering
+%\rowcolors{1}{blue!20}{blue!10}
+%\begin{tabular}{|p{1cm}|p{4cm}|p{2cm}|p{2cm}|}
 \hline
 \multicolumn{4}{|c|}{\cellcolor{gray!25} CDP-25} \\
 \hline
-CDP-31 & \it{Implement the new 2D search design} & 6h & 4h \\
-CDP-32 & \it{Search by address on the map.} & 6h & 6h \\
+CDP-31 & Implement the new 2D search design & 6h & 4h \\
+CDP-32 & Search by address on the map. & 6h & 6h \\
 \hline
 \end{tabular}
-\end{minipage}
+\caption{Backlog for sprint 4.}
+\label{tab:S5Backlog}
+\end{table}
+%\end{minipage}
+\end{landscape}
 
 
 \section{Design and implementation}
@@ -253,7 +258,7 @@ where $U$ and $D$ are votes up and down, respectively, and $t$ is the UNIX times
   \centering
   \includegraphics[width=\linewidth]{Sprint5/img/test7.png}
   \caption{View of the homepage when searching for events tagged with the interest ``Basketball''. }
-  \label{fig:S5TestAfterComment}
+  \label{fig:S5TestEventSearchTag}
 \end{figure}
 
 \newpage

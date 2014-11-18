@@ -36,13 +36,10 @@ At the beginning of this project, the customer presented their vision, but did n
 \label{subsec:PlanningMethodAdjust}
 Certain aspects of the Scrum methodology did not fit the project team. Because of this, adjustments to the method had to be made. Due to other courses and assignments, it was not feasible for the team to meet every day, and we had to reduce the daily stand up meetings to biweekly meetings. Team members were responsible for reporting their work status to the Scrum master. That way the work progress could be tracked outside of meetings. Our Scrum team created a product backlog and at the start of each sprint selected which of the requirements should be fulfilled by the end of that sprint.
 
-%TODO CHECK PHRASING
 \paragraph{} In contrast to traditional Scrum, we had sprints with the duration of only one week in the beginning of the project. That way it was easier to manage the sprint, when no team members had prior experience working with Scrum. After the first few weeks the sprint duration was extended to approximately two weeks.
 
-%TODO CHECK PHRASING
 \paragraph{} At the end of each sprint we had a sprint delivery where we presented the product to the customer. This made it possible for the customer to see the progress of the project, and their frequent feedback gave us the ability to ensure that the project was headed in the right direction by finding problems early. The retrospective meeting after each sprint was helpful to get an overview over potential problems during the last sprint and what we could do to improve the work process for the next sprint. 
 
-%TODO CHECK PHRASING
 \paragraph{} The project work was divided into two groups. The first group would focus on implementation and the second group on the report. To track which people were working on what tasks, we used the Issue Tracker Tool YouTrack. This tool helped us assign tasks to team members and set the status of tasks. All team members could see what the others were working on and when they were finished. It also gave us an integrated burndown chart, which shows the work left versus the time left.
 
 
@@ -130,13 +127,13 @@ We will now focus on the risk management of the project. The whole project will 
 \item \textbf{C} Risks in relation to planning
 \end{itemize}
 %TODO CHECK PHRASING
-Once each risk has been placed into a category, the first letter of its ID has been determined. All risks in a category are then numbered to give them their final ID. Once risks have been decided, we moved on to deciding their probabilities and consequences in order to evaluate how problematic they would be for the project. The following table shows the meaning of each of the consequence levels.
-
+Once each risk has been placed into a category, the first letter of its ID has been determined. All risks in a category are then numbered to give them their final ID. Once risks have been decided, we moved on to deciding their probabilities and consequences in order to evaluate how problematic they would be for the project. The following table shows the meaning of each of the consequence levels.\\%
+\\%
 \begin{minipage}{\linewidth}
 \setlength{\tabcolsep}{10pt}
 \centering
 \rowcolors{1}{blue!20}{blue!10}
-\begin{tabular}{ |l|p{5cm}| }
+\begin{tabular}{ |l|p{7cm}| }
 	\hline
 	\multicolumn{2}{|c|}{\cellcolor{gray!25} Consequence Levels} \\
 	\hline
@@ -147,8 +144,8 @@ Once each risk has been placed into a category, the first letter of its ID has b
 \end{tabular}
 %Caption here
 \captionof{table}{Description of consequence levels. \label{tab:PlanningRiskManRiskLvl}} 
-\end{minipage}
-
+\end{minipage} \\%
+\\%
 In order to evaluate the probability of a risk happening, the group members' experience was important. Each member of the group ranked the risks according to what they thought the chance of a risk happening was (high or low). A clear majority determined the result, and an unclear majority or tie resulted in a medium probability.
 
 
@@ -156,8 +153,8 @@ When we had determined both these values for the risks, we could calculate their
 \begin{equation}
 R_L = C_L \cdot p
 \end{equation}
-Where \( R_L \) is risk level, \( C_L \) is consequence level, and \( p \) is probability. For \( C_L \) and \( p \) high is counted as \( 1 \), medium as \( 0.5 \), and low as \( 0 \). With this formula \( R_L \) will have one of four values \( (1, 0.5, 0.25, 0) \). The matrix in table \ref{tab:PlanningRiskManRiskMatrix} shows the different risk levels resulting from this formula.
-
+Where \( R_L \) is risk level, \( C_L \) is consequence level, and \( p \) is probability. For \( C_L \) and \( p \) high is counted as \( 1 \), medium as \( 0.5 \), and low as \( 0 \). With this formula \( R_L \) will have one of four values \( (1, 0.5, 0.25, 0) \). The matrix in table \ref{tab:PlanningRiskManRiskMatrix} shows the different risk levels resulting from this formula.\\%
+\\%
 \begin{minipage}{\linewidth}
 \centering
 \begin{tabular}{cc|c|c|c| }
@@ -170,19 +167,23 @@ Where \( R_L \) is risk level, \( C_L \) is consequence level, and \( p \) is pr
   \hline
 \end{tabular}
 \captionof{table}{Different risk levels. \label{tab:PlanningRiskManRiskMatrix}} 
-\end{minipage}
-
+\end{minipage}\\%
+\\%
 The matrix displays if there is demand for action (red) to develop a proactive and reactive strategy. If the colour is green the probability or consequence level is low, or both are medium, and we decded that there was no need to develop a strategy against it. Figure \ref{fig:PlanningRiskManRisks} displays the risks we considered and their consequence and probability levels. In addition there is a short explanation for why these levels were chosen.
 
-\paragraph{}After we had evaluated the risks and found out which risk level each of them belonged to, the next step was to find strategies to cope with those risks that were given a red risk level. Table \ref{tab:PlanningRiskManCriticalRisks} displays the critical risks and the proactive strategies created to prevent them. In adition there are also reactive strategies to cope with risks that cannot necessarily be prevented, such as illness.
+\paragraph{}After we had evaluated the risks and found out which risk level each of them belonged to, the next step was to find strategies to cope with those risks that were given a red risk level. Table \ref{tab:PlanningRiskManCriticalRisks} displays the critical risks and the proactive strategies created to prevent them. In adition there are also reactive strategies to cope with risks that cannot necessarily be prevented, such as illness.\\%
 %
+\clearpage
+\begin{landscape}
 \rowcolors{1}{blue!20}{blue!10}
-\begin{tabular}{|p{0.07\linewidth}|p{0.18\linewidth}|p{0.7\linewidth}|}
+\begin{table}[htbp]
+\begin{tabular}{|p{0.07\linewidth}|p{0.20\linewidth}|p{0.63\linewidth}|}
+    \hline
     \cellcolor{gray!25} \textbf{ID} & \cellcolor{gray!25} \textbf{Risk} & \cellcolor{gray!25} \textbf{Strategy} \\
     \hline
     A2 & Failure to reach customer expectations. & 
       \begin{itemize}
-        \item Use Scrum to get frequent customer feedback through an iterative approach.
+        \item Use Scrum and get frequent customer feedback.
         \item Customer meetings once per week to show results.
       \end{itemize} \\
     C1 & Illness or group member absence. &
@@ -190,11 +191,11 @@ The matrix displays if there is demand for action (red) to develop a proactive a
         \item Absence:
           \begin{itemize}
             \item Early notice about absence.
-            \item Tasks assigned at the beginning of the week to give everyone the ability to spend time when it is available.
+            \item Assign tasks at the beginning of the week to give everyone the ability to spend time when it is available.
           \end{itemize}
         \item Illness:
           \begin{itemize}
-            \item Inform the group about illness as immediately.
+            \item Inform the group about illness immediately.
             \item Assign critical tasks to other people.
           \end{itemize}
       \end{itemize} \\
@@ -206,9 +207,13 @@ The matrix displays if there is demand for action (red) to develop a proactive a
       \begin{itemize}
         \item Meet twice a week with status updates on assigned tasks
         \item Make estimations as a team rather than individuals.
-      \end{itemize}
+      \end{itemize} \\
+    \hline
 \end{tabular}
-\captionof{table}{Critical risks and risk management strategies. \label{tab:PlanningRiskManCriticalRisks}}
+\caption{Critical risks and risk management strategies. \label{tab:PlanningRiskManCriticalRisks}}
+\end{table}
+\end{landscape}
+
 
 \afterpage{
 \clearpage
@@ -230,13 +235,14 @@ In order to ensure a high quality in the final project, the process, and all doc
 \subsection{Internal Routines and Intrateam Communications}
 \label{subsec:PlanningQualityRoutines}
 %TODO RECHECK PHRASING
-Every member of the team had many liabilities outside this project. This included assignments in other courses, or working on the side of their studies. To achieve the projects goals it was important to make it as flexible as possible. As long as everyone did what was expected, every member could decide when during the week assigned tasks would be finished. To ensure that the work was being done, some tools were used to display each member's progress. These were a work sheet on Google Drive, as well as the project management tool YouTrack. The work sheet was used to record the amount of time spent by everyone on the project, while YouTrack was used to assign tasks and have an overview of their progress. Every task was given en estimated time and as people finished tasks, they reported actual time spent.
-
+Every member of the team had many liabilities outside this project. This included assignments in other courses, or working on the side of their studies. To achieve the projects goals it was important to make it as flexible as possible. As long as everyone did what was expected, every member could decide when during the week assigned tasks would be finished. To ensure that the work was being done, some tools were used to display each member's progress. These were a work sheet on Google Drive, as well as the project management tool YouTrack. The work sheet was used to record the amount of time spent by everyone on the project, while YouTrack was used to assign tasks and have an overview of their progress. Every task was given en estimated time and as people finished tasks, they reported actual time spent.\\%
+\\%
 \begin{figure}[ht!]
 \centering
 \includegraphics[width=90mm]{./Planning/img/YouTrack_logo}
 \caption{YouTrack \label{fig:PlanningQualityRoutinesYouTrack}}
 \end{figure}
+
 
 \paragraph{} Finding regular meeting days that fit into all team members' schedule was a challenge. In the end we managed to schedule meetings twice a week. The first meeting was to assign tasks, while the second was to prepare for the weekly meeting with the group's supervisor. Additional meetings were agreed upon through a Facebook group when necessary. Using Facebook was also useful for asking questions when something was unclear or to bring up problems between meetings. The team also decided to choose a room where people could sit down and work together everyday, in order to increase motivation, and make it possible for anyone to show up and ask for help with any problems they might have encountered. As mentioned in section \ref{sec:PlanningRiskMan}, the group was divided into two focus groups, both to avoid focusing too much on one part of the project and to make sure the final product was better. Since the group had varying levels of experience working with web development, these groups were very beneficial to product progress.
 
