@@ -32,36 +32,12 @@ The gray box test method combines the black and white box methods by utilizing s
 
 In this project, testing was done continually during development. In the most basic form this testing consisted of attempting to execute the code and trying to trace faults and then correct the code. This process was made easier by the use of built in proofreading functions in the code editor. All of these test are performed for every newly added feature. This kind of testing could have been automated by writing unit tests executed with unit testing software, but since we were only developing a prototype, we chose to not spend time doing so.
 
-\paragraph{} In addition to the ongoing code correction and checking, new components and features that had been completed and cleared, were integration tested both to ensure correct behaviour of the new functionalities, and to check for unintentional faults caused in the rest of the system. The code checks and corrections, as well as the integration tests were all white box tests performed by the developers to ensure that the code was working properly. The aforementioned tests were all intended to ensure that the program behaved correctly. In order to verify that the actual functionality of the program matched the intended functionality as agreed upon with the customer, functional tests were designed based on the requirements of the system. The test cases for the functional tests are detailed in appendix \ref{chap:TestingTPlan}. %\ref{chap:TestPlan} 
+\paragraph{} In addition to the ongoing code correction and checking, new components and features that had been completed and cleared, were integration tested both to ensure correct behaviour of the new functionalities, and to check for unintentional faults caused in the rest of the system. The code checks and corrections, as well as the integration tests were all white box tests performed by the developers to ensure that the code was working properly. The aforementioned tests were all intended to ensure that the program behaved correctly. In order to verify that the actual functionality of the program matched the intended functionality as agreed upon with the customer, functional tests were designed based on the requirements of the system. The test cases for the functional tests are detailed in appendix \ref{sec:TestCases}.
 
 \section{System Test}
 \label{sec:TestingSystem}
 
-When the prototype were considered finished with all agreed functionality, a complete system test were conducted. Here all of the designed functional tests were executed  in order to ensure that all functionality was working as expected. This was done by the team members with least implementation involvement, to prevent avoidance of known bugs, if any present. The results from the system test are detailed in appendix \ref{chap:TestingTPlan}. As seen in the test results, a couple of bugs did appear when performing the test. Those bugs were looked into and fixed by the development team. In the following section the outline of the test cases are described.
-
-\subsection{Test Case Overview}
-\label{subsec:TestingSystemOverview}
-In order to keep track of the different test cases, all cases got assigned an unique identifier. All of these identifiers were written on the following form: TCXX, where TC stands for test case, while XX stands for the number of the test. In table \ref{TestingStandard} the template used for writing test cases can be viewed. \\ \\ 
-%
-\begin{minipage}{\linewidth}
-\setlength{\tabcolsep}{15pt}
-\centering
-\rowcolors{1}{blue!20}{blue!10}
-\begin{tabular}{ |l|p{70mm}| }
-	\hline
-	\it{\cellcolor{gray!25}Item} & {\cellcolor{gray!25} Description } \\
-	\hline
-	\it{\cellcolor{gray!25}Test Name } & The name of the test.  \\ \hline
-	\it{\cellcolor{gray!25}Test ID} & The test identifier  \\ \hline
-	\it{\cellcolor{gray!25}Feature to be tested} & What functionality will be tested.  \\ \hline
-	\it{\cellcolor{gray!25}Requirements} & Which requirements this test is related to.  \\ \hline
-	\it{\cellcolor{gray!25}Pre-conditions} & Fullfilled conditions we assume to be working when performing the test.  \\ \hline
-	\it{\cellcolor{gray!25}Steps of Execution} & Steps of how the test should be carried out.  \\ \hline
-	\it{\cellcolor{gray!25}Steps of Execution} & The expected results from the steps above.  \\
-	\hline
-\end{tabular}
-\captionof{table}{Standard table used for documenting test cases in the appendix. \label{TestingStandard}}
-\end{minipage}
+When the prototype were considered finished with all agreed functionality, a complete system test were conducted. Here all of the designed functional tests were executed  in order to ensure that all functionality was working as expected. This was done by the team members with least implementation involvement, to prevent avoidance of known bugs, if any present. The results from the system test are detailed in appendix \ref{sec:TestingResults}. As seen in the test results, a couple of bugs did appear when performing the test. Those bugs were looked into and fixed by the development team. In the following section the outline of the test cases are described.
 
 \section{Non-functional Requirements Testing}
 \label{sec:TestingNRT}
@@ -93,4 +69,4 @@ Although testing of required functionality is important when developing software
 As mentioned earlier the usability of both the website and mobile app were continuously tested within the group. This testing involved group members trying out newly added features on their own, and providing feedback to the rest of the group at group meetings. This feedback could be suggestions to improve navigation between different pages, coloring of different UI elements, and so on. When functionality appeared hard to understand or tedious to do, the group was informed and actions were made. Even though we tested and improved the usability continuously, no formal tests were executed regarding usability during development. The reason for this was that with such a limited time frame, executing these tests on a regular basis would take up too much time that could be spent on further development. We also found the non-formal tests to be very valuable.
 
 \subsubsection{User testing}
-In order to get user feedback on our system, two group members traveled to T{\o}yen in Oslo. Here they met up with possible end-users, at a house for youth called “Riverside”. Some of the youth currently at the house, were asked to try out our website, while one group member who created the test and the other monitored and took notes. The tests were conducted following the test execution described above. The member who created the tests gave instructions of what the test person should do, and then letting the test person perform the given tasks without assistance. During all of the tests, the test persons were asked to explain their thought process. That way it was easier to understand what functionality of the website that could be confusing, hard to understand or tedious, and also what functionality that worked well. At the end of the tests, the test persons were asked to give their overall opinion of the website. Even though no timing or counting of the performed tasks were done, we got a clear understanding of the effectiveness, efficiency and satisfaction of our website at the current stage of development. The results from these tests can be found in Appendix~\ref{chap:TestingResults}, more information about the trip to Oslo and general feedback from the end users can be found in section \ref{sec:S2Presentation}.
+In order to get user feedback on our system, two group members traveled to T{\o}yen in Oslo. Here they met up with possible end-users, at a house for youth called “Riverside”. Some of the youth currently at the house, were asked to try out our website, while one group member who created the test and the other monitored and took notes. The tests were conducted following the test execution described above. The member who created the tests gave instructions of what the test person should do, and then letting the test person perform the given tasks without assistance. During all of the tests, the test persons were asked to explain their thought process. That way it was easier to understand what functionality of the website that could be confusing, hard to understand or tedious, and also what functionality that worked well. At the end of the tests, the test persons were asked to give their overall opinion of the website. Even though no timing or counting of the performed tasks were done, we got a clear understanding of the effectiveness, efficiency and satisfaction of our website at the current stage of development. More information about the trip to Oslo and general feedback from the end users can be found in section \ref{sec:S2Presentation}.
